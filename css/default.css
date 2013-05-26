@@ -41,10 +41,11 @@ margin:4px 0 4px 10px;
 
 li { padding:0 4px; color:#ccc; list-style: circle; }
 
+ul.posts li { list-style: none; }
 ul.posts li span { float:right; font-family:monofur, monaco, courier; color:#888; }
 ul.posts li a { font-weight:200;}
 
-div#post ul li { list-style: circle; }
+div#post ul li { list-style: none; }
 
 blockquote {
 border-left:8px solid #0383c9;

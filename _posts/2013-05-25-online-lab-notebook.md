@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Online Lab Notebook
+tags: [administrative, personal, software]
 ---
 
 {{ page.title }}
