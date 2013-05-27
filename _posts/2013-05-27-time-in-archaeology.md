@@ -2,7 +2,7 @@
 layout: post
 title: Holdaway and Wandsnider -- Time in Archaeology
 tags: [archaeology, meta, theory]
-categories: [reading, archaeology]
+categories: [reading notes]
 ---
 
 {{ page.title }}
@@ -11,7 +11,6 @@ categories: [reading, archaeology]
 <div class="publish_date">
 {{ page.date | date_to_string }}
 </div>
-
 
 
 ## Overall notes ##
@@ -47,3 +46,9 @@ The central problem is defining **CT models which do not require parameters unre
 The result may not be able to make predictions about any specific assemblage, but should be able to make predictions about sets of assemblages relative to one another -- flows within metacommunities over time.  
 
 Richness itself is highly affected by time-averaging in palimpsests, evenness affected but less so.  What we need to study is the scaling of sets of richness and evenness values across groups of assemblages.  
+
+
+{{ page.tags | array_to_sentence_string }}
+
+
+

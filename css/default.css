@@ -34,6 +34,7 @@ margin:2px 0 16px 0px;
 }
 
 ul ul,ol ol {
+font-size:1em;
 margin:4px 0 4px 10px;
 }
 
@@ -106,7 +107,9 @@ color:#0383c9;
 text-transform:none;
 }
 
+/*
 h1 a:hover { color:#fba919 ;}
+*/
 
 #logo {
 	margin: -65px 10px -30px -50px;
@@ -322,3 +325,7 @@ padding:2px;
 }
 
 code.has-jax {font: inherit; font-size: 100%; background: inherit; border: inherit;}
+
+
+.blank-space { margin-bottom: 2cm; }
+

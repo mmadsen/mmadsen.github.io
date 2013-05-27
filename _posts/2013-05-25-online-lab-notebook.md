@@ -2,7 +2,6 @@
 layout: post
 title: Title of Post
 tags: [tags, go, here]
-category: [category, hierarchy, goes, here]
 ---
 
 {{ page.title }}
