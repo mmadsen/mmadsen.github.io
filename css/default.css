@@ -116,7 +116,7 @@ h1 a:hover { color:#fba919 ;}
 
 .publish_date {
 	margin-top:-8px;
-	margin-bottom:0px;
+	margin-bottom:4px;
 	text-align:right;
 	font-size:0.8em;
 	width:490px;
@@ -124,6 +124,14 @@ h1 a:hover { color:#fba919 ;}
 
 }
 
+.index_publish_date {
+	margin-top:0px;
+	margin-bottom:0px;
+	text-align:right;
+	font-size:0.8em;
+	color: #23af4c;
+
+}
 
 .pink { color: #f5a2c6; }
 .green { color: #23af4c; }
