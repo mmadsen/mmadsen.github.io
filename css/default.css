@@ -29,7 +29,7 @@ margin:0 0 18px 0px;
 }
 
 ul,ol,dl {
-font-size:1em;
+font-size:1.2em;
 margin:2px 0 16px 0px;
 }
 
@@ -43,7 +43,7 @@ li { padding:0 4px; color:#ccc; list-style: circle; }
 
 ul.posts li { list-style: none; }
 ul.posts li span { float:right; font-family:monofur, monaco, courier; color:#888; }
-ul.posts li a { font-weight:200;}
+ul.posts li a { font-weight:400;}
 
 div#post ul li { list-style: none; }
 
@@ -312,3 +312,5 @@ border:1px solid #bababa;
 margin:6px 18px 2px 5px;
 padding:2px;
 }
+
+code.has-jax {font: inherit; font-size: 100%; background: inherit; border: inherit;}

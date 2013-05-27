@@ -1,2 +1,7 @@
 pygments: true
 paginate: 20
+rdiscount:
+  extensions:
+    - autolink      # greedily urlify links
+    - footnotes     # footnotes
+    - smart         # typographic substitutions with SmartyPants
