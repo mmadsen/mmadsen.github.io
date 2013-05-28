@@ -40,6 +40,10 @@ ul ul,ol ol {
 margin:4px 0 4px 10px;
 }
 
+#nolist {
+	list-style:none;
+}
+
 
 .posts { padding:0;}
 
@@ -50,7 +54,9 @@ ol { padding:0 4px; color:#ccc; list-style: decimal; }
 ul.posts li span { float:right; font-family:monofur, monaco, courier; color:#888; }
 ul.posts li a { font-weight:400;}
 
+
 #home ul li { list-style: none; }
+#home ul#posts li { list-style:none; }
 
 blockquote {
 border-left:8px solid #0383c9;
@@ -111,6 +117,8 @@ color:#0383c9;
 text-transform:none;
 }
 
+
+
 /*
 h1 a:hover { color:#fba919 ;}
 */
@@ -134,6 +142,15 @@ h1 a:hover { color:#fba919 ;}
 
 .index_publish_date {
 	margin-top:0px;
+	margin-bottom:0px;
+	text-align:right;
+	font-size:0.8em;
+	color: #23af4c;
+
+}
+
+.project_publish_date {
+	margin-top:1px solid #e5e5e5;
 	margin-bottom:0px;
 	text-align:right;
 	font-size:0.8em;
@@ -189,7 +206,7 @@ h2 {
 
 h3 {
 color:#fba919;
-font-size:1.4em;
+font-size:1.2em;
 font-weight: 100;
 margin:10px 0 8px;
 padding:1px 2px 2px 3px;

@@ -2,7 +2,7 @@
 layout: post
 title: Notes on He and Stone 2003
 tags: [synchronization theory]
-category: reading notes
+category: "reading notes"
 ---
 
 {{ page.title }}

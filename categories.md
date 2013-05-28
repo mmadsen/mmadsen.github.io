@@ -6,12 +6,12 @@ Categories:
 * research problems
 * philosophy of science
 * cultural transmission 
-* project:coarse grained models
-* project:structured information
-* project:synchronization theory
-* project:niche construction
-* methods:simulation software
-* methods:seriation
+* coarse grained model project
+* structured information project
+* synchronization theory project
+* niche construction project
+* simulation software
+* seriation
 * math and statistics
 * presentations
 * personal

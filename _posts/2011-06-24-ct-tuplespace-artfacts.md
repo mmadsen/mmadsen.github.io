@@ -2,7 +2,7 @@
 layout: post
 title: CT Models Incorporating Artifacts Via Tuple Spaces
 tags: [transmissionframework, simulation, niche construction, tuplespace models]
-category: niche construction project
+category: "niche construction project"
 ---
 
 {{ page.title }}
