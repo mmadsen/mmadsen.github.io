@@ -2,7 +2,7 @@
 layout: post
 title: Holdaway and Wandsnider -- Time in Archaeology
 tags: [archaeology, meta, theory]
-categories: [reading notes]
+categories: [Reading Notes]
 ---
 
 {{ page.title }}
@@ -21,11 +21,11 @@ Murray lumps evolutionary archaeology in with the prevailing paradigm of "archae
 
 With respect to CT itself, the major challenge is to:
 
-(a) Stop exclusively using models which require parameters we cannot estimate or measure, especially independently of each other (e.g., N, or mu).  
+1. Stop exclusively using models which require parameters we cannot estimate or measure, especially independently of each other (e.g., N, or mu).  
 
-(b) Develop a time-like set of expectations for things we can actually measure.
+1. Develop a time-like set of expectations for things we can actually measure.
 
-(c) Build bridges between ecological time theory and those time-like expectations.
+1. Build bridges between ecological time theory and those time-like expectations.
 
 ## Current Thinking ##
 
@@ -33,9 +33,9 @@ A really basic problem is that folks have been trying to use CT models that requ
 
 But we haven't demonstrated that we can securely tie "how much variation to expect" to both a model and the record.  
 
-- This gets to empirical insufficiency (and thus dynamic insufficiency) of models
-- Impedance mismatch between models and the record -- time perspectivism/time-like vs. space-like. 
-- Lack of proper focus on unit formation and how units, time scales, and model quantities interact
+* This gets to empirical insufficiency (and thus dynamic insufficiency) of models
+* Impedance mismatch between models and the record -- time perspectivism/time-like vs. space-like. 
+* Lack of proper focus on unit formation and how units, time scales, and model quantities interact
 
 Investigate:
 1.  Models where we don't need to know N and mu, and instead look at "how much variation" there is depending upon time scale of observation and granularity of classification -- at at least three levels of granularity to establish scaling relations
@@ -48,7 +48,11 @@ The result may not be able to make predictions about any specific assemblage, bu
 Richness itself is highly affected by time-averaging in palimpsests, evenness affected but less so.  What we need to study is the scaling of sets of richness and evenness values across groups of assemblages.  
 
 
+Tagged
+------
+<div class="taglist">
 {{ page.tags | array_to_sentence_string }}
+</div>
 
 
 
