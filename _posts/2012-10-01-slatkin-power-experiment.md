@@ -61,7 +61,7 @@ Without any temporal aggregation, we can see that the Slatkin test can be relati
 
 * Power is highest at very low (theta < 1.0) or relatively high (theta > 5, approximately), at least at sample size 50 (sample fraction 2.5% of the population). There is a minimum for power between 1.0 < theta < 4.0, approximately speaking. (WHY?)
 * Power increases monotonically with conformism probability, at any given theta value. This makes sense -- the more strongly a population is choosing the most common trait, the less the distribution of traits in a sample will look like a random draw from the ESD.
-* There may be a critical point where power collapses, or I may have just chosen a progression of conformism probabilities that look separated on the graph (**OPEN QUESTION**). *
+* There may be a critical point where power collapses, or I may have just chosen a progression of conformism probabilities that look separated on the graph (**OPEN QUESTION**). 
 
 
 ![power-agagent-conformism-unaveraged-10kmixing](/images/power-against-conformism-unaveraged-10kmixing.png)
