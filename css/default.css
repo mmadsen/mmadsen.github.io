@@ -66,6 +66,11 @@ margin:20px 10px;
 padding:10px;
 padding-left:20px;
 }
+
+.nb blockquote {
+	font-size:0.8em;
+}
+
 blockquote span {
 	display: block; 
 	float: right;
