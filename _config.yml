@@ -1,5 +1,5 @@
 pygments: true
-paginate: 20
+paginate: 6
 rdiscount:
   extensions:
     - autolink      # greedily urlify links
