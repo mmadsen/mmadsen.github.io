@@ -3,7 +3,6 @@ layout: post
 title: When are Darwinian and Populational Models Useful?
 tags: [cultural transmission, philosophy of biology, evolutionary theory]
 category: "cultural transmission"
-date: 2013-03-31 00:00:00
 ---
 
 {{ page.title }}
