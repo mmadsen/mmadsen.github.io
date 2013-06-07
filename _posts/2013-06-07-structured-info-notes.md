@@ -25,7 +25,7 @@ Classes of Information Relationships
 
 ![Types of Structured Information](/images/structure-knowledge-examples.png)
 
-Our knowledge (about skills and artifacts) is clearly modular in many respects, although it often doesn't start out that way.  Prototypes are often simply the result of some trial and error and directed learning, and we "modularize" the results when we're trying to package it up to "assembly line" it or teach it.  But by the time a skill or artifact is widespread within a population, you can bet that its components are at least weaky modularized, especially if there are specializations involved in production or construction.
+Our knowledge (about skills and artifacts) is clearly modular in many respects, although it often doesn't start out that way.  Prototypes are often simply the result of some trial and error and directed learning, and we "modularize" the results when we're trying to package it up to "assembly line" it or teach it.  But by the time a skill or artifact is widespread within a population, you can bet that its components are at least weakly modularized, especially if there are specializations involved in production or construction.
 
 Recipes are often composed of modules, but the recipe itself is algorithmic in a way that modules themselves need not be.  Many artifact production processes are actually combinations of recipes that specify steps which are modular and possibly involve sub-steps and sub-modules, for example. 
 
