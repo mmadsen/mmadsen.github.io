@@ -66,25 +66,25 @@ title: Mark E. Madsen's Lab Notebook
 	    </p>
 	  {% endif %}
 
-	  <ul class="pages">
-	    <li class="page">
+	  <!--<ul class="pages">
+	    <li class="page">-->
 	      {% if paginator.page == 1 %}
 	        <span class="current-page">1</span>
 	      {% else %}
 	        <a href="/">1</a>
 	      {% endif %}
-	    </li>
+	    <!--</li>-->
 
 	    {% for count in (2..paginator.total_pages) %}
-	      <li class="page">
+	      <!--<li class="page">-->
 	        {% if count == paginator.page %}
 	          <span class="current-page">{{ count }}</span>
 	        {% else %}
 	          <a href="/page{{ count }}">{{ count }}</a>
 	        {% endif %}
-	      </li>
+	      <!--</li>-->
 	    {% endfor %}
-	  </ul>
+	  <!--</ul>-->
 
 	  {% if paginator.next_page %}
 	    <p class="next">

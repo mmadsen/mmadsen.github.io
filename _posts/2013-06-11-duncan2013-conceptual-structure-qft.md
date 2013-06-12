@@ -32,8 +32,14 @@ Duncan notes that QFT is a combination of three "ingredients":
 
 Clustering is both a precondition for successful experiments, since we can never measure everything about the world, and a constraint on possible models.  Duncan points out that although #1 and #2 above are widely considered to be the "ingredients" of modern fundamental physics, it's really #3 that sharpens down the possible infinity of models consistent with these (i.e., all the "unphysical" models), to a single "physical" model which agrees with experiment.  
 
-### Applicability to Human Evolutionary Biology ###
+### Applications ###
+Why am I fascinated by this -- the conceptual structure of a theory very different than what we study in the evolutionary biology of culture?  
 
+Part of it lies in the obvious parallels between some of the mathematical constructs.  Evolutionary theory is an _n-body interacting system_, even if our simplest deterministic models in undergraduate population genetics do not reveal this.  Evolution displays critical behavior, phase transitions, frustration and thus spin-glass-like behavior, and can sometimes be formulated in models straight out of statistical mechanics (and increasingly is).  
+
+But the deeper reason is that simple models of evolution (and cultural transmission) are too simple -- _too diffusionist_ -- to capture the richness of behavior and the structure we see in our empirical data.  What we lack are constraints that give us complexity.  Perhaps the ways in which we interact in realistic social networks give us symmetries that constrain how the diffusion of traits can happen.  Perhaps the modular structure of cultural information, skills, and objects give us symmetries that constrain how the diffusion of traits can happen.  Taken together, perhaps these two sets of symmetries break up the otherwise smooth -- _like concentric ripples on a pond after throwing a stone_ -- and wave-like diffusion models, and yield instead the complex patterns we see in real populations.
+
+Perhaps.  There are certainly other ways to talk about this issue of theory structure, and those with less of a "physics fascination" than I will certainly prefer them.  I find physical theory a rich source of ideas, not about content, but about the conceptual structures we might use as we get beyond the "toy models" of our early explorations and try to build increasingly realistic theory about the evolution of culture.  
 
 
 

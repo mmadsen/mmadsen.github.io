@@ -40,6 +40,10 @@ ul ul,ol ol {
 margin:4px 0 4px 10px;
 }
 
+.pagination {
+	white-space: nowrap;
+}
+
 #nolist {
 	list-style:none;
 }
@@ -381,4 +385,5 @@ code.has-jax {font: inherit; font-size: 100%; background: inherit; border: inher
 }
 
 .blank-space { margin-bottom: 2cm; }
+
 
