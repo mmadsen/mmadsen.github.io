@@ -12,6 +12,7 @@ category: "evolutionary theory"
 {{ page.date | date_to_string }}
 </div>
 
+> This is a partial, working draft, and sections may be incomplete.  6/15/13
 
 Liane Gabora's recent article (2013a), "An evolutionary framework for cultural change:  selectionism versus commual exchange," included invited comments by a number of researchers from a variety of fields, and a response by the author (2013b).  Carl Lipo and I wrote one of the comments (Madsen and Lipo 2013), in which we question Gabora's basic claim that _"culture does not evolve through a selectionist process"_.  (Gabora 2013b).  
 
