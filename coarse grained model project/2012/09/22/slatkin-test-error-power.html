@@ -1,0 +1,149 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"  />
+<meta name="description" content="Mark E. Madsen's Lab Notebook" />
+<meta name="keywords" content="research,anthropology,evolutionary biology,cultural transmission" />
+<meta name="author" content="Mark E. Madsen" />
+<link rel="stylesheet" type="text/css" href="/css/default.css" />
+<link rel="stylesheet" type="text/css" href="/css/pretty_code.css" />
+
+<script type="text/javascript" src="//use.typekit.net/xtg2arw.js"></script>
+<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+  MathJax.Hub.Config({
+	showProcessingMessages: false,
+	jax: ["input/TeX", "output/HTML-CSS"],
+    tex2jax: {
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+    }
+  });
+  MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+      for(i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+      }
+  });
+</script>
+
+<title>Mark E. Madsen's Lab Notebook</title>
+</head>
+
+<body>
+<div id="wrap">
+	<div id="header">
+		<p id="toplinks">
+
+		</p>
+
+		<!--<h1><a href="/"><div id="logo"></div>MadsenLab<span class="fade">Notebook</span></a></h1>-->
+	
+		<a href="/"><img src="/images/madsenlabnotebook.png"/></a>
+
+		<div class="slogan">
+				<a href="/research.html" class="blue">Research Projects</a>	:|:
+
+				<a href="/publications.html" class="green">Publications</a> :|: 
+				<a href="/openscience.html" class="orange">Open Science</a> :|:
+				<a href="/code.html" class="pink">Software</a> :|: 
+				<a href="/bio.html" class="blue">Bio</a>
+				
+		</div>
+
+</div>
+
+<div id="content">  
+  <div id="post">
+<h2 id='slatkin_exact_test__error_and_statistical_power'>Slatkin Exact Test &#8211; Error and Statistical Power</h2>
+<div class='publish_date'>
+22 Sep 2012
+</div>
+<h2 id='power_analysis'>Power Analysis</h2>
+
+<p>$H_o$: WF-IA</p>
+
+<p>$H_a$: Conformist model from Mesoudi and Lycett (i.e., prob $c$ of taking most common trait)</p>
+
+<p>Questions:</p>
+
+<ol>
+<li>At what point does power decline below 50% as we adjust the conformism parameter $c$? This would be a good measure of equifinality between the two models.</li>
+
+<li>How does power vary with time averaging duration? We might expect that TA in the case of conformism would give time for additional traits to accumulate and thus mimic the neutral distribution of traits under ESD. Under this circumstance, we&#8217;d expect power to decline. But if the frequencies of the very most common traits are simply reinforced by conformism, power would increase.</li>
+
+<li>Finally, it would be good to recognize that the currently implemented conformism model is &#8220;extreme&#8221; in a sense, since it focuses conformity on only one trait at a time. This type of model should be the most easily distinguished from neutrality since even small conformist probabilities concentrate a lot of mass on the single most common trait at any given time, and that trait also has strong persistence in the population.</li>
+
+<li>An intermediate, and possibly more realistic model of conformism in transmission is to overweight all traits whose frequency is greater than the mean, underweighting those lower than the mean, by some factor which is additive on top of their probability of being copied given frequency alone. I.e., a biased multinomial model. This would lead to concentrations of popular traits, certainly, but less concentration on single traits, and thus Slatkin tests would presumably have less power against such a model, compared to the Mesoudi-Lycett-style conformism model.</li>
+</ol>
+
+<h2 id='notes'>Notes</h2>
+
+<p>Usual practice in archy usage today is to treat class frequencies from an assemblage as a sample of &#8220;individuals&#8221; which can be tested with the Slatkin/Ewens test.</p>
+
+<p>A quick look at Carl&#8217;s recollection of Belle Meade showed that individual collection units have a fairly wide variation in $P_e$ values, but all of the ones I checked fit within an $\alpha = 0.05$ test.</p>
+
+<p><strong>Precision and Variance of Slatkin Tests</strong></p>
+
+<ol>
+<li>Within a single assemblage with multiple collections, what is the range of $P_e$ values? If we look at the empirical distribution of $P_e$ for Belle Meade collections, how well does it fit a Gaussian, and what is the CI?</li>
+
+<li>How does the mean value of the empirical distribution compare to the $P_e$ calculated on the aggregate assemblage?</li>
+</ol>
+
+<p><strong>Bootstrap Analysis of Assemblage</strong></p>
+
+<p>Treat aggregate assemblage as a sample and investigate behavior of bootstrap sampling for $P_e$.</p>
+
+<p>Repeat bootstrap sampling on simulated data.</p>
+
+<ol>
+<li>Range of $n$ sample sizes - how do $P_e$ vary with $n$ in a real assemblage?</li>
+
+<li>How do results compare between empirical distribution and simulated data?</li>
+</ol>
+
+<p><strong>Mixture Distributions</strong></p>
+
+<p>Since real populations are never &#8220;pure strategists&#8221; in terms of copying rules, none of our CT models actually can be a &#8220;true model.&#8221; Leaving aside other model features such as population structure for the moment, at a minimum, the true &#8220;data generating process&#8221; (DGP)</p>
+
+<h2 id='tagged'>Tagged</h2>
+<div class='taglist'>
+cultural transmission, experiments, neutral model, and statistics
+</div>
+</div>
+
+<p class="blank-space"/>
+
+<div id="related">
+  <h3>Possibly Related Notes</h3>
+  <ul class="posts">
+    
+      <li><span class="index_publish_date">24 Jun 2013</span> &raquo; <a href="/cultural%20transmission/2013/06/24/ct-definitions.html">Cultural Transmission - Definitions</a></li>
+    
+      <li><span class="index_publish_date">13 Jun 2013</span> &raquo; <a href="/evolutionary%20theory/2013/06/13/gabora2013-response-notes.html">Notes on Gabora 2013 -- Selectionism versus communal exchange</a></li>
+    
+      <li><span class="index_publish_date">11 Jun 2013</span> &raquo; <a href="/reading%20notes/2013/06/11/duncan2013-conceptual-structure-qft.html">Duncan 2013 -- The Conceptual Framework of Quantum Field Theory</a></li>
+    
+  </ul>
+</div>
+
+</div>
+
+<div id="footer">
+
+    <a href="mailto:mark@madsenlab.org">Email</a> ||
+    <a href="http://madsenlab.org">Website</a> ||
+	<a href="http://orcid.org/0000-0001-9320-8377">ORCId</a> ||
+	<a href="http://figshare.com/authors/Mark%20Madsen/279062">Figshare</a> ||
+    <a href="http://www.linkedin.com/profile/view?id=8751">LinkedIn</a>
+
+<p>&copy; 2013 <a href="http://about.me/mark.e.madsen">Mark E. Madsen</a>
+
+</div>
+
+</div>
+
+
+</body>
+</html>
