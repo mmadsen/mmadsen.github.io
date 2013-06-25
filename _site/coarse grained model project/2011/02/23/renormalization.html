@@ -1,0 +1,173 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"  />
+<meta name="description" content="Mark E. Madsen's Lab Notebook" />
+<meta name="keywords" content="research,anthropology,evolutionary biology,cultural transmission" />
+<meta name="author" content="Mark E. Madsen" />
+<link rel="stylesheet" type="text/css" href="/css/default.css" />
+<link rel="stylesheet" type="text/css" href="/css/pretty_code.css" />
+
+<script type="text/javascript" src="//use.typekit.net/xtg2arw.js"></script>
+<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+  MathJax.Hub.Config({
+	showProcessingMessages: false,
+	jax: ["input/TeX", "output/HTML-CSS"],
+    tex2jax: {
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+    }
+  });
+  MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+      for(i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+      }
+  });
+</script>
+
+<title>Mark E. Madsen's Lab Notebook</title>
+</head>
+
+<body>
+<div id="wrap">
+	<div id="header">
+		<p id="toplinks">
+
+		</p>
+
+		<!--<h1><a href="/"><div id="logo"></div>MadsenLab<span class="fade">Notebook</span></a></h1>-->
+	
+		<a href="/"><img src="/images/madsenlabnotebook.png"/></a>
+
+		<div class="slogan">
+				<a href="/research.html" class="blue">Research Projects</a>	:|:
+
+				<a href="/publications.html" class="green">Publications</a> :|: 
+				<a href="/openscience.html" class="orange">Open Science</a> :|:
+				<a href="/code.html" class="pink">Software</a> :|: 
+				<a href="/bio.html" class="blue">Bio</a>
+				
+		</div>
+
+</div>
+
+<div id="content">  
+  <div id="post">
+<h2 id='renormalization_and_archaeological_applications'>Renormalization and Archaeological Applications</h2>
+<div class='publish_date'>
+23 Feb 2011
+</div>
+<h2 id='relevance_to_archaeology'>Relevance to Archaeology</h2>
+
+<p>If there ever was a social science that needed an explicit body of methods for scaling individual-level social theory to large-scale patterns, it&#8217;s archaeology. Archaeologists are continually attempting to formulate and use individual-level models of social processes. Whether this is foraging theory, game theory, evolutionary theory, or something more nebulous, we are borrowers of microscopic theory from other social and natural sciences.</p>
+
+<p>But our empirical record is not even remotely reflective of the scale at which those microscopic social processes act. We observe a macroscopic record whose &#8220;characteristic scale&#8221; is many times the time scale of the social processes we use as explanations, and aggregating together many events that are the result of many people.</p>
+
+<p>We also observe that record using analytical classifications and variables which are chosen for convenience and have no systematic or provable relationship to any hypothetical &#8220;units&#8221; in the past.</p>
+
+<h2 id='basic_concept'>Basic Concept</h2>
+
+<p>If we strip away all of the terminology which is specific to renormalization problems in specific theoretical realms (e.g., QFT or condensed matter physics), the principle is simple:</p>
+
+<blockquote>
+<p>Renormalization is the formal analysis of how to describe a system&#8217;s dynamics, through a measurement process, at different scales of observation.</p>
+</blockquote>
+
+<p>Two things are important here:</p>
+
+<ol>
+<li>The way we observe a system normally needs to be part of our model of the system.</li>
+
+<li>The &#8220;scale&#8221; of our observational methods determines aspects of the quantitative relationships we will measure about a system.</li>
+</ol>
+
+<p>The first point has been central to physical theory since the development of quantum theory, but is relevant to all systems. It&#8217;s just that when we talk about systems described at a single scale that is the same as our measurement scale, and when the measurement process does not perturb the measured system, we can usually &#8220;factor out&#8221; the details of measurement.</p>
+
+<p>The second point is less well understood, but is pretty much a consequence of the first. Our measurement processes operate at &#8220;characteristic scales,&#8221; and typically there is some kind of &#8220;cutoff scale&#8221; at which we cannot observe details that are smaller, faster, or higher in frequency. But our inability to measure or observe those details doesn&#8217;t mean they don&#8217;t influence or even determine the dynamics at larger scales, so we need to account or them somehow, not just ignore them.</p>
+
+<p>Renormalization is the process of &#8220;integrating out&#8221; the effects of physics below a cutoff scale. To use an example from Susskind, if we&#8217;re trying to describe physics at the scale of atoms and molecules, we&#8217;re not concerned with the details of how quarks form nucleons. And if we&#8217;re interested in the properties of a volume of liquid, we&#8217;re not terribly interested in how electrons and nucleons are put together to form atoms.</p>
+
+<p>It turns out that we can&#8217;t simply <em>ignore</em> the effect of the smaller/faster scales, however. We need, instead, to understand how to <em>scale</em> our understanding of the dynamics at a given level to our observational methods, averaging over all the stuff below the cutoff.</p>
+
+<h2 id='basic_process'>Basic Process</h2>
+
+<p>The goal is to integrate out the fast and small degrees of freedom, and use a &#8220;mean-field&#8221; type approximation for all the fast/small stuff as the basis for a dynamical description of the whole at a higher level (see above).</p>
+
+<p>In practice this mean:</p>
+
+<ol>
+<li>Separate scales</li>
+
+<li>Separate processes</li>
+
+<li>Summarize scales and processes occurring fast &amp; small</li>
+
+<li>Rewrite the description of the entire system using the summarized description of fast/small dynamics instead of the detailed contributions of fast/small entities</li>
+
+<li>Find new high level observables for this renormalized description</li>
+</ol>
+
+<h3 id='separate_scales'>Separate Scales</h3>
+
+<p>This is primarily time scales, but it&#8217;s also distance scales. So, basically in our case, it&#8217;s separation of spatiotemporal scales.</p>
+
+<p>As a prime example, assume we are investigating regional variation in ceramic assemblages, with assemblages representing chunks of time from residential communities (e.g., late prehistoric nucleated villages).</p>
+
+<p>The resolution of our observations is necessarily coarse-grained in such cases: the frequencies of analytical classes for each assemblage, which is equivalent to treating the <strong>average</strong> frequency of each class as constant over the duration of the assemblage (in the absence of data about artifact accumulation rates by artifact class).</p>
+
+<p>Given this level of observational resolution:</p>
+
+<ol>
+<li>We probably cannot meaningfully differentiate models and hypotheses which describe individual-level variation, unless those theories display strong phase transitions whose character is distinguishable at macro scales. <em>Whether a process model does have a sharp phase transition which can be distinguished at longer, averaged scales, is something that must be investigated for each process model. No generic answer is possible.</em></li>
+
+<li>We need an &#8220;averaged&#8221; description of possible lower level transmission models, weighted by their frequency or prevalence, to drive the higher level description.</li>
+</ol>
+
+<h3 id='separate_processes'>Separate Processes</h3>
+
+<p>This is related to separating scales, actually. Think about Susskind&#8217;s example of the two atoms interacting. Ideally the Hamiltonian is composed of a sum of terms, referring to the effects of different processes or components, and we can make a decision about whether a given process is part of the &#8220;fast&#8221; or &#8220;slow&#8221; stuff, and renormalize it out accordingly.</p>
+
+<p>So the point here is simply that we have to watch our theory-building carefully and try not to have terms in the Hamiltonian which combine fast and slow things into the same term, this can make it hard to renormalize (I&#8217;m pretty sure, I&#8217;m inferring that given what I know at this stage of the game).</p>
+
+<h2 id='tagged'>Tagged</h2>
+<div class='taglist'>
+cultural transmission, coarse graining, and renormalization
+</div>
+</div>
+
+<p class="blank-space"/>
+
+<div id="related">
+  <h3>Possibly Related Notes</h3>
+  <ul class="posts">
+    
+      <li><span class="index_publish_date">24 Jun 2013</span> &raquo; <a href="/cultural%20transmission/2013/06/24/ct-definitions.html">Cultural Transmission - Definitions</a></li>
+    
+      <li><span class="index_publish_date">13 Jun 2013</span> &raquo; <a href="/evolutionary%20theory/2013/06/13/gabora2013-response-notes.html">Notes on Gabora 2013 -- Selectionism versus communal exchange</a></li>
+    
+      <li><span class="index_publish_date">11 Jun 2013</span> &raquo; <a href="/reading%20notes/2013/06/11/duncan2013-conceptual-structure-qft.html">Duncan 2013 -- The Conceptual Framework of Quantum Field Theory</a></li>
+    
+  </ul>
+</div>
+
+</div>
+
+<div id="footer">
+
+    <a href="mailto:mark@madsenlab.org">Email</a> ||
+    <a href="http://madsenlab.org">Website</a> ||
+	<a href="http://orcid.org/0000-0001-9320-8377">ORCId</a> ||
+	<a href="http://figshare.com/authors/Mark%20Madsen/279062">Figshare</a> ||
+    <a href="http://www.linkedin.com/profile/view?id=8751">LinkedIn</a>
+
+<p>&copy; 2013 <a href="http://about.me/mark.e.madsen">Mark E. Madsen</a>
+
+</div>
+
+</div>
+
+
+</body>
+</html>
