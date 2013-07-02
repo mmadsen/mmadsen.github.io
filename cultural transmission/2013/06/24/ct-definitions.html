@@ -1,62 +1,117 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
-<head>
-<meta http-equiv="content-type" content="text/html; charset=UTF-8"  />
-<meta name="description" content="Mark E. Madsen's Lab Notebook" />
-<meta name="keywords" content="research,anthropology,evolutionary biology,cultural transmission" />
-<meta name="author" content="Mark E. Madsen" />
-<link rel="stylesheet" type="text/css" href="/css/default.css" />
-<link rel="stylesheet" type="text/css" href="/css/pretty_code.css" />
 
-<script type="text/javascript" src="//use.typekit.net/xtg2arw.js"></script>
-<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
-<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-<script>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>MadsenLabNotebook</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="MadsenLab Online Lab Notebook">
+    <meta name="author" content="Mark E. Madsen">
+
+    <!-- Le styles -->
+    <link href="/assets/css/bootstrap.css" rel="stylesheet">
+    <style type="text/css">
+      body {
+        padding-top: 60px;
+        padding-bottom: 40px;
+      }
+      .sidebar-nav {
+        padding: 9px 0;
+      }
+
+      @media (max-width: 980px) {
+        /* Enable use of floated navbar text */
+        .navbar-text.pull-right {
+          float: none;
+          padding-left: 5px;
+          padding-right: 5px;
+        }
+      }
+    </style>
+    <link href="/assets/css/bootstrap-responsive.css" rel="stylesheet">
+
+    
+  <script type="text/javascript" src="//use.typekit.net/xtg2arw.js"></script>
+  <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+  <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  <script>
   MathJax.Hub.Config({
-	showProcessingMessages: false,
-	jax: ["input/TeX", "output/HTML-CSS"],
+    showProcessingMessages: false,
+    jax: ["input/TeX", "output/HTML-CSS"],
     tex2jax: {
       skipTags: ['script', 'noscript', 'style', 'textarea', 'pre']
     }
   });
   MathJax.Hub.Queue(function() {
-      var all = MathJax.Hub.getAllJax(), i;
-      for(i=0; i < all.length; i += 1) {
-          all[i].SourceElement().parentNode.className += ' has-jax';
-      }
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
   });
-</script>
+  </script>
 
-<title>Mark E. Madsen's Lab Notebook</title>
-</head>
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="../assets/js/html5shiv.js"></script>
+    <![endif]-->
 
-<body>
-<div id="wrap">
-	<div id="header">
-		<p id="toplinks">
+    <!-- Fav and touch icons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../assets/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../assets/ico/apple-touch-icon-114-precomposed.png">
+      <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../assets/ico/apple-touch-icon-72-precomposed.png">
+                    <link rel="apple-touch-icon-precomposed" href="../assets/ico/apple-touch-icon-57-precomposed.png">
+                                   <link rel="shortcut icon" href="../assets/ico/favicon.png">
+  </head>
 
-		</p>
+  <body>
 
-		<!--<h1><a href="/"><div id="logo"></div>MadsenLab<span class="fade">Notebook</span></a></h1>-->
-	
-		<a href="/"><img src="/images/madsenlabnotebook.png"/></a>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container-fluid">
+          <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="brand" href="/">MadsenLabNotebook</a>
+          <div class="nav-collapse collapse">
+            
+            <ul class="nav">
+              <li class="active"><a href="/">Home</a></li>
+              <li><a href="/bio.html">About</a></li>
+              <li><a href="http://about.me/mark.e.madsen">Contact</a></li>
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+    </div>
 
-		<div class="slogan">
-				<a href="/research.html" class="blue">Research Projects</a>	:|:
+    <div class="container-fluid">
+      <div class="row-fluid">
+        <div class="span3">
+          <div class="well sidebar-nav">
+            <ul class="nav nav-list">
+              <li class="nav-header">Projects</li>
+              <li class="active"><a href="/projects/coarsegraining/">Coarse Grained Models of CT</a></li>
+              <li><a href="/projects/nicheconstruction/">Niche Construction and CT Modeling</a></li>
+              <li><a href="/projects/structuredinfo/">CT of Structured Information</a></li>
+              <li class="nav-header">Topics</li>
+              <li><a href="/tag/cultural%20transmission.html">Cultural transmission theory</a></li>
+              <li><a href="/tag/evolutionary%20theory.html">Darwinian evolutionary theory</a></li>
+              <li><a href="/tag/reading%20notes.html">Reading notes</a></li>
+              <li><a href="/tag/philosophy%20of%20biology.html">Philosophy of biology</a></li>
+              <li><a href="/tags.html">Other notes by topic</a></li>
+              <li class="nav-header">Meta</li>
+              <li><a href="/bio.html">Bio</a></li>
+              <li><a href="/code.html">Software</a></li>
+              <li><a href="/publications.html">Publications</a></li>
+              <li><a href="/openscience.html">About Open Science</a></li>
+            </ul>
+          </div><!--/.well -->
+        </div><!--/span3-->
 
-				<a href="/publications.html" class="green">Publications</a> :|: 
-				<a href="/openscience.html" class="orange">Open Science</a> :|:
-				<a href="/code.html" class="pink">Software</a> :|: 
-				<a href="/bio.html" class="blue">Bio</a> :|:
-				<a href="/tags.html" class="green">Tags</a>
-				
-		</div>
-
-</div>
-
-<div id="content">  
-  <div id="post">
-<h2 id='cultural_transmission__definitions'>Cultural Transmission - Definitions</h2>
+            <div class="span8">
+  <h2 id='cultural_transmission__definitions'>Cultural Transmission - Definitions</h2>
 <div class='publish_date'>
 24 Jun 2013
 </div>
@@ -95,40 +150,45 @@
 <h2 id='tagged'>Tagged</h2>
 <div class='taglist'>
 cultural transmission and culture
-</div>
+</div>  
 </div>
 
-<p class="blank-space"/>
 
-<div id="related">
-  <h3>Possibly Related Notes</h3>
-  <ul class="posts">
+        
+      </div><!--/row-->
+
+
     
-      <li><span class="index_publish_date">07 Jun 2013</span> &raquo; <a href="/structured%20information%20project/2013/06/07/structured-info-notes.html">Rough notes on structured information in CT models</a></li>
-    
-      <li><span class="index_publish_date">05 Jun 2013</span> &raquo; <a href="/presentations/2013/06/05/psu-talk-presentation.html">Portland State University First Thursday -- Presentation Slides</a></li>
-    
-      <li><span class="index_publish_date">10 Apr 2013</span> &raquo; <a href="/presentations/2013/04/10/psu-talk-notes.html">Portland State Univ. First Thursday Presentation Notes</a></li>
-    
-  </ul>
-</div>
-
-</div>
-
-<div id="footer">
-
-    <a href="mailto:mark@madsenlab.org">Email</a> ||
-    <a href="http://madsenlab.org">Website</a> ||
-	<a href="http://orcid.org/0000-0001-9320-8377">ORCId</a> ||
-	<a href="http://figshare.com/authors/Mark%20Madsen/279062">Figshare</a> ||
-    <a href="http://www.linkedin.com/profile/view?id=8751">LinkedIn</a>
-
-<p>&copy; 2013 <a href="http://about.me/mark.e.madsen">Mark E. Madsen</a>
-
-</div>
-
-</div>
 
 
-</body>
+ 
+      <hr>
+
+      <footer>
+        <p>&copy; Mark E. Madsen 2013      <a href="mailto:mark@madsenlab.org">Email</a> ||
+  <a href="http://orcid.org/0000-0001-9320-8377">ORCId</a> ||
+  <a href="http://figshare.com/authors/Mark%20Madsen/279062">Figshare</a> ||
+    <a href="http://www.linkedin.com/profile/view?id=8751">LinkedIn</a></p>
+      </footer>
+
+    </div><!--/.fluid-container-->
+
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="/assets/js/jquery.js"></script>
+    <script src="/assets/js/bootstrap-transition.js"></script>
+    <script src="/assets/js/bootstrap-alert.js"></script>
+    <script src="/assets/js/bootstrap-modal.js"></script>
+    <script src="/assets/js/bootstrap-dropdown.js"></script>
+    <script src="/assets/js/bootstrap-scrollspy.js"></script>
+    <script src="/assets/js/bootstrap-tab.js"></script>
+    <script src="/assets/js/bootstrap-tooltip.js"></script>
+    <script src="/assets/js/bootstrap-popover.js"></script>
+    <script src="/assets/js/bootstrap-button.js"></script>
+    <script src="/assets/js/bootstrap-collapse.js"></script>
+    <script src="/assets/js/bootstrap-carousel.js"></script>
+    <script src="/assets/js/bootstrap-typeahead.js"></script>
+
+  </body>
 </html>
