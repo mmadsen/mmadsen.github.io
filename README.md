@@ -60,9 +60,15 @@ projects
 Rakefile
 :      Building the system is done via a Rakefile, so "rake build server" cleans out the _site directory into which Jekyll
        builds the website, rebuilds everything, and deploys it to a development server on **http://localhost:4000**.   
-       To push the current development snapshot to  
+       To push the current development snapshot to Github Pages, "rake deploy" runs the "lnbuild" script in 
+       Dropbox/Research/bin.  
+       
+_config.yml
+:      Jekyll configuration file, which currently configures for pandoc as the Markdown parser, adds Jekyll Scholar
+       for producing the publications.html page from a template version in the main directory, and adds the tag cloud
+       Liquid tag for use on the tags.html page.   
 
-## Build System ##
+
 
 
 
