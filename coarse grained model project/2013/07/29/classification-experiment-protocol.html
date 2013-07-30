@@ -214,7 +214,7 @@
 <li>Sample size of individuals for statistics calculation</li>
 <li>Number of trait dimensions each individual possesses</li>
 </ol>
-<p><strong>CAVEAT</strong> The latter may be complicated if the simuPOP algorithm for copying does not keep the rate at which each dimension is copied constant. I need to examine the way in which random copying/Wright-Fisher is done to ensure that a single data stream is analytically separable without screwing up the rates. If not, dimensionality moves back to being a primary simulation run parameter.</p>
+<p><strong>NOTE</strong> we can factor out trait dimensions in this way ONLY if we’re using specific algorithms for copying and mutation. In the unbiased case (WFIA), the simuPOP <code>RandomSelection</code> mating scheme copies a whole individual’s genotype into the output population for the generation step. And the <code>KAlleleMutator</code> applies the mutation rate to each locus independently (and can have specific mutation rates for each locus, if desired). These facts about the model code make it easy to factor out trait dimensions by subsampling. IF, on the other hand, a CT model doesn’t work this way, I may need to explicitly include <code>num_loci</code> in the simulation parameters Cartesian product.</p>
 <h4 id="analysis-steps">Analysis Steps</h4>
 <h3 id="references-cited">References Cited</h3>
   
