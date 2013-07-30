@@ -175,7 +175,7 @@
 		<table class="table table-condensed">
 			<tr class="info">
 				<td><small><i class="icon-calendar"></i>&nbsp;Created: 24 Jul 2013</small></td>
-				<td><small><i class="icon-calendar"></i>&nbsp;Modified: 28 Jul 2013</small></td>
+				<td><small><i class="icon-calendar"></i>&nbsp;Modified: 30 Jul 2013</small></td>
 				<td><small><i class="icon-book">&nbsp;</i>&nbsp;<a href=http://greycite.knowledgeblog.org/bib/?uri=http://notebook.madsenlab.org/structured%20information%20project/2013/07/24/semantic-axelrod.html target='_blank'>BibTeX Entry</a>
 </small></td>
 				<td><small><i class="icon-book">&nbsp;</i>&nbsp;<a href=http://greycite.knowledgeblog.org/ris/?uri=http://notebook.madsenlab.org/structured%20information%20project/2013/07/24/semantic-axelrod.html target='_blank'>RIS Citation</a>
@@ -188,25 +188,39 @@
 
   	
 	
-  <h3 id="axelrods-model-of-cultural-dissemination">Axelrod’s Model of Cultural Dissemination</h3>
+  <h3 id="background">Background</h3>
+<p>“Cultural transmission” modeling is divided into a couple of main traditions, that differ mainly in the kinds of questions being asked. The tradition represented by Boyd and Richerson and derived from a mixture of theoretical population genetics and epidemiological modeling, tends to focus on the <em>statistical distribution of the content of CT given a mixture of processes</em>.</p>
+<p>The tradition of “opinion dynamics,” tend to be physically derived (e.g., from Ising and Potts models) and have been mainly studied by economists and physicists working on complex systems. The major questions in opinion dynamics models have been, what factors influence the development of consensus versus disagreement, when does a population break up into islands of differing culture or opinion, and what are the statistical properties of such islands of agreement when they form?</p>
+<p>I’d argue that these modeling traditions are complementary. Archaeologists usually need to ask questions about the distribution of the <em>content</em> resulting from CT processes, but the models derived from the population genetic tradition make it difficult to address population structure and differentiation, in a macroevolutionary context. This is mainly driven by the “equilibrium” nature of models derived from population genetics.</p>
+<p>I’m hoping that we can combine the nonequilibrium study of models like the Axelrod model of opinion/cultural dynamics, with a focus on the <em>content</em> of cultural information being transmitted, and improve our understanding of how the fission and differentiation of cultural groups also influences the content and <em>history</em> of material culture itself.</p>
+<p>This is a tall order because in nearly every model of CT in existence, the information or traits being transmitted are simple markers or tokens, and bear no “meaning” themselves – no “content” for us to study other than counting frequencies and looking at the shapes of distributions. In this project, I propose to augment the Axelrod model with semantically meaningful traits, and observe the effects of cultural differentiation and consensus on the distribution of <em>meanings</em> and <em>semantic relationships</em> within and across populations.</p>
+<h3 id="mesoudi-project">Mesoudi Project</h3>
+<p>This is relevant to the Mesoudi invitation, I believe, because the Paleolithic is a time when we see a broad-based trend from relative artifact class uniformity and very large spatiotemporal distributions, to much more regionalized, and specialized, assemblages and toolkits. The very simplest CT models, such as unbiased/neutral or conformist models – whatever their virtues – don’t have enough structure to model these trends.</p>
+<p>So. How simple can a CT model be, and still generate phenomena like those we observe in the long-term Paleolithic record?</p>
+<h3 id="axelrods-model-of-cultural-dissemination">Axelrod’s Model of Cultural Dissemination</h3>
 <p>Robert Axelrod intoduced a formal model of culture which included social interaction and homophily, and whose behavior displays phase transitions between monoculture (fixation) and frozen domains of different cultural configuration <span class="citation" data-cites="axelrod1997">(Axelrod 1997)</span></p>
 <p>In the basic Axelrod model, individuals possess <span class="math">\(F\)</span> cultural features, with <span class="math">\(q\)</span> states per feature, and are arranged on the vertices of a network (commonly, a lattice but other topologies have been studied). In the continuous time version, pairs of individuals interact at a rate proportional to the number of features they have in common. In the discrete time version, interaction occurs with a probability defined by the fraction of features they have in common. During interaction, one individual in a pair copies a feature (at which they currently differ) from the other individual in the pair.</p>
 <p>Interaction in this model tends to make individuals more similar, and interaction is more likely, the more similar people are. There are two “stable” configuration for a pair of neighbors: either they share all cultural features (the same values of <span class="math">\(q\)</span> for each feature <span class="math">\(F\)</span>) or they have different values for every single feature. In the latter case, the pair of individuals forms part of a “boundary” between two regions of different cultural configuration.</p>
 <p>Starting from a random configuration of traits to individuals, the dynamics lead to one of many absorbing states, which fall into two groups. In the “monocultural” states or “<span class="math">\(q^F\)</span> ordered states”, all individuals have the same values of <span class="math">\(q\)</span> for all <span class="math">\(F\)</span> features. In the “polycultural” states, the population is frozen into clusters of individuals which share the same cultural traits, but which differ from other such clusters. In polycultural states, interesting observables are the number and size distribution of clusters.</p>
 <p>Which type of absorbing state is reached depends upon the values of <span class="math">\(F\)</span> and <span class="math">\(q\)</span>, and the degree distribution of neighbor connections also affects the level of disorder in the system.</p>
-<p>In general, the Axelrod model has been studied by simulation, although some mean-field and rigorous treatments do exist.</p>
-<p>Through 2009, the best summary of work on the Axelrod model is given by Castellano et al. in their review in <em>Reviews of Modern Physics</em> <span class="citation" data-cites="castellano2009statistical">(Castellano, Fortunato, and Loreto 2009)</span>.</p>
-<p>My bibliography of <a href="/biblio/axelrod-model.bib">Axelrod model references in BibTeX format</a>.</p>
-<h3 id="generalizing-axelrod">Generalizing Axelrod</h3>
+<h3 id="the-semantic-axelrod-model">The Semantic Axelrod Model</h3>
 <p>The observables (order parameters) studied to date for Axelrod relate to the number and size distribution of cultural domains, and the presence of monoculture given the configuration of the model. These variables are useful for examining how simple copying processes in the presence of homophily can lead to cultural differentiation.</p>
 <p>But there are other questions we can ask as well. If the “features” and “traits” possessed by individuals have semantic relationships between one another, then we can allow a configuration to reach one of its absorbing states, and then look at how the distribution of different kinds of cultural trait or information relationship are affected by homophily and copying.</p>
-<h3 id="semantic-axelrod">Semantic Axelrod</h3>
-<p>A simple experiment would be to define some feature/states as being “prerequisites” for others. Homophily should lead to distinct domains of knowledge in which individuals have differing prerequisites, and more specialized traits which build off those prerequisites. This would be a way to explore how simple cultural transmission rules may result in occupational or functional specialization.</p>
+<h4 id="task-or-occupational-specialization">Task or Occupational Specialization</h4>
+<p>A simple experiment would be to define some feature/states as being “prerequisites” for others. Homophily should lead to distinct domains of knowledge in which individuals have differing prerequisites, and more specialized traits which build off those prerequisites. This would be a way to explore how VERY simple cultural transmission rules may result in occupational or functional specialization.</p>
 <p>If the number of cultural features <span class="math">\(F\)</span> that an individual can have in their repertoire is not fixed, then we can explore the degree to which people become generalists/specialists in certain features and are members of larger and smaller cultural “domains” differentiated by other, “marker” features.</p>
-<p>With more interesting kinds of semantic relationships – perhaps using something like ConceptNet, we would model adoption probabilities based on how concepts “fit” together in various ways. This need not be an “Axelrod” model necessarily, but the Axelrod structure gives us the ability to tune homophily while modeling simple CT, while comparing it to known results from non-semantic, structureless models.</p>
+<h4 id="richer-knowledge-domains">Richer Knowledge Domains</h4>
+<p>We can also pick a pool of concepts which relate to objects, their construction, and use (doesn’t matter what the exact concepts are, we care more about their relations), and put them in the mix. What we <em>observe</em> is the evolving distribution of the concept relationships, if clusters of different concepts and relations form, etc.</p>
+<p>We can do this with real concepts and real semantics, using the <a href="http://conceptnet5.media.mit.edu/">ConceptNet5</a> database.</p>
+<p>We can also do the “prerequisite” question above with ConceptNet.</p>
+<h3 id="bibliographic-notes">Bibliographic Notes</h3>
+<p>Through 2009, the best summary of work on the Axelrod model is given by Castellano et al. in their review in <em>Reviews of Modern Physics</em> <span class="citation" data-cites="castellano2009statistical">(Castellano, Fortunato, and Loreto 2009)</span>.</p>
+<p>My bibliography of <a href="/biblio/axelrod-model.bib">Axelrod model references in BibTeX format</a>.</p>
+<p>Excellent nonequilibrium model which coevolves social network with the opinion dynamics, showing self-organization into communities: <span class="citation" data-cites="holme2006nonequilibrium">(Holme and Newman 2006)</span>. Can we add semantics to this instead of the plain Axelrod?</p>
 <h3 id="references-cited">References Cited</h3>
 <p>Axelrod, R. 1997. “The dissemination of culture: A model with local convergence and global polarization.” <em>Journal of conflict resolution</em> 41 (2): 203–226.</p>
 <p>Castellano, Claudio, Santo Fortunato, and Vittorio Loreto. 2009. “Statistical physics of social dynamics.” <em>Reviews of modern physics</em> 81 (2): 591.</p>
+<p>Holme, Petter, and Mark EJ Newman. 2006. “Nonequilibrium phase transition in the coevolution of networks and opinions.” <em>Physical Review E</em> 74 (5): 056108.</p>
   
 
 
