@@ -175,7 +175,7 @@
 		<table class="table table-condensed">
 			<tr class="info">
 				<td><small><i class="icon-calendar"></i>&nbsp;Created: 29 Jul 2013</small></td>
-				<td><small><i class="icon-calendar"></i>&nbsp;Modified: 06 Aug 2013</small></td>
+				<td><small><i class="icon-calendar"></i>&nbsp;Modified: 09 Aug 2013</small></td>
 				<td><small><i class="icon-book">&nbsp;</i>&nbsp;<a href=http://greycite.knowledgeblog.org/bib/?uri=http://notebook.madsenlab.org/coarse%20grained%20model%20project/2013/07/29/classification-experiment-protocol.html target='_blank'>BibTeX Entry</a>
 </small></td>
 				<td><small><i class="icon-book">&nbsp;</i>&nbsp;<a href=http://greycite.knowledgeblog.org/ris/?uri=http://notebook.madsenlab.org/coarse%20grained%20model%20project/2013/07/29/classification-experiment-protocol.html target='_blank'>RIS Citation</a>
@@ -226,8 +226,19 @@
 <li>Otherwise, we select all raw data samples from <code>individual_samples</code> in <code>EXPERIMENT_sim_raw</code>.</li>
 <li>For each data sample, we loop over the cartesian product of <code>DIMENSIONS_STUDIED</code> and <code>SAMPLE_SIZES_STUDIED</code> and for each combination, we construct a subsample of individuals with the specified number of loci.<br /></li>
 <li>The subsample is then inserted into <code>EXPERIMENT_sim_raw</code>, in the <code>individual_samples_fulldataset</code>. This segregates the original simulation output from post-processed output, allowing re-analysis if bugs are discovered in the processing chain, or we want to post-process with different parameter values.</li>
+<li>When complete, <code>experiment_tracking</code> is updated to reflect completion of subsampling.</li>
 </ol>
 <h4 id="analysis-steps">Analysis Steps</h4>
+<p><strong>PREPARATION STAGE</strong></p>
+<ol type="1">
+<li>First check <code>experiment_tracking</code> to determine whether a given full dataset has been identified as to classes. If so, exit.<br /></li>
+<li>For each classification in <code>EXPERIMENT_configuration</code>:</li>
+<li>Select all samples from <code>individual_samples_fulldataset</code> that have the same dimensionality as the classification.<br /></li>
+<li>Identify each individual genotype as to class membership, save in a list.</li>
+<li>Substitute the list of classes for the original genotypes into a copy of the individual sample record.</li>
+<li>Insert the finished sample to the collection <code>EXPERIMENT_samples_postclassification</code>. This keeps the processed samples in addition to the original data.<br /></li>
+<li>Record completion in <code>experiment_tracking</code>.</li>
+</ol>
 <h3 id="references-cited">References Cited</h3>
   
 
