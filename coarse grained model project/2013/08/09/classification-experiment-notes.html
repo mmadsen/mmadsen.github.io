@@ -3,7 +3,7 @@
 <html lang="en">
   <head prefix="dc: http://purl.org/dc/terms/ og: http://ogp.me/ns#">
     <meta charset="utf-8"/>
-    <title></title>
+    <title>Classification Experiment Notes</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta name="description" content="Lab Notebook for Mark E. Madsen"/>
     <meta name="author" content="Mark E. Madsen"/>
@@ -13,9 +13,9 @@
 
 
 	<!-- For posts, page.date is the date they are published under, which we use as their 'canonical' dc:date -->
-	 <!-- If we don't have a page.date, then use modified time (pages) -->
-	   
-	
+	 
+	  
+	  
 
 	<!-- Posts declare modified timestamps in the sidebar, so would be redundant to put here. But then 
 	     pages don't have a dc:modified... unless we give them their own (modified) sidebar?  
@@ -23,26 +23,26 @@
 	<!-- Ideally we would want date originally created from the _oldest_ git commit too...-->
 
 	<!-- RDFa Metadata (in DublinCore) -->
-	<meta property="dc:title" content="" />
+	<meta property="dc:title" content="Classification Experiment Notes" />
 	<meta property="dc:creator" content="Mark E. Madsen" />
-	<meta property="dc:date" content="2013-08-09T20:52:45-07:00" />
+	<meta property="dc:date" content="2013-08-09T00:00:00-07:00" />
 	<meta property="dc:format" content="text/html" />
 	<meta property="dc:language" content="en" />
-	<meta property="dc:identifier" content="/tag/mathjax.html" />
+	<meta property="dc:identifier" content="/coarse%20grained%20model%20project/2013/08/09/classification-experiment-notes.html" />
 	<meta property="dc:rights" content="CC BY-NC-SA 3.0" />
 	<meta property="dc:source" content="Lab Notebook for Mark E. Madsen" />
 	<meta property="dc:subject" content="Anthropology" /> 
 	<meta property="dc:type" content="website" /> 
 	<!-- RDFa Metadata (in OpenGraph) -->
-	<meta property="og:title" content="" />
+	<meta property="og:title" content="Classification Experiment Notes" />
 	<meta property="og:author" content="notebook.madsenlab.org/bio.html" />  <!-- Should be Liquid? URI? -->
 	<meta property="og:site_name" content="Lab Notebook for Mark E. Madsen" /> <!-- Same as dc:source? -->
-	<meta property="og:url" content="notebook.madsenlab.org/tag/mathjax.html" />
+	<meta property="og:url" content="notebook.madsenlab.org/coarse%20grained%20model%20project/2013/08/09/classification-experiment-notes.html" />
 	<meta property="og:type" content="website" /> 
 	<!-- Google Scholar Metadata -->
 	<meta name="citation_author" content="Mark E. Madsen"/>
-	<meta name="citation_date" content="2013-08-09T20:52:45-07:00"/>
-	<meta name="citation_title" content=""/>
+	<meta name="citation_date" content="2013-08-09T00:00:00-07:00"/>
+	<meta name="citation_title" content="Classification Experiment Notes"/>
 	<meta name="citation_journal_title" content="Lab Notebook for Mark E. Madsen"/>
 
     <!-- Le styles -->
@@ -167,23 +167,56 @@
           </div><!--/.well -->
         </div><!--/span3-->
 
-            <div  class="span9">
+            <div class="span8">
+  	<h2>Classification Experiment Notes</h2>
+	
 
-<h2>Tag: mathjax</h2>
+		<p class="text-info">
+		<table class="table table-condensed">
+			<tr class="info">
+				<td><small><i class="icon-calendar"></i>&nbsp;Created: 09 Aug 2013</small></td>
+				<td><small><i class="icon-calendar"></i>&nbsp;Modified: 09 Aug 2013</small></td>
+				<td><small><i class="icon-book">&nbsp;</i>&nbsp;<a href=http://greycite.knowledgeblog.org/bib/?uri=http://notebook.madsenlab.org/coarse%20grained%20model%20project/2013/08/09/classification-experiment-notes.html target='_blank'>BibTeX Entry</a>
+</small></td>
+				<td><small><i class="icon-book">&nbsp;</i>&nbsp;<a href=http://greycite.knowledgeblog.org/ris/?uri=http://notebook.madsenlab.org/coarse%20grained%20model%20project/2013/08/09/classification-experiment-notes.html target='_blank'>RIS Citation</a>
+</small></td>
+				<td><small><a href="javascript:window.print()"><i class="icon-print"></i>&nbsp;Print</a></small></td>
+			</tr>
+		</table>
+		</p>
 
-<ul class="posts">
+
+  	
 	
-		<li><span class="index_publish_date">26 May 2013</span> &raquo; <a href="/2013/05/26/mathjax-test.html">MathJax Test</a></li>
-	
-</ul>	
-	
-	
-	
+  <h3 id="setup-and-raw-simulations">Setup and Raw Simulations</h3>
+<p><strong>8/9/13</strong> Completed the code for classification experiments, at least to the point that an analysis script can run through classifications without parallelization and identify <code>individual_samples</code> to their classes given each classification in the database. All of this is tagged “v1.0” in github, and was pulled to an EC2 <code>m3.extra-large</code> instance to do the raw simulation output. This took about 5 hours, costs still TBD, and filled about 13GB given the current configuration of parameter space and sampling interval of 100 generations (for 10K generations after stationarity).</p>
+<p>Am working on expanding and reattaching the EBS volume with the MongoDB database, so I can do the subsampling, which ought to balloon the database by a factor of maybe 10x? Will finish that tomorrow, delete the old snapshots and volumes, and run the subsampling script overnight, with the goal to be running the classification script while traveling. Then I can shut everything down and analyze when I get back from the trip. Might try to move the compressed DB back locally at that point, but will need to do it a the office on a fast connection.</p>
+  
+
+
+<div class="well well-small">
+<p class="text-info"><i class="icon-tags"></i>&nbsp;Tags</p>
+<ul>
+
+<li><a href='/tag/cultural transmission.html'>cultural transmission</a></li>
+
+<li><a href='/tag/classification.html'>classification</a></li>
+
+<li><a href='/tag/coarse graining.html'>coarse graining</a></li>
+
+<li><a href='/tag/simulation.html'>simulation</a></li>
+
+<li><a href='/tag/ctpy.html'>ctpy</a></li>
+
+<li><a href='/tag/dissertation.html'>dissertation</a></li>
+
+<li><a href='/tag/experiments.html'>experiments</a></li>
+
+</ul>
 </div>
 
 
-
-
+</div>
 
 
         
