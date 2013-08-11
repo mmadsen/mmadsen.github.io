@@ -195,6 +195,8 @@
 <p>Am working on expanding and reattaching the EBS volume with the MongoDB database, so I can do the subsampling, which ought to balloon the database by a factor of maybe 10x? Will finish that tomorrow, delete the old snapshots and volumes, and run the subsampling script overnight, with the goal to be running the classification script while traveling. Then I can shut everything down and analyze when I get back from the trip. Might try to move the compressed DB back locally at that point, but will need to do it a the office on a fast connection.</p>
 <p><strong>8/10/13</strong> – <em>Subsampling and Start of Classification Identification</em></p>
 <p>Cleaned up my instances and resized the EBS volume to have 200GB to work with. This probably will be enough, but we’ll see. I ran the subsampling program and the raw data collection grew to about 19GB. I started the classification script, which runs each classification serially, and it’s going strong. I expect it to generate about 42MM individual documents by the time it’s done, and that could be a day or two.</p>
+<p><strong>8/11/13</strong> – <em>Second Resizing</em></p>
+<p>Overnight, the classification script generated about 12MM observations, and about 50GB in database, which means that database is going to overflow the EBS volume and stop. So I killed the process, nuked the postclassification database, and stopped the instance. I’m doing a second resize now, and then will hopefully restart the classification today. If not, when I get back or while I’m gone. Thus far, we’re at 20 bucks for usage through midnight.</p>
   
 
 
