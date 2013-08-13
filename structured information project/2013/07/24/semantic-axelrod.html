@@ -25,7 +25,7 @@
 	<!-- RDFa Metadata (in DublinCore) -->
 	<meta property="dc:title" content="The Semantic Axelrod Model" />
 	<meta property="dc:creator" content="Mark E. Madsen" />
-	<meta property="dc:date" content="2013-07-24T00:00:00-07:00" />
+	<meta property="dc:date" content="2013-07-24T00:00:00+02:00" />
 	<meta property="dc:format" content="text/html" />
 	<meta property="dc:language" content="en" />
 	<meta property="dc:identifier" content="/structured%20information%20project/2013/07/24/semantic-axelrod.html" />
@@ -41,7 +41,7 @@
 	<meta property="og:type" content="website" /> 
 	<!-- Google Scholar Metadata -->
 	<meta name="citation_author" content="Mark E. Madsen"/>
-	<meta name="citation_date" content="2013-07-24T00:00:00-07:00"/>
+	<meta name="citation_date" content="2013-07-24T00:00:00+02:00"/>
 	<meta name="citation_title" content="The Semantic Axelrod Model"/>
 	<meta name="citation_journal_title" content="Lab Notebook for Mark E. Madsen"/>
 
@@ -154,6 +154,7 @@
               <li><a href="/tag/cultural%20transmission.html">Cultural transmission theory</a></li>
               <li><a href="/tag/evolutionary%20theory.html">Darwinian evolutionary theory</a></li>
               <li><a href="/tag/ctpy.html">CTPy Simulation Modeling</a></li>
+			  <li><a href="/tag/dissertation.html">Dissertation Research</a></li>
               <li><a href="/tag/reading%20notes.html">Reading notes</a></li>
               <li><a href="/tag/experiments.html">Experiments and Analyses</a></li>
               <li><a href="/tags.html">Other notes by topic</a></li>
@@ -175,7 +176,7 @@
 		<table class="table table-condensed">
 			<tr class="info">
 				<td><small><i class="icon-calendar"></i>&nbsp;Created: 24 Jul 2013</small></td>
-				<td><small><i class="icon-calendar"></i>&nbsp;Modified: 06 Aug 2013</small></td>
+				<td><small><i class="icon-calendar"></i>&nbsp;Modified: 13 Aug 2013</small></td>
 				<td><small><i class="icon-book">&nbsp;</i>&nbsp;<a href=http://greycite.knowledgeblog.org/bib/?uri=http://notebook.madsenlab.org/structured%20information%20project/2013/07/24/semantic-axelrod.html target='_blank'>BibTeX Entry</a>
 </small></td>
 				<td><small><i class="icon-book">&nbsp;</i>&nbsp;<a href=http://greycite.knowledgeblog.org/ris/?uri=http://notebook.madsenlab.org/structured%20information%20project/2013/07/24/semantic-axelrod.html target='_blank'>RIS Citation</a>
@@ -189,14 +190,13 @@
   	
 	
   <h3 id="background">Background</h3>
-<p>The most common way to describe different approaches to the study of cultural transmission is to examine lineages of researchers and the disciplinary influences that result in differences in models or research questions. Another approach focuses upon the mathematical structure of models themselves, showing (for example) how neutral population genetic models share the same structure as the SIS model in epidemiology, and how both are examples of the contact process from mathematical probability theory.<sup><a href="#fn1" class="footnoteRef" id="fnref1">1</a></sup></p>
-<p>Another way to understand the diversity of CT models and approaches is to look at the nature of the observable variables from the models we study. I propose that existing formal models differ in whether they</p>
-<h3 id="background-1">Background</h3>
-<p>“Cultural transmission” modeling is divided into a couple of main traditions, that differ mainly in the kinds of questions being asked. The tradition represented by Boyd and Richerson and derived from a mixture of theoretical population genetics and epidemiological modeling, tends to focus on the <em>statistical distribution of the content of CT given a mixture of processes</em>.</p>
-<p>The tradition of “opinion dynamics,” tend to be physically derived (e.g., from Ising and Potts models) and have been mainly studied by economists and physicists working on complex systems. The major questions in opinion dynamics models have been, what factors influence the development of consensus versus disagreement, when does a population break up into islands of differing culture or opinion, and what are the statistical properties of such islands of agreement when they form?</p>
-<p>I’d argue that these modeling traditions are complementary. Archaeologists usually need to ask questions about the distribution of the <em>content</em> resulting from CT processes, but the models derived from the population genetic tradition make it difficult to address population structure and differentiation, in a macroevolutionary context. This is mainly driven by the “equilibrium” nature of models derived from population genetics.</p>
-<p>I’m hoping that we can combine the nonequilibrium study of models like the Axelrod model of opinion/cultural dynamics, with a focus on the <em>content</em> of cultural information being transmitted, and improve our understanding of how the fission and differentiation of cultural groups also influences the content and <em>history</em> of material culture itself.</p>
-<p>This is a tall order because in nearly every model of CT in existence, the information or traits being transmitted are simple markers or tokens, and bear no “meaning” themselves – no “content” for us to study other than counting frequencies and looking at the shapes of distributions. In this project, I propose to augment the Axelrod model with semantically meaningful traits, and observe the effects of cultural differentiation and consensus on the distribution of <em>meanings</em> and <em>semantic relationships</em> within and across populations.</p>
+<p>Micro-scale descriptions of cultural transmission are those which examine the population consequences of microscopic (often individual) scale rules or processes (as contrasted to macroscopic models such a reaction-diffusion or diffusion models, see Kandler et al. 2012 – NEED REF). Micro-scale models are often implemented as agent-based models, but need not be.</p>
+<p>Micro-scale models are useful despite often being analytically opaque and computationally intensive because they can model emergent properties, and potentially allow causal analysis of how properties at one scale emerge from individual level events.</p>
+<p>That said, there is still considerable diversity in the kinds of phenomena that have been studied using micro-level CT models. The most common modeling approach has been to treat the frequencies of abstract traits as observables, with copying and mutation rules serving as model analogs for cognitive or psychological processes. This approach is concerned mainly with how the cognitive processes behind social learning generate distinctive <em>statistical distributions</em> for any and every kind of cultural trait, regardless of what that trait is “about.” I call such models <em>rule-focused</em> micro-scale CT models.</p>
+<p>Rule focused CT models were the obvious place to begin constructing formal models of CT. Such models mirror the structure of theoretical population genetics, and epidemiology, where the core mathematical models are silent about the content of the “alleles” or “diseases” being transmitted.</p>
+<p>But we quickly run up against limits when we want to ask questions about how cultural evolution leads to why human groups might display certain kinds of substantive features. Rule-focused models are silent about the content of what is being transmitted, just as population genetic models are silent about what kinds of phenotypes arise from a confluence of modeled “alleles.”</p>
+<p>What we need, in addition to rule-focused models, are <em>content-enabled</em> models of cultural transmission, which allow us to represent traits that have intrinsic function, meaning, and relationships, and then examine the effect of social learning rules upon their abundance and distribution. Such models represent an “evolutionary developmental theory” or “evo-devo” for cultural evolution.</p>
+<p>Such models also help bridge the gap between rich narrative descriptions of cultural transmission and technological evolution <span class="citation" data-cites="sterelny2012evolved">(e.g., Sterelny 2012)</span> and quantitative modeling and data analysis. This is what my structured information project is about – constructing the formal and analytical tools to start bridging that gap.</p>
 <h3 id="mesoudi-project">Mesoudi Project</h3>
 <p>This is relevant to the Mesoudi invitation, I believe, because the Paleolithic is a time when we see a broad-based trend from relative artifact class uniformity and very large spatiotemporal distributions, to much more regionalized, and specialized, assemblages and toolkits. The very simplest CT models, such as unbiased/neutral or conformist models – whatever their virtues – don’t have enough structure to model these trends.</p>
 <p>So. How simple can a CT model be, and still generate phenomena like those we observe in the long-term Paleolithic record?</p>
@@ -227,12 +227,7 @@
 <p>Axelrod, R. 1997. “The dissemination of culture: A model with local convergence and global polarization.” <em>Journal of conflict resolution</em> 41 (2): 203–226.</p>
 <p>Castellano, Claudio, Santo Fortunato, and Vittorio Loreto. 2009. “Statistical physics of social dynamics.” <em>Reviews of modern physics</em> 81 (2): 591.</p>
 <p>Holme, Petter, and Mark EJ Newman. 2006. “Nonequilibrium phase transition in the coevolution of networks and opinions.” <em>Physical Review E</em> 74 (5): 056108.</p>
-<section class="footnotes">
-<hr />
-<ol>
-<li id="fn1"><p>Another good example is the ability to map the Axelrod model of cultural differentiation discussed here, to the q-state Potts model, which has rich connections to other spin models in statistical physics.<a href="#fnref1">↩</a></p></li>
-</ol>
-</section>
+<p>Sterelny, Kim. 2012. <em>The evolved apprentice</em>. The MIT Press.</p>
   
 
 

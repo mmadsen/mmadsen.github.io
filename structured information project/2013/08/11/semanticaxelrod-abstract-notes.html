@@ -3,7 +3,7 @@
 <html lang="en">
   <head prefix="dc: http://purl.org/dc/terms/ og: http://ogp.me/ns#">
     <meta charset="utf-8"/>
-    <title></title>
+    <title>Semantic Axelrod Model - Conference Abstract and Project Notes</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta name="description" content="Lab Notebook for Mark E. Madsen"/>
     <meta name="author" content="Mark E. Madsen"/>
@@ -13,9 +13,9 @@
 
 
 	<!-- For posts, page.date is the date they are published under, which we use as their 'canonical' dc:date -->
-	 <!-- If we don't have a page.date, then use modified time (pages) -->
-	   
-	
+	 
+	  
+	  
 
 	<!-- Posts declare modified timestamps in the sidebar, so would be redundant to put here. But then 
 	     pages don't have a dc:modified... unless we give them their own (modified) sidebar?  
@@ -23,26 +23,26 @@
 	<!-- Ideally we would want date originally created from the _oldest_ git commit too...-->
 
 	<!-- RDFa Metadata (in DublinCore) -->
-	<meta property="dc:title" content="" />
+	<meta property="dc:title" content="Semantic Axelrod Model - Conference Abstract and Project Notes" />
 	<meta property="dc:creator" content="Mark E. Madsen" />
-	<meta property="dc:date" content="2013-08-13T11:07:07+02:00" />
+	<meta property="dc:date" content="2013-08-11T00:00:00+02:00" />
 	<meta property="dc:format" content="text/html" />
 	<meta property="dc:language" content="en" />
-	<meta property="dc:identifier" content="/tag/administrative.html" />
+	<meta property="dc:identifier" content="/structured%20information%20project/2013/08/11/semanticaxelrod-abstract-notes.html" />
 	<meta property="dc:rights" content="CC BY-NC-SA 3.0" />
 	<meta property="dc:source" content="Lab Notebook for Mark E. Madsen" />
 	<meta property="dc:subject" content="Anthropology" /> 
 	<meta property="dc:type" content="website" /> 
 	<!-- RDFa Metadata (in OpenGraph) -->
-	<meta property="og:title" content="" />
+	<meta property="og:title" content="Semantic Axelrod Model - Conference Abstract and Project Notes" />
 	<meta property="og:author" content="notebook.madsenlab.org/bio.html" />  <!-- Should be Liquid? URI? -->
 	<meta property="og:site_name" content="Lab Notebook for Mark E. Madsen" /> <!-- Same as dc:source? -->
-	<meta property="og:url" content="notebook.madsenlab.org/tag/administrative.html" />
+	<meta property="og:url" content="notebook.madsenlab.org/structured%20information%20project/2013/08/11/semanticaxelrod-abstract-notes.html" />
 	<meta property="og:type" content="website" /> 
 	<!-- Google Scholar Metadata -->
 	<meta name="citation_author" content="Mark E. Madsen"/>
-	<meta name="citation_date" content="2013-08-13T11:07:07+02:00"/>
-	<meta name="citation_title" content=""/>
+	<meta name="citation_date" content="2013-08-11T00:00:00+02:00"/>
+	<meta name="citation_title" content="Semantic Axelrod Model - Conference Abstract and Project Notes"/>
 	<meta name="citation_journal_title" content="Lab Notebook for Mark E. Madsen"/>
 
     <!-- Le styles -->
@@ -168,23 +168,57 @@
           </div><!--/.well -->
         </div><!--/span3-->
 
-            <div  class="span9">
+            <div class="span8">
+  	<h2>Semantic Axelrod Model - Conference Abstract and Project Notes</h2>
+	
 
-<h2>Tag: administrative</h2>
+		<p class="text-info">
+		<table class="table table-condensed">
+			<tr class="info">
+				<td><small><i class="icon-calendar"></i>&nbsp;Created: 11 Aug 2013</small></td>
+				<td><small><i class="icon-calendar"></i>&nbsp;Modified: 13 Aug 2013</small></td>
+				<td><small><i class="icon-book">&nbsp;</i>&nbsp;<a href=http://greycite.knowledgeblog.org/bib/?uri=http://notebook.madsenlab.org/structured%20information%20project/2013/08/11/semanticaxelrod-abstract-notes.html target='_blank'>BibTeX Entry</a>
+</small></td>
+				<td><small><i class="icon-book">&nbsp;</i>&nbsp;<a href=http://greycite.knowledgeblog.org/ris/?uri=http://notebook.madsenlab.org/structured%20information%20project/2013/08/11/semanticaxelrod-abstract-notes.html target='_blank'>RIS Citation</a>
+</small></td>
+				<td><small><a href="javascript:window.print()"><i class="icon-print"></i>&nbsp;Print</a></small></td>
+			</tr>
+		</table>
+		</p>
 
-<ul class="posts">
+
+  	
 	
-		<li><span class="index_publish_date">26 May 2013</span> &raquo; <a href="/2013/05/26/mathjax-test.html">MathJax Test</a></li>
-	
-</ul>	
-	
-	
-	
+  <h3 id="motivation">Motivation</h3>
+<p>Buchanan and Collard are organizing a symposium at next year’s SAA conference, and sent Carl and I both invites. I suggested doing a conference version of the “Semantic Axelrod” model that I’d proposed for the Mesoudi Springer volume on CT and the Paleolithic record. This is tangential to my main dissertation work, but it’s a <a href="/structured%20information%20project/2013/08/11/semantic-ct-models-2007-notes.html">long-standing research interest</a>.</p>
+<h3 id="why-axelrod">Why Axelrod?</h3>
+<p>The list of research questions in my 2007 note are what led to thinking about <a href="/structured%20information%20project/2013/07/24/semantic-axelrod.html">semantic version of the Axelrod model</a>. Take the following as an example:</p>
+<blockquote>
+<p>“Worldview Similarity Bias”: One experiment we could run would be to select a focal individual each tick in a Moran process, and then examine the set of candidate models, finding the model(s) which have the most number of traits in common which share the same set of semantic relationships, and select one of their traits randomly to copy. Do we end up with persistent associations of concepts? How does the turnover rate of traits change? What level of variation do we see in the population is it lower, higher, or the same as we’d see in a pure neutral model? We’re essentially doing unbiased selection of traits from a biased selection of individuals.</p>
+</blockquote>
+<p>This is simply copying predicated on homophily, where the latter is measured on semantic relationships between the agent pair’s traits, rather than simple trait identity. This begs many questions, of course: what semantic relationships, between what types of concepts? What is “close enough”? But it’s recognizably the Axelrod model, even though I didn’t make the connection in 2007.</p>
+<p>The Axelrod model seems to be one of the simplest models in which we can examine the micro-level causes of differentiation (or conversely, the causes of consensus or uniformity). In its original form, the dynamics are governed entirely by copying and a homophily rule which serves as a threshold for when copying is allowed.</p>
+<h3 id="paleolithic-toolkit-diversity">Paleolithic Toolkit Diversity</h3>
+  
+
+
+<div class="well well-small">
+<p class="text-info"><i class="icon-tags"></i>&nbsp;Tags</p>
+<ul>
+
+<li><a href='/tag/cultural transmission.html'>cultural transmission</a></li>
+
+<li><a href='/tag/structured information.html'>structured information</a></li>
+
+<li><a href='/tag/axelrod model.html'>axelrod model</a></li>
+
+<li><a href='/tag/SAA 2014.html'>SAA 2014</a></li>
+
+</ul>
 </div>
 
 
-
-
+</div>
 
 
         
