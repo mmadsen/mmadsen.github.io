@@ -176,7 +176,7 @@
 		<table class="table table-condensed">
 			<tr class="info">
 				<td><small><i class="icon-calendar"></i>&nbsp;Created: 09 Aug 2013</small></td>
-				<td><small><i class="icon-calendar"></i>&nbsp;Modified: 11 Aug 2013</small></td>
+				<td><small><i class="icon-calendar"></i>&nbsp;Modified: 20 Aug 2013</small></td>
 				<td><small><i class="icon-book">&nbsp;</i>&nbsp;<a href=http://greycite.knowledgeblog.org/bib/?uri=http://notebook.madsenlab.org/coarse%20grained%20model%20project/2013/08/09/classification-experiment-notes.html target='_blank'>BibTeX Entry</a>
 </small></td>
 				<td><small><i class="icon-book">&nbsp;</i>&nbsp;<a href=http://greycite.knowledgeblog.org/ris/?uri=http://notebook.madsenlab.org/coarse%20grained%20model%20project/2013/08/09/classification-experiment-notes.html target='_blank'>RIS Citation</a>
@@ -199,6 +199,17 @@
 <p><strong>8/11/13</strong> – <em>Second Resizing</em></p>
 <p>Overnight, the classification script generated about 12MM observations, and about 50GB in database, which means that database is going to overflow the EBS volume and stop. So I killed the process, nuked the postclassification database, and stopped the instance. I’m starting a second resize now.</p>
 <p>Finishing resizing the new volume and snapshot, restarted classification at 10:40am on 8/11.</p>
+<h3 id="analysis">Analysis</h3>
+<p>Processing for analysis is going to involve some steps, given 42MM samples.</p>
+<ol type="1">
+<li>Restart EC2 instance and get copy of param space, ensure we record it here (if different than the basic one in github).</li>
+<li>Copy the database somewhere that I can analyze it. Might have to live on the external TB drive just ordered, if I want to work on it via the laptop.</li>
+</ol>
+<h4 id="preprocessing">Preprocessing</h4>
+<ol type="1">
+<li>The <code>individual_samples_classified</code> collection needs some basic post-processed statistics, like richness, and class count/freq. These operations are on a per-database-entry basis, and thus can be maximally parallelized via some architecture - Hadoop, Storm, etc.<br /></li>
+<li>Data frames then need to be created which have parameters for both simulation run and classification. These should be <code>pandas</code> data frames, so we can easily move them to R.</li>
+</ol>
   
 
 
