@@ -177,7 +177,7 @@
 		<table class="table table-condensed">
 			<tr class="info">
 				<td><small><i class="icon-calendar"></i>&nbsp;Created: 29 Jul 2013</small></td>
-				<td><small><i class="icon-calendar"></i>&nbsp;Modified: 09 Aug 2013</small></td>
+				<td><small><i class="icon-calendar"></i>&nbsp;Modified: 30 Oct 2013</small></td>
 				<td><small><i class="icon-book">&nbsp;</i>&nbsp;<a href=http://greycite.knowledgeblog.org/bib/?uri=http://notebook.madsenlab.org/coarse%20grained%20model%20project/2013/07/29/classification-experiment-protocol.html target='_blank'>BibTeX Entry</a>
 </small></td>
 				<td><small><i class="icon-book">&nbsp;</i>&nbsp;<a href=http://greycite.knowledgeblog.org/ris/?uri=http://notebook.madsenlab.org/coarse%20grained%20model%20project/2013/07/29/classification-experiment-protocol.html target='_blank'>RIS Citation</a>
@@ -200,47 +200,63 @@
 <li>Equifinality – are there models (or parameter regions) that we can distinguish in raw trait space, but not when we observe the models through classifications (of given coarseness)?</li>
 </ol>
 <h3 id="experiment-outline">Experiment Outline</h3>
-<h4 id="preparation-steps">Preparation Steps</h4>
-<p>The only preparation needed is to initialize an experiment, by selecting a unique experiment name and registering it in the <code>experiment_tracking</code> database by running <code>initialize_experiment.py</code>. The experiment name should be given on the command line as <code>--experiment EXPERIMENT</code> to all scripts.</p>
-<p>The script <code>construct_classifications.py</code> builds the classifications that will be used in the analysis steps. The script constructs two tables in collection <code>EXPERIMENT_configuration</code>.</p>
-<p>The desired range of simulation parameters should be adjusted in <code>ctpy.__init__.py</code>. <strong>NOTE</strong> It might have been a mistake to put these parameters into a python module, rather than configuration files, which could be named on a per experiment basis.</p>
-<h4 id="simulation-steps">Simulation Steps</h4>
 <p>Each model runs within simuPOP, using CTPy modules. simuPOP will perform replications of a model run at a given set of starting parameters, but different initialized populations. So each execution of a simulation model will given <span class="math">\(R\)</span> replications of a specific set of parameters.</p>
 <p>Each simulation execution runs a specific CT copying/innovation model, with a unique combination of the model’s parameters (e.g., population size, innovation rate, conformism rates). Each replicate constitutes an independent evolving population under those specific parameters, and each replicate is sampled independently and stored independently in the database as a “sample path.”</p>
-<p>For the basic unbiased model with unbounded “always new” innovation (WF-IA), the core parameters are:</p>
-<ol type="1">
-<li>Population size</li>
-<li>Innovation rate</li>
-</ol>
-<p>Other models such as conformism would add the conformism rate or bias levels to the list of simulation parameters.</p>
-<p>Each simulation run stores raw samples of genotypes, and statistical measures, in a data collection called <code>EXPERIMENT_sim_rawdata</code>.</p>
-<h4 id="data-reduction-steps">Data Reduction Steps</h4>
-<p>In order to minimize the number of simulation runs, some data configurations can be derived by subsampling the results of an existing simulation run. For example, if we are taking samples of multiple sizes from a population during a simulation run, we can simply record the largest sample size, and subsample the database for smaller sample sizes. This is advantageous because simuPOP need not be loaded and running a live simulation to process the data stream and derive smaller samples.</p>
-<p>The following parameters will be handled by setting them to maximum values across all simulation runs, and generating subsample sample paths in the database in post-processing:</p>
-<ol type="1">
-<li>Sample size of individuals for statistics calculation</li>
-<li>Number of trait dimensions each individual possesses</li>
-</ol>
-<p><strong>NOTE</strong> we can factor out trait dimensions in this way ONLY if we’re using specific algorithms for copying and mutation. In the unbiased case (WFIA), the simuPOP <code>RandomSelection</code> mating scheme copies a whole individual’s genotype into the output population for the generation step. And the <code>KAlleleMutator</code> applies the mutation rate to each locus independently (and can have specific mutation rates for each locus, if desired). These facts about the model code make it easy to factor out trait dimensions by subsampling. IF, on the other hand, a CT model doesn’t work this way, I may need to explicitly include <code>num_loci</code> in the simulation parameters Cartesian product.</p>
-<p>Subsampling occurs as follows:</p>
-<ol type="1">
-<li>For a given <code>experiment_name</code>, we determine whether subsampling has previously occurred, by consulting the appropriate entry in <code>experiment_tracking</code>. If subsampling has occurred, we exit.<br /></li>
-<li>Otherwise, we select all raw data samples from <code>individual_samples</code> in <code>EXPERIMENT_sim_raw</code>.</li>
-<li>For each data sample, we loop over the cartesian product of <code>DIMENSIONS_STUDIED</code> and <code>SAMPLE_SIZES_STUDIED</code> and for each combination, we construct a subsample of individuals with the specified number of loci.<br /></li>
-<li>The subsample is then inserted into <code>EXPERIMENT_sim_raw</code>, in the <code>individual_samples_fulldataset</code>. This segregates the original simulation output from post-processed output, allowing re-analysis if bugs are discovered in the processing chain, or we want to post-process with different parameter values.</li>
-<li>When complete, <code>experiment_tracking</code> is updated to reflect completion of subsampling.</li>
-</ol>
-<h4 id="analysis-steps">Analysis Steps</h4>
-<p><strong>PREPARATION STAGE</strong></p>
-<ol type="1">
-<li>First check <code>experiment_tracking</code> to determine whether a given full dataset has been identified as to classes. If so, exit.<br /></li>
-<li>For each classification in <code>EXPERIMENT_configuration</code>:</li>
-<li>Select all samples from <code>individual_samples_fulldataset</code> that have the same dimensionality as the classification.<br /></li>
-<li>Identify each individual genotype as to class membership, save in a list.</li>
-<li>Substitute the list of classes for the original genotypes into a copy of the individual sample record.</li>
-<li>Insert the finished sample to the collection <code>EXPERIMENT_samples_postclassification</code>. This keeps the processed samples in addition to the original data.<br /></li>
-<li>Record completion in <code>experiment_tracking</code>.</li>
-</ol>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Simulation Parameter</th>
+<th style="text-align: left;">Value or Values</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Trait and classification dimensionalities</td>
+<td style="text-align: left;">2, 3, 4, 6, 8</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Classification coarseness levels (modes per dimension)</td>
+<td style="text-align: left;">2, 3, 4, 8, 16, 32</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Number of traits per dimension for initializing population</td>
+<td style="text-align: left;">10</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Innovation rates</td>
+<td style="text-align: left;">0.0001, 0.00025, 0.0005, 0.001, 0.0025, 0.005, 0.01, 0.025</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Replicate random classifications per coarseness level</td>
+<td style="text-align: left;">10</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Num samples taken after stationarity, per run</td>
+<td style="text-align: left;">10000</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Population sizes</td>
+<td style="text-align: left;">500, 1000, 2500, 5000</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Replicate simulation runs at each parameter combination</td>
+<td style="text-align: left;">1000</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Sample sizes taken at each sampling interval</td>
+<td style="text-align: left;">25, 50, 100, 200</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Interval in generations for samples after stationarity</td>
+<td style="text-align: left;">1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Length of simulation run after stationarity</td>
+<td style="text-align: left;">10000</td>
+</tr>
+</tbody>
+</table>
+<h3 id="section"></h3>
 <h3 id="references-cited">References Cited</h3>
   
 

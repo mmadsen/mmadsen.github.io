@@ -3,7 +3,7 @@
 <html lang="en">
   <head prefix="dc: http://purl.org/dc/terms/ og: http://ogp.me/ns#">
     <meta charset="utf-8"/>
-    <title></title>
+    <title>Research Design for Semantic Axelrod Model</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta name="description" content="Lab Notebook for Mark E. Madsen"/>
     <meta name="author" content="Mark E. Madsen"/>
@@ -13,9 +13,9 @@
 
 
 	<!-- For posts, page.date is the date they are published under, which we use as their 'canonical' dc:date -->
-	 <!-- If we don't have a page.date, then use modified time (pages) -->
-	   
-	
+	 
+	  
+	  
 
 	<!-- Posts declare modified timestamps in the sidebar, so would be redundant to put here. But then 
 	     pages don't have a dc:modified... unless we give them their own (modified) sidebar?  
@@ -23,26 +23,26 @@
 	<!-- Ideally we would want date originally created from the _oldest_ git commit too...-->
 
 	<!-- RDFa Metadata (in DublinCore) -->
-	<meta property="dc:title" content="" />
+	<meta property="dc:title" content="Research Design for Semantic Axelrod Model" />
 	<meta property="dc:creator" content="Mark E. Madsen" />
-	<meta property="dc:date" content="2013-10-30T10:22:46-07:00" />
+	<meta property="dc:date" content="2013-10-23T00:00:00-07:00" />
 	<meta property="dc:format" content="text/html" />
 	<meta property="dc:language" content="en" />
-	<meta property="dc:identifier" content="/tag/python.html" />
+	<meta property="dc:identifier" content="/structured%20information%20project/2013/10/23/semanticaxelrod-research-design.html" />
 	<meta property="dc:rights" content="CC BY-NC-SA 3.0" />
 	<meta property="dc:source" content="Lab Notebook for Mark E. Madsen" />
 	<meta property="dc:subject" content="Anthropology" /> 
 	<meta property="dc:type" content="website" /> 
 	<!-- RDFa Metadata (in OpenGraph) -->
-	<meta property="og:title" content="" />
+	<meta property="og:title" content="Research Design for Semantic Axelrod Model" />
 	<meta property="og:author" content="notebook.madsenlab.org/bio.html" />  <!-- Should be Liquid? URI? -->
 	<meta property="og:site_name" content="Lab Notebook for Mark E. Madsen" /> <!-- Same as dc:source? -->
-	<meta property="og:url" content="notebook.madsenlab.org/tag/python.html" />
+	<meta property="og:url" content="notebook.madsenlab.org/structured%20information%20project/2013/10/23/semanticaxelrod-research-design.html" />
 	<meta property="og:type" content="website" /> 
 	<!-- Google Scholar Metadata -->
 	<meta name="citation_author" content="Mark E. Madsen"/>
-	<meta name="citation_date" content="2013-10-30T10:22:46-07:00"/>
-	<meta name="citation_title" content=""/>
+	<meta name="citation_date" content="2013-10-23T00:00:00-07:00"/>
+	<meta name="citation_title" content="Research Design for Semantic Axelrod Model"/>
 	<meta name="citation_journal_title" content="Lab Notebook for Mark E. Madsen"/>
 
     <!-- Le styles -->
@@ -169,23 +169,60 @@
           </div><!--/.well -->
         </div><!--/span3-->
 
-            <div  class="span9">
+            <div class="span8">
+  	<h2>Research Design for Semantic Axelrod Model</h2>
+	
 
-<h2>Tag: python</h2>
+		<p class="text-info">
+		<table class="table table-condensed">
+			<tr class="info">
+				<td><small><i class="icon-calendar"></i>&nbsp;Created: 23 Oct 2013</small></td>
+				<td><small><i class="icon-calendar"></i>&nbsp;Modified: 30 Oct 2013</small></td>
+				<td><small><i class="icon-book">&nbsp;</i>&nbsp;<a href=http://greycite.knowledgeblog.org/bib/?uri=http://notebook.madsenlab.org/structured%20information%20project/2013/10/23/semanticaxelrod-research-design.html target='_blank'>BibTeX Entry</a>
+</small></td>
+				<td><small><i class="icon-book">&nbsp;</i>&nbsp;<a href=http://greycite.knowledgeblog.org/ris/?uri=http://notebook.madsenlab.org/structured%20information%20project/2013/10/23/semanticaxelrod-research-design.html target='_blank'>RIS Citation</a>
+</small></td>
+				<td><small><a href="javascript:window.print()"><i class="icon-print"></i>&nbsp;Print</a></small></td>
+			</tr>
+		</table>
+		</p>
 
-<ul class="posts">
+
+  	
 	
-		<li><span class="index_publish_date">30 Sep 2013</span> &raquo; <a href="/essays/2013/09/30/medium-data.html">Making the Case for "Medium" Data</a></li>
-	
-</ul>	
-	
-	
-	
+  <h3 id="semantic-axelrod-as-a-graph-problem">Semantic Axelrod as a Graph Problem</h3>
+<p>Standard CT models with unstructured, “tokenized” traits have two main components: copying relations between agents, and the resulting frequency distribution of traits. We manipulate the structure of the copying relations, and observe the consequences for the FD of traits. Optionally, the FD of traits may be used to alter the copying relations, as in the original Axelrod model (and more recent models by Nowak’s group and the “adaptive coevolutionary networks” reviewed by <span class="citation" data-cites="Gross:2008p19305">(Gross and Blasius 2008)</span>).</p>
+<p>When we add “semantics” (or more abstractly, structured relations between traits) to our CT models, we have the following components. Not all of the components need be present in each model, of course:</p>
+<ol type="1">
+<li>Structured copying relations between agents, factoring in structure among traits</li>
+<li>Map between agents and traits 1 Structured relations between traits, either fixed or evolving</li>
+</ol>
+<p>If our goal is to implement a notion of <code>homophily</code> which includes trait relations rather than just quantitative overlap in trait possession, we can represent these components as three graphs, or instead, as a single multigraph.</p>
+<p>One graph is bipartite, mapping agents to concepts. The measure of edges over the concept nodes is, of course, the frequency distribution of concepts (or traits).</p>
+<p>A second edge type is among agents, and describes “neighbors” which are allowed to observe and copy one another. In an Axelrod model, we break these edges when individuals fall below a homophily threshold and no longer copy from one another. In the situation where an Axelrod model fragments into “cultural domains,” this is represented by the loss of global connectivity in the graph constructed by these edges, resulting in a number of separate components.</p>
+<p>A third edge type is among concepts, and describes some type of “semantic” relationship between concept. Such edges might be directed, and could be fixed or evolving. In this initial exploration, we will set concept relationship edges as fixed in each experimental run. Thus, concept edges become input to the homophily algorithm, and thus feed into the breakage or maintenance of agent-agent edges.<br />The overall problem is thus one of allowing the model to reach equilibrium (or quasi-stationary state), and then analyzing the characteristics of the concept subgraphs pointed to by the agents in each disconnected agent domain.</p>
+<h3 id="references-cited">References Cited</h3>
+<p>Gross, T., and B. Blasius. 2008. “Adaptive coevolutionary networks: a review.” <em>Journal of the Royal Society Interface</em> (Jan). <a href="http://rsif.royalsocietypublishing.org/cgi/content/abstract/5/20/259" title="http://rsif.royalsocietypublishing.org/cgi/content/abstract/5/20/259">http://rsif.royalsocietypublishing.org/cgi/content/abstract/5/20/259</a>.</p>
+  
+
+
+<div class="well well-small">
+<p class="text-info"><i class="icon-tags"></i>&nbsp;Tags</p>
+<ul>
+
+<li><a href='/tag/SAA2014.html'>SAA2014</a></li>
+
+<li><a href='/tag/axelrod model.html'>axelrod model</a></li>
+
+<li><a href='/tag/structured information.html'>structured information</a></li>
+
+<li><a href='/tag/cultural transmission.html'>cultural transmission</a></li>
+
+</ul>
 </div>
 
 
-
-
+</div>
 
 
         
