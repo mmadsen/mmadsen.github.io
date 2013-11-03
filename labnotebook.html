@@ -25,7 +25,7 @@
 	<!-- RDFa Metadata (in DublinCore) -->
 	<meta property="dc:title" content="How the Lab Notebook Works" />
 	<meta property="dc:creator" content="Mark E. Madsen" />
-	<meta property="dc:date" content="2013-07-13T22:02:11-07:00" />
+	<meta property="dc:date" content="2013-11-03T13:25:04-08:00" />
 	<meta property="dc:format" content="text/html" />
 	<meta property="dc:language" content="en" />
 	<meta property="dc:identifier" content="/labnotebook.html" />
@@ -41,7 +41,7 @@
 	<meta property="og:type" content="website" /> 
 	<!-- Google Scholar Metadata -->
 	<meta name="citation_author" content="Mark E. Madsen"/>
-	<meta name="citation_date" content="2013-07-13T22:02:11-07:00"/>
+	<meta name="citation_date" content="2013-11-03T13:25:04-08:00"/>
 	<meta name="citation_title" content="How the Lab Notebook Works"/>
 	<meta name="citation_journal_title" content="Lab Notebook for Mark E. Madsen"/>
 
@@ -157,7 +157,7 @@
               <li><a href="/tag/ctpy.html">CTPy Simulation Modeling</a></li>
 			  <li><a href="/tag/dissertation.html">Dissertation Research</a></li>
               <li><a href="/tag/reading%20notes.html">Reading notes</a></li>
-              <li><a href="/tag/experiments.html">Experiments and Analyses</a></li>
+              <li><a href="/experiments.html">Experiments and Analyses</a></li>
               <li><a href="/tags.html">Other notes by topic</a></li>
               <li class="nav-header">Meta</li>
               <li><a href="/bio.html">Bio</a></li>
@@ -185,6 +185,11 @@
 <h3 id="overview">Overview</h3>
 <p>Github Pages allows one to host straight HTML or Github-flavored Markdown, or Jekyll-based Markdown, which is then turned into HTML. For very good reasons, Github Pages disallows third-party Jekyll plugins, because that would be a massive trojan horse and performance disaster. Bad juju.</p>
 <p>So the solution is that I have <em>two</em> Github repositories for the lab notebook. One is the “source code” for the lab notebook, where I write posts and test formatting, and do everything “offline” – I compile it using a Rakefile and it runs on localhost. When I’m happy, I commit the changes to git, and then compile the finished site, which I then copy to a second Github repository for Github Pages, which contains only the finished HTML, CSS, Javascript, and other assets. This repository, when pushed to Github, becomes the public website. All of this is automated by a build script (i.e., Rakefile), of course, so when I check in a post to the “source” repository, it’s a matter of moments before it’s built, copied, checked in, and pushed live. And both repositories are version controlled, so you have version-controlled source and production files. Nice.</p>
+<h3 id="documentation">Documentation</h3>
+<ul>
+<li><a href="/doc/adding-project.html">Adding a Project</a></li>
+<li><a href="/doc/adding-experiment.html">Adding an Experiment</a></li>
+</ul>
 <h3 id="details">Details</h3>
 <p>The site uses Jekyll at whatever its current release is. I only modify Jekyll by upgrading it, or adding plugins.</p>
 <p>I also use <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap</a> as the CSS and layout engine for the site. Bootstrap is superb and allows a flexible gridding system for easy layout, has terrific pre-defined styles for buttons, menus, and a ton of small icons for common UI design tasks. If you’re not using Bootstrap, check it out. It’s one of Twitter’s great gifts to the software community, along with Storm.</p>
