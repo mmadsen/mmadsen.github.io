@@ -3,7 +3,7 @@
 <html lang="en">
   <head prefix="dc: http://purl.org/dc/terms/ og: http://ogp.me/ns#">
     <meta charset="utf-8"/>
-    <title>Classification Experiment - Exploratory Data Analysis</title>
+    <title>Original Axelrod to Semantic Axelrod model - implementation notes</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta name="description" content="Lab Notebook for Mark E. Madsen"/>
     <meta name="author" content="Mark E. Madsen"/>
@@ -23,26 +23,26 @@
 	<!-- Ideally we would want date originally created from the _oldest_ git commit too...-->
 
 	<!-- RDFa Metadata (in DublinCore) -->
-	<meta property="dc:title" content="Classification Experiment - Exploratory Data Analysis" />
+	<meta property="dc:title" content="Original Axelrod to Semantic Axelrod model - implementation notes" />
 	<meta property="dc:creator" content="Mark E. Madsen" />
-	<meta property="dc:date" content="2013-11-03T00:00:00-07:00" />
+	<meta property="dc:date" content="2013-11-18T00:00:00-08:00" />
 	<meta property="dc:format" content="text/html" />
 	<meta property="dc:language" content="en" />
-	<meta property="dc:identifier" content="/coarse%20grained%20model%20project/2013/11/03/classification-eda.html" />
+	<meta property="dc:identifier" content="/structured%20information%20project/2013/11/18/axelrod-to-semantic-model-notes.html" />
 	<meta property="dc:rights" content="CC BY-NC-SA 3.0" />
 	<meta property="dc:source" content="Lab Notebook for Mark E. Madsen" />
 	<meta property="dc:subject" content="Anthropology" /> 
 	<meta property="dc:type" content="website" /> 
 	<!-- RDFa Metadata (in OpenGraph) -->
-	<meta property="og:title" content="Classification Experiment - Exploratory Data Analysis" />
+	<meta property="og:title" content="Original Axelrod to Semantic Axelrod model - implementation notes" />
 	<meta property="og:author" content="notebook.madsenlab.org/bio.html" />  <!-- Should be Liquid? URI? -->
 	<meta property="og:site_name" content="Lab Notebook for Mark E. Madsen" /> <!-- Same as dc:source? -->
-	<meta property="og:url" content="notebook.madsenlab.org/coarse%20grained%20model%20project/2013/11/03/classification-eda.html" />
+	<meta property="og:url" content="notebook.madsenlab.org/structured%20information%20project/2013/11/18/axelrod-to-semantic-model-notes.html" />
 	<meta property="og:type" content="website" /> 
 	<!-- Google Scholar Metadata -->
 	<meta name="citation_author" content="Mark E. Madsen"/>
-	<meta name="citation_date" content="2013-11-03T00:00:00-07:00"/>
-	<meta name="citation_title" content="Classification Experiment - Exploratory Data Analysis"/>
+	<meta name="citation_date" content="2013-11-18T00:00:00-08:00"/>
+	<meta name="citation_title" content="Original Axelrod to Semantic Axelrod model - implementation notes"/>
 	<meta name="citation_journal_title" content="Lab Notebook for Mark E. Madsen"/>
 
     <!-- Le styles -->
@@ -170,17 +170,17 @@
         </div><!--/span3-->
 
             <div class="span8">
-  	<h2>Classification Experiment - Exploratory Data Analysis</h2>
+  	<h2>Original Axelrod to Semantic Axelrod model - implementation notes</h2>
 	
 
 		<p class="text-info">
 		<table class="table table-condensed">
 			<tr class="info">
-				<td><small><i class="icon-calendar"></i>&nbsp;Created: 03 Nov 2013</small></td>
+				<td><small><i class="icon-calendar"></i>&nbsp;Created: 18 Nov 2013</small></td>
 				<td><small><i class="icon-calendar"></i>&nbsp;Modified: 18 Nov 2013</small></td>
-				<td><small><i class="icon-book">&nbsp;</i>&nbsp;<a href=http://greycite.knowledgeblog.org/bib/?uri=http://notebook.madsenlab.org/coarse%20grained%20model%20project/2013/11/03/classification-eda.html target='_blank'>BibTeX Entry</a>
+				<td><small><i class="icon-book">&nbsp;</i>&nbsp;<a href=http://greycite.knowledgeblog.org/bib/?uri=http://notebook.madsenlab.org/structured%20information%20project/2013/11/18/axelrod-to-semantic-model-notes.html target='_blank'>BibTeX Entry</a>
 </small></td>
-				<td><small><i class="icon-book">&nbsp;</i>&nbsp;<a href=http://greycite.knowledgeblog.org/ris/?uri=http://notebook.madsenlab.org/coarse%20grained%20model%20project/2013/11/03/classification-eda.html target='_blank'>RIS Citation</a>
+				<td><small><i class="icon-book">&nbsp;</i>&nbsp;<a href=http://greycite.knowledgeblog.org/ris/?uri=http://notebook.madsenlab.org/structured%20information%20project/2013/11/18/axelrod-to-semantic-model-notes.html target='_blank'>RIS Citation</a>
 </small></td>
 				<td><small><a href="javascript:window.print()"><i class="icon-print"></i>&nbsp;Print</a></small></td>
 			</tr>
@@ -190,18 +190,15 @@
 
   	
 	
-  <h3 id="data-storage">Data Storage</h3>
-<p>The post processed data for this experiment are now uploaded to Amazon S3 for long-term storage. Here are the two binary R data files:</p>
-<ul>
-<li><a href="https://madsen-dissertation.s3.amazonaws.com/experiment-classification/postprocessed-data/classification-full.rda">classification-full.rda</a></li>
-<li><a href="https://madsen-dissertation.s3.amazonaws.com/experiment-classification/postprocessed-data/classification-grouped.rda">classification-grouped.rda</a></li>
-</ul>
-<p>And here are the post-processed CSV files (much larger, 4.72GB for the full rows):</p>
-<ul>
-<li><a href="https://madsen-dissertation.s3.amazonaws.com/experiment-classification/postprocessed-data/classification-experiment-neutral-dataset-fullrows.csv">classification-experiment-neutral-dataset-fullrows.csv</a></li>
-<li><a href="https://madsen-dissertation.s3.amazonaws.com/experiment-classification/postprocessed-data/classification-experiment-neutral-dataset-grouped.csv">classification-experiment-neutral-dataset-grouped.csv</a></li>
-<li><a href="https://madsen-dissertation.s3.amazonaws.com/experiment-classification/postprocessed-data/classification-experiment-neutral-dataset-preslatkin.csv">classification-experiment-neutral-dataset-preslatkin.csv</a></li>
-</ul>
+  <h3 id="axelrod-model">Axelrod Model</h3>
+<p>Currently, I’ve got a good framework for Axelrod-style models of cultural influence and homophily. The code is available on Github as <a href="https://github.com/mmadsen/axelrod-ct">axelrod-ct</a>. The framework stores simulation run statistics in a MongoDB database instance, and has a single simulation running and a parallel batch runner. The code is a generic evolution of the <a href="https://github.com/mmadsen/ctpy">CTPy</a> but without the dependency upon <code>simuPOP</code>.</p>
+<h3 id="adding-semantic-models">Adding Semantic Models</h3>
+<p>The next tasks revolve around the “trait model” we use, giving traits relational structure, and any modifications to the Axelrod rules themselves to accomodate these structural changes. Specifically, I think the steps involve:</p>
+<ol type="1">
+<li>Allow the definition of the features to be “extensible” for individuals. In other words, <code>F</code> features might be present, but the initial configuration of individuals will be random and possibly less than <code>F</code>. Individuals might gain new features by copying, but overlap will still initially calculated in a “traditional” manner.<br /></li>
+<li>Add statistics for the “size” of an individual’s feature list. The resulting model will be a useful “neutral” bridge where copying is unbiased+homophily but no structure to the traits themselves.<br /></li>
+<li>Add structure to the traits themselves, in the form of a directed graph, and rules by which copying is possible given the presence of upstream prerequisites.</li>
+</ol>
   
 
 
@@ -209,21 +206,17 @@
 <p class="text-info"><i class="icon-tags"></i>&nbsp;Tags</p>
 <ul>
 
+<li><a href='/tag/SAA2014.html'>SAA2014</a></li>
+
+<li><a href='/tag/axelrod model.html'>axelrod model</a></li>
+
+<li><a href='/tag/structured information.html'>structured information</a></li>
+
 <li><a href='/tag/cultural transmission.html'>cultural transmission</a></li>
-
-<li><a href='/tag/classification.html'>classification</a></li>
-
-<li><a href='/tag/coarse graining.html'>coarse graining</a></li>
-
-<li><a href='/tag/simulation.html'>simulation</a></li>
-
-<li><a href='/tag/ctpy.html'>ctpy</a></li>
-
-<li><a href='/tag/dissertation.html'>dissertation</a></li>
 
 <li><a href='/tag/experiments.html'>experiments</a></li>
 
-<li><a href='/tag/experiment-classification.html'>experiment-classification</a></li>
+<li><a href='/tag/experiment-semanticaxelrod.html'>experiment-semanticaxelrod</a></li>
 
 </ul>
 </div>
