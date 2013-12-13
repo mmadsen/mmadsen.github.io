@@ -3,7 +3,7 @@
 <html lang="en">
   <head prefix="dc: http://purl.org/dc/terms/ og: http://ogp.me/ns#">
     <meta charset="utf-8"/>
-    <title></title>
+    <title>Semantic Axelrod with Concept Trees and Graphs</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta name="description" content="Lab Notebook for Mark E. Madsen"/>
     <meta name="author" content="Mark E. Madsen"/>
@@ -13,9 +13,9 @@
 
 
 	<!-- For posts, page.date is the date they are published under, which we use as their 'canonical' dc:date -->
-	 <!-- If we don't have a page.date, then use modified time (pages) -->
-	   
-	
+	 
+	  
+	  
 
 	<!-- Posts declare modified timestamps in the sidebar, so would be redundant to put here. But then 
 	     pages don't have a dc:modified... unless we give them their own (modified) sidebar?  
@@ -23,26 +23,26 @@
 	<!-- Ideally we would want date originally created from the _oldest_ git commit too...-->
 
 	<!-- RDFa Metadata (in DublinCore) -->
-	<meta property="dc:title" content="" />
+	<meta property="dc:title" content="Semantic Axelrod with Concept Trees and Graphs" />
 	<meta property="dc:creator" content="Mark E. Madsen" />
-	<meta property="dc:date" content="2013-12-12T16:21:50-08:00" />
+	<meta property="dc:date" content="2013-12-11T00:00:00-08:00" />
 	<meta property="dc:format" content="text/html" />
 	<meta property="dc:language" content="en" />
-	<meta property="dc:identifier" content="/tag/recipes.html" />
+	<meta property="dc:identifier" content="/structured%20information%20project/2013/12/11/semantic-trees-and-graphs.html" />
 	<meta property="dc:rights" content="CC BY-NC-SA 3.0" />
 	<meta property="dc:source" content="Lab Notebook for Mark E. Madsen" />
 	<meta property="dc:subject" content="Anthropology" /> 
 	<meta property="dc:type" content="website" /> 
 	<!-- RDFa Metadata (in OpenGraph) -->
-	<meta property="og:title" content="" />
+	<meta property="og:title" content="Semantic Axelrod with Concept Trees and Graphs" />
 	<meta property="og:author" content="notebook.madsenlab.org/bio.html" />  <!-- Should be Liquid? URI? -->
 	<meta property="og:site_name" content="Lab Notebook for Mark E. Madsen" /> <!-- Same as dc:source? -->
-	<meta property="og:url" content="notebook.madsenlab.org/tag/recipes.html" />
+	<meta property="og:url" content="notebook.madsenlab.org/structured%20information%20project/2013/12/11/semantic-trees-and-graphs.html" />
 	<meta property="og:type" content="website" /> 
 	<!-- Google Scholar Metadata -->
 	<meta name="citation_author" content="Mark E. Madsen"/>
-	<meta name="citation_date" content="2013-12-12T16:21:50-08:00"/>
-	<meta name="citation_title" content=""/>
+	<meta name="citation_date" content="2013-12-11T00:00:00-08:00"/>
+	<meta name="citation_title" content="Semantic Axelrod with Concept Trees and Graphs"/>
 	<meta name="citation_journal_title" content="Lab Notebook for Mark E. Madsen"/>
 
     <!-- Le styles -->
@@ -169,23 +169,80 @@
           </div><!--/.well -->
         </div><!--/span3-->
 
-            <div  class="span9">
+            <div class="span8">
+  	<h2>Semantic Axelrod with Concept Trees and Graphs</h2>
+	
 
-<h2>Tag: recipes</h2>
+		<p class="text-info">
+		<table class="table table-condensed">
+			<tr class="info">
+				<td><small><i class="icon-calendar"></i>&nbsp;Created: 11 Dec 2013</small></td>
+				<td><small><i class="icon-calendar"></i>&nbsp;Modified: 12 Dec 2013</small></td>
+				<td><small><i class="icon-book">&nbsp;</i>&nbsp;<a href=http://greycite.knowledgeblog.org/bib/?uri=http://notebook.madsenlab.org/structured%20information%20project/2013/12/11/semantic-trees-and-graphs.html target='_blank'>BibTeX Entry</a>
+</small></td>
+				<td><small><i class="icon-book">&nbsp;</i>&nbsp;<a href=http://greycite.knowledgeblog.org/ris/?uri=http://notebook.madsenlab.org/structured%20information%20project/2013/12/11/semantic-trees-and-graphs.html target='_blank'>RIS Citation</a>
+</small></td>
+				<td><small><a href="javascript:window.print()"><i class="icon-print"></i>&nbsp;Print</a></small></td>
+			</tr>
+		</table>
+		</p>
 
-<ul class="posts">
+
+  	
 	
-		<li><span class="index_publish_date">07 Jun 2013</span> &raquo; <a href="/structured%20information%20project/2013/06/07/structured-info-notes.html">Rough notes on structured information in CT models</a></li>
-	
-</ul>	
-	
-	
-	
+  <h3 id="extensible-trait-models">Extensible Trait Models</h3>
+<p>An “extensible traits” version of the Axelrod model is complete,<sup><a href="#fn1" class="footnoteRef" id="fnref1">1</a></sup> in which there are no loci or features, but individuals hold any number of traits. If differs slightly from loci/allele models in that none of the traits are mutually exclusive alternatives, so we can also think of it as a single locus model with multiplicity and no exclusion.</p>
+<p>The model also initializes agents with a variable sized set of traits, which can grow via a stochastic, “mutation” like process; each model run is parameterized with an addition probability which determines how often a copied trait replaces an existing trait, or is simply added to the agent’s trait set, growing its size.</p>
+<p>The copying rule is a modification of the basic Axelrod rule, and assumes that agents hold traits in a <code>Set</code> class (rather than list, etc). Agents interact with a probability determined by the overlap in trait sets, which in sets of variable size is simply the Jaccard coefficient. Interaction also does not occur if the neighbor’s trait set is a strict subset of the focal agent’s traits, since there are no “new” traits to adopt. In pseudocode:</p>
+<pre class="sourceCode python"><code class="sourceCode python"><span class="kw">if</span> agent == neighbor or agent.isdisjoint(neighbor) or neighbor.issubset(agent):
+    <span class="kw">return</span>
+<span class="kw">else</span>:
+    prob = <span class="dt">len</span>(focal.symmetric_difference(neighbor)) / <span class="dt">len</span>(focal.union(neighbor))
+    <span class="kw">if</span> draw(prob) == <span class="ot">True</span>:
+        traits = neighbor.get_differing_traits(agent)
+        neighbor_trait = random.choice(traits)
+        <span class="kw">if</span> draw(addition_rate) == <span class="ot">True</span>:
+            agent.add(neighbor_trait)
+        <span class="kw">else</span>:
+            agent.replace_random_trait_with(neighbor_trait)</code></pre>
+<p>Otherwise, the model remains the same. Each run proceeds until convergence, measured as the lack of “active” links.</p>
+<p>The point of this model is twofold. First, it serves as essential infrastructure for later semantic models, allowing a variety of trait structures that do not employ the locus/allele formalism. Second, since copying is still random with respect to individuals and traits, the extensible model serves as a neutral “null model” for comparison to later models.</p>
+<p>Informally, the extensible model displays the same gross behavior as an Axelrod model with a small number of features and small to moderate number of traits, i.e., typically it converges to the monocultural state but occasionally to a multicultural state with a small number of distinct cultures (usually represented by single nodes).</p>
+<h3 id="semantic-trees">Semantic Trees</h3>
+<p>The first semantic model I constructed uses a single balanced tree of traits, mainly in order to bootstrap the infrastructure. The idea is that trees are useful for describing situations where concepts or traits have ordered relations such as being prerequisites for one another. In such a model, an agent would be able to adopt concept X only it already possessed the prerequisite concepts for X – i.e., those concepts along a graph path between concept X and the root of the tree.</p>
+<p>Such a population is initialized by generating random partial paths within the tree, which need not span to the leaves. Simply embedding this structure in an extensible trait model is insufficient, however, since the presence of the root node in each agent’s trait set would guarantee eventual monocultural convergence – there could be no disjoint cultures. So additional structure is needed.</p>
+<p>The next step was to construct a trait model with multiple trees, each of which has the same topology (although this is necessary only in one method, for calculating the number of nodes). Each of the trees lives in the same graph object, so lookups and path calculations work. The overall graph simply is disconnected, with N connected components, where N is the number of trees. Each tree would represent a realm of related concepts, with prerequisite relationships between nodes in a given tree. And monocultural convergence is not guaranteed, although everyone in a given “culture” is guaranteed to have the same set of root nodes and leaves, albeit from possibly non-overlapping sets of trees.</p>
+<h3 id="references-cited">References Cited</h3>
+<section class="footnotes">
+<hr />
+<ol>
+<li id="fn1"><p>All code in this project is open source and <a href="https://github.com/mmadsen/axelrod-ct">located in Github</a>.<a href="#fnref1">↩</a></p></li>
+</ol>
+</section>
+  
+
+
+<div class="well well-small">
+<p class="text-info"><i class="icon-tags"></i>&nbsp;Tags</p>
+<ul>
+
+<li><a href='/tag/SAA2014.html'>SAA2014</a></li>
+
+<li><a href='/tag/axelrod model.html'>axelrod model</a></li>
+
+<li><a href='/tag/structured information.html'>structured information</a></li>
+
+<li><a href='/tag/cultural transmission.html'>cultural transmission</a></li>
+
+<li><a href='/tag/experiments.html'>experiments</a></li>
+
+<li><a href='/tag/experiment-semanticaxelrod.html'>experiment-semanticaxelrod</a></li>
+
+</ul>
 </div>
 
 
-
-
+</div>
 
 
         
