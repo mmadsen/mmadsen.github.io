@@ -177,7 +177,7 @@
 		<table class="table table-condensed">
 			<tr class="info">
 				<td><small><i class="icon-calendar"></i>&nbsp;Created: 11 Dec 2013</small></td>
-				<td><small><i class="icon-calendar"></i>&nbsp;Modified: 12 Dec 2013</small></td>
+				<td><small><i class="icon-calendar"></i>&nbsp;Modified: 13 Dec 2013</small></td>
 				<td><small><i class="icon-book">&nbsp;</i>&nbsp;<a href=http://greycite.knowledgeblog.org/bib/?uri=http://notebook.madsenlab.org/structured%20information%20project/2013/12/11/semantic-trees-and-graphs.html target='_blank'>BibTeX Entry</a>
 </small></td>
 				<td><small><i class="icon-book">&nbsp;</i>&nbsp;<a href=http://greycite.knowledgeblog.org/ris/?uri=http://notebook.madsenlab.org/structured%20information%20project/2013/12/11/semantic-trees-and-graphs.html target='_blank'>RIS Citation</a>
@@ -211,7 +211,63 @@
 <h3 id="semantic-trees">Semantic Trees</h3>
 <p>The first semantic model I constructed uses a single balanced tree of traits, mainly in order to bootstrap the infrastructure. The idea is that trees are useful for describing situations where concepts or traits have ordered relations such as being prerequisites for one another. In such a model, an agent would be able to adopt concept X only it already possessed the prerequisite concepts for X – i.e., those concepts along a graph path between concept X and the root of the tree.</p>
 <p>Such a population is initialized by generating random partial paths within the tree, which need not span to the leaves. Simply embedding this structure in an extensible trait model is insufficient, however, since the presence of the root node in each agent’s trait set would guarantee eventual monocultural convergence – there could be no disjoint cultures. So additional structure is needed.</p>
-<p>The next step was to construct a trait model with multiple trees, each of which has the same topology (although this is necessary only in one method, for calculating the number of nodes). Each of the trees lives in the same graph object, so lookups and path calculations work. The overall graph simply is disconnected, with N connected components, where N is the number of trees. Each tree would represent a realm of related concepts, with prerequisite relationships between nodes in a given tree. And monocultural convergence is not guaranteed, although everyone in a given “culture” is guaranteed to have the same set of root nodes and leaves, albeit from possibly non-overlapping sets of trees.</p>
+<p>The next step was to construct a trait model with multiple trees, each of which has the same topology (although this is necessary only in one method, for calculating the number of nodes). Each of the trees lives in the same graph object, so lookups and path calculations work. The overall graph simply is disconnected, with N connected components, where N is the number of trees. Each tree would represent a realm of related concepts, with prerequisite relationships between nodes in a given tree. And monocultural convergence is not guaranteed, although everyone in a given “culture” is guaranteed to have the same set of root nodes and leaves, albeit from possibly non-overlapping sets of trees. An example of a balanced multi-tree structure is:</p>
+<figure>
+<img src="/images/mult-trees.png" alt="Example of trait/concept trees" /><figcaption>Example of trait/concept trees</figcaption>
+</figure>
+<h4 id="initialization">Initialization</h4>
+<p>As an example of initializing a population, imagine initializing 8 trait trees, with branching factor 3 and depth 3. This yields roots at <code>[0,41,82,123,164,205,246,287]</code>. If we then take random paths through trees chosen at random, we get something like the following:</p>
+<pre class="sourceCode python"><code class="sourceCode python">[<span class="dv">123</span>, <span class="dv">125</span>, <span class="dv">132</span>, <span class="dv">152</span>]
+[<span class="dv">82</span>, <span class="dv">84</span>, <span class="dv">89</span>]
+[<span class="dv">164</span>, <span class="dv">167</span>, <span class="dv">176</span>, <span class="dv">202</span>]
+[<span class="dv">287</span>, <span class="dv">289</span>, <span class="dv">296</span>, <span class="dv">315</span>]
+[<span class="dv">123</span>, <span class="dv">126</span>, <span class="dv">134</span>, <span class="dv">157</span>]
+[<span class="dv">0</span>, <span class="dv">3</span>, <span class="dv">10</span>]
+[<span class="dv">205</span>, <span class="dv">207</span>]
+[<span class="dv">82</span>, <span class="dv">83</span>, <span class="dv">86</span>, <span class="dv">95</span>]
+[<span class="dv">82</span>, <span class="dv">85</span>, <span class="dv">93</span>, <span class="dv">117</span>]</code></pre>
+<h4 id="interaction-with-prerequisites">Interaction with Prerequisites</h4>
+<p>Given trait sets which are structured as “chains of concepts,” the extensible Axelrod interaction rule can be generalized such that individuals may only “adopt” traits (and thus come to possess the relevant knowledge or information), when they already have appropriate prerequisites skills or knowledge. In this example, we deal only with terminal or “leaf” traits, although copying rules which are more complex are possible, see below.</p>
+<p>As an example, at a given step in the simulation, Agent A is selected as the “focal” individual, and Agent B as a random neighbor of A. Let us imagine that we calculate the overlap between their trait sets, and a random draw shows that they interact this time step.</p>
+<p>In Case 1, when we look at any of the trait chains, the focal agent cannot “learn” trait <code>157</code>from the neighbor. Even though they share <code>[123, 125]</code> as basic knowledge, they differ between <code>132</code> and <code>134</code>.</p>
+<p><strong>Case 1: Lacking Prerequisite</strong></p>
+<pre class="sourceCode python"><code class="sourceCode python"><span class="co"># Agent A</span>
+([<span class="dv">123</span>, <span class="dv">125</span>, <span class="dv">132</span>, <span class="dv">152</span>],
+[<span class="dv">82</span>, <span class="dv">84</span>, <span class="dv">89</span>],
+[<span class="dv">164</span>, <span class="dv">167</span>, <span class="dv">176</span>, <span class="dv">202</span>])
+
+<span class="co"># Agent B</span>
+([<span class="dv">287</span>, <span class="dv">289</span>, <span class="dv">296</span>, <span class="dv">315</span>],
+[<span class="dv">123</span>, <span class="dv">125</span>, <span class="dv">134</span>, <span class="dv">157</span>],
+[<span class="dv">0</span>, <span class="dv">3</span>, <span class="dv">10</span>])</code></pre>
+<p>In contrast, in Case 2, the focal agent can “learn” trait <code>157</code> from its neighbor. The focal agent and the neighbor share the prerequisites needed for both <code>152</code> and <code>157</code>, namely the chain <code>[123, 125, 132]</code>. In the simplest rule, the focal agent replaces its leaf trait with the neighbor’s.</p>
+<p><strong>Case 2: Has Prerequisite, Replaces Trait</strong></p>
+<pre class="sourceCode python"><code class="sourceCode python"><span class="co"># Agent A</span>
+([<span class="dv">123</span>, <span class="dv">125</span>, <span class="dv">132</span>, <span class="dv">152</span>],
+[<span class="dv">82</span>, <span class="dv">84</span>, <span class="dv">89</span>],
+[<span class="dv">164</span>, <span class="dv">167</span>, <span class="dv">176</span>, <span class="dv">202</span>])
+
+<span class="co"># Agent B</span>
+([<span class="dv">287</span>, <span class="dv">289</span>, <span class="dv">296</span>, <span class="dv">315</span>],
+[<span class="dv">123</span>, <span class="dv">125</span>, <span class="dv">132</span>, <span class="dv">157</span>],
+[<span class="dv">0</span>, <span class="dv">3</span>, <span class="dv">10</span>])</code></pre>
+<p><strong>Case 3: Has Prerequisites, Adds Knowledge</strong></p>
+<p>In Case 3, we implement the “addition rate” from the “extensible trait” model above, and allow the focal agent to add the neighbor’s trait to their own if prerequisites occur. Given such an event, <strong>after</strong> interaction, we now have:</p>
+<pre class="sourceCode python"><code class="sourceCode python"><span class="co"># Agent A</span>
+([<span class="dv">123</span>, <span class="dv">125</span>, <span class="dv">132</span>, <span class="dv">152</span>],
+[<span class="dv">123</span>, <span class="dv">125</span>, <span class="dv">132</span>, <span class="dv">157</span>],
+[<span class="dv">82</span>, <span class="dv">84</span>, <span class="dv">89</span>],
+[<span class="dv">164</span>, <span class="dv">167</span>, <span class="dv">176</span>, <span class="dv">202</span>])
+
+<span class="co"># Agent B</span>
+([<span class="dv">287</span>, <span class="dv">289</span>, <span class="dv">296</span>, <span class="dv">315</span>],
+[<span class="dv">123</span>, <span class="dv">125</span>, <span class="dv">132</span>, <span class="dv">157</span>],
+[<span class="dv">0</span>, <span class="dv">3</span>, <span class="dv">10</span>])</code></pre>
+<p>This is a simple way of representing the trait set, but <code>132</code> is also just a branch point in the tree, and we have <code>[123, 125, 132, [152, 157]]</code>. The representations are equivalent, so the choice is about computational efficiency.</p>
+<h4 id="random-trees-and-graphs">Random Trees and Graphs</h4>
+<p>Balanced trees are an excellent way to build out the simulation infrastructure, but they clearly represent one highly ordered endpoint to modeling knowledge relations (and a very unrealistic one).</p>
+<p>Real knowledge and skills are going to vary in their depth and branching factors, and thus we should expect non-regular tree topologies, which might be best modeled by appropriate collections of power-law trees. This is an experiment TBD.</p>
+<p>Other types of relations beyond prerequisites exist, and we may wish to simply use random graphs to model combinations of prerequisites, related information, background knowledge, and so on. This again is an experiment TBD.</p>
 <h3 id="references-cited">References Cited</h3>
 <section class="footnotes">
 <hr />
