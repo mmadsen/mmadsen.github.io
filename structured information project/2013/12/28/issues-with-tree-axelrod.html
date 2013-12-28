@@ -3,7 +3,7 @@
 <html lang="en">
   <head prefix="dc: http://purl.org/dc/terms/ og: http://ogp.me/ns#">
     <meta charset="utf-8"/>
-    <title></title>
+    <title>Issues with Tree Structured Axelrod</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta name="description" content="Lab Notebook for Mark E. Madsen"/>
     <meta name="author" content="Mark E. Madsen"/>
@@ -13,9 +13,9 @@
 
 
 	<!-- For posts, page.date is the date they are published under, which we use as their 'canonical' dc:date -->
-	 <!-- If we don't have a page.date, then use modified time (pages) -->
-	   
-	
+	 
+	  
+	  
 
 	<!-- Posts declare modified timestamps in the sidebar, so would be redundant to put here. But then 
 	     pages don't have a dc:modified... unless we give them their own (modified) sidebar?  
@@ -23,26 +23,26 @@
 	<!-- Ideally we would want date originally created from the _oldest_ git commit too...-->
 
 	<!-- RDFa Metadata (in DublinCore) -->
-	<meta property="dc:title" content="" />
+	<meta property="dc:title" content="Issues with Tree Structured Axelrod" />
 	<meta property="dc:creator" content="Mark E. Madsen" />
-	<meta property="dc:date" content="2013-12-28T11:48:12-08:00" />
+	<meta property="dc:date" content="2013-12-28T00:00:00-08:00" />
 	<meta property="dc:format" content="text/html" />
 	<meta property="dc:language" content="en" />
-	<meta property="dc:identifier" content="/tag/presentations.html" />
+	<meta property="dc:identifier" content="/structured%20information%20project/2013/12/28/issues-with-tree-axelrod.html" />
 	<meta property="dc:rights" content="CC BY-NC-SA 3.0" />
 	<meta property="dc:source" content="Lab Notebook for Mark E. Madsen" />
 	<meta property="dc:subject" content="Anthropology" /> 
 	<meta property="dc:type" content="website" /> 
 	<!-- RDFa Metadata (in OpenGraph) -->
-	<meta property="og:title" content="" />
+	<meta property="og:title" content="Issues with Tree Structured Axelrod" />
 	<meta property="og:author" content="notebook.madsenlab.org/bio.html" />  <!-- Should be Liquid? URI? -->
 	<meta property="og:site_name" content="Lab Notebook for Mark E. Madsen" /> <!-- Same as dc:source? -->
-	<meta property="og:url" content="notebook.madsenlab.org/tag/presentations.html" />
+	<meta property="og:url" content="notebook.madsenlab.org/structured%20information%20project/2013/12/28/issues-with-tree-axelrod.html" />
 	<meta property="og:type" content="website" /> 
 	<!-- Google Scholar Metadata -->
 	<meta name="citation_author" content="Mark E. Madsen"/>
-	<meta name="citation_date" content="2013-12-28T11:48:12-08:00"/>
-	<meta name="citation_title" content=""/>
+	<meta name="citation_date" content="2013-12-28T00:00:00-08:00"/>
+	<meta name="citation_title" content="Issues with Tree Structured Axelrod"/>
 	<meta name="citation_journal_title" content="Lab Notebook for Mark E. Madsen"/>
 
     <!-- Le styles -->
@@ -169,23 +169,80 @@
           </div><!--/.well -->
         </div><!--/span3-->
 
-            <div  class="span9">
+            <div class="span8">
+  	<h2>Issues with Tree Structured Axelrod</h2>
+	
 
-<h2>Tag: presentations</h2>
+		<p class="text-info">
+		<table class="table table-condensed">
+			<tr class="info">
+				<td><small><i class="icon-calendar"></i>&nbsp;Created: 28 Dec 2013</small></td>
+				<td><small><i class="icon-calendar"></i>&nbsp;Modified: 28 Dec 2013</small></td>
+				<td><small><i class="icon-book">&nbsp;</i>&nbsp;<a href=http://greycite.knowledgeblog.org/bib/?uri=http://notebook.madsenlab.org/structured%20information%20project/2013/12/28/issues-with-tree-axelrod.html target='_blank'>BibTeX Entry</a>
+</small></td>
+				<td><small><i class="icon-book">&nbsp;</i>&nbsp;<a href=http://greycite.knowledgeblog.org/ris/?uri=http://notebook.madsenlab.org/structured%20information%20project/2013/12/28/issues-with-tree-axelrod.html target='_blank'>RIS Citation</a>
+</small></td>
+				<td><small><a href="javascript:window.print()"><i class="icon-print"></i>&nbsp;Print</a></small></td>
+			</tr>
+		</table>
+		</p>
 
-<ul class="posts">
+
+  	
 	
-		<li><span class="index_publish_date">10 Apr 2013</span> &raquo; <a href="/presentations/2013/04/10/psu-talk-notes.html">Portland State Univ. First Thursday Presentation Notes</a></li>
-	
-</ul>	
-	
-	
-	
+  <h3 id="issues">Issues</h3>
+<p>Currently, the tree structured model is implemented as follows:</p>
+<ol type="1">
+<li>Individuals have unstructured sets of traits</li>
+<li>Traits are derived from structured trees</li>
+<li>There are multiple trees, giving a “forest” for a trait space</li>
+<li>Each trait tree has identical branching factor and depth (for the moment)</li>
+<li>Individuals are initialized with random traits and their prereqs in the tree</li>
+</ol>
+<p>Given this infrastructure, the copying rule is a modification of the extensible model:</p>
+<pre class="sourceCode python"><code class="sourceCode python">f = getRandomAgent()
+n = getRandomNeighborForAgent(f)
+
+<span class="kw">if</span> n = f or n.isdisjoint(f) or n.issubset(f):
+    exit  <span class="co"># no interaction possible</span>
+
+prob = jaccardIndex(n,f)
+<span class="kw">if</span> RandomUniform() &lt; prob:
+    traits = neighbor.get_differing_traits(agent)
+    neighbor_trait = random.choice(traits)
+
+    <span class="kw">if</span> f.hasPrerequisitesForTrait(neighbor_trait) == <span class="ot">False</span>:
+        exit <span class="co"># cannot copy the trait, does not have prereqs</span>
+
+    f.add_or_replace(neighbor_trait)</code></pre>
+<p>The behavior of the model is problematic, although I’m reasonably sure it’s structural and not simply a bug. The active link density will initially decline, and then stick at a high level for as long as I’ll watch it (i.e., a million or so cycles). Watching the cumulative number of copying events reveals that quickly, the rate of successful interactions goes to zero.</p>
+<p>This probably occurs because the convergence algorithm sees plenty of active links (indeed, almost all links are “active”) but after a few passes, no agents have the prerequisites for each other’s differing traits. Clearly, the copying rule needs work.</p>
+<h3 id="revised-prerequisite-rule">Revised Prerequisite Rule</h3>
+<p>To work, there needs to be a probability of learning a missing prereq. Perhaps this substitute for the “addition rate,” which was pretty artificial.</p>
+  
+
+
+<div class="well well-small">
+<p class="text-info"><i class="icon-tags"></i>&nbsp;Tags</p>
+<ul>
+
+<li><a href='/tag/SAA2014.html'>SAA2014</a></li>
+
+<li><a href='/tag/axelrod model.html'>axelrod model</a></li>
+
+<li><a href='/tag/structured information.html'>structured information</a></li>
+
+<li><a href='/tag/cultural transmission.html'>cultural transmission</a></li>
+
+<li><a href='/tag/experiments.html'>experiments</a></li>
+
+<li><a href='/tag/experiment-semanticaxelrod.html'>experiment-semanticaxelrod</a></li>
+
+</ul>
 </div>
 
 
-
-
+</div>
 
 
         
