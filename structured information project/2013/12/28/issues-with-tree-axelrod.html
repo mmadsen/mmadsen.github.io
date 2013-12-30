@@ -177,7 +177,7 @@
 		<table class="table table-condensed">
 			<tr class="info">
 				<td><small><i class="icon-calendar"></i>&nbsp;Created: 28 Dec 2013</small></td>
-				<td><small><i class="icon-calendar"></i>&nbsp;Modified: 28 Dec 2013</small></td>
+				<td><small><i class="icon-calendar"></i>&nbsp;Modified: 29 Dec 2013</small></td>
 				<td><small><i class="icon-book">&nbsp;</i>&nbsp;<a href=http://greycite.knowledgeblog.org/bib/?uri=http://notebook.madsenlab.org/structured%20information%20project/2013/12/28/issues-with-tree-axelrod.html target='_blank'>BibTeX Entry</a>
 </small></td>
 				<td><small><i class="icon-book">&nbsp;</i>&nbsp;<a href=http://greycite.knowledgeblog.org/ris/?uri=http://notebook.madsenlab.org/structured%20information%20project/2013/12/28/issues-with-tree-axelrod.html target='_blank'>RIS Citation</a>
@@ -219,6 +219,24 @@ prob = jaccardIndex(n,f)
 <p>This probably occurs because the convergence algorithm sees plenty of active links (indeed, almost all links are “active”) but after a few passes, no agents have the prerequisites for each other’s differing traits. Clearly, the copying rule needs work.</p>
 <h3 id="revised-prerequisite-rule">Revised Prerequisite Rule</h3>
 <p>To work, there needs to be a probability of learning a missing prereq. Perhaps this substitute for the “addition rate,” which was pretty artificial.</p>
+<p>One possibility:</p>
+<pre class="sourceCode python"><code class="sourceCode python">f = getRandomAgent()
+n = getRandomNeighborForAgent(f)
+
+<span class="kw">if</span> n = f or n.isdisjoint(f) or n.issubset(f):
+    exit  <span class="co"># no interaction possible</span>
+
+prob = jaccardIndex(n,f)
+<span class="kw">if</span> RandomUniform() &lt; prob:
+    traits = neighbor.get_differing_traits(agent)
+    neighbor_trait = random.choice(traits)
+
+    <span class="kw">if</span> f.hasPrerequisitesForTrait(neighbor_trait) == <span class="ot">False</span>:
+        <span class="kw">if</span> RandomUniform() &lt; learning_rate:
+            needed_prereq = DeepestRequiredPrerequisiteOf(neighbor_trait)
+            f.add(needed_prereq)
+    <span class="kw">else</span>:  <span class="co"># has prereqs</span>
+        f.add_or_replace(neighbor_trait)</code></pre>
   
 
 
