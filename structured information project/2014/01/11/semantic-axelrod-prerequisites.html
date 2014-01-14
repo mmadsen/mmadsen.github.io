@@ -1,0 +1,327 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head prefix="dc: http://purl.org/dc/terms/ og: http://ogp.me/ns#">
+    <meta charset="utf-8"/>
+    <title>Tree Structured Axelrod for Knowledge Prerequisites</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="description" content="Lab Notebook for Mark E. Madsen"/>
+    <meta name="author" content="Mark E. Madsen"/>
+
+	<!-- Get date last modified from git log. (Uses current time if file entry not found, e.g. projects/)  -->
+	
+
+
+	<!-- For posts, page.date is the date they are published under, which we use as their 'canonical' dc:date -->
+	 
+	  
+	  
+
+	<!-- Posts declare modified timestamps in the sidebar, so would be redundant to put here. But then 
+	     pages don't have a dc:modified... unless we give them their own (modified) sidebar?  
+	-->
+	<!-- Ideally we would want date originally created from the _oldest_ git commit too...-->
+
+	<!-- RDFa Metadata (in DublinCore) -->
+	<meta property="dc:title" content="Tree Structured Axelrod for Knowledge Prerequisites" />
+	<meta property="dc:creator" content="Mark E. Madsen" />
+	<meta property="dc:date" content="2014-01-11T00:00:00-08:00" />
+	<meta property="dc:format" content="text/html" />
+	<meta property="dc:language" content="en" />
+	<meta property="dc:identifier" content="/structured%20information%20project/2014/01/11/semantic-axelrod-prerequisites.html" />
+	<meta property="dc:rights" content="CC BY-NC-SA 3.0" />
+	<meta property="dc:source" content="Lab Notebook for Mark E. Madsen" />
+	<meta property="dc:subject" content="Anthropology" /> 
+	<meta property="dc:type" content="website" /> 
+	<!-- RDFa Metadata (in OpenGraph) -->
+	<meta property="og:title" content="Tree Structured Axelrod for Knowledge Prerequisites" />
+	<meta property="og:author" content="notebook.madsenlab.org/bio.html" />  <!-- Should be Liquid? URI? -->
+	<meta property="og:site_name" content="Lab Notebook for Mark E. Madsen" /> <!-- Same as dc:source? -->
+	<meta property="og:url" content="notebook.madsenlab.org/structured%20information%20project/2014/01/11/semantic-axelrod-prerequisites.html" />
+	<meta property="og:type" content="website" /> 
+	<!-- Google Scholar Metadata -->
+	<meta name="citation_author" content="Mark E. Madsen"/>
+	<meta name="citation_date" content="2014-01-11T00:00:00-08:00"/>
+	<meta name="citation_title" content="Tree Structured Axelrod for Knowledge Prerequisites"/>
+	<meta name="citation_journal_title" content="Lab Notebook for Mark E. Madsen"/>
+
+    <!-- Le styles -->
+    <link href="/assets/css/bootstrap.css" rel="stylesheet">
+    <style type="text/css">
+      body {
+        padding-top: 60px;
+        padding-bottom: 40px;
+      }
+      .sidebar-nav {
+        padding: 9px 0;
+      }
+
+      @media (max-width: 980px) {
+        /* Enable use of floated navbar text */
+        .navbar-text.pull-right {
+          float: none;
+          padding-left: 5px;
+          padding-right: 5px;
+        }
+      }
+    </style>
+    <link href="/assets/css/bootstrap-responsive.css" rel="stylesheet">
+
+    
+  <script type="text/javascript" src="//use.typekit.net/xtg2arw.js"></script>
+  <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+  <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  <script>
+  MathJax.Hub.Config({
+    showProcessingMessages: false,
+    jax: ["input/TeX", "output/HTML-CSS"],
+    tex2jax: {
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+    }
+  });
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+  </script>
+<!-- Google Analytics -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-11944342-4', 'madsenlab.org');
+  ga('send', 'pageview');
+
+</script>
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="../assets/js/html5shiv.js"></script>
+    <![endif]-->
+
+    <!-- Fav and touch icons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../assets/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../assets/ico/apple-touch-icon-114-precomposed.png">
+      <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../assets/ico/apple-touch-icon-72-precomposed.png">
+                    <link rel="apple-touch-icon-precomposed" href="../assets/ico/apple-touch-icon-57-precomposed.png">
+                                   <link rel="shortcut icon" href="../assets/ico/favicon.png">
+  </head>
+
+  <body>
+
+    <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container-fluid">
+          <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="brand" href="/">MadsenLabNotebook</a>
+          <div class="nav-collapse collapse">
+                  <!-- Search site using Google's index -->
+      <form class="navbar-search pull-right" method="get" action="http://google.com/search">
+        <p>
+          <input type="hidden" name="q" value="site:notebook.madsenlab.org" />
+          <input type="text" class="search-query" name="q" />
+          <button class="btn btn-mini" type="submit"><i class="icon-search"></i></button> 
+        </p>
+      </form>
+            <ul class="nav">
+              <li class="active"><a href="/">Home</a></li>
+              <li><a href="/labnotebook.html">About</a></li>
+              <li><a href="http://about.me/mark.e.madsen">Contact</a></li>
+              <li><a href="/blog.html">Essays</a></li>
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+    </div>
+
+    <div class="container-fluid">
+      <div class="row-fluid">
+        <div class="span3">
+          <div class="well sidebar-nav">
+            <ul class="nav nav-list">
+              <li class="nav-header"><a href="/blog.html">Essays and General Writings</a></li>
+              <li class="nav-header">Projects</li>
+              <li><a href="/projects/coarsegraining/">Coarse Grained Models of CT</a></li>
+              <li><a href="/projects/nicheconstruction/">Niche Construction and CT Modeling</a></li>
+              <li><a href="/projects/structuredinfo/">CT of Structured Information</a></li>
+              <li class="nav-header">Topics</li>
+              <li><a href="/tag/cultural%20transmission.html">Cultural transmission theory</a></li>
+              <li><a href="/tag/evolutionary%20theory.html">Darwinian evolutionary theory</a></li>
+              <li><a href="/tag/ctpy.html">CTPy Simulation Modeling</a></li>
+			  <li><a href="/tag/dissertation.html">Dissertation Research</a></li>
+              <li><a href="/tag/reading%20notes.html">Reading notes</a></li>
+              <li><a href="/experiments.html">Experiments and Analyses</a></li>
+              <li><a href="/tags.html">Other notes by topic</a></li>
+              <li class="nav-header">Meta</li>
+              <li><a href="/bio.html">Bio</a></li>
+              <li><a href="http://github.com/mmadsen">Software</a></li>
+              <li><a href="/publications.html">Publications</a></li>
+              <li><a href="/openscience.html">About Open Science</a></li>
+			<li><a href="/labnotebook.html">About this Notebook</a></li>
+            </ul>
+          </div><!--/.well -->
+        </div><!--/span3-->
+
+            <div class="span8">
+  	<h2>Tree Structured Axelrod for Knowledge Prerequisites</h2>
+	
+
+		<p class="text-info">
+		<table class="table table-condensed">
+			<tr class="info">
+				<td><small><i class="icon-calendar"></i>&nbsp;Created: 11 Jan 2014</small></td>
+				<td><small><i class="icon-calendar"></i>&nbsp;Modified: 14 Jan 2014</small></td>
+				<td><small><i class="icon-book">&nbsp;</i>&nbsp;<a href=http://greycite.knowledgeblog.org/bib/?uri=http://notebook.madsenlab.org/structured%20information%20project/2014/01/11/semantic-axelrod-prerequisites.html target='_blank'>BibTeX Entry</a>
+</small></td>
+				<td><small><i class="icon-book">&nbsp;</i>&nbsp;<a href=http://greycite.knowledgeblog.org/ris/?uri=http://notebook.madsenlab.org/structured%20information%20project/2014/01/11/semantic-axelrod-prerequisites.html target='_blank'>RIS Citation</a>
+</small></td>
+				<td><small><a href="javascript:window.print()"><i class="icon-print"></i>&nbsp;Print</a></small></td>
+			</tr>
+		</table>
+		</p>
+
+
+  	
+	
+  <h3 id="status">Status</h3>
+<p>I think I have the right algorithm now to represent:</p>
+<ul>
+<li>Nearest-neighbor transmission</li>
+<li>Where cultural traits are arranged in strict trees</li>
+<li>Where parents of a trait in a tree represent a “prerequisite” for a trait/concept</li>
+<li>With individual learning of prerequisites an agent lacks, at some rate</li>
+<li>With occasional loss of traits by chance, at some rate</li>
+<li>With the probability of two agents interacting is governed by their similarity (i.e., homophily)</li>
+</ul>
+<p>One observation is that I still have not seen any polycultural solutions; this version of the model either converges to a monoculture, or it cycles around and the number of active links is always a significant fraction of the graph.</p>
+<p>Convergence, in fact, requires a very low rate of loss and innovation (and presumably learning rate, but I haven’t tweaked that much). But I’m not sure converged solutions are the only things we can study here. We certainly study quasi-stationary equilibria with the WFIA, so really we can study snapshots of the population once the process here is well mixed.</p>
+<p><strong>Proposition</strong>: if I track the time series of active link percentages, I should be able to see a long-term average for a process which isn’t converging, and I could then wait some suitably long time and take a snapshot at some time when the process was within some <span class="math">\(\delta\)</span> of its time average.</p>
+<h3 id="trait-structure-and-population-initialization">Trait Structure and Population Initialization</h3>
+<p>Currently, the model is initialized with a specific and fully symmetric trait space, represented as <span class="math">\(N_t\)</span> balanced trees with branching factor <span class="math">\(r\)</span> and depth <span class="math">\(h\)</span>. This gives rise to <span class="math">\(\sum_{i=0}^{h} r^i\)</span> total nodes in <strong>each</strong> of <span class="math">\(N_t\)</span> trait trees.</p>
+<p>Individuals are initialized by giving them a random number of “assignments,” taken uniformly between 1 and <em>maxinittraits</em> (often 8 or 16). Each “assignment” is a random trait <strong>and</strong> that trait’s prerequisites in a given trait tree. In other words, we initialize individuals with some number of rooted arcs from the set of trait trees.</p>
+<p>These arcs are biased twoards the root of the trees, to represent an initial state with “basic” knowledge, and we expect the population to have more “derived” or specialized knowledge over time. The implementation is to decide how “deep” the initial arcs go with a <em>Poisson</em> distribution with <span class="math">\(\lambda = 0.5\)</span>.</p>
+<h3 id="copying-algorithm">Copying Algorithm</h3>
+<pre class="sourceCode python"><code class="sourceCode python">f = getRandomAgent()
+n = getRandomNeighborForAgent(f)
+
+<span class="kw">if</span> n = f or n.isdisjoint(f) or n.issubset(f):
+    exit  <span class="co"># no interaction possible</span>
+
+prob = jaccardIndex(n,f)
+<span class="kw">if</span> RandomUniform() &lt; prob:
+    traits = neighbor.get_differing_traits(agent)
+    neighbor_trait = random.choice(traits)
+
+    <span class="kw">if</span> f.hasPrerequisitesForTrait(neighbor_trait) == <span class="ot">False</span>:
+        <span class="kw">if</span> RandomUniform() &lt; learning_rate:
+            needed_prereq = DeepestRequiredPrerequisiteOf(neighbor_trait)
+            f.add(needed_prereq)
+    <span class="kw">else</span>:  <span class="co"># has prereqs</span>
+        f.add_or_replace(neighbor_trait)
+
+<span class="co"># now we look at the whole population and see if there is a </span>
+<span class="co"># random loss or innovation</span>
+
+<span class="kw">if</span> RandomUniform() &lt; loss_rate:
+    f2 = getRandomAgent()
+    loss_trait = random.choice(f2.traits)
+    f2.removeTrait(loss_trait)
+
+<span class="kw">if</span> RandomUniform() &lt; innovation_rate:
+    f3 = getRandomAgent()
+    innov_trait = getRandomTraitNotPossessedByAgent(f3.traits)
+    trait_and_prereqs = getPrerequisiteChainForTrait(innov_trait)
+    f3.addTrait(trait_and_prereqs)</code></pre>
+<h3 id="trait-tree-measures">Trait Tree Measures</h3>
+<p>In those instances when the model runs to convergence, the resulting trait trees are considerably “thinned” out in comparison to the starting configuration. I expect this to be the case – we begin with the “entire design space” represented and determine how much variation with what structure is retained in the population at quasi-stationary or stationary equilibrium.</p>
+<p>At least in the converged “final” trait trees, the copying algorithm guarantees that “leaf” traits will not be disconnected from the root (this could happen temporarily given the random trait loss rate). Thus, the final state of a population is one or more “configurations” of trait trees, each of which is unbalanced (but derived from a maximal <span class="math">\((r,h)\)</span> balanced tree).</p>
+<p>Thus, for each trait tree in a configuration, we can examine:</p>
+<ul>
+<li>What fraction of a balanced <span class="math">\((r,h)\)</span> tree remains? (order)</li>
+<li>What average branching factor and depth does the remaining tree possess? <span class="math">\((\bar{r},\bar{h})\)</span></li>
+<li>What is the “shape” of resulting tree?</li>
+</ul>
+<p>The latter question is most interesting because many different trees will have the same “order,” and probably the same <span class="math">\((\bar{r},\bar{h})\)</span>. The symmetries of a graph capture its “shape” up to a chosen set of symmetries. For example, if we demand that each vertex have the same edges to the same vertices, then we’re looking for <em>isomorphisms</em> of the graph. This is too restrictive, since the vertices here are arbitrary and simply play roles at a given level in the tree. What we want are the symmetries resulting from <em>automorphisms</em> of the graph: functions which rearrange the graph but retain adjacency (and thus vertex and edge count).</p>
+<p>Each graph <span class="math">\(G\)</span> is associated with an <strong>automorphism group</strong> <span class="math">\(\textit{Aut}(G)\)</span>, which gives the collection of ways in which the vertices of the graph can be permuted without altering adjacency. The automorphism groups of different graphs can then be compared to determine if and how their structure differs <span class="citation" data-cites="macarthur2008symmetry">(MacArthur, Sánchez-García, and Anderson 2008)</span>.</p>
+<p><span class="math">\(\text{P\&#39;{o}lya}\)</span> showed that the automorphism groups of trees are the class of groups which contain symmetric groups and are closed under direct and wreath products of such groups <span class="citation" data-cites="godsil2001algebraic">(Godsil and Royle 2001)</span>. With limited values of <span class="math">\((r,h)\)</span> for our trees, however, the product decomposition of trees is likely to be less informative than the <strong>orbit</strong> structure of the graph.</p>
+<p>The <strong>orbit</strong> of a vertex <span class="math">\(v\)</span> is the set of vertices into which <span class="math">\(v\)</span> can be mapped by automorphisms from <span class="math">\(\textit{Aut}(G)\)</span>. In other words, orbits partition the vertex set into equivalence classes where vertices can be permuted into exactly the same adjacency relationships. In a rooted tree like this, we would expect that the <em>full</em> trait tree would partition into three orbits: the root (which has <span class="math">\(r\)</span> incident edges), leaves (which have <span class="math">\(1\)</span> incident edge), and vertices in the “middle” of the tree, which possess <span class="math">\(r+1\)</span> incident edges.</p>
+<p>A thinned tree will have a different degree distribution, and thus a different set of orbit equivalence classes. The frequency distribution of orbits in a cultural configuration is thus a good abstract measure of the “shape” of a set of trait trees, and is usable in the quasi-stationary context when we do not have a converged trait configuration and are sampling the population over time.</p>
+<h3 id="software-for-measuring-orbit-structure">Software For Measuring Orbit Structure</h3>
+<p>At the moment, I’m investigating Brendan MacKay’s <code>nauty</code> program, and the computational group theory software <code>GAP</code>. In addition, <code>Mathematica 9</code> can do the calculations. The tough thing with <code>nauty</code> is its reliance on the <code>Graph6</code> file format, for which I’m not seeing a good converter from other formats (<code>networkx</code> can read it, but not write it). <code>Graph6</code> is incredibly opaque and it’s not clear how to write an arbitrary graph in it (it seems designed to compactly represent standard graphs like the Petersen graph, etc).</p>
+<p>So I either need a converter chain, or I need to do the orbit analysis in Mathematica in a loop, reading trait graphs and then writing the results to a file, or learn enough GAP to write a program and save the results.</p>
+<p>Oh, there’s also <code>bliss</code>, which reads the <code>DIMACS</code> format, and also does orbit calculations. <code>Conauto</code> may also output orbits in addition to testing for isomorphism and calculating the automorphism group.</p>
+<p><a href="http://pallini.di.uniroma1.it/Links.html">links</a></p>
+<h3 id="references-cited">References Cited</h3>
+<p>Godsil, Christopher David, and Gordon Royle. 2001. <em>Algebraic graph theory</em>. Vol. 8. Springer New York.</p>
+<p>MacArthur, Ben D., Rubén J. Sánchez-García, and James W. Anderson. 2008. “Symmetry in complex networks.” <em>Discrete Applied Mathematics</em> 156 (18): 3525–3531.</p>
+  
+
+
+<div class="well well-small">
+<p class="text-info"><i class="icon-tags"></i>&nbsp;Tags</p>
+<ul>
+
+<li><a href='/tag/SAA2014.html'>SAA2014</a></li>
+
+<li><a href='/tag/axelrod model.html'>axelrod model</a></li>
+
+<li><a href='/tag/structured information.html'>structured information</a></li>
+
+<li><a href='/tag/cultural transmission.html'>cultural transmission</a></li>
+
+<li><a href='/tag/experiments.html'>experiments</a></li>
+
+<li><a href='/tag/experiment-semanticaxelrod.html'>experiment-semanticaxelrod</a></li>
+
+</ul>
+</div>
+
+
+</div>
+
+
+        
+      </div><!--/row-->
+
+
+    
+
+
+ 
+      <hr>
+
+      <footer>
+		        <p>&copy; Mark E. Madsen 2013      <a href="mailto:mark@madsenlab.org">Email</a>&nbsp;||
+		  <a href="http://orcid.org/0000-0001-9320-8377">ORCId</a>&nbsp;||
+		  <a href="http://figshare.com/authors/Mark%20Madsen/279062">Figshare</a>&nbsp;||
+		    <a href="http://www.linkedin.com/profile/view?id=8751">LinkedIn</a>&nbsp;|| 	    <a href="http://github.com/mmadsen">GitHub</a></p>
+      </footer>
+
+    </div><!--/.fluid-container-->
+
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="/assets/js/jquery.js"></script>
+    <script src="/assets/js/bootstrap-transition.js"></script>
+    <script src="/assets/js/bootstrap-alert.js"></script>
+    <script src="/assets/js/bootstrap-modal.js"></script>
+    <script src="/assets/js/bootstrap-dropdown.js"></script>
+    <script src="/assets/js/bootstrap-scrollspy.js"></script>
+    <script src="/assets/js/bootstrap-tab.js"></script>
+    <script src="/assets/js/bootstrap-tooltip.js"></script>
+    <script src="/assets/js/bootstrap-popover.js"></script>
+    <script src="/assets/js/bootstrap-button.js"></script>
+    <script src="/assets/js/bootstrap-collapse.js"></script>
+    <script src="/assets/js/bootstrap-carousel.js"></script>
+    <script src="/assets/js/bootstrap-typeahead.js"></script>
+
+  </body>
+</html>
