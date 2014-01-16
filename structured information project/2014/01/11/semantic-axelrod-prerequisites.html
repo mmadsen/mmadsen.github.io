@@ -177,7 +177,7 @@
 		<table class="table table-condensed">
 			<tr class="info">
 				<td><small><i class="icon-calendar"></i>&nbsp;Created: 11 Jan 2014</small></td>
-				<td><small><i class="icon-calendar"></i>&nbsp;Modified: 14 Jan 2014</small></td>
+				<td><small><i class="icon-calendar"></i>&nbsp;Modified: 16 Jan 2014</small></td>
 				<td><small><i class="icon-book">&nbsp;</i>&nbsp;<a href=http://greycite.knowledgeblog.org/bib/?uri=http://notebook.madsenlab.org/structured%20information%20project/2014/01/11/semantic-axelrod-prerequisites.html target='_blank'>BibTeX Entry</a>
 </small></td>
 				<td><small><i class="icon-book">&nbsp;</i>&nbsp;<a href=http://greycite.knowledgeblog.org/ris/?uri=http://notebook.madsenlab.org/structured%20information%20project/2014/01/11/semantic-axelrod-prerequisites.html target='_blank'>RIS Citation</a>
@@ -205,8 +205,8 @@
 <p><strong>Proposition</strong>: if I track the time series of active link percentages, I should be able to see a long-term average for a process which isn’t converging, and I could then wait some suitably long time and take a snapshot at some time when the process was within some <span class="math">\(\delta\)</span> of its time average.</p>
 <h3 id="trait-structure-and-population-initialization">Trait Structure and Population Initialization</h3>
 <p>Currently, the model is initialized with a specific and fully symmetric trait space, represented as <span class="math">\(N_t\)</span> balanced trees with branching factor <span class="math">\(r\)</span> and depth <span class="math">\(h\)</span>. This gives rise to <span class="math">\(\sum_{i=0}^{h} r^i\)</span> total nodes in <strong>each</strong> of <span class="math">\(N_t\)</span> trait trees.</p>
-<p>Individuals are initialized by giving them a random number of “assignments,” taken uniformly between 1 and <em>maxinittraits</em> (often 8 or 16). Each “assignment” is a random trait <strong>and</strong> that trait’s prerequisites in a given trait tree. In other words, we initialize individuals with some number of rooted arcs from the set of trait trees.</p>
-<p>These arcs are biased twoards the root of the trees, to represent an initial state with “basic” knowledge, and we expect the population to have more “derived” or specialized knowledge over time. The implementation is to decide how “deep” the initial arcs go with a <em>Poisson</em> distribution with <span class="math">\(\lambda = 0.5\)</span>.</p>
+<p>Individuals are initialized by giving them a random number of “assignments,” taken uniformly between 1 and <em>maxinittraits</em> (often 8 or 16). Each “assignment” is a random trait <strong>and</strong> that trait’s prerequisites in a given trait tree. In other words, we initialize individuals with some number of rooted paths from the set of trait trees.</p>
+<p>Initial paths are biased twoards the root of the trees, to represent an initial state with “basic” knowledge, and we expect the population to have more “derived” or specialized knowledge over time. The implementation is to decide how “deep” the initial path go with a <em>Poisson</em> distribution with <span class="math">\(\lambda = 0.5\)</span>.</p>
 <h3 id="copying-algorithm">Copying Algorithm</h3>
 <pre class="sourceCode python"><code class="sourceCode python">f = getRandomAgent()
 n = getRandomNeighborForAgent(f)
