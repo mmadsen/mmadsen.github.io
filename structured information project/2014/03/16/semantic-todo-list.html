@@ -3,7 +3,7 @@
 <html lang="en">
   <head prefix="dc: http://purl.org/dc/terms/ og: http://ogp.me/ns#">
     <meta charset="utf-8"/>
-    <title></title>
+    <title>TODO for Semantic Axelrod project</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta name="description" content="Lab Notebook for Mark E. Madsen"/>
     <meta name="author" content="Mark E. Madsen"/>
@@ -13,9 +13,9 @@
 
 
 	<!-- For posts, page.date is the date they are published under, which we use as their 'canonical' dc:date -->
-	 <!-- If we don't have a page.date, then use modified time (pages) -->
-	   
-	
+	 
+	  
+	  
 
 	<!-- Posts declare modified timestamps in the sidebar, so would be redundant to put here. But then 
 	     pages don't have a dc:modified... unless we give them their own (modified) sidebar?  
@@ -23,26 +23,26 @@
 	<!-- Ideally we would want date originally created from the _oldest_ git commit too...-->
 
 	<!-- RDFa Metadata (in DublinCore) -->
-	<meta property="dc:title" content="" />
+	<meta property="dc:title" content="TODO for Semantic Axelrod project" />
 	<meta property="dc:creator" content="Mark E. Madsen" />
-	<meta property="dc:date" content="2014-03-16T16:51:33-07:00" />
+	<meta property="dc:date" content="2014-03-16T00:00:00-07:00" />
 	<meta property="dc:format" content="text/html" />
 	<meta property="dc:language" content="en" />
-	<meta property="dc:identifier" content="/tag/metatheory.html" />
+	<meta property="dc:identifier" content="/structured%20information%20project/2014/03/16/semantic-todo-list.html" />
 	<meta property="dc:rights" content="CC BY-NC-SA 3.0" />
 	<meta property="dc:source" content="Lab Notebook for Mark E. Madsen" />
 	<meta property="dc:subject" content="Anthropology" /> 
 	<meta property="dc:type" content="website" /> 
 	<!-- RDFa Metadata (in OpenGraph) -->
-	<meta property="og:title" content="" />
+	<meta property="og:title" content="TODO for Semantic Axelrod project" />
 	<meta property="og:author" content="notebook.madsenlab.org/bio.html" />  <!-- Should be Liquid? URI? -->
 	<meta property="og:site_name" content="Lab Notebook for Mark E. Madsen" /> <!-- Same as dc:source? -->
-	<meta property="og:url" content="notebook.madsenlab.org/tag/metatheory.html" />
+	<meta property="og:url" content="notebook.madsenlab.org/structured%20information%20project/2014/03/16/semantic-todo-list.html" />
 	<meta property="og:type" content="website" /> 
 	<!-- Google Scholar Metadata -->
 	<meta name="citation_author" content="Mark E. Madsen"/>
-	<meta name="citation_date" content="2014-03-16T16:51:33-07:00"/>
-	<meta name="citation_title" content=""/>
+	<meta name="citation_date" content="2014-03-16T00:00:00-07:00"/>
+	<meta name="citation_title" content="TODO for Semantic Axelrod project"/>
 	<meta name="citation_journal_title" content="Lab Notebook for Mark E. Madsen"/>
 
     <!-- Le styles -->
@@ -169,23 +169,69 @@
           </div><!--/.well -->
         </div><!--/span3-->
 
-            <div  class="span9">
+            <div class="span8">
+  	<h2>TODO for Semantic Axelrod project</h2>
+	
 
-<h2>Tag: metatheory</h2>
+		<p class="text-info">
+		<table class="table table-condensed">
+			<tr class="info">
+				<td><small><i class="icon-calendar"></i>&nbsp;Created: 16 Mar 2014</small></td>
+				<td><small><i class="icon-calendar"></i>&nbsp;Modified: 16 Mar 2014</small></td>
+				<td><small><i class="icon-book">&nbsp;</i>&nbsp;<a href=http://greycite.knowledgeblog.org/bib/?uri=http://notebook.madsenlab.org/structured%20information%20project/2014/03/16/semantic-todo-list.html target='_blank'>BibTeX Entry</a>
+</small></td>
+				<td><small><i class="icon-book">&nbsp;</i>&nbsp;<a href=http://greycite.knowledgeblog.org/ris/?uri=http://notebook.madsenlab.org/structured%20information%20project/2014/03/16/semantic-todo-list.html target='_blank'>RIS Citation</a>
+</small></td>
+				<td><small><a href="javascript:window.print()"><i class="icon-print"></i>&nbsp;Print</a></small></td>
+			</tr>
+		</table>
+		</p>
 
-<ul class="posts">
+
+  	
 	
-		<li><span class="index_publish_date">27 May 2013</span> &raquo; <a href="/reading%20notes/2013/05/27/time-in-archaeology.html">Holdaway and Wandsnider -- Time in Archaeology</a></li>
-	
-</ul>	
-	
-	
-	
+  <h3 id="simulations">Simulations</h3>
+<ol type="1">
+<li>Run at saa-2 parameters, but with noise/innovation (but no loss rate)</li>
+<li>Should I kill the “big” population size simulation? Do I need it?</li>
+</ol>
+<h3 id="code">Code</h3>
+<ol type="1">
+<li>Finish the DOT export code so I can give it a file with ID’s – for getting, say, all of the graphs that have the same learning rate, or state-space configuration.<br /></li>
+<li>Analysis script that annotates the data with symmetry metrics from Xiao et al. 2008 – normalized entropy, ratio of vertices in non-trivial orbits to N, etc.</li>
+</ol>
+<h3 id="analyses">Analyses</h3>
+<p>For finalized runs only:</p>
+<ol type="1">
+<li>Symmetry at a given trait-space size, by learning rate</li>
+<li>Symmetry at a given trait-space size, by learning and innovation rate</li>
+<li>Symmetry at different population sizes</li>
+</ol>
+<h3 id="graphstables">Graphs/Tables</h3>
+  
+
+
+<div class="well well-small">
+<p class="text-info"><i class="icon-tags"></i>&nbsp;Tags</p>
+<ul>
+
+<li><a href='/tag/SAA2014.html'>SAA2014</a></li>
+
+<li><a href='/tag/axelrod model.html'>axelrod model</a></li>
+
+<li><a href='/tag/structured information.html'>structured information</a></li>
+
+<li><a href='/tag/cultural transmission.html'>cultural transmission</a></li>
+
+<li><a href='/tag/experiments.html'>experiments</a></li>
+
+<li><a href='/tag/experiment-semanticaxelrod.html'>experiment-semanticaxelrod</a></li>
+
+</ul>
 </div>
 
 
-
-
+</div>
 
 
         
