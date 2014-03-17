@@ -177,7 +177,7 @@
 		<table class="table table-condensed">
 			<tr class="info">
 				<td><small><i class="icon-calendar"></i>&nbsp;Created: 11 Feb 2014</small></td>
-				<td><small><i class="icon-calendar"></i>&nbsp;Modified: 16 Mar 2014</small></td>
+				<td><small><i class="icon-calendar"></i>&nbsp;Modified: 17 Mar 2014</small></td>
 				<td><small><i class="icon-book">&nbsp;</i>&nbsp;<a href=http://greycite.knowledgeblog.org/bib/?uri=http://notebook.madsenlab.org/structured%20information%20project/2014/02/11/semantic-update-observables.html target='_blank'>BibTeX Entry</a>
 </small></td>
 				<td><small><i class="icon-book">&nbsp;</i>&nbsp;<a href=http://greycite.knowledgeblog.org/ris/?uri=http://notebook.madsenlab.org/structured%20information%20project/2014/02/11/semantic-update-observables.html target='_blank'>RIS Citation</a>
@@ -198,29 +198,6 @@
 <p><code>saa-experiment-1</code> ran for two weeks and did not finish. One of the problems is that the simulation undergoes a drastic slowdown when the number of active links is very very low, possibly because we do nothing but check for active links in a tight loop without finding any.</p>
 <p>But the bigger problem is that the code for creating <code>dreadnaut</code> format graphs for the <code>nauty</code> algorith had a bug, and was capable of scrozzling the graphs. I found and fixed this, and also changed from doing tree-by-tree analysis to analyzing the entire trait tree, <a href="/structured%20information%20project/2014/03/10/symmetries-multiple-tree-components.html">given some analysis</a>.</p>
 <p>In manual experiments, I’m seeing variation in the groupsizes, orbit numbers, and orbit multiplicities (I’m also calculating and storing the max and mean multiplicities for each forest). So now the task is to see what the real range of variation is over learning rates, and state space sizes.</p>
-<h3 id="experiments-in-progress">Experiments in Progress</h3>
-<p>All of the following are presently running on EC2 <code>C3.xlarge</code> instances as of 3/11/14.</p>
-<h4 id="saa-2">SAA-2</h4>
-<ul>
-<li>Learning rate: 0.025, 0.05, 0.1, 0.2, 0.3, 0.4</li>
-<li>Population size: 100 for all runs</li>
-<li>Replications: 10</li>
-<li>Trait trees: 4, 8, 16</li>
-<li>Branching factor: 3, 4, 6</li>
-<li>Depth factor: 3, 4, 6</li>
-<li>Max init traits: 4, 8, 16</li>
-</ul>
-<h4 id="saa-3">SAA-3</h4>
-<p>Smaller sample size experiment, duplicates learning rates and other param values from SAA-2</p>
-<ul>
-<li>Population size: 49, 64</li>
-</ul>
-<h4 id="saa-4">SAA-4</h4>
-<p>Larger sample size experiment, duplicates other param values from SAA-2</p>
-<ul>
-<li>Population size: 225, 400</li>
-<li>Learning rate: 0.1, 0.2, 0.4</li>
-</ul>
   
 
 

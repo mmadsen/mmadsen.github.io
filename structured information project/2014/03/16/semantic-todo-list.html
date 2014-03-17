@@ -177,7 +177,7 @@
 		<table class="table table-condensed">
 			<tr class="info">
 				<td><small><i class="icon-calendar"></i>&nbsp;Created: 16 Mar 2014</small></td>
-				<td><small><i class="icon-calendar"></i>&nbsp;Modified: 16 Mar 2014</small></td>
+				<td><small><i class="icon-calendar"></i>&nbsp;Modified: 17 Mar 2014</small></td>
 				<td><small><i class="icon-book">&nbsp;</i>&nbsp;<a href=http://greycite.knowledgeblog.org/bib/?uri=http://notebook.madsenlab.org/structured%20information%20project/2014/03/16/semantic-todo-list.html target='_blank'>BibTeX Entry</a>
 </small></td>
 				<td><small><i class="icon-book">&nbsp;</i>&nbsp;<a href=http://greycite.knowledgeblog.org/ris/?uri=http://notebook.madsenlab.org/structured%20information%20project/2014/03/16/semantic-todo-list.html target='_blank'>RIS Citation</a>
@@ -190,11 +190,47 @@
 
   	
 	
-  <h3 id="simulations">Simulations</h3>
-<ol type="1">
-<li>Run at saa-2 parameters, but with noise/innovation (but no loss rate)</li>
-<li>Should I kill the “big” population size simulation? Do I need it?</li>
-</ol>
+  <h3 id="simulations-in-progress">Simulations in Progress</h3>
+<p>All of the following are presently running on EC2 <code>C3.xlarge</code> instances as of 3/11/14.</p>
+<p>Each of these servers can be shut down when experiments 3, 4, and 5 are complete.</p>
+<h4 id="saa-3-server-sa3">SAA-3 – server sa3</h4>
+<p>Smaller sample size experiment, duplicates learning rates and other param values from SAA-2</p>
+<ul>
+<li>Population size: 49, 64</li>
+</ul>
+<p><strong>UPDATE</strong> – at 8049 unique runs by 11:35am 3/17, total is 9720. Should be done by end Tuesday??</p>
+<h4 id="saa-4-server-sa4">SAA-4 – server sa4</h4>
+<p>Larger sample size experiment, duplicates other param values from SAA-2</p>
+<ul>
+<li>Population size: 225, 400</li>
+<li>Learning rate: 0.1, 0.2, 0.4</li>
+</ul>
+<p><strong>UPDATE</strong> – 981 of 4860 at 11:40 3/17. We may not finish this one. All 981 runs have population size 225, however, so if we at least get all the 225 runs done, I may stop it and not do population size of 400, because those runs will take a LONG time and this is getting expensive.</p>
+<h4 id="saa-5-server-sa1">SAA-5 – server sa1</h4>
+<p>Designed to allow comparison of innovation rate + learning/prereq vs just learning/prereq. Learning rates are the same as saa-2, but a smaller set of trait spaces are examined (dropping the 4/4 pair).</p>
+<ul>
+<li>Learning rate: 0.025, 0.05, 0.1, 0.2, 0.3, 0.4</li>
+<li>Population size: 100 for all runs</li>
+<li>Replications: 10</li>
+<li>Trait trees: 8, 16</li>
+<li>Branching factor: 3, 4, 6</li>
+<li>Depth factor: 3, 4, 6</li>
+<li>Max init traits: 8, 16</li>
+<li>Innovation rate: 0.000025</li>
+</ul>
+<p>Started 11:30am 3/17 on sa1: <code>ec2-54-211-45-158.compute-1.amazonaws.com</code></p>
+<h3 id="simulations-completed">Simulations COMPLETED</h3>
+<h4 id="saa-2">SAA-2</h4>
+<ul>
+<li>Learning rate: 0.025, 0.05, 0.1, 0.2, 0.3, 0.4</li>
+<li>Population size: 100 for all runs</li>
+<li>Replications: 10</li>
+<li>Trait trees: 4, 8, 16</li>
+<li>Branching factor: 3, 4, 6</li>
+<li>Depth factor: 3, 4, 6</li>
+<li>Max init traits: 4, 8, 16</li>
+</ul>
+<p>Data moved back to Kimura in <code>~/local-research/semanticaxelrod/rawdata/</code></p>
 <h3 id="code">Code</h3>
 <ol type="1">
 <li>Finish the DOT export code so I can give it a file with ID’s – for getting, say, all of the graphs that have the same learning rate, or state-space configuration.<br /></li>
@@ -208,6 +244,14 @@
 <li>Symmetry at different population sizes</li>
 </ol>
 <h3 id="graphstables">Graphs/Tables</h3>
+<p>TBD</p>
+<h3 id="documentation-bits">Documentation Bits</h3>
+<p>Creating a movie from a bunch of DOT files works like this:</p>
+<pre><code>analytics/export-traitgraph-to-graphviz.py --experiment saa-2 --action sample --ssize 100 --directory tmp
+
+for d in `ls *.dot`; do ( dot -Tpng $d -o $d.png; echo &quot;$d.png 300&quot; &gt;&gt; build ); done
+
+~/bin/makeQuickTime.py build test.mov</code></pre>
   
 
 
