@@ -177,7 +177,7 @@
 		<table class="table table-condensed">
 			<tr class="info">
 				<td><small><i class="icon-calendar"></i>&nbsp;Created: 16 Mar 2014</small></td>
-				<td><small><i class="icon-calendar"></i>&nbsp;Modified: 25 Mar 2014</small></td>
+				<td><small><i class="icon-calendar"></i>&nbsp;Modified: 26 Mar 2014</small></td>
 				<td><small><i class="icon-book">&nbsp;</i>&nbsp;<a href=http://greycite.knowledgeblog.org/bib/?uri=http://notebook.madsenlab.org/structured%20information%20project/2014/03/16/semantic-todo-list.html target='_blank'>BibTeX Entry</a>
 </small></td>
 				<td><small><i class="icon-book">&nbsp;</i>&nbsp;<a href=http://greycite.knowledgeblog.org/ris/?uri=http://notebook.madsenlab.org/structured%20information%20project/2014/03/16/semantic-todo-list.html target='_blank'>RIS Citation</a>
@@ -193,16 +193,6 @@
   <h3 id="simulations-in-progress">Simulations in Progress</h3>
 <p>All of the following are presently running on EC2 <code>C3.xlarge</code> instances as of 3/11/14.</p>
 <p>Each of these servers can be shut down when experiments 3, 4, and 5 are complete.</p>
-<h4 id="saa-4-server-sa4">SAA-4 – server sa4</h4>
-<p>Larger sample size experiment, duplicates other param values from SAA-2</p>
-<ul>
-<li>Population size: 225, 400</li>
-<li>Learning rate: 0.1, 0.2, 0.4</li>
-</ul>
-<p>4860 total runs</p>
-<p><strong>UPDATE</strong> – 981 of 4860 at 11:40 3/17. We may not finish this one. All 981 runs have population size 225, however, so if we at least get all the 225 runs done, I may stop it and not do population size of 400, because those runs will take a LONG time and this is getting expensive.</p>
-<p>3/20 – about halfway done with the 225 runs. I guess, let it run as long as possible, and then use a slice.</p>
-<p>3/24 – still not done with the 225 runs, but sometime in the next 2-3 days. Then am going to kill it.</p>
 <h4 id="saa-5-server-sa1">SAA-5 – server sa1</h4>
 <p>Designed to allow comparison of innovation rate + learning/prereq vs just learning/prereq. Learning rates are the same as saa-2, but a smaller set of trait spaces are examined (dropping the 4/4 pair).</p>
 <ul>
@@ -216,8 +206,7 @@
 <li>Innovation rate: 0.000025</li>
 </ul>
 <p>2160 total runs</p>
-<p>Started 11:30am 3/17 on sa1: <code>ec2-54-211-45-158.compute-1.amazonaws.com</code> Going very slowly.</p>
-<p>Killed it Monday 3/24, less than a 1/4 through, upgraded code to the new convergence/caching, and restarted it.</p>
+<p>332 on the restart, Weds 3/26</p>
 <h4 id="saa-6-server-sa5">SAA-6 – server sa5</h4>
 <p>Intended to get more samples for an overlap of SAA-5 and SAA-2. Only the largest and smallest trait space sizes are used, but all the learning rates, and both mutation and no mutation cases. For these parameter combinations, we will end up with 30 replications per param combo.</p>
 <ul>
@@ -231,6 +220,7 @@
 <li>Innovation rate: 0.000025, 0.0</li>
 </ul>
 <p>1920 total runs</p>
+<p>1190 runs at 6:45pm Weds 3/26</p>
 <h4 id="saa-7-server-sa7">SAA-7 – server sa7</h4>
 <p>Intended to test whether graphs really do change at high learning rates – testing whether learning environment really changes the cumulation of cultural information</p>
 <ul>
@@ -245,6 +235,7 @@
 </ul>
 <p>1280 total runs</p>
 <p>Started on sa-7 on Tues 3/25 at 3:10pm</p>
+<p>914 total runs by 6:45pm on Weds 3/26</p>
 <h3 id="simulations-completed">Simulations COMPLETED</h3>
 <h4 id="saa-2">SAA-2</h4>
 <ul>
@@ -263,6 +254,14 @@
 <li>Population size: 49, 64</li>
 </ul>
 <p><strong>Completed early morning Thursday 3/20.</strong></p>
+<h4 id="saa-4-server-sa4">SAA-4 – server sa4</h4>
+<p>Larger sample size experiment, duplicates other param values from SAA-2</p>
+<ul>
+<li>Population size: 225, 400</li>
+<li>Learning rate: 0.1, 0.2, 0.4</li>
+</ul>
+<p>4860 total runs</p>
+<p>Killed it, and used just the 2430 runs for popsize 225.</p>
 <h3 id="code">Code</h3>
 <ol type="1">
 <li>Finish the DOT export code so I can give it a file with ID’s – for getting, say, all of the graphs that have the same learning rate, or state-space configuration.</li>
