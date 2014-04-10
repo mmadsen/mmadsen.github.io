@@ -192,7 +192,7 @@
 	
   <p>Chris Stucchio’s recent post <a href="http://www.chrisstucchio.com/blog/2013/hadoop_hatred.html">“Don’t use Hadoop - your data isn’t that big”</a> is a valuable read for many of us in the sciences, whose data are “large,” but not “big data” in the current industry buzzword sense of the term. In the sciences, astronomers doing automated sky sweeps have big data. The physicists are CERN have big data. Mostly, the rest of us have small to medium data. I’d like to make a case that there are methods and best practices for the analysis of <strong>medium</strong> scale data that have been largely ignored until now. And that folks doing computational studies in any discipline need to think about how to set up an analysis of medium-scale data such that it’s replicable and accurate.</p>
 <h3 id="defining-medium-data">Defining Medium Data</h3>
-<p>Small data, of course, are any data set where it doesn’t matter what tools you use – any operation you choose finishes about the time your finger comes off the “Enter” key. Or within a couple of seconds, tops. Small data are those that fit in an Excel worksheet (although since V2010 or so, a sheet can have 1.048 million rows instead of the old limits of 65K or so, so arguably you can trend into “medium” data with Excel now as well).<sup><a href="#fn1" class="footnoteRef" id="fnref1">1</a></sup></p>
+<p>Small data, of course, are any data set where it doesn’t matter what tools you use – any operation you choose finishes about the time your finger comes off the “Enter” key. Or within a couple of seconds, tops. Small data are those that fit in an Excel worksheet (although since V2010 or so, a sheet can have 1.048 million rows instead of the old limits of 65K or so, so arguably you can trend into “medium” data with Excel now as well).<a href="#fn1" class="footnoteRef" id="fnref1"><sup>1</sup></a></p>
 <p>Medium data are those where you can’t easily perform routine operations:</p>
 <ul>
 <li>Hand edit the data to clean them up, even in a good programmer’s text editor</li>
@@ -202,7 +202,7 @@
 <p>Medium data are also:</p>
 <ul>
 <li>Small enough that scripts or programs can do meaningful processing of the data in a reasonsable time frame (minutes or occasionally hours)</li>
-<li>Small enough that R or pandas/numpy in Python can load your data into memory<sup><a href="#fn2" class="footnoteRef" id="fnref2">2</a></sup></li>
+<li>Small enough that R or pandas/numpy in Python can load your data into memory<a href="#fn2" class="footnoteRef" id="fnref2"><sup>2</sup></a></li>
 </ul>
 <p>If your data are larger than this, you do need a parallelized or cluster solution. Perhaps that solution is Hadoop and MapReduce, perhaps it’s not. Not every problem is easily expressed in the MapReduce paradigm.</p>
 <h3 id="a-medium-data-example">A Medium Data Example</h3>
@@ -236,8 +236,10 @@
 <h4 id="script-the-scripts">Script the Scripts</h4>
 <p>Breaking your processing chain into small scripts, each performing a task and capable of verification, raises the danger that you’ll execute them in the wrong order. This may or may not lead to overt errors, but if not, a variety of subtle errors can creep into your data. Thus, I always “script the scripts” – keep a simple shell script which executes each processing step in order.</p>
 <p>While I’m writing the scripts and testing, I usually execute each one manually (often many times). But when I actually produce the data set for analysis, I <em>always</em> use the overall “driver” script to ensure that all of the processing steps happen in the right order.</p>
-<h3 id="references-cited">References Cited</h3>
-<p>McCullough, B. D., and David A. Heiser. 2008. “On the accuracy of statistical procedures in Microsoft Excel 2007.” <em>Computational Statistics &amp; Data Analysis</em> 52 (10): 4570–4578.</p>
+<div class="references">
+<h3>References Cited</h3>
+<p>McCullough, BD, and David A Heiser. 2008. “On the Accuracy of Statistical Procedures in Microsoft Excel 2007.” <em>Computational Statistics &amp; Data Analysis</em> 52 (10): 4570–4578.</p>
+</div>
 <section class="footnotes">
 <hr />
 <ol>

@@ -177,7 +177,7 @@
 		<table class="table table-condensed">
 			<tr class="info">
 				<td><small><i class="icon-calendar"></i>&nbsp;Created: 11 Jan 2014</small></td>
-				<td><small><i class="icon-calendar"></i>&nbsp;Modified: 30 Mar 2014</small></td>
+				<td><small><i class="icon-calendar"></i>&nbsp;Modified: 10 Apr 2014</small></td>
 				<td><small><i class="icon-book">&nbsp;</i>&nbsp;<a href=http://greycite.knowledgeblog.org/bib/?uri=http://notebook.madsenlab.org/structured%20information%20project/2014/01/11/semantic-axelrod-prerequisites.html target='_blank'>BibTeX Entry</a>
 </small></td>
 				<td><small><i class="icon-book">&nbsp;</i>&nbsp;<a href=http://greycite.knowledgeblog.org/ris/?uri=http://notebook.madsenlab.org/structured%20information%20project/2014/01/11/semantic-axelrod-prerequisites.html target='_blank'>RIS Citation</a>
@@ -249,7 +249,7 @@ prob = jaccardIndex(n,f)
 <li>What is the “shape” of resulting tree?</li>
 </ul>
 <p>The latter question is most interesting because many different trees will have the same “order,” and probably the same <span class="math">\((\bar{r},\bar{h})\)</span>. The symmetries of a graph capture its “shape” up to a chosen set of symmetries. For example, if we demand that each vertex have the same edges to the same vertices, then we’re looking for <em>isomorphisms</em> of the graph. This is too restrictive, since the vertices here are arbitrary and simply play roles at a given level in the tree. What we want are the symmetries resulting from <em>automorphisms</em> of the graph: functions which rearrange the graph but retain adjacency (and thus vertex and edge count).</p>
-<p>Each graph <span class="math">\(G\)</span> is associated with an <strong>automorphism group</strong> <span class="math">\(\textit{Aut}(G)\)</span>, which gives the collection of ways in which the vertices of the graph can be permuted without altering adjacency. The automorphism groups of different graphs can then be compared to determine if and how their structure differs <span class="citation" data-cites="macarthur2008symmetry">(MacArthur, Sánchez-García, and Anderson 2008)</span>.</p>
+<p>Each graph <span class="math">\(G\)</span> is associated with an <strong>automorphism group</strong> <span class="math">\(\textit{Aut}(G)\)</span>, which gives the collection of ways in which the vertices of the graph can be permuted without altering adjacency. The automorphism groups of different graphs can then be compared to determine if and how their structure differs <span class="citation" data-cites="macarthur2008symmetry">(MacArthur, S<span>á</span>nchez-Garc<span>í</span>a, and Anderson 2008)</span>.</p>
 <p><span class="math">\(\text{P\&#39;{o}lya}\)</span> showed that the automorphism groups of trees are the class of groups which contain symmetric groups and are closed under direct and wreath products of such groups <span class="citation" data-cites="godsil2001algebraic">(Godsil and Royle 2001)</span>. Brendan MacKay’s <a href="http://pallini.di.uniroma1.it/index.html"><code>nauty</code> program</a> can perform the product decomposition of <span class="math">\(\textit{Aut}(G)\)</span> for most graphs <span class="citation" data-cites="McKay201494">(McKay and Piperno 2014)</span>. With limited values of <span class="math">\((r,h)\)</span> for our trees, however, the product decomposition of trees is likely to be less informative than the <strong>orbit</strong> structure of the graph.</p>
 <p>The <strong>orbit</strong> of a vertex <span class="math">\(v\)</span> is the set of vertices into which <span class="math">\(v\)</span> can be mapped by automorphisms from <span class="math">\(\textit{Aut}(G)\)</span>. In other words, orbits partition the vertex set into equivalence classes where vertices can be permuted into exactly the same adjacency relationships. In a rooted tree like this, we would expect that the <em>full</em> trait tree would partition into three orbits: the root (which has <span class="math">\(r\)</span> incident edges), leaves (which have <span class="math">\(1\)</span> incident edge), and vertices in the “middle” of the tree, which possess <span class="math">\(r+1\)</span> incident edges.</p>
 <p>A thinned tree will have a different degree distribution, and thus a different set of orbit equivalence classes. The frequency distribution of orbits in a cultural configuration is thus a good abstract measure of the “shape” of a set of trait trees, and is usable in the quasi-stationary context when we do not have a converged trait configuration and are sampling the population over time.</p>
@@ -258,10 +258,12 @@ prob = jaccardIndex(n,f)
 <p>So I either need a converter chain, or I need to do the orbit analysis in Mathematica in a loop, reading trait graphs and then writing the results to a file, or learn enough GAP to write a program and save the results.</p>
 <p>Oh, there’s also <code>bliss</code>, which reads the <code>DIMACS</code> format, and also does orbit calculations. <code>Conauto</code> may also output orbits in addition to testing for isomorphism and calculating the automorphism group.</p>
 <p><a href="http://pallini.di.uniroma1.it/Links.html">links</a></p>
-<h3 id="references-cited">References Cited</h3>
-<p>Godsil, Christopher David, and Gordon Royle. 2001. <em>Algebraic graph theory</em>. Vol. 8. Springer New York.</p>
-<p>MacArthur, Ben D., Rubén J. Sánchez-García, and James W. Anderson. 2008. “Symmetry in complex networks.” <em>Discrete Applied Mathematics</em> 156 (18): 3525–3531.</p>
-<p>McKay, Brendan D., and Adolfo Piperno. 2014. “Practical graph isomorphism, II.” <em>Journal of Symbolic Computation</em> 60 (0): 94–112. doi:http://dx.doi.org/10.1016/j.jsc.2013.09.003. <a href="http://www.sciencedirect.com/science/article/pii/S0747717113001193" title="http://www.sciencedirect.com/science/article/pii/S0747717113001193">http://www.sciencedirect.com/science/article/pii/S0747717113001193</a>.</p>
+<div class="references">
+<h3>References Cited</h3>
+<p>Godsil, Christopher David, and Gordon Royle. 2001. <em>Algebraic Graph Theory</em>. Vol. 8. Springer New York.</p>
+<p>MacArthur, Ben D, Rub<span>é</span>n J S<span>á</span>nchez-Garc<span>í</span>a, and James W Anderson. 2008. “Symmetry in Complex Networks.” <em>Discrete Applied Mathematics</em> 156 (18): 3525–3531.</p>
+<p>McKay, Brendan D., and Adolfo Piperno. 2014. “Practical Graph Isomorphism, {II}.” <em>Journal of Symbolic Computation</em> 60 (0): 94–112. doi:<a href="http://dx.doi.org/http://dx.doi.org/10.1016/j.jsc.2013.09.003">http://dx.doi.org/10.1016/j.jsc.2013.09.003</a>. <a href="http://www.sciencedirect.com/science/article/pii/S0747717113001193">http://www.sciencedirect.com/science/article/pii/S0747717113001193</a>.</p>
+</div>
   
 
 

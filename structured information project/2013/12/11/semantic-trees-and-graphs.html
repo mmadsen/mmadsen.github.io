@@ -177,7 +177,7 @@
 		<table class="table table-condensed">
 			<tr class="info">
 				<td><small><i class="icon-calendar"></i>&nbsp;Created: 11 Dec 2013</small></td>
-				<td><small><i class="icon-calendar"></i>&nbsp;Modified: 30 Mar 2014</small></td>
+				<td><small><i class="icon-calendar"></i>&nbsp;Modified: 10 Apr 2014</small></td>
 				<td><small><i class="icon-book">&nbsp;</i>&nbsp;<a href=http://greycite.knowledgeblog.org/bib/?uri=http://notebook.madsenlab.org/structured%20information%20project/2013/12/11/semantic-trees-and-graphs.html target='_blank'>BibTeX Entry</a>
 </small></td>
 				<td><small><i class="icon-book">&nbsp;</i>&nbsp;<a href=http://greycite.knowledgeblog.org/ris/?uri=http://notebook.madsenlab.org/structured%20information%20project/2013/12/11/semantic-trees-and-graphs.html target='_blank'>RIS Citation</a>
@@ -191,7 +191,7 @@
   	
 	
   <h3 id="extensible-trait-models">Extensible Trait Models</h3>
-<p>An “extensible traits” version of the Axelrod model is complete,<sup><a href="#fn1" class="footnoteRef" id="fnref1">1</a></sup> in which there are no loci or features, but individuals hold any number of traits. If differs slightly from loci/allele models in that none of the traits are mutually exclusive alternatives, so we can also think of it as a single locus model with multiplicity and no exclusion.</p>
+<p>An “extensible traits” version of the Axelrod model is complete,<a href="#fn1" class="footnoteRef" id="fnref1"><sup>1</sup></a> in which there are no loci or features, but individuals hold any number of traits. If differs slightly from loci/allele models in that none of the traits are mutually exclusive alternatives, so we can also think of it as a single locus model with multiplicity and no exclusion.</p>
 <p>The model also initializes agents with a variable sized set of traits, which can grow via a stochastic, “mutation” like process; each model run is parameterized with an addition probability which determines how often a copied trait replaces an existing trait, or is simply added to the agent’s trait set, growing its size.</p>
 <p>The copying rule is a modification of the basic Axelrod rule, and assumes that agents hold traits in a <code>Set</code> class (rather than list, etc). Agents interact with a probability determined by the overlap in trait sets, which in sets of variable size is simply the Jaccard coefficient. Interaction also does not occur if the neighbor’s trait set is a strict subset of the focal agent’s traits, since there are no “new” traits to adopt. In pseudocode:</p>
 <pre class="sourceCode python"><code class="sourceCode python"><span class="kw">if</span> agent == neighbor or agent.isdisjoint(neighbor) or neighbor.issubset(agent):
@@ -268,7 +268,9 @@
 <p>Balanced trees are an excellent way to build out the simulation infrastructure, but they clearly represent one highly ordered endpoint to modeling knowledge relations (and a very unrealistic one).</p>
 <p>Real knowledge and skills are going to vary in their depth and branching factors, and thus we should expect non-regular tree topologies, which might be best modeled by appropriate collections of power-law trees. This is an experiment TBD.</p>
 <p>Other types of relations beyond prerequisites exist, and we may wish to simply use random graphs to model combinations of prerequisites, related information, background knowledge, and so on. This again is an experiment TBD.</p>
-<h3 id="references-cited">References Cited</h3>
+<div class="references">
+<h3>References Cited</h3>
+</div>
 <section class="footnotes">
 <hr />
 <ol>

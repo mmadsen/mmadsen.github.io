@@ -195,7 +195,7 @@
 <p>In the present experiment, the goal is to understand the power of the Slatkin/Ewens test against alternative models of conformist (and anti-conformist) transmission, given that a number of archaeological studies have attempted to distinguish between neutral and conformist transmission using artifact class frequency data.</p>
 <h2 id="experimental-setup">Experimental Setup</h2>
 <ul>
-<li>As far as I can tell, all archaeological applications of “conformist” models use the following algorithm: <em>* With probability <strong>c</strong>, an individual will adopt the most (or least) common trait in the population</em>* Otherwise with probability <strong>1 - c</strong>, the individual will employ unbiased copying <em>* With probability <strong>mu</strong>, the individual acquires a brand-new trait not seen in the population previously.</em>* This is only one way of modeling conformist transmission, and may affect the results.</li>
+<li>As far as I can tell, all archaeological applications of “conformist” models use the following algorithm: ** With probability <strong>c</strong>, an individual will adopt the most (or least) common trait in the population ** Otherwise with probability <strong>1 - c</strong>, the individual will employ unbiased copying ** With probability <strong>mu</strong>, the individual acquires a brand-new trait not seen in the population previously. ** This is only one way of modeling conformist transmission, and may affect the results.</li>
 <li>This “Global Most Common” conformist model was implemented in TransmissionFramework.</li>
 <li>Simulate populations of 2000 well-mixed individuals, at theta values of 0.5, 0.75, 1.0, 3.0, 5.0, 7.0, and 9.0.</li>
 <li>Four levels of the “conformism factor” were simulated: 0.01, 0.005, 0.001, and 0.0005. This corresponds to 20, 10, 2, and 1 individual per generation (on average) exhibiting conformist copying. This is the “strength” of the conformist bias to transmission.</li>
@@ -239,10 +239,12 @@
 <p>Montgomery Slatkin’s original C code: <a href="http://ib.berkeley.edu/labs/slatkin/monty/Ewens_exact.program">CODE</a></p>
 <p>The original C code for Slatkin’s monte carlo version required that the input data be coded into the source, and then compiled anew for each data value. In order to automate doing many, many exact tests for this and related studies, I modified Slatkin’s original program to take all input on the command line, and producing abbreviated output (there are several versions) to make scripting and integration into R easy. Code is at:</p>
 <p><a href="https://github.com/mmadsen/SAA2012/tree/master/slatkin-source-modified">Madsen’s modified source code</a></p>
-<h3 id="references-cited">References Cited</h3>
-<p>Slatkin, M. 1994. “An exact test for neutrality based on the Ewens sampling distribution.” <em>Genetical Research</em> 64 (01): 71–74.</p>
-<p>———. 1996. “A correction to the exact test based on the Ewens sampling distribution.” <em>Genetical research</em> 68 (03): 259–260.</p>
-<p>Watkins, J. C. 2010. “Convergence Time to the Ewens Sampling Formula.” <em>Journal of Mathematical Biology</em> 60: 189–206.</p>
+<div class="references">
+<h3>References Cited</h3>
+<p>Slatkin, M. 1994. “An Exact Test for Neutrality Based on the Ewens Sampling Distribution.” <em>Genetical Research</em> 64 (01): 71–74.</p>
+<p>———. 1996. “A Correction to the Exact Test Based on the Ewens Sampling Distribution.” <em>Genetical Research</em> 68 (03): 259–260.</p>
+<p>Watkins, J.C. 2010. “Convergence Time to the Ewens Sampling Formula.” <em>Journal of Mathematical Biology</em> 60: 189–206.</p>
+</div>
   
 
 

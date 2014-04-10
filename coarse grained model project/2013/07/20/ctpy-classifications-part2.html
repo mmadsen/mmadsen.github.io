@@ -220,8 +220,10 @@
 <p>A random dimension with <span class="math">\(k\)</span> modes is constructed by generating <span class="math">\(k-1\)</span> random values between 0 and 1, and using these variates as the “internal” boundaries between modes. This generates <span class="math">\(k\)</span> partitions of the unit interval. These partitions are then multiplied by MAXALLELES to generate partitions of the trait space.</p>
 <p>In order to understand the behavior of classifications with random dimensions, we need to look at the same trait configuration through the lens of many instances of a random dimension. So, for a dimension with <span class="math">\(k\)</span> modes, we generate NUM_REPLICATES_FOR_RANDOM_DIMENSION_MODES (typically, 20) different random mode partitions, and we apply ALL of them to each simulation run.</p>
 <p>Class identification is fast, but this still implies identifying the same data to 20 different versions of each classification, in addition to the classifications with even/uniform modes. Luckily, class identification is done on each sample or observation independently, so it’s a good candidate for partitioning the raw simulation data and doing identification in parallel.</p>
-<h3 id="references-cited">References Cited</h3>
-<p>Dunnell, Robert C. 1971. <em>Systematics in prehistory</em>. New York: Free Press.</p>
+<div class="references">
+<h3>References Cited</h3>
+<p>Dunnell, Robert C. 1971. <em>Systematics in Prehistory</em>. New York: Free Press.</p>
+</div>
   
 
 

@@ -3,7 +3,7 @@
 <html lang="en">
   <head prefix="dc: http://purl.org/dc/terms/ og: http://ogp.me/ns#">
     <meta charset="utf-8"/>
-    <title></title>
+    <title>TODO for Semantic Axelrod project</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta name="description" content="Lab Notebook for Mark E. Madsen"/>
     <meta name="author" content="Mark E. Madsen"/>
@@ -13,9 +13,9 @@
 
 
 	<!-- For posts, page.date is the date they are published under, which we use as their 'canonical' dc:date -->
-	 <!-- If we don't have a page.date, then use modified time (pages) -->
-	   
-	
+	 
+	  
+	  
 
 	<!-- Posts declare modified timestamps in the sidebar, so would be redundant to put here. But then 
 	     pages don't have a dc:modified... unless we give them their own (modified) sidebar?  
@@ -23,26 +23,26 @@
 	<!-- Ideally we would want date originally created from the _oldest_ git commit too...-->
 
 	<!-- RDFa Metadata (in DublinCore) -->
-	<meta property="dc:title" content="" />
+	<meta property="dc:title" content="TODO for Semantic Axelrod project" />
 	<meta property="dc:creator" content="Mark E. Madsen" />
-	<meta property="dc:date" content="2014-04-10T16:17:41-07:00" />
+	<meta property="dc:date" content="2014-04-02T00:00:00-07:00" />
 	<meta property="dc:format" content="text/html" />
 	<meta property="dc:language" content="en" />
-	<meta property="dc:identifier" content="/tag/cultural evolution.html" />
+	<meta property="dc:identifier" content="/structured%20information%20project/2014/04/02/simulation-runs-april.html" />
 	<meta property="dc:rights" content="CC BY-NC-SA 3.0" />
 	<meta property="dc:source" content="Lab Notebook for Mark E. Madsen" />
 	<meta property="dc:subject" content="Anthropology" /> 
 	<meta property="dc:type" content="website" /> 
 	<!-- RDFa Metadata (in OpenGraph) -->
-	<meta property="og:title" content="" />
+	<meta property="og:title" content="TODO for Semantic Axelrod project" />
 	<meta property="og:author" content="notebook.madsenlab.org/bio.html" />  <!-- Should be Liquid? URI? -->
 	<meta property="og:site_name" content="Lab Notebook for Mark E. Madsen" /> <!-- Same as dc:source? -->
-	<meta property="og:url" content="notebook.madsenlab.org/tag/cultural evolution.html" />
+	<meta property="og:url" content="notebook.madsenlab.org/structured%20information%20project/2014/04/02/simulation-runs-april.html" />
 	<meta property="og:type" content="website" /> 
 	<!-- Google Scholar Metadata -->
 	<meta name="citation_author" content="Mark E. Madsen"/>
-	<meta name="citation_date" content="2014-04-10T16:17:41-07:00"/>
-	<meta name="citation_title" content=""/>
+	<meta name="citation_date" content="2014-04-02T00:00:00-07:00"/>
+	<meta name="citation_title" content="TODO for Semantic Axelrod project"/>
 	<meta name="citation_journal_title" content="Lab Notebook for Mark E. Madsen"/>
 
     <!-- Le styles -->
@@ -169,25 +169,75 @@
           </div><!--/.well -->
         </div><!--/span3-->
 
-            <div  class="span9">
+            <div class="span8">
+  	<h2>TODO for Semantic Axelrod project</h2>
+	
 
-<h2>Tag: cultural evolution</h2>
+		<p class="text-info">
+		<table class="table table-condensed">
+			<tr class="info">
+				<td><small><i class="icon-calendar"></i>&nbsp;Created: 02 Apr 2014</small></td>
+				<td><small><i class="icon-calendar"></i>&nbsp;Modified: 10 Apr 2014</small></td>
+				<td><small><i class="icon-book">&nbsp;</i>&nbsp;<a href=http://greycite.knowledgeblog.org/bib/?uri=http://notebook.madsenlab.org/structured%20information%20project/2014/04/02/simulation-runs-april.html target='_blank'>BibTeX Entry</a>
+</small></td>
+				<td><small><i class="icon-book">&nbsp;</i>&nbsp;<a href=http://greycite.knowledgeblog.org/ris/?uri=http://notebook.madsenlab.org/structured%20information%20project/2014/04/02/simulation-runs-april.html target='_blank'>RIS Citation</a>
+</small></td>
+				<td><small><a href="javascript:window.print()"><i class="icon-print"></i>&nbsp;Print</a></small></td>
+			</tr>
+		</table>
+		</p>
 
-<ul class="posts">
+
+  	
 	
-		<li><span class="index_publish_date">13 Jun 2013</span> &raquo; <a href="/evolutionary%20theory/2013/06/13/gabora2013-response-notes.html">Notes on Gabora 2013 -- Selectionism versus communal exchange</a></li>
-	
-		<li><span class="index_publish_date">25 Jul 2012</span> &raquo; <a href="/evolutionary%20theory/2012/07/25/approaches-evolution-culture.html">Approaches to Explaining the Evolution of Human Culture</a></li>
-	
-</ul>	
-	
-	
-	
+  <h3 id="update">Update</h3>
+<p>A bug in the innovation code was causing innovations not to happen unless a copying event also happened. I am scrapping previous data because even though the case <span class="math">\(\mu = 0.0\)</span> might be alright, I also think that we need to be comparing time slices, and the new data seem to have different mean values for some of the key measurables. So I’m going to blast a new set of runs.</p>
+<p>Changes:</p>
+<ol type="1">
+<li><p>Simulations run to 10 million ticks, regardless. We sample from 6MM to 10MM ticks, every 1MM ticks taking a sample, giving us 5 samples per simulation run (to detect non-stationarity).</p></li>
+<li><p>I record the timing of runs. Currently, on my laptop and EC2 instances of type <code>C3.xlarge</code>, a run with 100 individuals takes 227 seconds, 225 individuals takes 293 seconds, and 400 individuals takes 372 seconds. This will allow some predictability in completion times. There is very little variation since we are doing 10MM ticks, regardless of the copying and innovation events involved.</p></li>
+</ol>
+<p>A small test run with learning rates of <code>0.1</code> and <code>0.8</code> was encouraging, things look different for some observables and not others. I think we’re ready to go.</p>
+<p>I also learned that the <span class="math">\(r=6, h=6\)</span> case for trait trees is simply too large to do automorphism group calculations upon.</p>
+<h3 id="production-experiments">Production Experiments</h3>
+<p>The following will be divided into 6 different machines, 2 each for population sizes 100, 225, 400. Each population size will finish at different times, and their server instances deactivated. The anticipated range is between 4 (size 100) and 6.5 days (size 400)</p>
+<ul>
+<li>Learning rate: 0.05, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9</li>
+<li>Population size: 100, 225, 400</li>
+<li>Replications: 50</li>
+<li>Trait trees: 4, 16</li>
+<li>Branching factor: 3, 5</li>
+<li>Depth factor: 3, 5</li>
+<li>Max init traits: 4</li>
+<li>Innovation rate: 0.0000, 0.00005, 0.0001</li>
+</ul>
+<div class="references">
+
+</div>
+  
+
+
+<div class="well well-small">
+<p class="text-info"><i class="icon-tags"></i>&nbsp;Tags</p>
+<ul>
+
+<li><a href='/tag/SAA2014.html'>SAA2014</a></li>
+
+<li><a href='/tag/axelrod model.html'>axelrod model</a></li>
+
+<li><a href='/tag/structured information.html'>structured information</a></li>
+
+<li><a href='/tag/cultural transmission.html'>cultural transmission</a></li>
+
+<li><a href='/tag/experiments.html'>experiments</a></li>
+
+<li><a href='/tag/experiment-semanticaxelrod.html'>experiment-semanticaxelrod</a></li>
+
+</ul>
 </div>
 
 
-
-
+</div>
 
 
         
