@@ -3,7 +3,7 @@
 <html lang="en">
   <head prefix="dc: http://purl.org/dc/terms/ og: http://ogp.me/ns#">
     <meta charset="utf-8"/>
-    <title>Research Interests and Projects</title>
+    <title>Software Projects</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta name="description" content="Lab Notebook for Mark E. Madsen"/>
     <meta name="author" content="Mark E. Madsen"/>
@@ -23,26 +23,26 @@
 	<!-- Ideally we would want date originally created from the _oldest_ git commit too...-->
 
 	<!-- RDFa Metadata (in DublinCore) -->
-	<meta property="dc:title" content="Research Interests and Projects" />
+	<meta property="dc:title" content="Software Projects" />
 	<meta property="dc:creator" content="Mark E. Madsen" />
-	<meta property="dc:date" content="2013-07-02T10:16:00-07:00" />
+	<meta property="dc:date" content="2014-05-08T15:59:52-07:00" />
 	<meta property="dc:format" content="text/html" />
 	<meta property="dc:language" content="en" />
-	<meta property="dc:identifier" content="/research.html" />
+	<meta property="dc:identifier" content="/software.html" />
 	<meta property="dc:rights" content="CC BY-NC-SA 3.0" />
 	<meta property="dc:source" content="Lab Notebook for Mark E. Madsen" />
 	<meta property="dc:subject" content="Anthropology" /> 
 	<meta property="dc:type" content="website" /> 
 	<!-- RDFa Metadata (in OpenGraph) -->
-	<meta property="og:title" content="Research Interests and Projects" />
+	<meta property="og:title" content="Software Projects" />
 	<meta property="og:author" content="notebook.madsenlab.org/bio.html" />  <!-- Should be Liquid? URI? -->
 	<meta property="og:site_name" content="Lab Notebook for Mark E. Madsen" /> <!-- Same as dc:source? -->
-	<meta property="og:url" content="notebook.madsenlab.org/research.html" />
+	<meta property="og:url" content="notebook.madsenlab.org/software.html" />
 	<meta property="og:type" content="website" /> 
 	<!-- Google Scholar Metadata -->
 	<meta name="citation_author" content="Mark E. Madsen"/>
-	<meta name="citation_date" content="2013-07-02T10:16:00-07:00"/>
-	<meta name="citation_title" content="Research Interests and Projects"/>
+	<meta name="citation_date" content="2014-05-08T15:59:52-07:00"/>
+	<meta name="citation_title" content="Software Projects"/>
 	<meta name="citation_journal_title" content="Lab Notebook for Mark E. Madsen"/>
 
     <!-- Le styles -->
@@ -171,30 +171,36 @@
         </div><!--/span3-->
 
             <div class="span9">
-	<h2>Active Research Projects</h2>
-	<ul>
-		<li><a href="/projects/coarsegraining/">Coarse Grained Models of Cultural Transmission</a></li>
-		<li><a href="/projects/nicheconstruction/">Niche Construction and Embodied Cultural Transmission</a></li>
-		<li><a href="/projects/structuredinfo/">Cultural Transmission of Structured Information</a></li>
-	</ul>
+<h2>Software Projects</h2>
+			
+
+<p>
+All of the research code that I write is available on GitHub under open source licenses.  Here is a link to all of my software projects:
+</p>
+
+<p><a href="http://github.com/mmadsen">GitHub Repository</a></p>
 
 
+<p>Some tools or modules are worth mentioning:
+</p>
 
-	<h2>Research Interests</h2>
-	<ul>
-		<li>Mathematical models of cultural transmission and social learning</li>
-		<li>statistical methods for fitting transmission models to empirical data, both contemporary and archaeological</li>
-		<li>coarse-graining and renormalization theory in linking micro and macro descriptions in the social sciences</li>
-		<li>statistical physics as exemplar and framework for many-body problems in the social sciences</li>
-		<li>hidden-variable models of cultural transmission dynamics</li>
-		<li>simulation methods</li>
-		<li>seriation and culture-historical methods and their link to cultural transmission models</li>
-		<li>Darwinian evolutionary theory and models of cultural change</li>
-		<li>game theory and realistic replicator/transmission models</li>
-		<li>adaptive network models combining population structure, cultural transmission, and game theoretic interactions</li>
-	</ul>
+<dl>
+<dt><a href="https://github.com/mmadsen/slatkin-exact-tools">Slatkin Exact in Python</a></dt>
+<dd>A python interface to a modified version of Montgomery Slatkin's original code for testing a set of item/allele counts against the Ewens Sampling Distribution for evidence of neutrality.  Slatkin's original code has been modified only to render it suitable for use in a software library instead of a single-shot command line program (i.e., I worked on memory management and the data input interface).  This module should compile on any Linux system with GCC or clang installed, and on OS X if the Xcode command line tools are present.  Tested only against Python 2.7.  
+</dd>
+
+<dt><a href="https://github.com/mmadsen/pig-udf-numerics">Numerical Functions for Apache Pig</a></dt>
+<dd><a href="http://pig.apache.org/">Apache Pig</a> is a high-level scripting language for data analysis which uses Hadoop to scale simple processing operations to handle very large datasets.  Pig takes simple procedures which look like SQL and standard data formats (e.g., CSV), and transforms data step-by-step.  If the data are very large, this process is transparently handed off to other computing nodes via Hadoop.  These software modules are some useful numerical functions that I've been using in processing simulation output across many projects.  An example is ensuring that floating point numbers do not get represented as scientific notation before they are input to R.</dd>
+
+<dt><a href="https://github.com/mmadsen/jekyll-greycite">Greycite plugin for Jekyll</a></dt>
+<dd><a href="http://greycite.knowledgeblog.org/">Greycite</a> is a web service which takes any URL and produces a bibliographic citation for that URL, in a number of formats including BibTeX and RIS.  This allows easy inclusion of web citations in publications.  I use Jekyll for my web-based lab notebook, and this little plugin creates a Greycite citation on the fly for every page of the notebook.  The formatting is controlled in your templates, so you if you use Jekyll, this will be useful for you as well.</dd>
+
+</dl>
+
+<p>Other software projects in my repository are specific to research projects.  Please see the README for each project.  Repositories starting with "experiment-" are generally analyses of data from specific simulation software (always located in a separate repository).  
+</p>
+
 </div>
-
 
         
       </div><!--/row-->
