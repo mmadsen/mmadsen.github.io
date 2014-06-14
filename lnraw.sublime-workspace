@@ -8,18 +8,10 @@
 	"buffers":
 	[
 		{
-			"file": "_posts/2014-04-26-semantic-next-steps.md",
+			"file": "_posts/2014-06-08-personal-history-personal-computing.md",
 			"settings":
 			{
-				"buffer_size": 2090,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "_posts/2014-04-26-ct-mixture-experiment-design.md",
-			"settings":
-			{
-				"buffer_size": 2662,
+				"buffer_size": 23226,
 				"line_ending": "Unix"
 			}
 		}
@@ -64,6 +56,15 @@
 	},
 	"file_history":
 	[
+		"/Users/mark/Dropbox/Research/websites/lnraw/lnraw.sublime-project",
+		"/Users/mark/Dropbox/Research/websites/lnraw/_posts/2014-04-26-ct-mixture-experiment-design.md",
+		"/Users/mark/Dropbox/Research/websites/lnraw/_posts/2014-05-24-ctmixture-experiment-planning.md",
+		"/Users/mark/Dropbox/Research/websites/lnraw/_site/publications.html",
+		"/Users/mark/Dropbox/Research/websites/lnraw/_site/categories.md",
+		"/Users/mark/Dropbox/Research/websites/lnraw/_posts/2014-04-26-semantic-next-steps.md",
+		"/Users/mark/Dropbox/Research/websites/lnraw/software.html",
+		"/Users/mark/Dropbox/Research/websites/lnraw/_layouts/default.html",
+		"/Users/mark/Dropbox/Research/websites/lnraw/_layouts/project_layout.html",
 		"/Users/mark/Dropbox/Research/websites/lnraw/_posts/2014-04-02-simulation-runs-april.md",
 		"/Users/mark/Dropbox/Research/websites/lnraw/_posts/2014-03-16-semantic-todo-list.md",
 		"/Users/mark/Dropbox/Research/websites/lnraw/_posts/2014-04-11-opalco-broadband-initiative.md",
@@ -73,10 +74,8 @@
 		"/Users/mark/Dropbox/Research/websites/lnraw/_posts/2014-02-11-semantic-update-observables.md",
 		"/Users/mark/Dropbox/Research/websites/lnraw/_posts/2014-03-10-symmetries-multiple-tree-components.md",
 		"/Users/mark/Dropbox/Research/websites/lnraw/css/syntax.css",
-		"/Users/mark/Dropbox/Research/websites/lnraw/_layouts/default.html",
 		"/Users/mark/Dropbox/Research/websites/lnraw/_posts/2014-01-11-semantic-axelrod-prerequisites.md",
 		"/Users/mark/Dropbox/Research/websites/lnraw/_posts/2014-01-18-semantic-trait-graphs-and-symmetries.md",
-		"/Users/mark/Dropbox/Research/websites/lnraw/_layouts/project_layout.html",
 		"/Users/mark/Dropbox/Research/websites/lnraw/_layouts/post.html",
 		"/Users/mark/Dropbox/Research/websites/lnraw/_layouts/essay.html",
 		"/Users/mark/src/axelrod-ct/axelrod-graph-error.txt",
@@ -167,19 +166,19 @@
 			[
 				{
 					"buffer": 0,
-					"file": "_posts/2014-04-26-semantic-next-steps.md",
+					"file": "_posts/2014-06-08-personal-history-personal-computing.md",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 2090,
+						"buffer_size": 23226,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2089,
-								2089
+								19757,
+								19764
 							]
 						],
 						"settings":
@@ -187,38 +186,10 @@
 							"syntax": "Packages/Markdown/Markdown.tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 6606.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "_posts/2014-04-26-ct-mixture-experiment-design.md",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 2662,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								557
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Markdown/Markdown.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 41.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
 					"type": "text"
 				}
 			]
@@ -288,7 +259,7 @@
 		[
 			[
 				"",
-				"~/Dropbox/Research/projects/structuredinformation/madsenlipo2014/semanticaxelrod.sublime-project"
+				"~/Dropbox/Research/websites/lnraw/lnraw.sublime-project"
 			]
 		],
 		"width": 380.0
