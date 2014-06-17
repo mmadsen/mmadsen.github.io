@@ -25,7 +25,7 @@
 	<!-- RDFa Metadata (in DublinCore) -->
 	<meta property="dc:title" content="How the Lab Notebook Works" />
 	<meta property="dc:creator" content="Mark E. Madsen" />
-	<meta property="dc:date" content="2013-11-03T13:25:04-08:00" />
+	<meta property="dc:date" content="2014-06-17T13:20:47-07:00" />
 	<meta property="dc:format" content="text/html" />
 	<meta property="dc:language" content="en" />
 	<meta property="dc:identifier" content="/labnotebook.html" />
@@ -41,7 +41,7 @@
 	<meta property="og:type" content="website" /> 
 	<!-- Google Scholar Metadata -->
 	<meta name="citation_author" content="Mark E. Madsen"/>
-	<meta name="citation_date" content="2013-11-03T13:25:04-08:00"/>
+	<meta name="citation_date" content="2014-06-17T13:20:47-07:00"/>
 	<meta name="citation_title" content="How the Lab Notebook Works"/>
 	<meta name="citation_journal_title" content="Lab Notebook for Mark E. Madsen"/>
 
@@ -152,14 +152,16 @@
               <li><a href="/projects/coarsegraining/">Coarse Grained Models of CT</a></li>
               <li><a href="/projects/nicheconstruction/">Niche Construction and CT Modeling</a></li>
               <li><a href="/projects/structuredinfo/">CT of Structured Information</a></li>
+              <li class="nav-header">Simulations and Experiments</li>
+              <li><a href="/experiments.html">Notes by Experiment</a></li>
+              <li><a href="/bymodel.html">Notes by Simulation Model</a></li>
               <li class="nav-header">Topics</li>
               <li><a href="/tag/cultural%20transmission.html">Cultural transmission theory</a></li>
               <li><a href="/tag/evolutionary%20theory.html">Darwinian evolutionary theory</a></li>
-			  <li><a href="/tag/dissertation.html">Dissertation Research</a></li>
+			        <li><a href="/tag/dissertation.html">Dissertation Research</a></li>
               <li><a href="/tag/reading%20notes.html">Reading notes</a></li>
               <li><a href="/tag/open%20problems.html">Open Research Problems</a></li>
-              <li><a href="/experiments.html">Experiments and Analyses</a></li>
-              <li><a href="/tags.html">Other notes by topic</a></li>
+              <li><a href="/tags.html">Notes by Tag</a></li>
               <li class="nav-header">Meta</li>
               <li><a href="/bio.html">Bio</a></li>
               <li><a href="/software.html">Software</a></li>
@@ -184,22 +186,52 @@
 <p>Carl Boettiger’s <a href="http://carlboettiger.info">lab notebook</a> intrigued me, and was built on Github Pages, so the hosting was included in my Github account already, and I could do “interesting” things with its underlying system. It’s been a journey, but I think I have a version figured out which is different from CB’s, but workable given my needs. Welcome to my lab notebook. Here’s how it works, if you want to do your own.</p>
 <h3>Overview</h3>
 <p>Github Pages allows one to host straight HTML or Github-flavored Markdown, or Jekyll-based Markdown, which is then turned into HTML. For very good reasons, Github Pages disallows third-party Jekyll plugins, because that would be a massive trojan horse and performance disaster. Bad juju.</p>
-<p>So the solution is that I have <em>two</em> Github repositories for the lab notebook. One is the “source code” for the lab notebook, where I write posts and test formatting, and do everything “offline” – I compile it using a Rakefile and it runs on localhost. When I’m happy, I commit the changes to git, and then compile the finished site, which I then copy to a second Github repository for Github Pages, which contains only the finished HTML, CSS, Javascript, and other assets. This repository, when pushed to Github, becomes the public website. All of this is automated by a build script (i.e., Rakefile), of course, so when I check in a post to the “source” repository, it’s a matter of moments before it’s built, copied, checked in, and pushed live. And both repositories are version controlled, so you have version-controlled source and production files. Nice.</p>
+<p>So the solution is that I have <em>two</em> Github repositories for the lab notebook. One is the “source code” for the lab notebook, where I write posts and test formatting, and do everything “offline” – I compile it using a Rakefile and it runs on localhost. When I’m happy, I commit the changes to git, and run a script which pushes everything to the live site. More on this below under “Deployment”.</p>
+<h3>Notes, Essays, Categories, and Tags</h3>
+<p>Everything here is ultimately a “post,” meaning that apart from site structure itself (which are often HTML pages with Jekyll/Liquid) tags, Javascript, and logic, everything is a Markdown file located in the “_posts&quot; directory of the <code>lnraw</code> source repository.</p>
+<p>At a conceptual level, I distinguish between “essays” and “notes,” in the following way. A note is like a page in your lab notebook. It records something useful (e.g., the setup of an experiment, ideas about fixing a problem, some results) but a note is not expected to stand alone without other context. The context of a note is provided by the <code>project</code> it lives in, the <code>model</code> or simulation code it may relate to, perhaps an <code>experiment</code> within which the note is a step or result. Each of these bits of metadata are recorded as a <code>category</code>, which Jekyll provides to break websites into logical units. A note can (and almost always does) belong to more than one category. For example, a recent note on planning an experiment for <code>ctmixtures</code> had the following header:</p>
+<pre><code>---
+layout: post
+title: Experiment Planning for CT Mixture Model
+tags: [cultural transmission, coarse graining, simulation, dissertation, experiments, experiment-ctmixture]
+categories: 
+- project:coarse grained model project
+- model:ctmixtures
+- experiment:experiment-ctmixtures
+---</code></pre>
+<p>You’ll see at the bottom of the YAML header, that this note belongs to <code>project:coarse grained model</code>, it relates to the model <code>model:ctmixtures</code>, and the ongoing experiment <code>experiment:experiment-ctmixtures</code>. These categories are used by the website logic itself to build lists for project pages, experiments, and to list notes related to a given body of code.</p>
+<p>Essays, on the other hand, may be related to a specific project but are expected to be comprehensible in a standalone manner. For example, a recent essay on “continuous integration” and Travis CI had this metadata:</p>
+<pre><code>---
+layout: essay
+title: Continuous Integration and Testing for Simulation Codes
+tags: [experiments, simulation, open science, reproducible science]
+categories:
+- essays
+- simulation
+- reproducible science
+---</code></pre>
+<p>This essay isn’t related to any specific project or experiment. The category “essays” will put it in the list of essays and general writings on the site. Also note that I give the <code>layout</code> as <code>essay</code> here, which has minor UI tweaks compared to the lab note/post format. It puts a link to the essay list in the upper toolbar, at the moment, which lab notes don’t have because they are assumed to be cross-linked in all sorts of ways, with no obvious “back” button.</p>
+<p>Each posting also has a series of tags, which are wholly optional. These are often related to topics, and represent another way to see content, via the tag cloud (Notes by Tag).</p>
 <h3>Documentation</h3>
 <ul>
 <li><a href="/doc/adding-project.html">Adding a Project</a></li>
 <li><a href="/doc/adding-experiment.html">Adding an Experiment</a></li>
 </ul>
+<p>I also have a few small shell scripts which make it easy to start a new note or essay. <code>newlabnote.sh</code> copies a template Markdown file, with the proper YAML header, to a date-stamped file with the current date, in the <code>_posts</code> directory of the lab notebook’s source directory. <code>newblogpost.sh</code> does the same thing with an essay template. For example, starting a new note about the <code>seriationct</code> project, I type:</p>
+<pre><code>mark:_posts/ (master*) $ newlabnote.sh seriationct-requirements                                                                                                                                        [13:15:00] Creating lab notebook post for: 2014-06-17-seriationct-requirements.md</code></pre>
+<p>This helps me get the categories, tags, and layout right since they’re important to how the site is organized.</p>
+<h3>Deployment</h3>
+<p>When I’m ready to push a note or some edits to the live website, the <code>Rakefile</code> in the source tree takes the following steps:</p>
 <h3>Details</h3>
-<p>The site uses Jekyll at whatever its current release is. I only modify Jekyll by upgrading it, or adding plugins.</p>
-<p>I also use <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap</a> as the CSS and layout engine for the site. Bootstrap is superb and allows a flexible gridding system for easy layout, has terrific pre-defined styles for buttons, menus, and a ton of small icons for common UI design tasks. If you’re not using Bootstrap, check it out. It’s one of Twitter’s great gifts to the software community, along with Storm.</p>
+<p>The site uses Jekyll at whatever its current release is. I only modify Jekyll by upgrading it, or adding plugins. When you upgrade, pay attention to updates for Jekyll Scholar dependencies, and in particular the <code>csl-styles</code> package, which hasn’t necessarily come along for the ride in the past and can cause errors. It updates just fine via the normal Ruby <code>gem</code> mechanism, but you may have to do it manually.</p>
+<p>I also use <a href="http://twitter.github.com/bootstrap/">Bootstrap</a> as the CSS and layout engine for the site. Bootstrap is superb and allows a flexible gridding system for easy layout, has terrific pre-defined styles for buttons, menus, and a ton of small icons for common UI design tasks. If you’re not using Bootstrap, check it out. It’s one of Twitter’s great gifts to the software community, along with Storm.</p>
 <p>In addition, I use several plug-ins to Jekyll:</p>
 <ul>
 <li><strong>Jekyll-Scholar</strong>: I use this only to assemble my CV publication list, from a set of BibTeX files that have references for articles, book chapters, in press materials, and conference papers. The plugin is terrible for doing references in postings, but it’s great for rendering a bulk bibliography from a BibTex file, so I feel no need to use the normal Pandoc citation mechanism to build my publications list.<br /></li>
 <li><strong>jekyll.tag_cloud</strong>: This builds a tag cloud for my tags page, but I’ve modified it locally to link to my directory structure.<br /></li>
 <li><strong>greycite_biblio</strong>: a plugin I wrote to produce a persistent bibliographic reference to each notebook page, using metadata embedded in the Jekyll templates and <a href="http://greycite.knowledgeblog.org/">Greycite</a>, which catalogs generic URIs for research citations. This plugin is available at my <a href="http://github.com/mmadsen">Github repository</a> and is open source software.</li>
-<li><strong>related_posts</strong>: a plugin borrowed from Carl Boettiger, for creating related posts which are related to tags present on the post itself, rather than whatever bogus algorithm ships with Jekyll.<br /></li>
 <li><strong>git_modified</strong>: a plugin borrowed from Carl Boettiger, for looking at the Github/Git modification time for a file, and using that to set a Liquid/Jekyll variable for the last modification time. I use this in the header of every notebook post to indicate the difference between when a post was originally written, and last modified. _</li>
+<li><strong>postcategory_filter.rb</strong>: a small Liquid filter plugin I wrote to filter posts in various ways by category. This is currently used on the main page to produce “notes” versus “essays”.</li>
 </ul>
 <h3>Pandoc</h3>
 <p>I have also replaced the default Markdown parser (and its supported alternatives) with <a href="http://johnmacfarlane.net/pandoc/">Pandoc</a>. Pandoc is a generic document conversion utility, written in Haskell, and I have a plug-in, borrowed originally from Carl Boettiger but modified slightly, to generate appropriate links for my website. It does a superb job of translating Markdown <em>with bibliographic citations to BibTeX files</em> to HTML5 with a full bibliography in Chicago author-date format.</p>
