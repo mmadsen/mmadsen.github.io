@@ -25,7 +25,7 @@
 	<!-- RDFa Metadata (in DublinCore) -->
 	<meta property="dc:title" content="How the Lab Notebook Works" />
 	<meta property="dc:creator" content="Mark E. Madsen" />
-	<meta property="dc:date" content="2014-06-17T13:20:47-07:00" />
+	<meta property="dc:date" content="2014-06-17T13:25:42-07:00" />
 	<meta property="dc:format" content="text/html" />
 	<meta property="dc:language" content="en" />
 	<meta property="dc:identifier" content="/labnotebook.html" />
@@ -41,7 +41,7 @@
 	<meta property="og:type" content="website" /> 
 	<!-- Google Scholar Metadata -->
 	<meta name="citation_author" content="Mark E. Madsen"/>
-	<meta name="citation_date" content="2014-06-17T13:20:47-07:00"/>
+	<meta name="citation_date" content="2014-06-17T13:25:42-07:00"/>
 	<meta name="citation_title" content="How the Lab Notebook Works"/>
 	<meta name="citation_journal_title" content="Lab Notebook for Mark E. Madsen"/>
 
@@ -222,6 +222,14 @@ categories:
 <p>This helps me get the categories, tags, and layout right since they’re important to how the site is organized.</p>
 <h3>Deployment</h3>
 <p>When I’m ready to push a note or some edits to the live website, the <code>Rakefile</code> in the source tree takes the following steps:</p>
+<ol type="1">
+<li>Changes to the local source tree are checked into Git, into the local repository.</li>
+<li>The local source repository is pushed to Github (into the source version of the website), so we have a record of each change.</li>
+<li>Jekyll then builds the new version of the static website, from the local source into a local “_site&quot; directory, which contains the entire website.<br /></li>
+<li>This built website is then copied to a directory which contains the “production” version of the website locally.</li>
+<li>That production version is then checked into the “production” repository in Github, and pushed to Github. This repository is my Github Pages repository, so anything I push there is served as a static website.</li>
+</ol>
+<p>That’s it. Takes about 60 seconds to push everything on a reasonably slow connection, and when I’m done both the source and the production site are version controlled. I can go back to work locally at this point.</p>
 <h3>Details</h3>
 <p>The site uses Jekyll at whatever its current release is. I only modify Jekyll by upgrading it, or adding plugins. When you upgrade, pay attention to updates for Jekyll Scholar dependencies, and in particular the <code>csl-styles</code> package, which hasn’t necessarily come along for the ride in the past and can cause errors. It updates just fine via the normal Ruby <code>gem</code> mechanism, but you may have to do it manually.</p>
 <p>I also use <a href="http://twitter.github.com/bootstrap/">Bootstrap</a> as the CSS and layout engine for the site. Bootstrap is superb and allows a flexible gridding system for easy layout, has terrific pre-defined styles for buttons, menus, and a ton of small icons for common UI design tasks. If you’re not using Bootstrap, check it out. It’s one of Twitter’s great gifts to the software community, along with Storm.</p>
