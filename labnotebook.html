@@ -25,7 +25,7 @@
 	<!-- RDFa Metadata (in DublinCore) -->
 	<meta property="dc:title" content="How the Lab Notebook Works" />
 	<meta property="dc:creator" content="Mark E. Madsen" />
-	<meta property="dc:date" content="2014-06-17T13:25:42-07:00" />
+	<meta property="dc:date" content="2014-06-17T20:26:28-07:00" />
 	<meta property="dc:format" content="text/html" />
 	<meta property="dc:language" content="en" />
 	<meta property="dc:identifier" content="/labnotebook.html" />
@@ -41,7 +41,7 @@
 	<meta property="og:type" content="website" /> 
 	<!-- Google Scholar Metadata -->
 	<meta name="citation_author" content="Mark E. Madsen"/>
-	<meta name="citation_date" content="2014-06-17T13:25:42-07:00"/>
+	<meta name="citation_date" content="2014-06-17T20:26:28-07:00"/>
 	<meta name="citation_title" content="How the Lab Notebook Works"/>
 	<meta name="citation_journal_title" content="Lab Notebook for Mark E. Madsen"/>
 
@@ -153,7 +153,7 @@
               <li><a href="/projects/nicheconstruction/">Niche Construction and CT Modeling</a></li>
               <li><a href="/projects/structuredinfo/">CT of Structured Information</a></li>
               <li class="nav-header">Simulations and Experiments</li>
-              <li><a href="/experiments.html">Notes by Experiment</a></li>
+              <li><a href="/byexperiment.html">Notes by Experiment</a></li>
               <li><a href="/bymodel.html">Notes by Simulation Model</a></li>
               <li class="nav-header">Topics</li>
               <li><a href="/tag/cultural%20transmission.html">Cultural transmission theory</a></li>
@@ -212,6 +212,7 @@ categories:
 ---</code></pre>
 <p>This essay isn’t related to any specific project or experiment. The category “essays” will put it in the list of essays and general writings on the site. Also note that I give the <code>layout</code> as <code>essay</code> here, which has minor UI tweaks compared to the lab note/post format. It puts a link to the essay list in the upper toolbar, at the moment, which lab notes don’t have because they are assumed to be cross-linked in all sorts of ways, with no obvious “back” button.</p>
 <p>Each posting also has a series of tags, which are wholly optional. These are often related to topics, and represent another way to see content, via the tag cloud (Notes by Tag).</p>
+<p>Finally, the “byexperiment” page (and eventually, other lists) are all built from custom Liquid filter tags which can pull out and make nice lists of posts from experiments, models, or projects. The source (and executable) for this Liquid filter is located in the <code>_plugins</code> directory. At the moment, the “bymodel” page is not fully automatic, because I put the Github repository links on each model.</p>
 <h3>Documentation</h3>
 <ul>
 <li><a href="/doc/adding-project.html">Adding a Project</a></li>
