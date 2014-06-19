@@ -1,0 +1,285 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head prefix="dc: http://purl.org/dc/terms/ og: http://ogp.me/ns#">
+    <meta charset="utf-8"/>
+    <title>Renormalization Theory and Cultural Transmission in Archaeology</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="description" content="Lab Notebook for Mark E. Madsen"/>
+    <meta name="author" content="Mark E. Madsen"/>
+
+	<!-- Get date last modified from git log. (Uses current time if file entry not found, e.g. projects/)  -->
+	
+
+
+	<!-- For posts, page.date is the date they are published under, which we use as their 'canonical' dc:date -->
+	 
+	  
+	  
+
+	<!-- Posts declare modified timestamps in the sidebar, so would be redundant to put here. But then 
+	     pages don't have a dc:modified... unless we give them their own (modified) sidebar?  
+	-->
+	<!-- Ideally we would want date originally created from the _oldest_ git commit too...-->
+
+	<!-- RDFa Metadata (in DublinCore) -->
+	<meta property="dc:title" content="Renormalization Theory and Cultural Transmission in Archaeology" />
+	<meta property="dc:creator" content="Mark E. Madsen" />
+	<meta property="dc:date" content="2012-06-14T00:00:00-07:00" />
+	<meta property="dc:format" content="text/html" />
+	<meta property="dc:language" content="en" />
+	<meta property="dc:identifier" content="/project:coarse%20grained%20model/essays/2012/06/14/renormalization-theory-archy.html" />
+	<meta property="dc:rights" content="CC BY-NC-SA 3.0" />
+	<meta property="dc:source" content="Lab Notebook for Mark E. Madsen" />
+	<meta property="dc:subject" content="Anthropology" /> 
+	<meta property="dc:type" content="website" /> 
+	<!-- RDFa Metadata (in OpenGraph) -->
+	<meta property="og:title" content="Renormalization Theory and Cultural Transmission in Archaeology" />
+	<meta property="og:author" content="notebook.madsenlab.org/bio.html" />  <!-- Should be Liquid? URI? -->
+	<meta property="og:site_name" content="Lab Notebook for Mark E. Madsen" /> <!-- Same as dc:source? -->
+	<meta property="og:url" content="notebook.madsenlab.org/project:coarse%20grained%20model/essays/2012/06/14/renormalization-theory-archy.html" />
+	<meta property="og:type" content="website" /> 
+	<!-- Google Scholar Metadata -->
+	<meta name="citation_author" content="Mark E. Madsen"/>
+	<meta name="citation_date" content="2012-06-14T00:00:00-07:00"/>
+	<meta name="citation_title" content="Renormalization Theory and Cultural Transmission in Archaeology"/>
+	<meta name="citation_journal_title" content="Lab Notebook for Mark E. Madsen"/>
+
+    <!-- Le styles -->
+    <link href="/assets/css/bootstrap.css" rel="stylesheet">
+    <link href="/assets/css/octicons.css" rel="stylesheet">
+    <style type="text/css">
+      body {
+        padding-top: 60px;
+        padding-bottom: 40px;
+      }
+      .sidebar-nav {
+        padding: 9px 0;
+      }
+
+      @media (max-width: 980px) {
+        /* Enable use of floated navbar text */
+        .navbar-text.pull-right {
+          float: none;
+          padding-left: 5px;
+          padding-right: 5px;
+        }
+      }
+    </style>
+    <link href="/assets/css/bootstrap-responsive.css" rel="stylesheet">
+    <link href="/css/syntax.css" rel="stylesheet">
+    
+  <script type="text/javascript" src="//use.typekit.net/xtg2arw.js"></script>
+  <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+  <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  <script>
+  MathJax.Hub.Config({
+    showProcessingMessages: false,
+    jax: ["input/TeX", "output/HTML-CSS"],
+    tex2jax: {
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+    }
+  });
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+  </script>
+<!-- Google Analytics -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-11944342-4', 'madsenlab.org');
+  ga('send', 'pageview');
+
+</script>
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="../assets/js/html5shiv.js"></script>
+    <![endif]-->
+
+    <!-- Fav and touch icons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../assets/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../assets/ico/apple-touch-icon-114-precomposed.png">
+      <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../assets/ico/apple-touch-icon-72-precomposed.png">
+                    <link rel="apple-touch-icon-precomposed" href="../assets/ico/apple-touch-icon-57-precomposed.png">
+                                   <link rel="shortcut icon" href="../assets/ico/favicon.png">
+  </head>
+
+  <body>
+
+    <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container-fluid">
+          <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="brand" href="/">MadsenLabNotebook</a>
+          <div class="nav-collapse collapse">
+                  <!-- Search site using Google's index -->
+      <form class="navbar-search pull-right" method="get" action="http://google.com/search">
+        <p>
+          <input type="hidden" name="q" value="site:notebook.madsenlab.org" />
+          <input type="text" class="search-query" name="q" />
+          <button class="btn btn-mini" type="submit"><i class="icon-search"></i></button> 
+        </p>
+      </form>
+            <ul class="nav">
+              <li class="active"><a href="/">Home</a></li>
+              <li><a href="/labnotebook.html">About</a></li>
+              <li><a href="http://about.me/mark.e.madsen">Contact</a></li>
+              <li><a href="/blog.html">Essays</a></li>
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+    </div>
+
+    <div class="container-fluid">
+      <div class="row-fluid">
+        <div class="span3">
+          <div class="well sidebar-nav">
+            <ul class="nav nav-list">
+              <li><img src="/images/madsenlabnotebook-350px.png" class="img-responsive" alt="MadsenLab Notebook"/></li>
+              <li class="nav-header"><a href="/blog.html">Essays and General Writings</a></li>
+              <li class="nav-header">Projects</li>
+              <li><a href="/projects/coarsegraining/">Coarse Grained Models of CT</a></li>
+              <li><a href="/projects/nicheconstruction/">Niche Construction and CT Modeling</a></li>
+              <li><a href="/projects/structuredinfo/">CT of Structured Information</a></li>
+              <li class="nav-header">Simulations and Experiments</li>
+              <li><a href="/byexperiment.html">Notes by Experiment</a></li>
+              <li><a href="/bymodel.html">Notes by Simulation Model</a></li>
+              <li class="nav-header">Topics</li>
+              <li><a href="/tag/cultural%20transmission.html">Cultural transmission theory</a></li>
+              <li><a href="/tag/evolutionary%20theory.html">Darwinian evolutionary theory</a></li>
+			        <li><a href="/tag/dissertation.html">Dissertation Research</a></li>
+              <li><a href="/tag/reading%20notes.html">Reading notes</a></li>
+              <li><a href="/openproblems.html">Open Research Problems</a></li>
+              <li><a href="/tags.html">Notes by Tag</a></li>
+              <li class="nav-header">Meta</li>
+              <li><a href="/bio.html">Bio</a></li>
+              <li><a href="/software.html">Software</a></li>
+              <li><a href="/publications.html">Publications</a></li>
+              <li><a href="/openscience.html">About Open Science</a></li>
+			<li><a href="/labnotebook.html">About this Notebook</a></li>
+            </ul>
+          </div><!--/.well -->
+        </div><!--/span3-->
+
+            <div class="span8">
+  	<h2>Renormalization Theory and Cultural Transmission in Archaeology</h2>
+	
+
+		<p class="text-info">
+		<table class="table table-condensed">
+			<tr class="info">
+				<td><small><i class="icon-backward"></i>&nbsp;<a href="/blog.html">Back to Essay List</a></small></td>
+				<td><small><i class="icon-calendar"></i>&nbsp;Modified: 19 Jun 2014</small></td>
+				<td><small><i class="icon-book">&nbsp;</i>&nbsp;<a href=http://greycite.knowledgeblog.org/bib/?uri=http://notebook.madsenlab.org/project:coarse%20grained%20model/essays/2012/06/14/renormalization-theory-archy.html target='_blank'>BibTeX Entry</a>
+</small></td>
+				<td><small><i class="icon-book">&nbsp;</i>&nbsp;<a href=http://greycite.knowledgeblog.org/ris/?uri=http://notebook.madsenlab.org/project:coarse%20grained%20model/essays/2012/06/14/renormalization-theory-archy.html target='_blank'>RIS Citation</a>
+</small></td>
+				<td><small><a href="javascript:window.print()"><i class="icon-print"></i>&nbsp;Print</a></small></td>
+			</tr>
+		</table>
+		</p>
+
+
+  	
+	
+  <p>In general, my topic concerns the “renormalization” of cultural transmission models. This terminology will probably be unfamiliar to anthropologists and social scientists, so I’m not going to emphasize the term or formal renormalization theory in upcoming publications or my dissertation, but it is absolutely what I’m studying. I thought a blog post would be a good place to describe this concept, and its relationship to concepts more familiar to anthropologists.</p>
+<p>Those who study long-term records of behavior or evolution face the problem that evolutionary models are individual-based or “microevolutionary,” and describe the detailed change in adoption of traits or flow of genetic information within a population, while our empirical data describe highly aggregated, temporally averaged counts or frequencies. This mismatch in temporal scales is extreme enough that the “evolutionary synthesis” of the 1940′s tended to separate consideration of “microevolution” and “macroevolution” into different sets of processes (largely as a result of George Gaylord Simpson’s pioneering work). The study of the fossil record of life on earth has rightly focused mainly on the phylogenetic history of species and higher taxa, in their paleoecological contexts. When studying the archaeological record of human behavior over shorter (albeit still substantial) time scales, it seems less clear that microevolutionary models cannot inform our explanations.</p>
+<p>At the same time, our usage of microevolutionary models of cultural transmission, to date, has almost universally ignored the vast difference in time scales between our evidence and the behavioral events and “system states” we model. The sole exception to this rule, actually, seems to be Fraser Neiman’s 1990 dissertation, which has a sophisticated discussion of the effects of time-averaging on neutral models and cultural trait frequencies. So, an important question would be: what do cultural transmission models look like, when we view their behavior through the lens of a much longer-term data source?</p>
+<p>This is precisely the kind of question that renormalization theory answers, as formulated in physics. Below the jump, I describe renormalization in more detail.</p>
+<p>Renormalization theory arises in physics whenever we seek to figure out the consequences of a detailed theory at a larger, longer, or slower scale than the theory naturally describes. Renormalization has two origins, first in quantum field theory where it was initially used to remove infinite quantities that prevented finite calculations for the interaction of electrons and photons, and independently within statistical physics in calculating the bulk properties of materials given detailed models of molecular interaction. Kenneth Wilson, in the early 1970′s, unified these two perspectives into the “renormalization group,” for which he later received a Nobel prize.</p>
+<p>The basic procedure works like this. Imagine that we want to calculate the force between two largish atoms — say, two iron atoms. The microscopic theory would have us add up the following quantities (at a minimum, assuming both atoms could be treated as stationary): (a) the forces between the two nuclei, (b) the coulomb force between each of the 52-odd electrons and the “other” nucleus, and ( c) the forces between all of the electrons themselves. This is a complicated summation since the electrons are small and “fast” compared to the nuclei, and the force depends upon the distance between the electron and the object to which it is being compared. So what we do in renormalization is recognize that the nuclei are slow and heavy compared to the electrons, and the “net force” between the atoms is really the force between the nuclei with a factor which represents the “average” of the forces exerted by the electrons and between the electrons. The end result is a much simpler average formula which neglects variation on certain time and distance scales, but is hopefully accurate on larger and longer distance and time scales. This is renormalization in a nutshell (the example, by the way, is explained in detail by Leonard Susskind in his terrific series of theoretical physics lectures available on iTunes).</p>
+<p>The application of this to cultural transmission theory is fairly straightforward, at least conceptually. We tend to model the dynamics of social learning in single populations, over short-term time scales, and solve for the equilibrium states in those populations. But we observe evidence of that learning, at least outside the laboratory or in ethnographic settings, on much longer time scales. And often in spatially aggregated ways, such that we’re taking samples of the outcome of transmission events over whole communities or areas. Thus, what we need to do is “integrate out” the fast and short term fluctuations and patterns, and see the longer-term swings in trait frequencies and changes in spatial patterns.</p>
+<p>This implies a research agenda, since this is several very different tasks. The first is simply understanding the effects of observing cultural transmission models through the lens of temporally and spatially aggregated observations. I made a start on this problem in a conference paper earlier this year, available in preprint form.</p>
+<p>The second is recognizing that we nearly always observe social learning in archaeological contexts in regional contexts, where whole communities represent a single sample of the frequencies of cultural variants. This implies a renormalization from single population to metapopulation models, or continuous spatial models. Some work along these lines is underway, and my own contribution is analysis of metapopulation rather than continuous diffusion models (Blythe is also working on this problem).</p>
+<p>The third, which is unique to my research as far as I can tell, is not treating our observable data as “snapshots” in time, which is the common pattern in archaeological CT studies. Archaeological data, following from the first point, are temporal aggregates as is well known. Which means that our analysis of transmission models must not compare synchronic or equilibrium predictions to diachronic observations. We must, instead, analyze the dynamics of our models through diachronic, aggregated predictions. This has not yet been done, at least in any literature I’ve seen.</p>
+<p>Finally, we observe the archaeological record through formal classifications of artifacts, and do not observe the socially transmitted cultural variation directly. Thus, we cannot directly apply statistical distributions which are designed to apply to DNA sequences or other “more direct” measures of heritable information, to the frequencies of archaeological classes. This problem, of course, exists within population genetics itself given the “allele/locus” models common in the pre-genomic era. But the solution here must be uniquely archaeological given our methods of classification and observation. We must, in other words, view cultural transmission models not through the “traits” we usually model, but analytical classifications that mimic the structure of the multidimensional types and classes we actually use.</p>
+<p>I do not, in this research, actually use the formal apparatus of the “renormalization group” from physics. Exploring that apparatus and its applicability would take me far afield from the concrete and useful contributions outlined above. But RG theory and methods are never far from my mind, and after the dissertation is completed, I want to explore its utility in more detail.</p>
+<div class="references">
+
+</div>
+  
+
+
+
+<div class="well well-small">
+<table class="table table-condensed">
+			<tr>
+				<td><small><i class="icon-backward"></i>&nbsp;<a href="/blog.html">Back to Essay List</a></small></td>
+				<td><small><i class="icon-calendar"></i>&nbsp;Modified: 19 Jun 2014</small></td>
+				<td><small><i class="icon-book">&nbsp;</i>&nbsp;<a href=http://greycite.knowledgeblog.org/bib/?uri=http://notebook.madsenlab.org/project:coarse%20grained%20model/essays/2012/06/14/renormalization-theory-archy.html target='_blank'>BibTeX Entry</a>
+</small></td>
+				<td><small><i class="icon-book">&nbsp;</i>&nbsp;<a href=http://greycite.knowledgeblog.org/ris/?uri=http://notebook.madsenlab.org/project:coarse%20grained%20model/essays/2012/06/14/renormalization-theory-archy.html target='_blank'>RIS Citation</a>
+</small></td>
+				<td><small><a href="javascript:window.print()"><i class="icon-print"></i>&nbsp;Print</a></small></td>
+			</tr>
+		</table>
+<p class="text-info"><i class="icon-tags"></i>&nbsp;Tags</p>
+<ul>
+
+<li><a href='/tag/coarse graining.html'>coarse graining</a></li>
+
+<li><a href='/tag/dissertation.html'>dissertation</a></li>
+
+<li><a href='/tag/cultural transmission.html'>cultural transmission</a></li>
+
+</ul>
+</div>
+
+
+
+
+</div>
+
+
+        
+      </div><!--/row-->
+
+
+    
+
+
+ 
+      <hr>
+
+      <footer>
+		        <p>&copy; Mark E. Madsen 2012-2014    <a href="mailto:mark@madsenlab.org">Email</a>&nbsp;||
+		  <a href="http://orcid.org/0000-0001-9320-8377">ORCId</a>&nbsp;||
+		  <a href="http://figshare.com/authors/Mark%20Madsen/279062">Figshare</a>&nbsp;||
+		    <a href="http://www.linkedin.com/profile/view?id=8751">LinkedIn</a>&nbsp;|| 	    <a href="http://github.com/mmadsen">GitHub</a>&nbsp;||
+        <a href="http://www.researchgate.net/profile/Mark_Madsen3/">ResearchGate</a>&nbsp;||
+        <a href="https://washington.academia.edu/MarkMadsen">Academia.edu</a></p>
+      </footer>
+
+    </div><!--/.fluid-container-->
+
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="/assets/js/jquery.js"></script>
+    <script src="/assets/js/bootstrap-transition.js"></script>
+    <script src="/assets/js/bootstrap-alert.js"></script>
+    <script src="/assets/js/bootstrap-modal.js"></script>
+    <script src="/assets/js/bootstrap-dropdown.js"></script>
+    <script src="/assets/js/bootstrap-scrollspy.js"></script>
+    <script src="/assets/js/bootstrap-tab.js"></script>
+    <script src="/assets/js/bootstrap-tooltip.js"></script>
+    <script src="/assets/js/bootstrap-popover.js"></script>
+    <script src="/assets/js/bootstrap-button.js"></script>
+    <script src="/assets/js/bootstrap-collapse.js"></script>
+    <script src="/assets/js/bootstrap-carousel.js"></script>
+    <script src="/assets/js/bootstrap-typeahead.js"></script>
+
+  </body>
+</html>

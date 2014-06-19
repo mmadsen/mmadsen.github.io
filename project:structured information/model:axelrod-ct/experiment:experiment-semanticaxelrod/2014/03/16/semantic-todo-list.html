@@ -1,0 +1,384 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head prefix="dc: http://purl.org/dc/terms/ og: http://ogp.me/ns#">
+    <meta charset="utf-8"/>
+    <title>TODO for Semantic Axelrod project</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="description" content="Lab Notebook for Mark E. Madsen"/>
+    <meta name="author" content="Mark E. Madsen"/>
+
+	<!-- Get date last modified from git log. (Uses current time if file entry not found, e.g. projects/)  -->
+	
+
+
+	<!-- For posts, page.date is the date they are published under, which we use as their 'canonical' dc:date -->
+	 
+	  
+	  
+
+	<!-- Posts declare modified timestamps in the sidebar, so would be redundant to put here. But then 
+	     pages don't have a dc:modified... unless we give them their own (modified) sidebar?  
+	-->
+	<!-- Ideally we would want date originally created from the _oldest_ git commit too...-->
+
+	<!-- RDFa Metadata (in DublinCore) -->
+	<meta property="dc:title" content="TODO for Semantic Axelrod project" />
+	<meta property="dc:creator" content="Mark E. Madsen" />
+	<meta property="dc:date" content="2014-03-16T00:00:00-07:00" />
+	<meta property="dc:format" content="text/html" />
+	<meta property="dc:language" content="en" />
+	<meta property="dc:identifier" content="/project:structured%20information/model:axelrod-ct/experiment:experiment-semanticaxelrod/2014/03/16/semantic-todo-list.html" />
+	<meta property="dc:rights" content="CC BY-NC-SA 3.0" />
+	<meta property="dc:source" content="Lab Notebook for Mark E. Madsen" />
+	<meta property="dc:subject" content="Anthropology" /> 
+	<meta property="dc:type" content="website" /> 
+	<!-- RDFa Metadata (in OpenGraph) -->
+	<meta property="og:title" content="TODO for Semantic Axelrod project" />
+	<meta property="og:author" content="notebook.madsenlab.org/bio.html" />  <!-- Should be Liquid? URI? -->
+	<meta property="og:site_name" content="Lab Notebook for Mark E. Madsen" /> <!-- Same as dc:source? -->
+	<meta property="og:url" content="notebook.madsenlab.org/project:structured%20information/model:axelrod-ct/experiment:experiment-semanticaxelrod/2014/03/16/semantic-todo-list.html" />
+	<meta property="og:type" content="website" /> 
+	<!-- Google Scholar Metadata -->
+	<meta name="citation_author" content="Mark E. Madsen"/>
+	<meta name="citation_date" content="2014-03-16T00:00:00-07:00"/>
+	<meta name="citation_title" content="TODO for Semantic Axelrod project"/>
+	<meta name="citation_journal_title" content="Lab Notebook for Mark E. Madsen"/>
+
+    <!-- Le styles -->
+    <link href="/assets/css/bootstrap.css" rel="stylesheet">
+    <link href="/assets/css/octicons.css" rel="stylesheet">
+    <style type="text/css">
+      body {
+        padding-top: 60px;
+        padding-bottom: 40px;
+      }
+      .sidebar-nav {
+        padding: 9px 0;
+      }
+
+      @media (max-width: 980px) {
+        /* Enable use of floated navbar text */
+        .navbar-text.pull-right {
+          float: none;
+          padding-left: 5px;
+          padding-right: 5px;
+        }
+      }
+    </style>
+    <link href="/assets/css/bootstrap-responsive.css" rel="stylesheet">
+    <link href="/css/syntax.css" rel="stylesheet">
+    
+  <script type="text/javascript" src="//use.typekit.net/xtg2arw.js"></script>
+  <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+  <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  <script>
+  MathJax.Hub.Config({
+    showProcessingMessages: false,
+    jax: ["input/TeX", "output/HTML-CSS"],
+    tex2jax: {
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+    }
+  });
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+  </script>
+<!-- Google Analytics -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-11944342-4', 'madsenlab.org');
+  ga('send', 'pageview');
+
+</script>
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="../assets/js/html5shiv.js"></script>
+    <![endif]-->
+
+    <!-- Fav and touch icons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../assets/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../assets/ico/apple-touch-icon-114-precomposed.png">
+      <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../assets/ico/apple-touch-icon-72-precomposed.png">
+                    <link rel="apple-touch-icon-precomposed" href="../assets/ico/apple-touch-icon-57-precomposed.png">
+                                   <link rel="shortcut icon" href="../assets/ico/favicon.png">
+  </head>
+
+  <body>
+
+    <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container-fluid">
+          <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="brand" href="/">MadsenLabNotebook</a>
+          <div class="nav-collapse collapse">
+                  <!-- Search site using Google's index -->
+      <form class="navbar-search pull-right" method="get" action="http://google.com/search">
+        <p>
+          <input type="hidden" name="q" value="site:notebook.madsenlab.org" />
+          <input type="text" class="search-query" name="q" />
+          <button class="btn btn-mini" type="submit"><i class="icon-search"></i></button> 
+        </p>
+      </form>
+            <ul class="nav">
+              <li class="active"><a href="/">Home</a></li>
+              <li><a href="/labnotebook.html">About</a></li>
+              <li><a href="http://about.me/mark.e.madsen">Contact</a></li>
+              <li><a href="/blog.html">Essays</a></li>
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+    </div>
+
+    <div class="container-fluid">
+      <div class="row-fluid">
+        <div class="span3">
+          <div class="well sidebar-nav">
+            <ul class="nav nav-list">
+              <li><img src="/images/madsenlabnotebook-350px.png" class="img-responsive" alt="MadsenLab Notebook"/></li>
+              <li class="nav-header"><a href="/blog.html">Essays and General Writings</a></li>
+              <li class="nav-header">Projects</li>
+              <li><a href="/projects/coarsegraining/">Coarse Grained Models of CT</a></li>
+              <li><a href="/projects/nicheconstruction/">Niche Construction and CT Modeling</a></li>
+              <li><a href="/projects/structuredinfo/">CT of Structured Information</a></li>
+              <li class="nav-header">Simulations and Experiments</li>
+              <li><a href="/byexperiment.html">Notes by Experiment</a></li>
+              <li><a href="/bymodel.html">Notes by Simulation Model</a></li>
+              <li class="nav-header">Topics</li>
+              <li><a href="/tag/cultural%20transmission.html">Cultural transmission theory</a></li>
+              <li><a href="/tag/evolutionary%20theory.html">Darwinian evolutionary theory</a></li>
+			        <li><a href="/tag/dissertation.html">Dissertation Research</a></li>
+              <li><a href="/tag/reading%20notes.html">Reading notes</a></li>
+              <li><a href="/openproblems.html">Open Research Problems</a></li>
+              <li><a href="/tags.html">Notes by Tag</a></li>
+              <li class="nav-header">Meta</li>
+              <li><a href="/bio.html">Bio</a></li>
+              <li><a href="/software.html">Software</a></li>
+              <li><a href="/publications.html">Publications</a></li>
+              <li><a href="/openscience.html">About Open Science</a></li>
+			<li><a href="/labnotebook.html">About this Notebook</a></li>
+            </ul>
+          </div><!--/.well -->
+        </div><!--/span3-->
+
+            <div class="span8">
+  	<h2>TODO for Semantic Axelrod project</h2>
+	
+
+		<p class="text-info">
+		<table class="table table-condensed">
+			<tr class="info">
+				<td><small><i class="icon-calendar"></i>&nbsp;Created: 16 Mar 2014</small></td>
+				<td><small><i class="icon-calendar"></i>&nbsp;Modified: 19 Jun 2014</small></td>
+				<td><small><i class="icon-book">&nbsp;</i>&nbsp;<a href=http://greycite.knowledgeblog.org/bib/?uri=http://notebook.madsenlab.org/project:structured%20information/model:axelrod-ct/experiment:experiment-semanticaxelrod/2014/03/16/semantic-todo-list.html target='_blank'>BibTeX Entry</a>
+</small></td>
+				<td><small><i class="icon-book">&nbsp;</i>&nbsp;<a href=http://greycite.knowledgeblog.org/ris/?uri=http://notebook.madsenlab.org/project:structured%20information/model:axelrod-ct/experiment:experiment-semanticaxelrod/2014/03/16/semantic-todo-list.html target='_blank'>RIS Citation</a>
+</small></td>
+				<td><small><a href="javascript:window.print()"><i class="icon-print"></i>&nbsp;Print</a></small></td>
+			</tr>
+		</table>
+		</p>
+
+
+  	
+	
+  <p>UPDATE: After finding a bug in the timing of innovation/mutation, I’m not using any of the previous data.</p>
+<h3 id="deprecated-simulation-runs">Deprecated Simulation Runs</h3>
+<h4 id="saa-5-server-sa1">SAA-5 – server sa1</h4>
+<p>Designed to allow comparison of innovation rate + learning/prereq vs just learning/prereq. Learning rates are the same as saa-2, but a smaller set of trait spaces are examined (dropping the 4/4 pair).</p>
+<ul>
+<li>Learning rate: 0.025, 0.05, 0.1, 0.2, 0.3, 0.4</li>
+<li>Population size: 100 for all runs</li>
+<li>Replications: 10</li>
+<li>Trait trees: 8, 16</li>
+<li>Branching factor: 3, 4, 6</li>
+<li>Depth factor: 3, 4, 6</li>
+<li>Max init traits: 8, 16</li>
+<li>Innovation rate: 0.000025</li>
+</ul>
+<p>2160 total runs</p>
+<p>332 on the restart, Weds 3/26</p>
+<h4 id="saa-6-server-sa5">SAA-6 – server sa5</h4>
+<p>Intended to get more samples for an overlap of SAA-5 and SAA-2. Only the largest and smallest trait space sizes are used, but all the learning rates, and both mutation and no mutation cases. For these parameter combinations, we will end up with 30 replications per param combo.</p>
+<ul>
+<li>Learning rate: 0.025, 0.05, 0.1, 0.2, 0.3, 0.4</li>
+<li>Population size: 100 for all runs</li>
+<li>Replications: 20</li>
+<li>Trait trees: 4, 16</li>
+<li>Branching factor: 3, 6</li>
+<li>Depth factor: 3, 6</li>
+<li>Max init traits: 8</li>
+<li>Innovation rate: 0.000025, 0.0</li>
+</ul>
+<p>1920 total runs</p>
+<p>1190 runs at 6:45pm Weds 3/26</p>
+<h4 id="saa-9-server-sa8">SAA-9 – server sa8</h4>
+<p>SAA-8 finished quickly, so I’m going to explore larger population sizes. If I can examine the effects both of creating high-fidelity learning AND demography, that will be interesting.</p>
+<ul>
+<li>Learning rate: 0.5, 0.6, 0.7, 0.8, 0.75, 0.85, 0.90, 0.95</li>
+<li>Population size: 225, 400</li>
+<li>Replications: 40</li>
+<li>Trait trees: 4, 16</li>
+<li>Branching factor: 3</li>
+<li>Depth factor: 3</li>
+<li>Max init traits: 8</li>
+<li>Innovation rate: 0.000025, 0.0</li>
+</ul>
+<p>2560 runs</p>
+<p>Started 8:35am Sunday 3/30</p>
+<h3 id="simulations-completed">Simulations COMPLETED</h3>
+<h4 id="saa-2">SAA-2</h4>
+<ul>
+<li>Learning rate: 0.025, 0.05, 0.1, 0.2, 0.3, 0.4</li>
+<li>Population size: 100 for all runs</li>
+<li>Replications: 10</li>
+<li>Trait trees: 4, 8, 16</li>
+<li>Branching factor: 3, 4, 6</li>
+<li>Depth factor: 3, 4, 6</li>
+<li>Max init traits: 4, 8, 16</li>
+</ul>
+<p>Data moved back to Kimura in <code>~/local-research/semanticaxelrod/rawdata/</code></p>
+<h4 id="saa-3-server-sa3">SAA-3 – server sa3</h4>
+<p>Smaller sample size experiment, duplicates learning rates and other param values from SAA-2</p>
+<ul>
+<li>Population size: 49, 64</li>
+</ul>
+<p><strong>Completed early morning Thursday 3/20.</strong></p>
+<h4 id="saa-4-server-sa4">SAA-4 – server sa4</h4>
+<p>Larger sample size experiment, duplicates other param values from SAA-2</p>
+<ul>
+<li>Population size: 225, 400</li>
+<li>Learning rate: 0.1, 0.2, 0.4</li>
+</ul>
+<p>4860 total runs</p>
+<p>Killed it, and used just the 2430 runs for popsize 225.</p>
+<h4 id="saa-7-server-sa7">SAA-7 – server sa7</h4>
+<p>Intended to test whether graphs really do change at high learning rates – testing whether learning environment really changes the cumulation of cultural information</p>
+<ul>
+<li>Learning rate: 0.5, 0.6, 0.7, 0.8</li>
+<li>Population size: 100 for all runs</li>
+<li>Replications: 20</li>
+<li>Trait trees: 4, 16</li>
+<li>Branching factor: 3, 6</li>
+<li>Depth factor: 3, 6</li>
+<li>Max init traits: 8</li>
+<li>Innovation rate: 0.000025, 0.0</li>
+</ul>
+<p>1280 total runs</p>
+<h4 id="saa-8-server-sa8">SAA-8 – server sa8</h4>
+<p>Given interesting phenomena at 0.7 and mainly 0.8 learning rates, I’m testing more of the high learning rates. The small state spaces are most sensitive because everything gets lost in the vastness of larger state spaces.</p>
+<ul>
+<li>Learning rate: 0.5, 0.6, 0.7, 0.8, 0.75, 0.85, 0.90, 0.95</li>
+<li>Population size: 100 for all runs</li>
+<li>Replications: 40</li>
+<li>Trait trees: 4, 16</li>
+<li>Branching factor: 3</li>
+<li>Depth factor: 3</li>
+<li>Max init traits: 8</li>
+<li>Innovation rate: 0.000025, 0.0</li>
+</ul>
+<p>1280 runs</p>
+<p>Started 9:50pm Sat 3/29</p>
+<h3 id="code">Code</h3>
+<ol type="1">
+<li>Finish the DOT export code so I can give it a file with ID’s – for getting, say, all of the graphs that have the same learning rate, or state-space configuration.</li>
+</ol>
+<h3 id="analyses">Analyses</h3>
+<p>For finalized runs only:</p>
+<ol type="1">
+<li>Symmetry at a given trait-space size, by learning rate</li>
+<li>Symmetry at a given trait-space size, by learning and innovation rate</li>
+<li>Symmetry at different population sizes</li>
+</ol>
+<h3 id="graphstables">Graphs/Tables</h3>
+<p>TBD</p>
+<h3 id="documentation-bits">Documentation Bits</h3>
+<p>Creating a movie from a bunch of DOT files works like this:</p>
+<pre><code>analytics/export-traitgraph-to-graphviz.py --experiment saa-2 --action sample --ssize 100 --directory tmp
+
+for d in `ls *.dot`; do ( dot -Tpng $d -o $d.png; echo &quot;$d.png 300&quot; &gt;&gt; build ); done
+
+~/bin/makeQuickTime.py build test.mov</code></pre>
+<div class="references">
+
+</div>
+  
+
+
+<div class="well well-small">
+<p class="text-info"><i class="icon-tags"></i>&nbsp;Tags</p>
+<ul>
+
+<li><a href='/tag/SAA2014.html'>SAA2014</a></li>
+
+<li><a href='/tag/axelrod model.html'>axelrod model</a></li>
+
+<li><a href='/tag/structured information.html'>structured information</a></li>
+
+<li><a href='/tag/cultural transmission.html'>cultural transmission</a></li>
+
+<li><a href='/tag/dissertation.html'>dissertation</a></li>
+
+<li><a href='/tag/experiments.html'>experiments</a></li>
+
+<li><a href='/tag/experiment-semanticaxelrod.html'>experiment-semanticaxelrod</a></li>
+
+</ul>
+</div>
+
+
+</div>
+
+
+        
+      </div><!--/row-->
+
+
+    
+
+
+ 
+      <hr>
+
+      <footer>
+		        <p>&copy; Mark E. Madsen 2012-2014    <a href="mailto:mark@madsenlab.org">Email</a>&nbsp;||
+		  <a href="http://orcid.org/0000-0001-9320-8377">ORCId</a>&nbsp;||
+		  <a href="http://figshare.com/authors/Mark%20Madsen/279062">Figshare</a>&nbsp;||
+		    <a href="http://www.linkedin.com/profile/view?id=8751">LinkedIn</a>&nbsp;|| 	    <a href="http://github.com/mmadsen">GitHub</a>&nbsp;||
+        <a href="http://www.researchgate.net/profile/Mark_Madsen3/">ResearchGate</a>&nbsp;||
+        <a href="https://washington.academia.edu/MarkMadsen">Academia.edu</a></p>
+      </footer>
+
+    </div><!--/.fluid-container-->
+
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="/assets/js/jquery.js"></script>
+    <script src="/assets/js/bootstrap-transition.js"></script>
+    <script src="/assets/js/bootstrap-alert.js"></script>
+    <script src="/assets/js/bootstrap-modal.js"></script>
+    <script src="/assets/js/bootstrap-dropdown.js"></script>
+    <script src="/assets/js/bootstrap-scrollspy.js"></script>
+    <script src="/assets/js/bootstrap-tab.js"></script>
+    <script src="/assets/js/bootstrap-tooltip.js"></script>
+    <script src="/assets/js/bootstrap-popover.js"></script>
+    <script src="/assets/js/bootstrap-button.js"></script>
+    <script src="/assets/js/bootstrap-collapse.js"></script>
+    <script src="/assets/js/bootstrap-carousel.js"></script>
+    <script src="/assets/js/bootstrap-typeahead.js"></script>
+
+  </body>
+</html>
