@@ -3,7 +3,7 @@
 <html lang="en">
   <head prefix="dc: http://purl.org/dc/terms/ og: http://ogp.me/ns#">
     <meta charset="utf-8"/>
-    <title></title>
+    <title>Notes on He and Stone 2003</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta name="description" content="Lab Notebook for Mark E. Madsen"/>
     <meta name="author" content="Mark E. Madsen"/>
@@ -13,9 +13,9 @@
 
 
 	<!-- For posts, page.date is the date they are published under, which we use as their 'canonical' dc:date -->
-	 <!-- If we don't have a page.date, then use modified time (pages) -->
-	   
-	
+	 
+	  
+	  
 
 	<!-- Posts declare modified timestamps in the sidebar, so would be redundant to put here. But then 
 	     pages don't have a dc:modified... unless we give them their own (modified) sidebar?  
@@ -23,26 +23,26 @@
 	<!-- Ideally we would want date originally created from the _oldest_ git commit too...-->
 
 	<!-- RDFa Metadata (in DublinCore) -->
-	<meta property="dc:title" content="" />
+	<meta property="dc:title" content="Notes on He and Stone 2003" />
 	<meta property="dc:creator" content="Mark E. Madsen" />
-	<meta property="dc:date" content="2014-06-19T11:56:37-07:00" />
+	<meta property="dc:date" content="2011-01-11T00:00:00-08:00" />
 	<meta property="dc:format" content="text/html" />
 	<meta property="dc:language" content="en" />
-	<meta property="dc:identifier" content="/tag/recipes.html" />
+	<meta property="dc:identifier" content="/project:coarse%20grained%20model/reading%20notes/2011/01/11/he-and-stone.html" />
 	<meta property="dc:rights" content="CC BY-NC-SA 3.0" />
 	<meta property="dc:source" content="Lab Notebook for Mark E. Madsen" />
 	<meta property="dc:subject" content="Anthropology" /> 
 	<meta property="dc:type" content="website" /> 
 	<!-- RDFa Metadata (in OpenGraph) -->
-	<meta property="og:title" content="" />
+	<meta property="og:title" content="Notes on He and Stone 2003" />
 	<meta property="og:author" content="notebook.madsenlab.org/bio.html" />  <!-- Should be Liquid? URI? -->
 	<meta property="og:site_name" content="Lab Notebook for Mark E. Madsen" /> <!-- Same as dc:source? -->
-	<meta property="og:url" content="notebook.madsenlab.org/tag/recipes.html" />
+	<meta property="og:url" content="notebook.madsenlab.org/project:coarse%20grained%20model/reading%20notes/2011/01/11/he-and-stone.html" />
 	<meta property="og:type" content="website" /> 
 	<!-- Google Scholar Metadata -->
 	<meta name="citation_author" content="Mark E. Madsen"/>
-	<meta name="citation_date" content="2014-06-19T11:56:37-07:00"/>
-	<meta name="citation_title" content=""/>
+	<meta name="citation_date" content="2011-01-11T00:00:00-08:00"/>
+	<meta name="citation_title" content="Notes on He and Stone 2003"/>
 	<meta name="citation_journal_title" content="Lab Notebook for Mark E. Madsen"/>
 
     <!-- Le styles -->
@@ -173,23 +173,64 @@
           </div><!--/.well -->
         </div><!--/span3-->
 
-            <div  class="span9">
+            <div class="span8">
+  	<h2>Notes on He and Stone 2003</h2>
+	
 
-<h2>Tag: recipes</h2>
+		<p class="text-info">
+		<table class="table table-condensed">
+			<tr class="info">
+				<td><small><i class="icon-calendar"></i>&nbsp;Created: 11 Jan 2011</small></td>
+				<td><small><i class="icon-calendar"></i>&nbsp;Modified: 19 Jun 2014</small></td>
+				<td><small><i class="icon-book">&nbsp;</i>&nbsp;<a href=http://greycite.knowledgeblog.org/bib/?uri=http://notebook.madsenlab.org/project:coarse%20grained%20model/reading%20notes/2011/01/11/he-and-stone.html target='_blank'>BibTeX Entry</a>
+</small></td>
+				<td><small><i class="icon-book">&nbsp;</i>&nbsp;<a href=http://greycite.knowledgeblog.org/ris/?uri=http://notebook.madsenlab.org/project:coarse%20grained%20model/reading%20notes/2011/01/11/he-and-stone.html target='_blank'>RIS Citation</a>
+</small></td>
+				<td><small><a href="javascript:window.print()"><i class="icon-print"></i>&nbsp;Print</a></small></td>
+			</tr>
+		</table>
+		</p>
 
-<ul class="posts">
+
+  	
 	
-		<li><span class="index_publish_date">07 Jun 2013</span> &raquo; <a href="/project:structured%20information/2013/06/07/structured-info-notes.html">Rough notes on structured information in CT models</a></li>
-	
-</ul>	
-	
-	
-	
+  <h2 id="hestone2003-notes"><span class="citation" data-cites="hestone2003">(He and Stone 2003)</span> Notes</h2>
+<p>He and Stone analyze the conditions under which there is large scale “in phase” versus “anti-phase” synchronization between communities in a local metapopulation <span class="citation" data-cites="hestone2003">(He and Stone 2003)</span>. They don’t really model the details of a complex network, in section 2 AFAIK they’re randomly assigning links, which means that the intra-population network is going to be an ER graph.</p>
+<p>They use a control parameter, the “link ratio,” which measures the number of inter-population links over the number of intra-population links (or, the fraction of edges in the overall network which cross populations).</p>
+<p>The order parameter is the phase difference between populations, where the “phase” of an infection is <span class="citation" data-cites="pikovsky2003synchronization">(Pikovsky, Rosenblum, and Kurths 2003)</span> equation for the phase of a time series, given parameters which seem to be various ordered “maxima” of the time series (NEED TO EXAMINE).</p>
+<p>This is starting to make sense in terms of how to calculate the “synchronization” of something like a spreading process which fundamentally isn’t a strict oscillator (without dealing with the complications involved in a full chaotic oscillator model, or maybe it is….?)</p>
+<p>The basic conclusion here is that low levels of coupling (i.e., low LR) tend to lead to anti-phase synchronization, and high levels of coupling bring the population into strict synchronization. In-phase synch gives an order parameter near zero, while strict anti-phase sync leads to an OP of pi.</p>
+<h3 id="connection-to-seriation">Connection to Seriation</h3>
+<p>Several questions arise.</p>
+<ol type="1">
+<li>All of the inphase/anti-phase stuff here is very short-term. There still is a renormalization aspect to figure out what survives when we “zoom out”….</li>
+<li>How do we connect the <em>failure</em> to include assemblage A into a seriation with assemblages B-G (as an example), with the order parameter for phase differences?<br /></li>
+<li>When we order assemblages via seriation, we’re actually putting one <em>before</em> another, which is a statement of how two assemblages relate temporally (or spatiotemporally), so technically we’re making a statement that B and C are not “strictly contemporaneous,” and our phase synchronization stuff here presumes that communities are strictly contemporaneous.</li>
+</ol>
+<p>SO, I need to examine the longer-term empirical studies, on measles, and look at how things synchronize when we look at longer spans of time (over a human lifetime).</p>
+<div class="references">
+<h3>References Cited</h3>
+<p>He, D, and L Stone. 2003. “Spatio-Temporal Synchronization of Recurrent Epidemics.” <em>… of the Royal Society of London. …</em> (Jan). <a href="http://rspb.royalsocietypublishing.org/content/270/1523/1519.abstract">http://rspb.royalsocietypublishing.org/content/270/1523/1519.abstract</a>.</p>
+<p>Pikovsky, A., M. Rosenblum, and J. Kurths. 2003. <em>Synchronization: A Universal Concept in Nonlinear Sciences</em>. Cambridge Univ Press.</p>
+</div>
+  
+
+
+<div class="well well-small">
+<p class="text-info"><i class="icon-tags"></i>&nbsp;Tags</p>
+<ul>
+
+<li><a href='/tag/reading notes.html'>reading notes</a></li>
+
+<li><a href='/tag/coarse graining.html'>coarse graining</a></li>
+
+<li><a href='/tag/synchronization theory.html'>synchronization theory</a></li>
+
+</ul>
 </div>
 
 
-
-
+</div>
 
 
         
