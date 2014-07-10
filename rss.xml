@@ -1,0 +1,649 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0"
+  xmlns:content="http://purl.org/rss/1.0/modules/content/"
+  xmlns:dc="http://purl.org/dc/elements/1.1/"
+  xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd"
+  xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/">
+  <channel>
+    <title>Lab Notebook for Mark E. Madsen</title>
+    <link>http://notebook.madsenlab.org</link>
+    <description>RSS feed for Lab Notebook for Mark E. Madsen</description>
+    <pubDate>Wed, 09 Jul 2014 00:00:00 -0700</pubDate>
+    <item>
+      <title>Semantic Axelrod Review Comments/Revision Plan</title>
+      <link>http://notebook.madsenlab.org/project:structured%20information/model:axelrod-ct/experiment:experiment-semanticaxelrod/2014/07/09/semanticaxelrod-review-revisions.html</link>
+      <description>&lt;div class=&quot;references&quot;&gt;
+&lt;h3&gt;Review Comments&lt;/h3&gt;
+&lt;/div&gt;
+</description>
+      <pubDate>Wed, 09 Jul 2014 00:00:00 -0700</pubDate>
+      <guid>http://notebook.madsenlab.org/project:structured%20information/model:axelrod-ct/experiment:experiment-semanticaxelrod/2014/07/09/semanticaxelrod-review-revisions.html</guid>
+      <dc:date>2014-07-09T00:00:00-07:00</dc:date>
+    </item>
+    <item>
+      <title>Time Averaging and the CT Mixture Model</title>
+      <link>http://notebook.madsenlab.org/project:coarse%20grained%20model/model:ctmixtures/experiment:experiment-ctmixtures/2014/07/09/ctmixtures-timeaveraging.html</link>
+      <description>&lt;div class=&quot;references&quot;&gt;
+&lt;h3&gt;Adding Time Averaging to the CT Mixtures Model&lt;/h3&gt;
+&lt;/div&gt;
+</description>
+      <pubDate>Wed, 09 Jul 2014 00:00:00 -0700</pubDate>
+      <guid>http://notebook.madsenlab.org/project:coarse%20grained%20model/model:ctmixtures/experiment:experiment-ctmixtures/2014/07/09/ctmixtures-timeaveraging.html</guid>
+      <dc:date>2014-07-09T00:00:00-07:00</dc:date>
+    </item>
+    <item>
+      <title>Requirements for SeriationCT Model</title>
+      <link>http://notebook.madsenlab.org/project:coarse%20grained%20model/model:seriationct/experiment:experiment-seriationct/2014/06/17/seriationct-requirements.html</link>
+      <description>&lt;div class=&quot;references&quot;&gt;
+&lt;h3&gt;Description&lt;/h3&gt;
+&lt;/div&gt;
+</description>
+      <pubDate>Tue, 17 Jun 2014 00:00:00 -0700</pubDate>
+      <guid>http://notebook.madsenlab.org/project:coarse%20grained%20model/model:seriationct/experiment:experiment-seriationct/2014/06/17/seriationct-requirements.html</guid>
+      <dc:date>2014-06-17T00:00:00-07:00</dc:date>
+    </item>
+    <item>
+      <title>Open Problems in Structured Information Models</title>
+      <link>http://notebook.madsenlab.org/project:structured%20information/open%20problems/2014/06/14/open-structured-problems.html</link>
+      <description>&lt;p&gt;This is mainly a placeholder for a long list of open questions that came to mind while working on our recent &lt;a href=&quot;http://arxiv.org/abs/1404.5704&quot;&gt;semantic axelrod model&lt;/a&gt; paper. I’ll organize it later.&lt;/p&gt;
+&lt;div class=&quot;references&quot;&gt;
+
+&lt;/div&gt;
+</description>
+      <pubDate>Sat, 14 Jun 2014 00:00:00 -0700</pubDate>
+      <guid>http://notebook.madsenlab.org/project:structured%20information/open%20problems/2014/06/14/open-structured-problems.html</guid>
+      <dc:date>2014-06-14T00:00:00-07:00</dc:date>
+    </item>
+    <item>
+      <title>Open Problems in Coarse Grained CT Theory</title>
+      <link>http://notebook.madsenlab.org/project:coarse%20grained%20model/open%20problems/2014/06/14/open-cg-problems.html</link>
+      <description>&lt;div class=&quot;references&quot;&gt;
+&lt;h3&gt;Convergence and Basins of Attraction&lt;/h3&gt;
+&lt;/div&gt;
+</description>
+      <pubDate>Sat, 14 Jun 2014 00:00:00 -0700</pubDate>
+      <guid>http://notebook.madsenlab.org/project:coarse%20grained%20model/open%20problems/2014/06/14/open-cg-problems.html</guid>
+      <dc:date>2014-06-14T00:00:00-07:00</dc:date>
+    </item>
+    <item>
+      <title>Continuous Integration and Testing for Simulation Codes</title>
+      <link>http://notebook.madsenlab.org/essays/simulation/reproducible%20science/2014/06/14/ci-travis.html</link>
+      <description>&lt;p&gt;This week I added all of my simulation projects to the &lt;a href=&quot;https://travis-ci.org/&quot;&gt;Travis CI continuous integration&lt;/a&gt; system. Travis is a hosted service, running a Ruby-based project which will check out your code from Github, run it on a clean virtual machine preloaded with common build tools and pieces of infrastructure (e.g., databases, libraries), and perform your unit or functional tests.&lt;/p&gt;
+&lt;div class=&quot;references&quot;&gt;
+
+&lt;/div&gt;
+</description>
+      <pubDate>Sat, 14 Jun 2014 00:00:00 -0700</pubDate>
+      <guid>http://notebook.madsenlab.org/essays/simulation/reproducible%20science/2014/06/14/ci-travis.html</guid>
+      <dc:date>2014-06-14T00:00:00-07:00</dc:date>
+    </item>
+    <item>
+      <title>A Personal History of Personal Computing, 2014 Update</title>
+      <link>http://notebook.madsenlab.org/essays/2014/06/08/personal-history-personal-computing.html</link>
+      <description>&lt;p&gt;Back in 2003 on my “original” blog, and then in 2005 on &lt;a href=&quot;http://mark.madsenlab.org&quot;&gt;Extended Phenotype&lt;/a&gt;, I started a serial essay called “A Personal History of Personal Computing.” My first blog is long gone in the transition away from Radio Userland to Typepad, but otherwise my output from 2004 onward is still intact (including a conversion to Wordpress from Typepad).&lt;/p&gt;
+&lt;div class=&quot;references&quot;&gt;
+
+&lt;/div&gt;
+</description>
+      <pubDate>Sun, 08 Jun 2014 00:00:00 -0700</pubDate>
+      <guid>http://notebook.madsenlab.org/essays/2014/06/08/personal-history-personal-computing.html</guid>
+      <dc:date>2014-06-08T00:00:00-07:00</dc:date>
+    </item>
+    <item>
+      <title>Experiment Planning for CT Mixture Model</title>
+      <link>http://notebook.madsenlab.org/project:coarse%20grained%20model/model:ctmixtures/experiment:experiment-ctmixtures/2014/05/24/ctmixture-experiment-planning.html</link>
+      <description>&lt;div class=&quot;references&quot;&gt;
+&lt;h3&gt;Planning: CT Mixtures and Identifiability&lt;/h3&gt;
+&lt;/div&gt;
+</description>
+      <pubDate>Sat, 24 May 2014 00:00:00 -0700</pubDate>
+      <guid>http://notebook.madsenlab.org/project:coarse%20grained%20model/model:ctmixtures/experiment:experiment-ctmixtures/2014/05/24/ctmixture-experiment-planning.html</guid>
+      <dc:date>2014-05-24T00:00:00-07:00</dc:date>
+    </item>
+    <item>
+      <title>Semantic Axelrod - Next Steps</title>
+      <link>http://notebook.madsenlab.org/project:structured%20information/model:axelrod-ct/experiment:experiment-semanticaxelrod/2014/04/26/semantic-next-steps.html</link>
+      <description>&lt;div class=&quot;references&quot;&gt;
+&lt;h3&gt;Performance&lt;/h3&gt;
+&lt;/div&gt;
+</description>
+      <pubDate>Sat, 26 Apr 2014 00:00:00 -0700</pubDate>
+      <guid>http://notebook.madsenlab.org/project:structured%20information/model:axelrod-ct/experiment:experiment-semanticaxelrod/2014/04/26/semantic-next-steps.html</guid>
+      <dc:date>2014-04-26T00:00:00-07:00</dc:date>
+    </item>
+    <item>
+      <title>Convergence of CT Rule Mixtures</title>
+      <link>http://notebook.madsenlab.org/project:coarse%20grained%20model/model:ctmixtures/experiment:experiment-ctmixtures/2014/04/26/ct-mixture-experiment-design.html</link>
+      <description>&lt;div class=&quot;references&quot;&gt;
+&lt;h3&gt;Identifiability of Mixtures of CT Modes&lt;/h3&gt;
+&lt;/div&gt;
+</description>
+      <pubDate>Sat, 26 Apr 2014 00:00:00 -0700</pubDate>
+      <guid>http://notebook.madsenlab.org/project:coarse%20grained%20model/model:ctmixtures/experiment:experiment-ctmixtures/2014/04/26/ct-mixture-experiment-design.html</guid>
+      <dc:date>2014-04-26T00:00:00-07:00</dc:date>
+    </item>
+    <item>
+      <title>Why I Support the OPALCO Board and the OPALCO Broadband Initiative</title>
+      <link>http://notebook.madsenlab.org/essays/2014/04/11/opalco-broadband-initiative.html</link>
+      <description>&lt;p&gt;by Mark Madsen, San Juan Island&lt;/p&gt;
+&lt;div class=&quot;references&quot;&gt;
+
+&lt;/div&gt;
+</description>
+      <pubDate>Fri, 11 Apr 2014 00:00:00 -0700</pubDate>
+      <guid>http://notebook.madsenlab.org/essays/2014/04/11/opalco-broadband-initiative.html</guid>
+      <dc:date>2014-04-11T00:00:00-07:00</dc:date>
+    </item>
+    <item>
+      <title>TODO for Semantic Axelrod project</title>
+      <link>http://notebook.madsenlab.org/project:coarse%20grained%20model/model:axelrod-ct/experiment:experiment-semanticaxelrod/2014/04/02/simulation-runs-april.html</link>
+      <description>&lt;div class=&quot;references&quot;&gt;
+&lt;h3&gt;Update&lt;/h3&gt;
+&lt;/div&gt;
+</description>
+      <pubDate>Wed, 02 Apr 2014 00:00:00 -0700</pubDate>
+      <guid>http://notebook.madsenlab.org/project:coarse%20grained%20model/model:axelrod-ct/experiment:experiment-semanticaxelrod/2014/04/02/simulation-runs-april.html</guid>
+      <dc:date>2014-04-02T00:00:00-07:00</dc:date>
+    </item>
+    <item>
+      <title>Coarse Graining for Structured Information</title>
+      <link>http://notebook.madsenlab.org/project:coarse%20grained%20model/open%20problems/2014/03/18/coarsegraining-structured-info.html</link>
+      <description>&lt;div class=&quot;references&quot;&gt;
+&lt;h3&gt;Open Problem&lt;/h3&gt;
+&lt;/div&gt;
+</description>
+      <pubDate>Tue, 18 Mar 2014 00:00:00 -0700</pubDate>
+      <guid>http://notebook.madsenlab.org/project:coarse%20grained%20model/open%20problems/2014/03/18/coarsegraining-structured-info.html</guid>
+      <dc:date>2014-03-18T00:00:00-07:00</dc:date>
+    </item>
+    <item>
+      <title>TODO for Semantic Axelrod project</title>
+      <link>http://notebook.madsenlab.org/project:structured%20information/model:axelrod-ct/experiment:experiment-semanticaxelrod/2014/03/16/semantic-todo-list.html</link>
+      <description>&lt;p&gt;UPDATE: After finding a bug in the timing of innovation/mutation, I’m not using any of the previous data.&lt;/p&gt;
+&lt;div class=&quot;references&quot;&gt;
+
+&lt;/div&gt;
+</description>
+      <pubDate>Sun, 16 Mar 2014 00:00:00 -0700</pubDate>
+      <guid>http://notebook.madsenlab.org/project:structured%20information/model:axelrod-ct/experiment:experiment-semanticaxelrod/2014/03/16/semantic-todo-list.html</guid>
+      <dc:date>2014-03-16T00:00:00-07:00</dc:date>
+    </item>
+    <item>
+      <title>Analysis of Symmetry Metrics for Forests of Balanced Trees</title>
+      <link>http://notebook.madsenlab.org/project:structured%20information/model:axelrod-ct/experiment:experiment-semanticaxelrod/2014/03/10/symmetries-multiple-tree-components.html</link>
+      <description>&lt;div class=&quot;references&quot;&gt;
+&lt;h3&gt;Symmetry Metrics for Balanced Tree Forests&lt;/h3&gt;
+&lt;/div&gt;
+</description>
+      <pubDate>Mon, 10 Mar 2014 00:00:00 -0700</pubDate>
+      <guid>http://notebook.madsenlab.org/project:structured%20information/model:axelrod-ct/experiment:experiment-semanticaxelrod/2014/03/10/symmetries-multiple-tree-components.html</guid>
+      <dc:date>2014-03-10T00:00:00-07:00</dc:date>
+    </item>
+    <item>
+      <title>Update on Tree Structure Models and Observable Variables</title>
+      <link>http://notebook.madsenlab.org/project:structured%20information/model:axelrod-ct/experiment:experiment-semanticaxelrod/2014/02/11/semantic-update-observables.html</link>
+      <description>&lt;div class=&quot;references&quot;&gt;
+&lt;h3&gt;Status: 2/11/14&lt;/h3&gt;
+&lt;/div&gt;
+</description>
+      <pubDate>Tue, 11 Feb 2014 00:00:00 -0800</pubDate>
+      <guid>http://notebook.madsenlab.org/project:structured%20information/model:axelrod-ct/experiment:experiment-semanticaxelrod/2014/02/11/semantic-update-observables.html</guid>
+      <dc:date>2014-02-11T00:00:00-08:00</dc:date>
+    </item>
+    <item>
+      <title>Knowledge Prerequisites and Graph Symmetries</title>
+      <link>http://notebook.madsenlab.org/project:structured%20information/model:axelrod-ct/experiment:experiment-semanticaxelrod/2014/01/18/semantic-trait-graphs-and-symmetries.html</link>
+      <description>&lt;div class=&quot;references&quot;&gt;
+&lt;h3&gt;Brief Summary&lt;/h3&gt;
+&lt;/div&gt;
+</description>
+      <pubDate>Sat, 18 Jan 2014 00:00:00 -0800</pubDate>
+      <guid>http://notebook.madsenlab.org/project:structured%20information/model:axelrod-ct/experiment:experiment-semanticaxelrod/2014/01/18/semantic-trait-graphs-and-symmetries.html</guid>
+      <dc:date>2014-01-18T00:00:00-08:00</dc:date>
+    </item>
+    <item>
+      <title>Tree Structured Axelrod for Knowledge Prerequisites</title>
+      <link>http://notebook.madsenlab.org/project:structured%20information/model:axelrod-ct/experiment:experiment-semanticaxelrod/2014/01/11/semantic-axelrod-prerequisites.html</link>
+      <description>&lt;div class=&quot;references&quot;&gt;
+&lt;h3&gt;Status&lt;/h3&gt;
+&lt;/div&gt;
+</description>
+      <pubDate>Sat, 11 Jan 2014 00:00:00 -0800</pubDate>
+      <guid>http://notebook.madsenlab.org/project:structured%20information/model:axelrod-ct/experiment:experiment-semanticaxelrod/2014/01/11/semantic-axelrod-prerequisites.html</guid>
+      <dc:date>2014-01-11T00:00:00-08:00</dc:date>
+    </item>
+    <item>
+      <title>Issues with Tree Structured Axelrod</title>
+      <link>http://notebook.madsenlab.org/project:structured%20information/model:axelrod-ct/experiment:experiment-semanticaxelrod/2013/12/28/issues-with-tree-axelrod.html</link>
+      <description>&lt;div class=&quot;references&quot;&gt;
+&lt;h3&gt;Issues&lt;/h3&gt;
+&lt;/div&gt;
+</description>
+      <pubDate>Sat, 28 Dec 2013 00:00:00 -0800</pubDate>
+      <guid>http://notebook.madsenlab.org/project:structured%20information/model:axelrod-ct/experiment:experiment-semanticaxelrod/2013/12/28/issues-with-tree-axelrod.html</guid>
+      <dc:date>2013-12-28T00:00:00-08:00</dc:date>
+    </item>
+    <item>
+      <title>Semantic Axelrod with Concept Trees and Graphs</title>
+      <link>http://notebook.madsenlab.org/project:structured%20information/model:axelrod-ct/experiment:experiment-semanticaxelrod/2013/12/11/semantic-trees-and-graphs.html</link>
+      <description>&lt;div class=&quot;references&quot;&gt;
+&lt;h3&gt;Extensible Trait Models&lt;/h3&gt;
+&lt;/div&gt;
+</description>
+      <pubDate>Wed, 11 Dec 2013 00:00:00 -0800</pubDate>
+      <guid>http://notebook.madsenlab.org/project:structured%20information/model:axelrod-ct/experiment:experiment-semanticaxelrod/2013/12/11/semantic-trees-and-graphs.html</guid>
+      <dc:date>2013-12-11T00:00:00-08:00</dc:date>
+    </item>
+    <item>
+      <title>Blogging Archaeology Carnival for SAA 2014</title>
+      <link>http://notebook.madsenlab.org/essays/2013/11/26/saablogging-why-i-blog.html</link>
+      <description>&lt;p&gt;In the lead-up to the 2014 Society for American Archaeology meetings and the session on “blogging archaeology,” a “blogging carnival” has been &lt;a href=&quot;http://dougsarchaeology.wordpress.com/2013/11/05/blogging-archaeology/&quot;&gt;organized by Doug&lt;/a&gt;. Everyone is associating their posts with the hashtag &lt;a href=&quot;https://twitter.com/search?q=%23blogarch&amp;amp;src=hash&quot;&gt;&lt;code&gt;#blogarch&lt;/code&gt;&lt;/a&gt; to track it all.&lt;/p&gt;
+&lt;div class=&quot;references&quot;&gt;
+
+&lt;/div&gt;
+</description>
+      <pubDate>Tue, 26 Nov 2013 00:00:00 -0800</pubDate>
+      <guid>http://notebook.madsenlab.org/essays/2013/11/26/saablogging-why-i-blog.html</guid>
+      <dc:date>2013-11-26T00:00:00-08:00</dc:date>
+    </item>
+    <item>
+      <title>Original Axelrod to Semantic Axelrod model - implementation notes</title>
+      <link>http://notebook.madsenlab.org/project:structured%20information/model:axelrod-ct/experiment:experiment-semanticaxelrod/2013/11/18/axelrod-to-semantic-model-notes.html</link>
+      <description>&lt;div class=&quot;references&quot;&gt;
+&lt;h3&gt;Axelrod Model&lt;/h3&gt;
+&lt;/div&gt;
+</description>
+      <pubDate>Mon, 18 Nov 2013 00:00:00 -0800</pubDate>
+      <guid>http://notebook.madsenlab.org/project:structured%20information/model:axelrod-ct/experiment:experiment-semanticaxelrod/2013/11/18/axelrod-to-semantic-model-notes.html</guid>
+      <dc:date>2013-11-18T00:00:00-08:00</dc:date>
+    </item>
+    <item>
+      <title>Classification Experiment - Exploratory Data Analysis</title>
+      <link>http://notebook.madsenlab.org/project:coarse%20grained%20model/model:ctpy/experiment:experiment-classification/2013/11/03/classification-eda.html</link>
+      <description>&lt;div class=&quot;references&quot;&gt;
+&lt;h3&gt;Data Storage&lt;/h3&gt;
+&lt;/div&gt;
+</description>
+      <pubDate>Sun, 03 Nov 2013 00:00:00 -0700</pubDate>
+      <guid>http://notebook.madsenlab.org/project:coarse%20grained%20model/model:ctpy/experiment:experiment-classification/2013/11/03/classification-eda.html</guid>
+      <dc:date>2013-11-03T00:00:00-07:00</dc:date>
+    </item>
+    <item>
+      <title>Simply Statistics Unconference on the Future of Statistics</title>
+      <link>http://notebook.madsenlab.org/reading%20notes/2013/10/30/unconference-future-statistics.html</link>
+      <description>&lt;p&gt;&lt;a href=&quot;http://simplystatistics.org/unconference/&quot;&gt;Simply Statistics - FOS Unconference&lt;/a&gt;&lt;/p&gt;
+&lt;div class=&quot;references&quot;&gt;
+
+&lt;/div&gt;
+</description>
+      <pubDate>Wed, 30 Oct 2013 00:00:00 -0700</pubDate>
+      <guid>http://notebook.madsenlab.org/reading%20notes/2013/10/30/unconference-future-statistics.html</guid>
+      <dc:date>2013-10-30T00:00:00-07:00</dc:date>
+    </item>
+    <item>
+      <title>Research Design for Semantic Axelrod Model</title>
+      <link>http://notebook.madsenlab.org/project:structured%20information/model:axelrod-ct/experiment:experiment-semanticaxelrod/2013/10/23/semanticaxelrod-research-design.html</link>
+      <description>&lt;div class=&quot;references&quot;&gt;
+&lt;h3&gt;Semantic Axelrod as a Graph Problem&lt;/h3&gt;
+&lt;/div&gt;
+</description>
+      <pubDate>Wed, 23 Oct 2013 00:00:00 -0700</pubDate>
+      <guid>http://notebook.madsenlab.org/project:structured%20information/model:axelrod-ct/experiment:experiment-semanticaxelrod/2013/10/23/semanticaxelrod-research-design.html</guid>
+      <dc:date>2013-10-23T00:00:00-07:00</dc:date>
+    </item>
+    <item>
+      <title>Making the Case for &quot;Medium&quot; Data</title>
+      <link>http://notebook.madsenlab.org/essays/2013/09/30/medium-data.html</link>
+      <description>&lt;p&gt;Chris Stucchio’s recent post &lt;a href=&quot;http://www.chrisstucchio.com/blog/2013/hadoop_hatred.html&quot;&gt;“Don’t use Hadoop - your data isn’t that big”&lt;/a&gt; is a valuable read for many of us in the sciences, whose data are “large,” but not “big data” in the current industry buzzword sense of the term. In the sciences, astronomers doing automated sky sweeps have big data. The physicists are CERN have big data. Mostly, the rest of us have small to medium data. I’d like to make a case that there are methods and best practices for the analysis of &lt;strong&gt;medium&lt;/strong&gt; scale data that have been largely ignored until now. And that folks doing computational studies in any discipline need to think about how to set up an analysis of medium-scale data such that it’s replicable and accurate.&lt;/p&gt;
+&lt;div class=&quot;references&quot;&gt;
+
+&lt;/div&gt;
+</description>
+      <pubDate>Mon, 30 Sep 2013 00:00:00 -0700</pubDate>
+      <guid>http://notebook.madsenlab.org/essays/2013/09/30/medium-data.html</guid>
+      <dc:date>2013-09-30T00:00:00-07:00</dc:date>
+    </item>
+    <item>
+      <title>Classification Experiment - Data Reduction and Cleaning</title>
+      <link>http://notebook.madsenlab.org/project:coarse%20grained%20model/model:ctpy/experiment:experiment-classification/2013/09/26/classification-experiment-data-cleaning.html</link>
+      <description>&lt;h3 id=&quot;data-description&quot;&gt;Data Description&lt;/h3&gt;
+&lt;p&gt;The classification experiment simulation runs encompassed 48 combinations of innovation rates and population sizes, which were performed in 10 replicates per combination, for the Wright-Fisher infinite-alleles (WFIA) model of cultural transmission without bias or natural selection.&lt;/p&gt;
+&lt;div class=&quot;references&quot;&gt;
+
+&lt;/div&gt;
+</description>
+      <pubDate>Thu, 26 Sep 2013 00:00:00 -0700</pubDate>
+      <guid>http://notebook.madsenlab.org/project:coarse%20grained%20model/model:ctpy/experiment:experiment-classification/2013/09/26/classification-experiment-data-cleaning.html</guid>
+      <dc:date>2013-09-26T00:00:00-07:00</dc:date>
+    </item>
+    <item>
+      <title>SAA 2014 Abstract Draft</title>
+      <link>http://notebook.madsenlab.org/project:structured%20information/model:axelrod-ct/experiment:experiment-semanticaxelrod/2013/09/05/saa2014-abstract-draft.html</link>
+      <description>&lt;div class=&quot;references&quot;&gt;
+&lt;h3&gt;Paper Title&lt;/h3&gt;
+&lt;/div&gt;
+</description>
+      <pubDate>Thu, 05 Sep 2013 00:00:00 -0700</pubDate>
+      <guid>http://notebook.madsenlab.org/project:structured%20information/model:axelrod-ct/experiment:experiment-semanticaxelrod/2013/09/05/saa2014-abstract-draft.html</guid>
+      <dc:date>2013-09-05T00:00:00-07:00</dc:date>
+    </item>
+    <item>
+      <title>Classification Experiment Research Questions</title>
+      <link>http://notebook.madsenlab.org/project:coarse%20grained%20model/model:ctpy/experiment:experiment-classification/2013/08/27/classification-research-questions.html</link>
+      <description>&lt;div class=&quot;references&quot;&gt;
+&lt;h3&gt;Research Questions&lt;/h3&gt;
+&lt;/div&gt;
+</description>
+      <pubDate>Tue, 27 Aug 2013 00:00:00 -0700</pubDate>
+      <guid>http://notebook.madsenlab.org/project:coarse%20grained%20model/model:ctpy/experiment:experiment-classification/2013/08/27/classification-research-questions.html</guid>
+      <dc:date>2013-08-27T00:00:00-07:00</dc:date>
+    </item>
+    <item>
+      <title>Implementing Semantic Axelrod in CTPy</title>
+      <link>http://notebook.madsenlab.org/project:structured%20information/model:axelrod-ct/experiment:experiment-semanticaxelrod/2013/08/11/semanticaxelrod-implementation.html</link>
+      <description>&lt;p&gt;This note described implementation notes and questions about using simuPOP and CTPy for the &lt;a href=&quot;/structured%20information%20project/2013/07/24/semantic-axelrod.html&quot;&gt;Semantic Axelrod&lt;/a&gt; model.&lt;/p&gt;
+&lt;div class=&quot;references&quot;&gt;
+
+&lt;/div&gt;
+</description>
+      <pubDate>Sun, 11 Aug 2013 00:00:00 -0700</pubDate>
+      <guid>http://notebook.madsenlab.org/project:structured%20information/model:axelrod-ct/experiment:experiment-semanticaxelrod/2013/08/11/semanticaxelrod-implementation.html</guid>
+      <dc:date>2013-08-11T00:00:00-07:00</dc:date>
+    </item>
+    <item>
+      <title>Semantic Axelrod Model - Conference Abstract and Project Notes</title>
+      <link>http://notebook.madsenlab.org/project:structured%20information/model:axelrod-ct/experiment:experiment-semanticaxelrod/2013/08/11/semanticaxelrod-abstract-notes.html</link>
+      <description>&lt;div class=&quot;references&quot;&gt;
+&lt;h3&gt;Motivation&lt;/h3&gt;
+&lt;/div&gt;
+</description>
+      <pubDate>Sun, 11 Aug 2013 00:00:00 -0700</pubDate>
+      <guid>http://notebook.madsenlab.org/project:structured%20information/model:axelrod-ct/experiment:experiment-semanticaxelrod/2013/08/11/semanticaxelrod-abstract-notes.html</guid>
+      <dc:date>2013-08-11T00:00:00-07:00</dc:date>
+    </item>
+    <item>
+      <title>Madsen and Lipo 2007 - Beyond Beanbag Models of Cultural Transmission</title>
+      <link>http://notebook.madsenlab.org/project:structured%20information/model:axelrod-ct/experiment:experiment-semanticaxelrod/2013/08/11/semantic-ct-models-2007-notes.html</link>
+      <description>&lt;p&gt;I really started looking at the idea of incorporating “meaning” or “structured information” into cultural transmission models back in 2003, when I was the co-founder and VP of Engineering for a software startup (Network Clarity). I was reading everything I could get my hands on about the Semantic Web, description logics, and ways of doing deductive reasoning in a declarative manner (i.e., outside Prolog or pencil-and-paper predicate logic). We were attempting to represent the common-sense knowledge that network engineers had about a properly configured, properly functioning network into rules which we could use to check router and firewall configurations at the semantic, not just syntactic level.&lt;/p&gt;
+&lt;div class=&quot;references&quot;&gt;
+
+&lt;/div&gt;
+</description>
+      <pubDate>Sun, 11 Aug 2013 00:00:00 -0700</pubDate>
+      <guid>http://notebook.madsenlab.org/project:structured%20information/model:axelrod-ct/experiment:experiment-semanticaxelrod/2013/08/11/semantic-ct-models-2007-notes.html</guid>
+      <dc:date>2013-08-11T00:00:00-07:00</dc:date>
+    </item>
+    <item>
+      <title>Classification Experiment Notes</title>
+      <link>http://notebook.madsenlab.org/project:coarse%20grained%20model/model:ctpy/experiment:experiment-classification/2013/08/09/classification-experiment-notes.html</link>
+      <description>&lt;div class=&quot;references&quot;&gt;
+&lt;h3&gt;Setup and Raw Simulations&lt;/h3&gt;
+&lt;/div&gt;
+</description>
+      <pubDate>Fri, 09 Aug 2013 00:00:00 -0700</pubDate>
+      <guid>http://notebook.madsenlab.org/project:coarse%20grained%20model/model:ctpy/experiment:experiment-classification/2013/08/09/classification-experiment-notes.html</guid>
+      <dc:date>2013-08-09T00:00:00-07:00</dc:date>
+    </item>
+    <item>
+      <title>Classification Experiment Protocol</title>
+      <link>http://notebook.madsenlab.org/project:coarse%20grained%20model/model:ctpy/experiment:experiment-classification/2013/07/29/classification-experiment-protocol.html</link>
+      <description>&lt;div class=&quot;references&quot;&gt;
+&lt;h3&gt;Purpose&lt;/h3&gt;
+&lt;/div&gt;
+</description>
+      <pubDate>Mon, 29 Jul 2013 00:00:00 -0700</pubDate>
+      <guid>http://notebook.madsenlab.org/project:coarse%20grained%20model/model:ctpy/experiment:experiment-classification/2013/07/29/classification-experiment-protocol.html</guid>
+      <dc:date>2013-07-29T00:00:00-07:00</dc:date>
+    </item>
+    <item>
+      <title>The Semantic Axelrod Model</title>
+      <link>http://notebook.madsenlab.org/project:structured%20information/model:axelrod-ct/experiment:experiment-semanticaxelrod/2013/07/24/semantic-axelrod.html</link>
+      <description>&lt;div class=&quot;references&quot;&gt;
+&lt;h3&gt;Background&lt;/h3&gt;
+&lt;/div&gt;
+</description>
+      <pubDate>Wed, 24 Jul 2013 00:00:00 -0700</pubDate>
+      <guid>http://notebook.madsenlab.org/project:structured%20information/model:axelrod-ct/experiment:experiment-semanticaxelrod/2013/07/24/semantic-axelrod.html</guid>
+      <dc:date>2013-07-24T00:00:00-07:00</dc:date>
+    </item>
+    <item>
+      <title>Classifications in CTPy (Part 2) --  Modeling Dimensionality, Performance</title>
+      <link>http://notebook.madsenlab.org/project:coarse%20grained%20model/model:ctpy/experiment:experiment-classification/2013/07/20/ctpy-classifications-part2.html</link>
+      <description>&lt;div class=&quot;references&quot;&gt;
+&lt;h3&gt;Background&lt;/h3&gt;
+&lt;/div&gt;
+</description>
+      <pubDate>Sat, 20 Jul 2013 00:00:00 -0700</pubDate>
+      <guid>http://notebook.madsenlab.org/project:coarse%20grained%20model/model:ctpy/experiment:experiment-classification/2013/07/20/ctpy-classifications-part2.html</guid>
+      <dc:date>2013-07-20T00:00:00-07:00</dc:date>
+    </item>
+    <item>
+      <title>Classification in CTPy (Part 1)</title>
+      <link>http://notebook.madsenlab.org/project:coarse%20grained%20model/model:ctpy/experiment:experiment-classification/2013/07/13/ctpy-classification-designs.html</link>
+      <description>&lt;div class=&quot;references&quot;&gt;
+&lt;h3&gt;Background&lt;/h3&gt;
+&lt;/div&gt;
+</description>
+      <pubDate>Sat, 13 Jul 2013 00:00:00 -0700</pubDate>
+      <guid>http://notebook.madsenlab.org/project:coarse%20grained%20model/model:ctpy/experiment:experiment-classification/2013/07/13/ctpy-classification-designs.html</guid>
+      <dc:date>2013-07-13T00:00:00-07:00</dc:date>
+    </item>
+    <item>
+      <title>Time Perspectivism - An Annotated Bibliography</title>
+      <link>http://notebook.madsenlab.org/theory/reading%20notes/2013/07/10/time-perspectivism-annotated-bib.html</link>
+      <description>&lt;h3 id=&quot;what-is-time-perspectivism&quot;&gt;What is Time Perspectivism?&lt;/h3&gt;
+&lt;p&gt;(definition, Bailey, with some Binford etc)&lt;/p&gt;
+&lt;div class=&quot;references&quot;&gt;
+
+&lt;/div&gt;
+</description>
+      <pubDate>Wed, 10 Jul 2013 00:00:00 -0700</pubDate>
+      <guid>http://notebook.madsenlab.org/theory/reading%20notes/2013/07/10/time-perspectivism-annotated-bib.html</guid>
+      <dc:date>2013-07-10T00:00:00-07:00</dc:date>
+    </item>
+    <item>
+      <title>Cultural Transmission - Definitions</title>
+      <link>http://notebook.madsenlab.org/cultural%20transmission/2013/06/24/ct-definitions.html</link>
+      <description>&lt;div class=&quot;references&quot;&gt;
+&lt;h3&gt;Culture and Cultural Transmission&lt;/h3&gt;
+&lt;/div&gt;
+</description>
+      <pubDate>Mon, 24 Jun 2013 00:00:00 -0700</pubDate>
+      <guid>http://notebook.madsenlab.org/cultural%20transmission/2013/06/24/ct-definitions.html</guid>
+      <dc:date>2013-06-24T00:00:00-07:00</dc:date>
+    </item>
+    <item>
+      <title>Notes on Gabora 2013 -- Selectionism versus communal exchange</title>
+      <link>http://notebook.madsenlab.org/cultural%20transmission/theory/essays/2013/06/13/gabora2013-response-notes.html</link>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;This is a working draft, and sections may be incomplete. 6/15/13&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;div class=&quot;references&quot;&gt;
+
+&lt;/div&gt;
+</description>
+      <pubDate>Thu, 13 Jun 2013 00:00:00 -0700</pubDate>
+      <guid>http://notebook.madsenlab.org/cultural%20transmission/theory/essays/2013/06/13/gabora2013-response-notes.html</guid>
+      <dc:date>2013-06-13T00:00:00-07:00</dc:date>
+    </item>
+    <item>
+      <title>Duncan 2013 -- The Conceptual Framework of Quantum Field Theory</title>
+      <link>http://notebook.madsenlab.org/physics/theory/reading%20notes/2013/06/11/duncan2013-conceptual-structure-qft.html</link>
+      <description>&lt;div class=&quot;references&quot;&gt;
+&lt;h3&gt;Motivation&lt;/h3&gt;
+&lt;/div&gt;
+</description>
+      <pubDate>Tue, 11 Jun 2013 00:00:00 -0700</pubDate>
+      <guid>http://notebook.madsenlab.org/physics/theory/reading%20notes/2013/06/11/duncan2013-conceptual-structure-qft.html</guid>
+      <dc:date>2013-06-11T00:00:00-07:00</dc:date>
+    </item>
+    <item>
+      <title>Rough notes on structured information in CT models</title>
+      <link>http://notebook.madsenlab.org/project:structured%20information/2013/06/07/structured-info-notes.html</link>
+      <description>&lt;p&gt;The bits of information that go into any real skill, behavior, or complex artifact display many types of semantic relationships. What I’m interested in are &lt;em&gt;classes&lt;/em&gt; of relationships among those bits of information, where the classes affect the patterns of spreading, persistence, generative entrenchment, or openness to innovation for the bits of information.&lt;/p&gt;
+&lt;div class=&quot;references&quot;&gt;
+
+&lt;/div&gt;
+</description>
+      <pubDate>Fri, 07 Jun 2013 00:00:00 -0700</pubDate>
+      <guid>http://notebook.madsenlab.org/project:structured%20information/2013/06/07/structured-info-notes.html</guid>
+      <dc:date>2013-06-07T00:00:00-07:00</dc:date>
+    </item>
+    <item>
+      <title>Portland State University First Thursday -- Presentation Slides</title>
+      <link>http://notebook.madsenlab.org/cultural%20transmission/presentations/2013/06/05/psu-talk-presentation.html</link>
+      <description>&lt;p&gt;I’m off to Portland State University tomorrow, to give a talk in their “First Thursday” series, at 4pm in Smith 296. If you’re in the neighborhood, please join us. If not, here are links to the slides I’ll be using, including the version with notes (which help with some of the minimalist image-based slides).&lt;/p&gt;
+&lt;div class=&quot;references&quot;&gt;
+
+&lt;/div&gt;
+</description>
+      <pubDate>Wed, 05 Jun 2013 00:00:00 -0700</pubDate>
+      <guid>http://notebook.madsenlab.org/cultural%20transmission/presentations/2013/06/05/psu-talk-presentation.html</guid>
+      <dc:date>2013-06-05T00:00:00-07:00</dc:date>
+    </item>
+    <item>
+      <title>Holdaway and Wandsnider -- Time in Archaeology</title>
+      <link>http://notebook.madsenlab.org/theory/reading%20notes/2013/05/27/time-in-archaeology.html</link>
+      <description>&lt;div class=&quot;references&quot;&gt;
+&lt;h2&gt;Notes on &lt;span class=&quot;citation&quot; data-cites=&quot;holdaway2008time&quot;&gt;(Holdaway and Wandsnider 2008)&lt;/span&gt;&lt;/h2&gt;
+&lt;p&gt;Holdaway, Simon, and LuAnn Wandsnider. 2008. &lt;em&gt;Time in Archaeology: Time Perspectivism Revisited&lt;/em&gt;. University of Utah Press.&lt;/p&gt;
+&lt;/div&gt;
+</description>
+      <pubDate>Mon, 27 May 2013 00:00:00 -0700</pubDate>
+      <guid>http://notebook.madsenlab.org/theory/reading%20notes/2013/05/27/time-in-archaeology.html</guid>
+      <dc:date>2013-05-27T00:00:00-07:00</dc:date>
+    </item>
+    <item>
+      <title>MathJax Test</title>
+      <link>http://notebook.madsenlab.org/2013/05/26/mathjax-test.html</link>
+      <description>&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus rhoncus semper est vitae fermentum. Sed ac mollis dolor. Sed lacinia semper neque ut interdum. Integer lobortis sodales nisi, in egestas dui venenatis ac. Quisque iaculis posuere sapien, in elementum ligula laoreet vitae. Pellentesque bibendum consectetur elementum. Ut vel orci enim, sed vehicula lacus.&lt;/p&gt;
+&lt;div class=&quot;references&quot;&gt;
+
+&lt;/div&gt;
+</description>
+      <pubDate>Sun, 26 May 2013 00:00:00 -0700</pubDate>
+      <guid>http://notebook.madsenlab.org/2013/05/26/mathjax-test.html</guid>
+      <dc:date>2013-05-26T00:00:00-07:00</dc:date>
+    </item>
+    <item>
+      <title>Portland State Univ. First Thursday Presentation Notes</title>
+      <link>http://notebook.madsenlab.org/cultural%20transmission/theory/presentations/2013/04/10/psu-talk-notes.html</link>
+      <description>&lt;div class=&quot;references&quot;&gt;
+&lt;h2&gt;Abstract&lt;/h2&gt;
+&lt;/div&gt;
+</description>
+      <pubDate>Wed, 10 Apr 2013 00:00:00 -0700</pubDate>
+      <guid>http://notebook.madsenlab.org/cultural%20transmission/theory/presentations/2013/04/10/psu-talk-notes.html</guid>
+      <dc:date>2013-04-10T00:00:00-07:00</dc:date>
+    </item>
+    <item>
+      <title>When are Darwinian and Populational Models Useful?</title>
+      <link>http://notebook.madsenlab.org/cultural%20transmission/theory/essays/2013/03/31/darwinian-populational-models.html</link>
+      <description>&lt;p&gt;&lt;span class=&quot;citation&quot; data-cites=&quot;godfrey2009darwinian&quot;&gt;(Godfrey-Smith 2009)&lt;/span&gt; uses a specific distinction between “Darwinian” explanations, and merely “populational” explanations, that is different than I’d always thought about &lt;span class=&quot;citation&quot; data-cites=&quot;Lewontin1974 Lewontin1970&quot;&gt;(R. Lewontin 1974; R. C. Lewontin 1970)&lt;/span&gt;, but is useful. And he questions whether cultural phenomena are uniformly subject to Darwinian explanations, or even populational ones.&lt;/p&gt;
+&lt;div class=&quot;references&quot;&gt;
+&lt;p&gt;Godfrey-Smith, Peter. 2009. &lt;em&gt;Darwinian Populations and Natural Selection&lt;/em&gt;. Oxford University Press.&lt;/p&gt;
+&lt;p&gt;Lewontin, Richard. 1974. &lt;em&gt;The Genetic Basis of Evolutionary Change&lt;/em&gt;. Columbia University Press.&lt;/p&gt;
+&lt;p&gt;Lewontin, Richard C. 1970. “The Units of Selection.” &lt;em&gt;Annual Reviews of Ecology and Systematics&lt;/em&gt; 1: 1–18.&lt;/p&gt;
+&lt;/div&gt;
+</description>
+      <pubDate>Sun, 31 Mar 2013 00:00:00 -0700</pubDate>
+      <guid>http://notebook.madsenlab.org/cultural%20transmission/theory/essays/2013/03/31/darwinian-populational-models.html</guid>
+      <dc:date>2013-03-31T00:00:00-07:00</dc:date>
+    </item>
+    <item>
+      <title>Coarse-Graining, History, and CT Models</title>
+      <link>http://notebook.madsenlab.org/project:coarse%20grained%20model/essays/2012/10/02/coarse-graining-history-ctmodels.html</link>
+      <description>&lt;p&gt;By coarse-graining (CG) our CT models, we hope to construct models which can be used to extract observable predictions and thus testable hypotheses at particular scales.&lt;/p&gt;
+&lt;div class=&quot;references&quot;&gt;
+
+&lt;/div&gt;
+</description>
+      <pubDate>Tue, 02 Oct 2012 00:00:00 -0700</pubDate>
+      <guid>http://notebook.madsenlab.org/project:coarse%20grained%20model/essays/2012/10/02/coarse-graining-history-ctmodels.html</guid>
+      <dc:date>2012-10-02T00:00:00-07:00</dc:date>
+    </item>
+    <item>
+      <title>Experiment - Statistical Power of Slatkin Exact vs Conformism</title>
+      <link>http://notebook.madsenlab.org/project:coarse%20grained%20model/experiment:slatkin-power/2012/10/01/slatkin-power-experiment.html</link>
+      <description>&lt;p&gt;Montgomery Slatkin proposed an “exact test” (in the sense of enumeration of exact probability for an observation) for neutrality of a sample of N individuals, in which K alleles are observed &lt;span class=&quot;citation&quot; data-cites=&quot;slatkin1994exact slatkin1996correction&quot;&gt;(Slatkin 1994; Slatkin 1996)&lt;/span&gt;. The test calculates the probability of getting a sample of alleles “more extreme” than the observed data from the Ewens Sampling Formula (or Distribution). &lt;strong&gt;By way of review, the ESD gives the distribution of alleles in a sample of fixed known size, from a population at quasi-stationary equilibrium, characterized by the Wright-Fisher infinite-alleles model or its close relations&lt;/strong&gt;. The Slatkin (or Ewens) exact test is two-tailed, and a sample can fall outside the chosen critical region (at a given alpha level) either by having too few rare alleles, or far too even a distribution.&lt;/p&gt;
+&lt;div class=&quot;references&quot;&gt;
+&lt;p&gt;Slatkin, M. 1994. “An Exact Test for Neutrality Based on the Ewens Sampling Distribution.” &lt;em&gt;Genetical Research&lt;/em&gt; 64 (01): 71–74.&lt;/p&gt;
+&lt;p&gt;———. 1996. “A Correction to the Exact Test Based on the Ewens Sampling Distribution.” &lt;em&gt;Genetical Research&lt;/em&gt; 68 (03): 259–260.&lt;/p&gt;
+&lt;/div&gt;
+</description>
+      <pubDate>Mon, 01 Oct 2012 00:00:00 -0700</pubDate>
+      <guid>http://notebook.madsenlab.org/project:coarse%20grained%20model/experiment:slatkin-power/2012/10/01/slatkin-power-experiment.html</guid>
+      <dc:date>2012-10-01T00:00:00-07:00</dc:date>
+    </item>
+    <item>
+      <title>Slatkin Exact Test -- Error and Statistical Power</title>
+      <link>http://notebook.madsenlab.org/project:coarse%20grained%20model/experiment:slatkin-power/2012/09/22/slatkin-test-error-power.html</link>
+      <description>&lt;div class=&quot;references&quot;&gt;
+&lt;h2&gt;Power Analysis&lt;/h2&gt;
+&lt;/div&gt;
+</description>
+      <pubDate>Sat, 22 Sep 2012 00:00:00 -0700</pubDate>
+      <guid>http://notebook.madsenlab.org/project:coarse%20grained%20model/experiment:slatkin-power/2012/09/22/slatkin-test-error-power.html</guid>
+      <dc:date>2012-09-22T00:00:00-07:00</dc:date>
+    </item>
+    <item>
+      <title>Approaches to Explaining the Evolution of Human Culture</title>
+      <link>http://notebook.madsenlab.org/reading%20notes/theory/2012/07/25/approaches-evolution-culture.html</link>
+      <description>&lt;div class=&quot;references&quot;&gt;
+&lt;h2&gt;Five Classical Approaches to the Evolution of Culture&lt;/h2&gt;
+&lt;/div&gt;
+</description>
+      <pubDate>Wed, 25 Jul 2012 00:00:00 -0700</pubDate>
+      <guid>http://notebook.madsenlab.org/reading%20notes/theory/2012/07/25/approaches-evolution-culture.html</guid>
+      <dc:date>2012-07-25T00:00:00-07:00</dc:date>
+    </item>
+    <item>
+      <title>Renormalization Theory and Cultural Transmission in Archaeology</title>
+      <link>http://notebook.madsenlab.org/project:coarse%20grained%20model/essays/2012/06/14/renormalization-theory-archy.html</link>
+      <description>&lt;p&gt;In general, my topic concerns the “renormalization” of cultural transmission models. This terminology will probably be unfamiliar to anthropologists and social scientists, so I’m not going to emphasize the term or formal renormalization theory in upcoming publications or my dissertation, but it is absolutely what I’m studying. I thought a blog post would be a good place to describe this concept, and its relationship to concepts more familiar to anthropologists.&lt;/p&gt;
+&lt;div class=&quot;references&quot;&gt;
+
+&lt;/div&gt;
+</description>
+      <pubDate>Thu, 14 Jun 2012 00:00:00 -0700</pubDate>
+      <guid>http://notebook.madsenlab.org/project:coarse%20grained%20model/essays/2012/06/14/renormalization-theory-archy.html</guid>
+      <dc:date>2012-06-14T00:00:00-07:00</dc:date>
+    </item>
+    <item>
+      <title>CT Models Incorporating Artifacts and the Record Via Tuple Spaces</title>
+      <link>http://notebook.madsenlab.org/project:niche%20construction/essays/open%20problems/2011/06/24/ct-tuplespace-artfacts.html</link>
+      <description>&lt;p&gt;The basic idea here: we cannot model cultural transmission, as it is really implemented in humans, by acting like traits are alleles at genetic loci. Such models were important, because they gave us a &lt;em&gt;modeling framework&lt;/em&gt; within which we can analyze CT models, but neutral Wright-Fisher or the SIS/contact model are not CT.&lt;/p&gt;
+&lt;div class=&quot;references&quot;&gt;
+
+&lt;/div&gt;
+</description>
+      <pubDate>Fri, 24 Jun 2011 00:00:00 -0700</pubDate>
+      <guid>http://notebook.madsenlab.org/project:niche%20construction/essays/open%20problems/2011/06/24/ct-tuplespace-artfacts.html</guid>
+      <dc:date>2011-06-24T00:00:00-07:00</dc:date>
+    </item>
+    <item>
+      <title>Renormalization and Archaeological Applications</title>
+      <link>http://notebook.madsenlab.org/project:coarse%20grained%20model/reading%20notes/2011/02/23/renormalization.html</link>
+      <description>&lt;div class=&quot;references&quot;&gt;
+&lt;h2&gt;Relevance to Archaeology&lt;/h2&gt;
+&lt;/div&gt;
+</description>
+      <pubDate>Wed, 23 Feb 2011 00:00:00 -0800</pubDate>
+      <guid>http://notebook.madsenlab.org/project:coarse%20grained%20model/reading%20notes/2011/02/23/renormalization.html</guid>
+      <dc:date>2011-02-23T00:00:00-08:00</dc:date>
+    </item>
+    <item>
+      <title>Notes on He and Stone 2003</title>
+      <link>http://notebook.madsenlab.org/project:coarse%20grained%20model/reading%20notes/2011/01/11/he-and-stone.html</link>
+      <description>&lt;div class=&quot;references&quot;&gt;
+&lt;h2&gt;&lt;span class=&quot;citation&quot; data-cites=&quot;hestone2003&quot;&gt;(He and Stone 2003)&lt;/span&gt; Notes&lt;/h2&gt;
+&lt;p&gt;He, D, and L Stone. 2003. “Spatio-Temporal Synchronization of Recurrent Epidemics.” &lt;em&gt;… of the Royal Society of London. …&lt;/em&gt; (Jan). &lt;a href=&quot;http://rspb.royalsocietypublishing.org/content/270/1523/1519.abstract&quot;&gt;http://rspb.royalsocietypublishing.org/content/270/1523/1519.abstract&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+</description>
+      <pubDate>Tue, 11 Jan 2011 00:00:00 -0800</pubDate>
+      <guid>http://notebook.madsenlab.org/project:coarse%20grained%20model/reading%20notes/2011/01/11/he-and-stone.html</guid>
+      <dc:date>2011-01-11T00:00:00-08:00</dc:date>
+    </item>
+    <dc:date>2014-07-09T00:00:00-07:00</dc:date>
+  </channel>
+</rss>
