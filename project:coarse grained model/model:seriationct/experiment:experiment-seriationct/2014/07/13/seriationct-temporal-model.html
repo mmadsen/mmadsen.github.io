@@ -3,7 +3,7 @@
 <html lang="en">
   <head prefix="dc: http://purl.org/dc/terms/ og: http://ogp.me/ns#">
     <meta charset="utf-8"/>
-    <title></title>
+    <title>Temporal Networks in SeriationCT</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta name="description" content="Lab Notebook for Mark E. Madsen"/>
     <meta name="author" content="Mark E. Madsen"/>
@@ -13,9 +13,9 @@
 
 
 	<!-- For posts, page.date is the date they are published under, which we use as their 'canonical' dc:date -->
-	 <!-- If we don't have a page.date, then use modified time (pages) -->
-	   
-	
+	 
+	  
+	  
 
 	<!-- Posts declare modified timestamps in the sidebar, so would be redundant to put here. But then 
 	     pages don't have a dc:modified... unless we give them their own (modified) sidebar?  
@@ -23,26 +23,26 @@
 	<!-- Ideally we would want date originally created from the _oldest_ git commit too...-->
 
 	<!-- RDFa Metadata (in DublinCore) -->
-	<meta property="dc:title" content="" />
+	<meta property="dc:title" content="Temporal Networks in SeriationCT" />
 	<meta property="dc:creator" content="Mark E. Madsen" />
-	<meta property="dc:date" content="2014-07-13T17:22:47-07:00" />
+	<meta property="dc:date" content="2014-07-13T00:00:00-07:00" />
 	<meta property="dc:format" content="text/html" />
 	<meta property="dc:language" content="en" />
-	<meta property="dc:identifier" content="/tag/niche%20construction.html" />
+	<meta property="dc:identifier" content="/project:coarse%20grained%20model/model:seriationct/experiment:experiment-seriationct/2014/07/13/seriationct-temporal-model.html" />
 	<meta property="dc:rights" content="CC BY-NC-SA 3.0" />
 	<meta property="dc:source" content="Lab Notebook for Mark E. Madsen" />
 	<meta property="dc:subject" content="Anthropology" /> 
 	<meta property="dc:type" content="website" /> 
 	<!-- RDFa Metadata (in OpenGraph) -->
-	<meta property="og:title" content="" />
+	<meta property="og:title" content="Temporal Networks in SeriationCT" />
 	<meta property="og:author" content="http://notebook.madsenlab.org/bio.html" />  <!-- Should be Liquid? URI? -->
 	<meta property="og:site_name" content="Lab Notebook for Mark E. Madsen" /> <!-- Same as dc:source? -->
-	<meta property="og:url" content="http://notebook.madsenlab.org/tag/niche%20construction.html" />
+	<meta property="og:url" content="http://notebook.madsenlab.org/project:coarse%20grained%20model/model:seriationct/experiment:experiment-seriationct/2014/07/13/seriationct-temporal-model.html" />
 	<meta property="og:type" content="website" /> 
 	<!-- Google Scholar Metadata -->
 	<meta name="citation_author" content="Mark E. Madsen"/>
-	<meta name="citation_date" content="2014-07-13T17:22:47-07:00"/>
-	<meta name="citation_title" content=""/>
+	<meta name="citation_date" content="2014-07-13T00:00:00-07:00"/>
+	<meta name="citation_title" content="Temporal Networks in SeriationCT"/>
 	<meta name="citation_journal_title" content="Lab Notebook for Mark E. Madsen"/>
 
     <!-- Le styles -->
@@ -174,37 +174,64 @@
           </div><!--/.well -->
         </div><!--/span3-->
 
-            <div  class="span9">
-
-<h2>Posts Tagged: "niche construction"</h2>
-
-<table class="table table-condensed">
-
+            <div class="span8">
+  	<h2>Temporal Networks in SeriationCT</h2>
 	
 
-		<tr>
-		<td>05 Jun 2013</td>
-		<td><a href="/cultural%20transmission/presentations/2013/06/05/psu-talk-presentation.html">Portland State University First Thursday -- Presentation Slides</a></td>
-		</tr>
+		<p class="text-info">
+		<table class="table table-condensed">
+			<tr class="info">
+				<td><small><i class="icon-calendar"></i>&nbsp;Created: 13 Jul 2014</small></td>
+				<td><small><i class="icon-calendar"></i>&nbsp;Modified: 13 Jul 2014</small></td>
+				<td><small><i class="icon-book">&nbsp;</i>&nbsp;<a href=http://greycite.knowledgeblog.org/bib/?uri=http://notebook.madsenlab.org/project:coarse%20grained%20model/model:seriationct/experiment:experiment-seriationct/2014/07/13/seriationct-temporal-model.html target='_blank'>BibTeX Entry</a>
+</small></td>
+				<td><small><i class="icon-book">&nbsp;</i>&nbsp;<a href=http://greycite.knowledgeblog.org/ris/?uri=http://notebook.madsenlab.org/project:coarse%20grained%20model/model:seriationct/experiment:experiment-seriationct/2014/07/13/seriationct-temporal-model.html target='_blank'>RIS Citation</a>
+</small></td>
+				<td><small><a href="javascript:window.print()"><i class="icon-print"></i>&nbsp;Print</a></small></td>
+				<!--<td><small><a href="/project:coarse%20grained%20model/model:seriationct/experiment:experiment-seriationct/2014/07/13/seriationct-temporal-model.html"></i>Permalink</a></small></td> -->
+			</tr>
+		</table>
+		</p>
 
 
+  	
 	
+  <h3 id="overview">Overview</h3>
+<p>In my <a href="/project:coarse%20grained%20model/model:seriationct/experiment:experiment-seriationct/2014/06/17/seriationct-requirements.html">description of the SeriationCT model</a>, I refer to controlling the connections and interaction intensity between communities by a diachronic “regional interaction model.” This note formalizes the way I handle specifying such models, using one type of “temporal network” formalism <span class="citation" data-cites="holme2012temporal">(Holme and Saram<span>ä</span>ki 2012)</span>.</p>
+<p>Two types of temporal network model are in general use today. The first records the time at which events occur, where events are represented by the appearance and deletion of edges between vertices. Such “instantaneous” temporal networks are useful for modeling time series data for events whose duration is small compared to the overall dynamics. Examples include text messages between individuals or conversations at a party. The second type of temporal network model (an “interval” network) records the pattern of vertices and edges over <strong>intervals</strong>. During each interval, the adjacency matrix is assumed to be static, changing at specific time indices. This type of model is represented by an integer-indexed sequence of full adjacency matrices, and is useful for representing an evolving situation or context upon which some <strong>other</strong> dynamics plays out. In other words, interval networks are perfect for representing ongoing CT in a more slowly changing context of local community formation, contact, isolation, and abandonment.</p>
+<figure>
+<img src="/images/ctseriation-temporal-network.png" alt="Figure 1: Toy model of a temporal network." /><figcaption>Figure 1: Toy model of a temporal network.</figcaption>
+</figure>
+<p>In Figure 1, I show only four vertices, to clearly demonstrate the implementation of a temporal network. Vertices here represent local communities or demes, edges (<span class="math">\(e_{i,j}\)</span>) represent interaction (e.g., intermarriage, trade, or other contacts resulting in opportunities for social learning), and the thickness of the edge is a graphical depiction of edge weights (<span class="math">\(w_{i,j}\)</span>) which is an ordinal measure of interaction intensity. Vertex pairs without a connecting edge are assumed not to be interacting during the time interval represented by the adjacency matrix.</p>
+<p>The figure represents a pattern of connections (at time <span class="math">\(t=4\)</span>, say), and then a change at <span class="math">\(t=11\)</span> to increase the intensity of interaction or learning between communities 2 and 3. This interaction declines to similar levels as other pairs of communities at <span class="math">\(t=18\)</span>, but interaction between communities 3 and 4 increases. Finally, at <span class="math">\(t=25\)</span>, community 1 is abandoned, with no other changes in the interaction pattern.</p>
+<p>These changes are reflected in the sequence of adjacency matrices below, by the change in off-diagonal edge weights. Diagonal elements are used here to indicate the <strong>existence</strong> of a population, and thus we mark the loss of community 1 by a zero in the upper left diagonal position of the matrix (naturally, its off diagonal elements go to zero as well).</p>
+<p>The full model is thus a sequence of tuples of the form <span class="math">\((t_0, A(t_0)) \ldots (t_i, A(t_i))\)</span>.</p>
+<div class="references">
+<h3>References Cited</h3>
+<p>Holme, Petter, and Jari Saram<span>ä</span>ki. 2012. “Temporal Networks.” <em>Physics Reports</em> 519 (3): 97–125.</p>
+</div>
+  
 
-		<tr>
-		<td>24 Jun 2011</td>
-		<td><a href="/project:niche%20construction/essays/open%20problems/2011/06/24/ct-tuplespace-artfacts.html">CT Models Incorporating Artifacts and the Record Via Tuple Spaces</a></td>
-		</tr>
 
+<div class="well well-small">
+<p class="text-info"><i class="icon-tags"></i>&nbsp;Tags</p>
+<ul>
 
-	
-</table>
-	
-	
+<li><a href='/tag/cultural transmission.html'>cultural transmission</a></li>
+
+<li><a href='/tag/coarse graining.html'>coarse graining</a></li>
+
+<li><a href='/tag/simulation.html'>simulation</a></li>
+
+<li><a href='/tag/dissertation.html'>dissertation</a></li>
+
+<li><a href='/tag/seriation.html'>seriation</a></li>
+
+</ul>
 </div>
 
 
-
-
+</div>
 
 
         

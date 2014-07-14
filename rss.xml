@@ -8,7 +8,18 @@
     <title>Lab Notebook for Mark E. Madsen</title>
     <link>http://notebook.madsenlab.org</link>
     <description>RSS feed for Lab Notebook for Mark E. Madsen</description>
-    <pubDate>Wed, 09 Jul 2014 00:00:00 -0700</pubDate>
+    <pubDate>Sun, 13 Jul 2014 00:00:00 -0700</pubDate>
+    <item>
+      <title>Temporal Networks in SeriationCT</title>
+      <link>http://notebook.madsenlab.org/project:coarse%20grained%20model/model:seriationct/experiment:experiment-seriationct/2014/07/13/seriationct-temporal-model.html</link>
+      <description>&lt;div class=&quot;references&quot;&gt;
+&lt;h3&gt;Overview&lt;/h3&gt;
+&lt;/div&gt;
+</description>
+      <pubDate>Sun, 13 Jul 2014 00:00:00 -0700</pubDate>
+      <guid>http://notebook.madsenlab.org/project:coarse%20grained%20model/model:seriationct/experiment:experiment-seriationct/2014/07/13/seriationct-temporal-model.html</guid>
+      <dc:date>2014-07-13T00:00:00-07:00</dc:date>
+    </item>
     <item>
       <title>Semantic Axelrod Review Comments/Revision Plan</title>
       <link>http://notebook.madsenlab.org/project:structured%20information/model:axelrod-ct/experiment:experiment-semanticaxelrod/2014/07/09/semanticaxelrod-review-revisions.html</link>
@@ -32,10 +43,10 @@
       <dc:date>2014-07-09T00:00:00-07:00</dc:date>
     </item>
     <item>
-      <title>Requirements for SeriationCT Model</title>
+      <title>Description of the SeriationCT Model</title>
       <link>http://notebook.madsenlab.org/project:coarse%20grained%20model/model:seriationct/experiment:experiment-seriationct/2014/06/17/seriationct-requirements.html</link>
       <description>&lt;div class=&quot;references&quot;&gt;
-&lt;h3&gt;Description&lt;/h3&gt;
+&lt;h3&gt;Overview&lt;/h3&gt;
 &lt;/div&gt;
 </description>
       <pubDate>Tue, 17 Jun 2014 00:00:00 -0700</pubDate>
@@ -644,6 +655,6 @@
       <guid>http://notebook.madsenlab.org/project:coarse%20grained%20model/reading%20notes/2011/01/11/he-and-stone.html</guid>
       <dc:date>2011-01-11T00:00:00-08:00</dc:date>
     </item>
-    <dc:date>2014-07-09T00:00:00-07:00</dc:date>
+    <dc:date>2014-07-13T00:00:00-07:00</dc:date>
   </channel>
 </rss>
