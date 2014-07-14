@@ -182,7 +182,7 @@
 		<table class="table table-condensed">
 			<tr class="info">
 				<td><small><i class="icon-calendar"></i>&nbsp;Created: 13 Jul 2014</small></td>
-				<td><small><i class="icon-calendar"></i>&nbsp;Modified: 13 Jul 2014</small></td>
+				<td><small><i class="icon-calendar"></i>&nbsp;Modified: 14 Jul 2014</small></td>
 				<td><small><i class="icon-book">&nbsp;</i>&nbsp;<a href=http://greycite.knowledgeblog.org/bib/?uri=http://notebook.madsenlab.org/project:coarse%20grained%20model/model:seriationct/experiment:experiment-seriationct/2014/07/13/seriationct-temporal-model.html target='_blank'>BibTeX Entry</a>
 </small></td>
 				<td><small><i class="icon-book">&nbsp;</i>&nbsp;<a href=http://greycite.knowledgeblog.org/ris/?uri=http://notebook.madsenlab.org/project:coarse%20grained%20model/model:seriationct/experiment:experiment-seriationct/2014/07/13/seriationct-temporal-model.html target='_blank'>RIS Citation</a>
@@ -206,6 +206,35 @@
 <p>The figure represents a pattern of connections (at time <span class="math">\(t=4\)</span>, say), and then a change at <span class="math">\(t=11\)</span> to increase the intensity of interaction or learning between communities 2 and 3. This interaction declines to similar levels as other pairs of communities at <span class="math">\(t=18\)</span>, but interaction between communities 3 and 4 increases. Finally, at <span class="math">\(t=25\)</span>, community 1 is abandoned, with no other changes in the interaction pattern.</p>
 <p>These changes are reflected in the sequence of adjacency matrices below, by the change in off-diagonal edge weights. Diagonal elements are used here to indicate the <strong>existence</strong> of a population, and thus we mark the loss of community 1 by a zero in the upper left diagonal position of the matrix (naturally, its off diagonal elements go to zero as well).</p>
 <p>The full model is thus a sequence of tuples of the form <span class="math">\((t_0, A(t_0)) \ldots (t_i, A(t_i))\)</span>.</p>
+<h3 id="implementation">Implementation</h3>
+<p>One possibility is to go from some kind of specification (e.g., start with <span class="math">\(N\)</span> vertices, generate <span class="math">\(M\)</span> clusters with strong internal connectivity and weak connectivity between, at times <span class="math">\(T_i \ldots T_j\)</span> vary the strength of between cluster connections, …) to a sequence of <code>numpy</code> arrays which represent weighted adjacency matrices.</p>
+<p>The regional model would be characterized at any given time by a single <code>numpy</code> array, which represented the state of the metapopulation network at that time. At a model tick where a new network model state is supposed to arrive, the new state is substituted, and the population model remapped to match. The details for that remapping are as follows:</p>
+<ol type="1">
+<li><p>If a vertex is destroyed by a state change (detected by finding a zero on the diagonal for one of the demes/vertices), its agents are removed from the population and any edges between them and other neighbors removed.</p></li>
+<li><p>If a vertex is added by a state change (detected by finding a one on the diagonal for a deme/vertex that does not currently exist in the active population), a new deme (vertex) is created, and the population size for that deme is seeded by random sampling of a neighboring deme (chosen at random from those which the new deme is connected in the regional population matrix).</p></li>
+<li><p>In order to determine connectivity changes (as opposed to new or lost vertices), we have to compare the new and old <code>numpy</code> arrays. This is easily done using <code>numpy.equal()</code>, which produces an array of the same dimension filled with booleans that indicate positions which are equal. In this case, we would find any instances of <code>False</code> in the upper diagonal portion of the array, and modify their weight.</p></li>
+<li><p>Modification of the “weight” between two vertices means changing the number of individuals who have edges between the two vertices. This could be chosen at random.</p></li>
+</ol>
+<table class="sourceCode python numberLines"><tr class="sourceCode"><td class="lineNumbers"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+</pre></td><td class="sourceCode"><pre><code class="sourceCode python">
+<span class="ch">import</span> numpy <span class="ch">as</span> np
+t1 = np.array([[<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">0</span>],[<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">0</span>],[<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>],[<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">1</span>]])
+t2 = np.array([[<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">0</span>],[<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">3</span>,<span class="dv">0</span>],[<span class="dv">1</span>,<span class="dv">3</span>,<span class="dv">1</span>,<span class="dv">1</span>],[<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">1</span>]])
+np.equal(t1,t2)
+
+ud = np.triu_indices(<span class="dv">4</span>)
+
+difference_t1_t2 = np.equal(t1,t2)
+difference_t1_t2[ud]</code></pre></td></tr></table>
 <div class="references">
 <h3>References Cited</h3>
 <p>Holme, Petter, and Jari Saram<span>ä</span>ki. 2012. “Temporal Networks.” <em>Physics Reports</em> 519 (3): 97–125.</p>
