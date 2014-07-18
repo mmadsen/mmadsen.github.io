@@ -8,7 +8,21 @@
     <title>Lab Notebook for Mark E. Madsen</title>
     <link>http://notebook.madsenlab.org</link>
     <description>RSS feed for Lab Notebook for Mark E. Madsen</description>
-    <pubDate>Wed, 16 Jul 2014 00:00:00 -0700</pubDate>
+    <pubDate>Thu, 17 Jul 2014 00:00:00 -0700</pubDate>
+    <item>
+      <title>Eight Years on San Juan Island</title>
+      <link>http://notebook.madsenlab.org/essays/personal/2014/07/17/eight-years-on-sanjuan.html</link>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;The cost of a thing is the amount of what I will call life which is required to be exchanged for it, immediately or in the long run. – Henry David Thoreau, &lt;strong&gt;Walden&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;div class=&quot;references&quot;&gt;
+
+&lt;/div&gt;
+</description>
+      <pubDate>Thu, 17 Jul 2014 00:00:00 -0700</pubDate>
+      <guid>http://notebook.madsenlab.org/essays/personal/2014/07/17/eight-years-on-sanjuan.html</guid>
+      <dc:date>2014-07-17T00:00:00-07:00</dc:date>
+    </item>
     <item>
       <title>Experiment Template for Reproducible Simulation Models</title>
       <link>http://notebook.madsenlab.org/essays/simulation/reproducible%20science/2014/07/16/experiment-template-openscience.html</link>
@@ -666,6 +680,6 @@
       <guid>http://notebook.madsenlab.org/project:coarse%20grained%20model/reading%20notes/2011/01/11/he-and-stone.html</guid>
       <dc:date>2011-01-11T00:00:00-08:00</dc:date>
     </item>
-    <dc:date>2014-07-16T00:00:00-07:00</dc:date>
+    <dc:date>2014-07-17T00:00:00-07:00</dc:date>
   </channel>
 </rss>
