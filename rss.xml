@@ -8,7 +8,18 @@
     <title>Lab Notebook for Mark E. Madsen</title>
     <link>http://notebook.madsenlab.org</link>
     <description>RSS feed for Lab Notebook for Mark E. Madsen</description>
-    <pubDate>Thu, 17 Jul 2014 00:00:00 -0700</pubDate>
+    <pubDate>Mon, 28 Jul 2014 00:00:00 -0700</pubDate>
+    <item>
+      <title>Implementing temporal networks in Python</title>
+      <link>http://notebook.madsenlab.org/project:coarse%20grained%20model/model:seriationct/experiment:experiment-seriationct/2014/07/28/implementing-temporal-networks-in-python.html</link>
+      <description>&lt;div class=&quot;references&quot;&gt;
+&lt;h3&gt;Overview&lt;/h3&gt;
+&lt;/div&gt;
+</description>
+      <pubDate>Mon, 28 Jul 2014 00:00:00 -0700</pubDate>
+      <guid>http://notebook.madsenlab.org/project:coarse%20grained%20model/model:seriationct/experiment:experiment-seriationct/2014/07/28/implementing-temporal-networks-in-python.html</guid>
+      <dc:date>2014-07-28T00:00:00-07:00</dc:date>
+    </item>
     <item>
       <title>Eight Years on San Juan Island</title>
       <link>http://notebook.madsenlab.org/essays/personal/2014/07/17/eight-years-on-sanjuan.html</link>
@@ -680,6 +691,6 @@
       <guid>http://notebook.madsenlab.org/project:coarse%20grained%20model/reading%20notes/2011/01/11/he-and-stone.html</guid>
       <dc:date>2011-01-11T00:00:00-08:00</dc:date>
     </item>
-    <dc:date>2014-07-17T00:00:00-07:00</dc:date>
+    <dc:date>2014-07-28T00:00:00-07:00</dc:date>
   </channel>
 </rss>
