@@ -185,7 +185,7 @@
 		<table class="table table-condensed">
 			<tr class="info">
 				<td><small><i class="icon-calendar"></i>&nbsp;Created: 13 Jul 2014</small></td>
-				<td><small><i class="icon-calendar"></i>&nbsp;Modified: 14 Jul 2014</small></td>
+				<td><small><i class="icon-calendar"></i>&nbsp;Modified: 28 Jul 2014</small></td>
 				<td><small><i class="icon-book">&nbsp;</i>&nbsp;<a href=http://greycite.knowledgeblog.org/bib/?uri=http://notebook.madsenlab.org/project:coarse%20grained%20model/model:seriationct/experiment:experiment-seriationct/2014/07/13/seriationct-temporal-model.html target='_blank'>BibTeX Entry</a>
 </small></td>
 				<td><small><i class="icon-book">&nbsp;</i>&nbsp;<a href=http://greycite.knowledgeblog.org/ris/?uri=http://notebook.madsenlab.org/project:coarse%20grained%20model/model:seriationct/experiment:experiment-seriationct/2014/07/13/seriationct-temporal-model.html target='_blank'>RIS Citation</a>
@@ -216,8 +216,8 @@
 <li><p>If a vertex is destroyed by a state change (detected by finding a zero on the diagonal for one of the demes/vertices), its agents are removed from the population and any edges between them and other neighbors removed.</p></li>
 <li><p>If a vertex is added by a state change (detected by finding a one on the diagonal for a deme/vertex that does not currently exist in the active population), a new deme (vertex) is created, and the population size for that deme is seeded by random sampling of a neighboring deme (chosen at random from those which the new deme is connected in the regional population matrix).</p></li>
 <li><p>In order to determine connectivity changes (as opposed to new or lost vertices), we have to compare the new and old <code>numpy</code> arrays. This is easily done using <code>numpy.equal()</code>, which produces an array of the same dimension filled with booleans that indicate positions which are equal. In this case, we would find any instances of <code>False</code> in the upper diagonal portion of the array, and modify their weight.</p></li>
-<li><p>Modification of the “weight” between two vertices means changing the number of individuals who have edges between the two vertices. This could be chosen at random.</p></li>
 </ol>
+<p>Modification of the “weight” between two vertices means changing the number of individuals who have edges between the two vertices. This could be chosen at random.</p>
 <table class="sourceCode python numberLines"><tr class="sourceCode"><td class="lineNumbers"><pre>1
 2
 3
@@ -238,6 +238,45 @@ ud = np.triu_indices(<span class="dv">4</span>)
 
 difference_t1_t2 = np.equal(t1,t2)
 difference_t1_t2[ud]</code></pre></td></tr></table>
+<p>Changes to the upper-triangular portion of the matrix, <strong>above</strong> the diagonal are thus indicative of changes in weight between two nodes. We can find the indices of the demes for which this occurs easily:</p>
+<table class="sourceCode python numberLines"><tr class="sourceCode"><td class="lineNumbers"><pre>1
+2
+3
+4
+5
+</pre></td><td class="sourceCode"><pre><code class="sourceCode python">
+<span class="co"># t1 and t2 arrays as before</span>
+<span class="co"># returns tuple where element 0 is a list of row coordinates</span>
+<span class="co"># and element 1 is a list of column coordinates</span>
+changed_edges = np.nonzero( np.triu( t2 - t1 ))</code></pre></td></tr></table>
+<p>Changes to the existence of demes are modeled on the diagonal of the adjacency matrix. In the following, deme 0 goes away, thus yielding a zero in the <span class="math">\(0,0\)</span> position of the adjacency matrix, and corresponding off-diagonal entries go to zero because edges are lost when a deme is removed (of course). In contrast, between time steps 1 and 2, no demes enter or exit.</p>
+<table class="sourceCode python numberLines"><tr class="sourceCode"><td class="lineNumbers"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+</pre></td><td class="sourceCode"><pre><code class="sourceCode python">t3 = np.array([[<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>],[<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">0</span>],[<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">3</span>],[<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">3</span>,<span class="dv">1</span>]])
+
+np.nonzero(np.diagonal( t2 - t1 ))
+<span class="co"># result is (array([], dtype=int64),)</span>
+
+np.nonzero(np.diagonal( t3 - t2 ))
+<span class="co"># result is (array([0]),)</span>
+
+<span class="co"># subtracting the two arrays and accessing the diagonal element for index 0 </span>
+<span class="co"># gives us the DIRECTION</span>
+t3_t2 = t3 - t2
+t3_t2[<span class="dv">0</span>,<span class="dv">0</span>]  
+<span class="co"># answer is -1</span></code></pre></td></tr></table>
+<p>A negative element on the diagonal of the differenced array indicates that the deme at that index is exiting the model at that time step. A positive element on the diagonal thus indicates a new deme entering the model at that time step.</p>
 <div class="references">
 <h3>References Cited</h3>
 <p>Holme, Petter, and Jari Saram<span>ä</span>ki. 2012. “Temporal Networks.” <em>Physics Reports</em> 519 (3): 97–125.</p>
