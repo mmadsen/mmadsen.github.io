@@ -3,7 +3,7 @@
 <html lang="en">
   <head prefix="dc: http://purl.org/dc/terms/ og: http://ogp.me/ns#">
     <meta charset="utf-8"/>
-    <title>Description of the SeriationCT Model</title>
+    <title>Tools I Use</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta name="description" content="Lab Notebook for Mark E. Madsen"/>
     <meta name="author" content="Mark E. Madsen"/>
@@ -13,9 +13,9 @@
 
 
 	<!-- For posts, page.date is the date they are published under, which we use as their 'canonical' dc:date -->
-	 
-	  
-	  
+	 <!-- If we don't have a page.date, then use modified time (pages) -->
+	   
+	
 
 	<!-- Posts declare modified timestamps in the sidebar, so would be redundant to put here. But then 
 	     pages don't have a dc:modified... unless we give them their own (modified) sidebar?  
@@ -23,26 +23,26 @@
 	<!-- Ideally we would want date originally created from the _oldest_ git commit too...-->
 
 	<!-- RDFa Metadata (in DublinCore) -->
-	<meta property="dc:title" content="Description of the SeriationCT Model" />
+	<meta property="dc:title" content="Tools I Use" />
 	<meta property="dc:creator" content="Mark E. Madsen" />
-	<meta property="dc:date" content="2014-06-17T00:00:00-07:00" />
+	<meta property="dc:date" content="2014-07-28T17:15:21-07:00" />
 	<meta property="dc:format" content="text/html" />
 	<meta property="dc:language" content="en" />
-	<meta property="dc:identifier" content="/project:coarse%20grained%20model/model:seriationct/experiment:experiment-seriationct/2014/06/17/seriationct-requirements.html" />
+	<meta property="dc:identifier" content="/tools.html" />
 	<meta property="dc:rights" content="CC BY-NC-SA 3.0" />
 	<meta property="dc:source" content="Lab Notebook for Mark E. Madsen" />
 	<meta property="dc:subject" content="Anthropology" /> 
 	<meta property="dc:type" content="website" /> 
 	<!-- RDFa Metadata (in OpenGraph) -->
-	<meta property="og:title" content="Description of the SeriationCT Model" />
+	<meta property="og:title" content="Tools I Use" />
 	<meta property="og:author" content="http://notebook.madsenlab.org/bio.html" />  <!-- Should be Liquid? URI? -->
 	<meta property="og:site_name" content="Lab Notebook for Mark E. Madsen" /> <!-- Same as dc:source? -->
-	<meta property="og:url" content="http://notebook.madsenlab.org/project:coarse%20grained%20model/model:seriationct/experiment:experiment-seriationct/2014/06/17/seriationct-requirements.html" />
+	<meta property="og:url" content="http://notebook.madsenlab.org/tools.html" />
 	<meta property="og:type" content="website" /> 
 	<!-- Google Scholar Metadata -->
 	<meta name="citation_author" content="Mark E. Madsen"/>
-	<meta name="citation_date" content="2014-06-17T00:00:00-07:00"/>
-	<meta name="citation_title" content="Description of the SeriationCT Model"/>
+	<meta name="citation_date" content="2014-07-28T17:15:21-07:00"/>
+	<meta name="citation_title" content="Tools I Use"/>
 	<meta name="citation_journal_title" content="Lab Notebook for Mark E. Madsen"/>
 
     <!-- Le styles -->
@@ -178,90 +178,75 @@
           </div><!--/.well -->
         </div><!--/span3-->
 
-            <div class="span8">
-  	<h2>Description of the SeriationCT Model</h2>
-	
+            <div class="span9">
+<h2>Tools I Use</h2>
+			
 
-		<p class="text-info">
-		<table class="table table-condensed">
-			<tr class="info">
-				<td><small><i class="icon-calendar"></i>&nbsp;Created: 17 Jun 2014</small></td>
-				<td><small><i class="icon-calendar"></i>&nbsp;Modified: 13 Jul 2014</small></td>
-				<td><small><i class="icon-book">&nbsp;</i>&nbsp;<a href=http://greycite.knowledgeblog.org/bib/?uri=http://notebook.madsenlab.org/project:coarse%20grained%20model/model:seriationct/experiment:experiment-seriationct/2014/06/17/seriationct-requirements.html target='_blank'>BibTeX Entry</a>
-</small></td>
-				<td><small><i class="icon-book">&nbsp;</i>&nbsp;<a href=http://greycite.knowledgeblog.org/ris/?uri=http://notebook.madsenlab.org/project:coarse%20grained%20model/model:seriationct/experiment:experiment-seriationct/2014/06/17/seriationct-requirements.html target='_blank'>RIS Citation</a>
-</small></td>
-				<td><small><a href="javascript:window.print()"><i class="icon-print"></i>&nbsp;Print</a></small></td>
-				<!--<td><small><a href="/project:coarse%20grained%20model/model:seriationct/experiment:experiment-seriationct/2014/06/17/seriationct-requirements.html"></i>Permalink</a></small></td> -->
-			</tr>
-		</table>
-		</p>
+<p>
+I'm trying to keep notes on all the tools that are part of my development and workflow, as well as the bits that tie everything together online.  This is difficult, especially some of the small bits online, so this is an ongoing list to remind me.  And readers can consider this a conditional endorsement, I'm happy to chat about my experience with any of them.  
+</p>
 
 
-  	
-	
-  <h3 id="overview">Overview</h3>
-<p>The <code>seriationct</code> model is intended to simulate a regional-scale model of coarse grained cultural transmission, occurring in a set of local populations which interact within and between demes, over time scales which are much longer than individual transmission events, and longer than the turnover rate for demes themselves. The purpose of the model is to generate time averaged samples of cultural traits, which can be studied using standard archaeological methods, such as seriation.</p>
-<p>The goal of the study is to rigorously connect the properties of seriation solutions in a region, with a coarse-grained model of interaction and cultural transmssion in a regional metapopulation. Since we’re treating CT at a coarse-grained level, appropriate for samples of cultural traits which come from assemblages with significant durations and from heterogeneous populations, the variable aspect of the model is the pattern and density of interaction between local subpopulations. I should note that the analysis is restricted to settlement patterns which are sedentary and nucleated; the models underlying coarse-grained CT analysis of mobile populations will be different.</p>
-<p>Formally, then, my goals are:</p>
-<ol type="1">
-<li>To understand the correspondence between seriation solutions, and variation in regional interaction models</li>
-<li>Infer regional interaction models (or equivalence classes of models, given observable overlap) from seriation solutions and class frequency statistics.</li>
-</ol>
-<h3 id="regional-interaction-models">Regional Interaction Models</h3>
-<p>Interaction within a deme is assumed to be well-mixed, and in general given the <a href="/project:coarse%20grained%20model/model:ctmixtures/experiment:experiment-ctmixtures/2014/04/26/ct-mixture-experiment-design.html">effects of coarse graining on mixtures of social learning rules</a>, transmission is modeled as unbiased copying.</p>
-<p>Interaction of individuals between demes occurs according to a diachronic model which specifies:</p>
-<ol type="1">
-<li>Which demes are connected, and which lack connections</li>
-<li>The normalized strength of the connection, or weight</li>
-</ol>
-<p>This model can be represented by a time-indexed set of weighted adjacency matrices, and is a “temporal network” in the sense studied by <span class="citation" data-cites="holme2012temporal">(Holme and Saram<span>ä</span>ki 2012)</span>. During interactions, individuals are given neighbors in connected demes in proportion to the weights, to allow a normal “choose a random neighbor” algorithm to represent both intra- and inter-deme copying. This is an implementation detail, and is not crucial to the semantics of the model.</p>
-<p>In addition to change in the edges of the network, the temporal network can add and delete vertices, representing the origin and abandonment of new communities. When a new deme is formed, it is seeded by a sample of individuals from surrounding demes, and connected according to the connectivity model.</p>
-<p>To make specification of the model and research problem easier, here is a depiction of three points in time in a temporal network of communities, with time increasing from left to right.</p>
-<figure>
-<img src="/images/ctseriation-interaction-model.png" alt="Figure 1: Network representation of a diachronic connectivity model." /><figcaption>Figure 1: Network representation of a diachronic connectivity model.</figcaption>
-</figure>
-<p>In Figure 1, vertices represent communities which leave artifactual remains, sampled later as assemblages representing depositional events over some period of time. Vertices appear and are lost over time, representing the establishment and loss/abandonment of locations by local populations. Edges represent significant interaction between local communities. In this diagram, I do not place weights on the edges for visual clarity, so simply think of edges as representing greater than average interaction, compared to pairs of vertices between whom there is no regular interaction (e.g., trade, intermarriage, etc).</p>
-<p>In this simple example, I show clusters of communities spread along a river (like many examples in Eastern North America). Several communities go away, several new ones come into existence, but the main pattern is that connections become sparser between major “groups” of communities. This occurs first between the northernmost communities and the middle and southern, which replaces the oldest pattern where dense interaraction occurred between northern and middle communities. Later, the connections between middle and southern communities thin out, as well.</p>
-<p>The red vertices represent a set of sampled assemblages which give us time-averaged trait information from the duration of occupation of each locality. Note that we have some samples whose duration is mostly early, others mostly late, and one sample whose duration spans the entire sequence.</p>
-<p>See <a href="/project:coarse%20grained%20model/model:seriationct/experiment:experiment-seriationct/2014/07/13/seriationct-temporal-model.html">Note: Temporal Networks in SeriationCT</a> for more details on exactly how the temporal network model represents this type of evolving regional interaction.</p>
-<h3 id="sampling">Sampling</h3>
-<p>Observables are calculated by taking coarse grained samples of trait frequencies which approximate several key features of real archaeological phenomena:</p>
-<ol type="1">
-<li>Samples are accumulated over a varying range of durations, to simulate time averaged deposits.</li>
-<li>Samples are identified to a paradigmatic classification (or classifications)</li>
-<li>Samples are labeled as to deme of origin</li>
-</ol>
-<p>The resulting samples are then available for seriation and other statistical analyses, to measure the ability to infer the history of demes, and elements of the diachronic connectivity model.</p>
-<h3 id="analysis">Analysis</h3>
-<p>TBD.</p>
-<div class="references">
-<h3>References Cited</h3>
-<p>Holme, Petter, and Jari Saram<span>ä</span>ki. 2012. “Temporal Networks.” <em>Physics Reports</em> 519 (3): 97–125.</p>
-</div>
-  
+<h3>Development</h3>
 
-
-<div class="well well-small">
-<p class="text-info"><i class="icon-tags"></i>&nbsp;Tags</p>
+<p>
 <ul>
-
-<li><a href='/tag/cultural transmission.html'>cultural transmission</a></li>
-
-<li><a href='/tag/coarse graining.html'>coarse graining</a></li>
-
-<li><a href='/tag/simulation.html'>simulation</a></li>
-
-<li><a href='/tag/dissertation.html'>dissertation</a></li>
-
-<li><a href='/tag/seriation.html'>seriation</a></li>
-
+	<li>Github</li>
+	<li>PyCharm/RubyMine/IntelliJ IDEA from Jetbrains</li>
+	<li>Mathematica from Wolfram</li>
+	<li>RStudio and R</li>
+	<li>MongoDB</li>
+	<li>Robomongo GUI for MongoDB</li>
+	<li>Anaconda Python</li>
+	<li>Apple's XCode command line C/C++ compiler toolchain</li>
 </ul>
+</p>
+
+<h3>Writing, Diagramming, Bibliography Management</h3>
+
+<p>
+<ul>
+	<li>Sublime Text 3</li>
+	<li>MacTeX 2014</li>
+	<li>Texpad for OS X</li>
+	<li>OmniGraffle Pro</li>
+	<li>BibDesk</li>
+	<li>Skim</li>
+	<li>Papers (formerly by Mekentosj)</li>
+	<li>Adobe Photoshop and Illustrator</li>
+	<li>Jekyll for building websites from Markdown</li>
+	<li>Pandoc for document conversion</li>
+</ul>
+</p>
+
+
+<h3>Hosting and Online Services</h3>
+
+<p>
+<ul>
+	<li>Github Pages for lab notebook hosting</li>
+	<li>Bluehost (legacy, migrating away)</li>
+	<li>Network Solutions for DNS</li>
+	<li>About.me for personal ID/business card online</li>
+	<li>Figshare for archiving data/files/figures from papers</li>
+	<li>Basecamp for project management</li>
+	<li>Google+ as a way to post to all social networks, via...</li>
+	<li>Friends+Me (which links G+ to Twitter/Facebook</li>
+	<li>OrcID for researcher unique ID's</li>
+	<li>Academia.edu and ResearchGate for publicizing work and tracking people</li>
+	<li>Amazon AWS for EC2, EMR, and S3 services</li>
+</ul>
+</p>
+
+<!--<h3>Trial Services/Alphas</h3>
+
+<p>
+<ul>
+	<li></li>
+</ul>
+</p>-->
+
 </div>
-
-
-</div>
-
 
         
       </div><!--/row-->

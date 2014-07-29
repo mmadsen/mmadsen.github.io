@@ -170,6 +170,7 @@
               <li class="nav-header">Meta</li>
               <li><a href="/bio.html">Bio</a></li>
               <li><a href="/software.html">Software</a></li>
+              <li><a href="/tools.html">Tools I Use</a></li>
               <li><a href="/publications.html">Publications</a></li>
               <li><a href="/openscience.html">About Open Science</a></li>
 			<li><a href="/labnotebook.html">About this Notebook</a></li>
@@ -231,7 +232,9 @@
     <span class="co"># (array([0, 2]), array([1, 3]))</span>
 
     changed = t2 - t1
-    changed_edges = np.nonzero(np.triu(changed))</code></pre>
+    changed_edges = np.nonzero(np.triu(changed))
+    <span class="co"># (array([0, 2]), array([1, 3]))</span></code></pre>
+<p><code>changed_edges</code> reports those elements which are different between the two matrices, in the upper triangular portion of the matrix. We are mainly interested in off-diagonal elements at the moment. The data structure is a tuple composed of two lists, the row and then the column coordinates. This unusual structure is the reason for the use of <code>zip</code> in the enumeration below.</p>
 <p>Weight changes to existing edges are simply the difference between the two matrix elements, already reflected in the <code>changed</code> matrix entry, and we can detect edges that go away entirely by a weight change which complete offsets the <code>t1</code> weight at <code>t2</code>. If an edge goes away, we remove it. If the weight changes, we alter the weight property for the edge</p>
 <pre class="sourceCode python"><code class="sourceCode python">    <span class="kw">for</span> i,j in <span class="dt">zip</span>(changed_edges[<span class="dv">0</span>], changed_edges[<span class="dv">1</span>]):
         weight_delta = changed[i,j]
