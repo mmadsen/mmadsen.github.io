@@ -8,7 +8,29 @@
     <title>Lab Notebook for Mark E. Madsen</title>
     <link>http://notebook.madsenlab.org</link>
     <description>RSS feed for Lab Notebook for Mark E. Madsen</description>
-    <pubDate>Mon, 28 Jul 2014 00:00:00 -0700</pubDate>
+    <pubDate>Sun, 10 Aug 2014 00:00:00 -0700</pubDate>
+    <item>
+      <title>Observables and Parameters in CTMixtures</title>
+      <link>http://notebook.madsenlab.org/project:coarse%20grained%20model/model:ctmixtures/experiment:experiment-ctmixtures/2014/08/10/ctmixtures-observables-parameters.html</link>
+      <description>&lt;div class=&quot;references&quot;&gt;
+&lt;h3&gt;Parameters of the Model&lt;/h3&gt;
+&lt;/div&gt;
+</description>
+      <pubDate>Sun, 10 Aug 2014 00:00:00 -0700</pubDate>
+      <guid>http://notebook.madsenlab.org/project:coarse%20grained%20model/model:ctmixtures/experiment:experiment-ctmixtures/2014/08/10/ctmixtures-observables-parameters.html</guid>
+      <dc:date>2014-08-10T00:00:00-07:00</dc:date>
+    </item>
+    <item>
+      <title>CTMixtures Experiment Design</title>
+      <link>http://notebook.madsenlab.org/project:coarse%20grained%20model/model:ctmixtures/experiment:experiment-ctmixtures/2014/08/10/ctmixtures-experiment-design.html</link>
+      <description>&lt;div class=&quot;references&quot;&gt;
+&lt;h3&gt;Goals&lt;/h3&gt;
+&lt;/div&gt;
+</description>
+      <pubDate>Sun, 10 Aug 2014 00:00:00 -0700</pubDate>
+      <guid>http://notebook.madsenlab.org/project:coarse%20grained%20model/model:ctmixtures/experiment:experiment-ctmixtures/2014/08/10/ctmixtures-experiment-design.html</guid>
+      <dc:date>2014-08-10T00:00:00-07:00</dc:date>
+    </item>
     <item>
       <title>Implementing temporal networks in Python</title>
       <link>http://notebook.madsenlab.org/project:coarse%20grained%20model/model:seriationct/experiment:experiment-seriationct/2014/07/28/implementing-temporal-networks-in-python.html</link>
@@ -691,6 +713,6 @@
       <guid>http://notebook.madsenlab.org/project:coarse%20grained%20model/reading%20notes/2011/01/11/he-and-stone.html</guid>
       <dc:date>2011-01-11T00:00:00-08:00</dc:date>
     </item>
-    <dc:date>2014-07-28T00:00:00-07:00</dc:date>
+    <dc:date>2014-08-10T00:00:00-07:00</dc:date>
   </channel>
 </rss>

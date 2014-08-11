@@ -3,7 +3,7 @@
 <html lang="en">
   <head prefix="dc: http://purl.org/dc/terms/ og: http://ogp.me/ns#">
     <meta charset="utf-8"/>
-    <title></title>
+    <title>CTMixtures Experiment Design</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta name="description" content="Lab Notebook for Mark E. Madsen"/>
     <meta name="author" content="Mark E. Madsen"/>
@@ -13,9 +13,9 @@
 
 
 	<!-- For posts, page.date is the date they are published under, which we use as their 'canonical' dc:date -->
-	 <!-- If we don't have a page.date, then use modified time (pages) -->
-	   
-	
+	 
+	  
+	  
 
 	<!-- Posts declare modified timestamps in the sidebar, so would be redundant to put here. But then 
 	     pages don't have a dc:modified... unless we give them their own (modified) sidebar?  
@@ -23,26 +23,26 @@
 	<!-- Ideally we would want date originally created from the _oldest_ git commit too...-->
 
 	<!-- RDFa Metadata (in DublinCore) -->
-	<meta property="dc:title" content="" />
+	<meta property="dc:title" content="CTMixtures Experiment Design" />
 	<meta property="dc:creator" content="Mark E. Madsen" />
-	<meta property="dc:date" content="2014-08-11T16:57:21-07:00" />
+	<meta property="dc:date" content="2014-08-10T00:00:00-07:00" />
 	<meta property="dc:format" content="text/html" />
 	<meta property="dc:language" content="en" />
-	<meta property="dc:identifier" content="/tag/metatheory.html" />
+	<meta property="dc:identifier" content="/project:coarse%20grained%20model/model:ctmixtures/experiment:experiment-ctmixtures/2014/08/10/ctmixtures-experiment-design.html" />
 	<meta property="dc:rights" content="CC BY-NC-SA 3.0" />
 	<meta property="dc:source" content="Lab Notebook for Mark E. Madsen" />
 	<meta property="dc:subject" content="Anthropology" /> 
 	<meta property="dc:type" content="website" /> 
 	<!-- RDFa Metadata (in OpenGraph) -->
-	<meta property="og:title" content="" />
+	<meta property="og:title" content="CTMixtures Experiment Design" />
 	<meta property="og:author" content="http://notebook.madsenlab.org/bio.html" />  <!-- Should be Liquid? URI? -->
 	<meta property="og:site_name" content="Lab Notebook for Mark E. Madsen" /> <!-- Same as dc:source? -->
-	<meta property="og:url" content="http://notebook.madsenlab.org/tag/metatheory.html" />
+	<meta property="og:url" content="http://notebook.madsenlab.org/project:coarse%20grained%20model/model:ctmixtures/experiment:experiment-ctmixtures/2014/08/10/ctmixtures-experiment-design.html" />
 	<meta property="og:type" content="website" /> 
 	<!-- Google Scholar Metadata -->
 	<meta name="citation_author" content="Mark E. Madsen"/>
-	<meta name="citation_date" content="2014-08-11T16:57:21-07:00"/>
-	<meta name="citation_title" content=""/>
+	<meta name="citation_date" content="2014-08-10T00:00:00-07:00"/>
+	<meta name="citation_title" content="CTMixtures Experiment Design"/>
 	<meta name="citation_journal_title" content="Lab Notebook for Mark E. Madsen"/>
 
     <!-- Le styles -->
@@ -179,29 +179,67 @@
           </div><!--/.well -->
         </div><!--/span3-->
 
-            <div  class="span9">
-
-<h2>Posts Tagged: "metatheory"</h2>
-
-<table class="table table-condensed">
-
+            <div class="span8">
+  	<h2>CTMixtures Experiment Design</h2>
 	
 
-		<tr>
-		<td>27 May 2013</td>
-		<td><a href="/theory/reading%20notes/2013/05/27/time-in-archaeology.html">Holdaway and Wandsnider -- Time in Archaeology</a></td>
-		</tr>
+		<p class="text-info">
+		<table class="table table-condensed">
+			<tr class="info">
+				<td><small><i class="icon-calendar"></i>&nbsp;Created: 10 Aug 2014</small></td>
+				<td><small><i class="icon-calendar"></i>&nbsp;Modified: 11 Aug 2014</small></td>
+				<td><small><i class="icon-book">&nbsp;</i>&nbsp;<a href=http://greycite.knowledgeblog.org/bib/?uri=http://notebook.madsenlab.org/project:coarse%20grained%20model/model:ctmixtures/experiment:experiment-ctmixtures/2014/08/10/ctmixtures-experiment-design.html target='_blank'>BibTeX Entry</a>
+</small></td>
+				<td><small><i class="icon-book">&nbsp;</i>&nbsp;<a href=http://greycite.knowledgeblog.org/ris/?uri=http://notebook.madsenlab.org/project:coarse%20grained%20model/model:ctmixtures/experiment:experiment-ctmixtures/2014/08/10/ctmixtures-experiment-design.html target='_blank'>RIS Citation</a>
+</small></td>
+				<td><small><a href="javascript:window.print()"><i class="icon-print"></i>&nbsp;Print</a></small></td>
+				<!--<td><small><a href="/project:coarse%20grained%20model/model:ctmixtures/experiment:experiment-ctmixtures/2014/08/10/ctmixtures-experiment-design.html"></i>Permalink</a></small></td> -->
+			</tr>
+		</table>
+		</p>
 
 
+  	
 	
-</table>
-	
-	
+  <h3 id="goals">Goals</h3>
+<p>The overall goal is to understand the degree to which samples of class or trait frequencies are identifiable to models, or conversely, the degree to which models which differ in the mode of CT or parameterizations are equifinal, especially given sample size and time averaging factors.</p>
+<h3 id="an-approach-to-equifinality">An Approach to Equifinality</h3>
+<p>A weak test of equifinality is to look at the empirical distribution of observable variables, and test their overlap across models and parameterizations. This is an important measure of equifinality for situations where we have already published data, or no access to raw frequencies from which to calculate statistics.</p>
+<p>But the strongest examination of equifinality will come from treating model identification as a classification problem or GLM with multiple nominal outcomes. This asks the question, how accurately can we predict the data generating process by a combination of observables used as predictors? In general, equifinality is indicated by an inability to predict with confidence.</p>
+<p>In addition to allowing more sophisticated prediction models, we can use k-fold cross validation or simply separate training and test, to strongly estimate prediction accuracy.</p>
+<p>We can, for example, generate test data from the desired models (e.g., mixtures of copying rules) but with slightly different parameters for innovation or population size, to test prediction accuracy with a true out-of-sample test.</p>
+<h3 id="is-identifiability-improved-if-we-know-some-parameters">Is Identifiability Improved If We Know (Some) Parameters?</h3>
+<p>In general, the goal is to determine equifinality without reference to any unobservable parameters. We rarely, in samples from real populations, have measurements (or even estimates) of population size, or innovation rates, or the prevalence of different modes of transmission in the population.</p>
+<p>But there may be certain situations where one or more parameters (but not, perhaps, all), are known for the population of interest. For example, Jon Scholnick’s data on New England gravestones has a fairly good enumeration of gravestone carvers during the period of interest. In such a situation, we have at least an estimate of N for certain models (we may not know the population buying the gravestones, however). In this situation, is identifiability improved if we can include population size as a predictor in our multi-logistic regression or classification procedure?</p>
+<div class="references">
+<h3>References Cited</h3>
+</div>
+  
+
+
+<div class="well well-small">
+<p class="text-info"><i class="icon-tags"></i>&nbsp;Tags</p>
+<ul>
+
+<li><a href='/tag/cultural transmission.html'>cultural transmission</a></li>
+
+<li><a href='/tag/time averaging.html'>time averaging</a></li>
+
+<li><a href='/tag/coarse graining.html'>coarse graining</a></li>
+
+<li><a href='/tag/simulation.html'>simulation</a></li>
+
+<li><a href='/tag/dissertation.html'>dissertation</a></li>
+
+<li><a href='/tag/experiments.html'>experiments</a></li>
+
+<li><a href='/tag/experiment-ctmixture.html'>experiment-ctmixture</a></li>
+
+</ul>
 </div>
 
 
-
-
+</div>
 
 
         
