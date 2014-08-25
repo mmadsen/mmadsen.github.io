@@ -25,7 +25,7 @@
 	<!-- RDFa Metadata (in DublinCore) -->
 	<meta property="dc:title" content="CTMixtures Experiment Design" />
 	<meta property="dc:creator" content="Mark E. Madsen" />
-	<meta property="dc:date" content="2014-08-10T00:00:00-07:00" />
+	<meta property="dc:date" content="2014-08-10T00:00:00-04:00" />
 	<meta property="dc:format" content="text/html" />
 	<meta property="dc:language" content="en" />
 	<meta property="dc:identifier" content="/project:coarse%20grained%20model/model:ctmixtures/experiment:experiment-ctmixtures/2014/08/10/ctmixtures-experiment-design.html" />
@@ -41,7 +41,7 @@
 	<meta property="og:type" content="website" /> 
 	<!-- Google Scholar Metadata -->
 	<meta name="citation_author" content="Mark E. Madsen"/>
-	<meta name="citation_date" content="2014-08-10T00:00:00-07:00"/>
+	<meta name="citation_date" content="2014-08-10T00:00:00-04:00"/>
 	<meta name="citation_title" content="CTMixtures Experiment Design"/>
 	<meta name="citation_journal_title" content="Lab Notebook for Mark E. Madsen"/>
 
@@ -187,7 +187,7 @@
 		<table class="table table-condensed">
 			<tr class="info">
 				<td><small><i class="icon-calendar"></i>&nbsp;Created: 10 Aug 2014</small></td>
-				<td><small><i class="icon-calendar"></i>&nbsp;Modified: 11 Aug 2014</small></td>
+				<td><small><i class="icon-calendar"></i>&nbsp;Modified: 25 Aug 2014</small></td>
 				<td><small><i class="icon-book">&nbsp;</i>&nbsp;<a href=http://greycite.knowledgeblog.org/bib/?uri=http://notebook.madsenlab.org/project:coarse%20grained%20model/model:ctmixtures/experiment:experiment-ctmixtures/2014/08/10/ctmixtures-experiment-design.html target='_blank'>BibTeX Entry</a>
 </small></td>
 				<td><small><i class="icon-book">&nbsp;</i>&nbsp;<a href=http://greycite.knowledgeblog.org/ris/?uri=http://notebook.madsenlab.org/project:coarse%20grained%20model/model:ctmixtures/experiment:experiment-ctmixtures/2014/08/10/ctmixtures-experiment-design.html target='_blank'>RIS Citation</a>
@@ -204,15 +204,17 @@
   <h3 id="goals">Goals</h3>
 <p>The overall goal is to understand the degree to which samples of class or trait frequencies are identifiable to models, or conversely, the degree to which models which differ in the mode of CT or parameterizations are equifinal, especially given sample size and time averaging factors.</p>
 <h3 id="an-approach-to-equifinality">An Approach to Equifinality</h3>
-<p>A weak test of equifinality is to look at the empirical distribution of observable variables, and test their overlap across models and parameterizations. This is an important measure of equifinality for situations where we have already published data, or no access to raw frequencies from which to calculate statistics.</p>
-<p>But the strongest examination of equifinality will come from treating model identification as a classification problem or GLM with multiple nominal outcomes. This asks the question, how accurately can we predict the data generating process by a combination of observables used as predictors? In general, equifinality is indicated by an inability to predict with confidence.</p>
-<p>In addition to allowing more sophisticated prediction models, we can use k-fold cross validation or simply separate training and test, to strongly estimate prediction accuracy.</p>
-<p>We can, for example, generate test data from the desired models (e.g., mixtures of copying rules) but with slightly different parameters for innovation or population size, to test prediction accuracy with a true out-of-sample test.</p>
+<p>A weak test of equifinality is to look at the empirical distribution of observable variables, and test their overlap across models and parameterizations. This is an important measure of equifinality for situations where we have already published data, or no access to raw frequencies from which to calculate statistics. Some work along these lines already exists with neutrality tests in <span class="citation" data-cites="madsen2012ta">(Madsen 2012,<strong>???</strong>,<strong>???</strong>)</span>.</p>
+<p>But the strongest examination of equifinality will come from treating model identification as a classification problem with multiple predictors. Given all the observable statistics we can calculate or simulate from a given CT model, can we find any combination of the predictors that allows us to accurately predict the model class? This allows us to include interactions between observables. Even if these may not make sense in terms of the underlying diffusion theory, our job here is simply to find any accurate separation of the models.</p>
+<p>Analysis options include SVM or logistic regression for a problem setup where we want to distinguish between two different “models.” In general, equifinality will be indicated by an inability to separate different models, even in the training data, even with free combinations of any and all predictors.</p>
+<p>A good general experiment is to start with a two-class regression, and if we can accurately differentiate neutral versus heterogeneous models (as a group), then move on to distinguishing between specific heterogeneous models with multinomial LR or a GLM.</p>
+<p>We can also generate test data from the desired models (e.g., mixtures of copying rules) but with slightly different parameters for innovation or population size, to test prediction accuracy with a true out-of-sample test.</p>
 <h3 id="is-identifiability-improved-if-we-know-some-parameters">Is Identifiability Improved If We Know (Some) Parameters?</h3>
 <p>In general, the goal is to determine equifinality without reference to any unobservable parameters. We rarely, in samples from real populations, have measurements (or even estimates) of population size, or innovation rates, or the prevalence of different modes of transmission in the population.</p>
 <p>But there may be certain situations where one or more parameters (but not, perhaps, all), are known for the population of interest. For example, Jon Scholnick’s data on New England gravestones has a fairly good enumeration of gravestone carvers during the period of interest. In such a situation, we have at least an estimate of N for certain models (we may not know the population buying the gravestones, however). In this situation, is identifiability improved if we can include population size as a predictor in our multi-logistic regression or classification procedure?</p>
 <div class="references">
 <h3>References Cited</h3>
+<p>Madsen, Mark E. 2012. “Unbiased Cultural Transmission in Time-Averaged Archaeological Assemblages.” <em>ArXiv E-Prints</em> 1204.2043 (April). <a href="http://arxiv.org/abs/1204.2043">http://arxiv.org/abs/1204.2043</a>.</p>
 </div>
   
 
