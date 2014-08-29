@@ -8,7 +8,26 @@
     <title>Lab Notebook for Mark E. Madsen</title>
     <link>http://notebook.madsenlab.org</link>
     <description>Essays RSS feed for Lab Notebook for Mark E. Madsen</description>
-    <pubDate>Sun, 10 Aug 2014 00:00:00 -0400</pubDate>
+    <pubDate>Fri, 29 Aug 2014 00:00:00 -0700</pubDate>
+    <item>
+      <title>Abstracts for the 2015 SAA Conference</title>
+      <link>http://notebook.madsenlab.org/essays/2014/08/29/saa2015-abstracts.html</link>
+      <description>&lt;p&gt;
+Abstracts are in for the Society for American Archaeology meetings next year in San Francisco. Carl Lipo and I are collaborating on two papers, one on our continuing work mating cultural transmission models with diachronic seriations and fitting them to archaeological data, and one on reproducible science and simulation methods.
+&lt;/p&gt;
+&lt;div class=&quot;references&quot;&gt;
+
+&lt;/div&gt;
+
+
+&lt;div class=&quot;references&quot;&gt;
+
+&lt;/div&gt;
+</description>
+      <pubDate>Fri, 29 Aug 2014 00:00:00 -0700</pubDate>
+      <guid>http://notebook.madsenlab.org/essays/2014/08/29/saa2015-abstracts.html</guid>
+      <dc:date>2014-08-29T00:00:00-07:00</dc:date>
+    </item>
     <item>
       <title>Eight Years on San Juan Island</title>
       <link>http://notebook.madsenlab.org/essays/personal/2014/07/17/eight-years-on-sanjuan.html</link>
@@ -26,9 +45,9 @@ The cost of a thing is the amount of what I will call life which is required to 
 
 &lt;/div&gt;
 </description>
-      <pubDate>Thu, 17 Jul 2014 00:00:00 -0400</pubDate>
+      <pubDate>Thu, 17 Jul 2014 00:00:00 -0700</pubDate>
       <guid>http://notebook.madsenlab.org/essays/personal/2014/07/17/eight-years-on-sanjuan.html</guid>
-      <dc:date>2014-07-17T00:00:00-04:00</dc:date>
+      <dc:date>2014-07-17T00:00:00-07:00</dc:date>
     </item>
     <item>
       <title>Experiment Template for Reproducible Simulation Models</title>
@@ -44,9 +63,9 @@ What is an “Experiment Template”?
 
 &lt;/div&gt;
 </description>
-      <pubDate>Wed, 16 Jul 2014 00:00:00 -0400</pubDate>
+      <pubDate>Wed, 16 Jul 2014 00:00:00 -0700</pubDate>
       <guid>http://notebook.madsenlab.org/essays/simulation/reproducible%20science/2014/07/16/experiment-template-openscience.html</guid>
-      <dc:date>2014-07-16T00:00:00-04:00</dc:date>
+      <dc:date>2014-07-16T00:00:00-07:00</dc:date>
     </item>
     <item>
       <title>Continuous Integration and Testing for Simulation Codes</title>
@@ -63,9 +82,9 @@ This week I added all of my simulation projects to the &lt;a href=&quot;https://
 
 &lt;/div&gt;
 </description>
-      <pubDate>Sat, 14 Jun 2014 00:00:00 -0400</pubDate>
+      <pubDate>Sat, 14 Jun 2014 00:00:00 -0700</pubDate>
       <guid>http://notebook.madsenlab.org/essays/simulation/reproducible%20science/2014/06/14/ci-travis.html</guid>
-      <dc:date>2014-06-14T00:00:00-04:00</dc:date>
+      <dc:date>2014-06-14T00:00:00-07:00</dc:date>
     </item>
     <item>
       <title>A Personal History of Personal Computing, 2014 Update</title>
@@ -82,9 +101,9 @@ Back in 2003 on my “original” blog, and then in 2005 on &lt;a href=&quot;htt
 
 &lt;/div&gt;
 </description>
-      <pubDate>Sun, 08 Jun 2014 00:00:00 -0400</pubDate>
+      <pubDate>Sun, 08 Jun 2014 00:00:00 -0700</pubDate>
       <guid>http://notebook.madsenlab.org/essays/2014/06/08/personal-history-personal-computing.html</guid>
-      <dc:date>2014-06-08T00:00:00-04:00</dc:date>
+      <dc:date>2014-06-08T00:00:00-07:00</dc:date>
     </item>
     <item>
       <title>Why I Support the OPALCO Board and the OPALCO Broadband Initiative</title>
@@ -101,9 +120,9 @@ by Mark Madsen, San Juan Island
 
 &lt;/div&gt;
 </description>
-      <pubDate>Fri, 11 Apr 2014 00:00:00 -0400</pubDate>
+      <pubDate>Fri, 11 Apr 2014 00:00:00 -0700</pubDate>
       <guid>http://notebook.madsenlab.org/essays/2014/04/11/opalco-broadband-initiative.html</guid>
-      <dc:date>2014-04-11T00:00:00-04:00</dc:date>
+      <dc:date>2014-04-11T00:00:00-07:00</dc:date>
     </item>
     <item>
       <title>Blogging Archaeology Carnival for SAA 2014</title>
@@ -120,9 +139,9 @@ In the lead-up to the 2014 Society for American Archaeology meetings and the ses
 
 &lt;/div&gt;
 </description>
-      <pubDate>Tue, 26 Nov 2013 00:00:00 -0500</pubDate>
+      <pubDate>Tue, 26 Nov 2013 00:00:00 -0800</pubDate>
       <guid>http://notebook.madsenlab.org/essays/2013/11/26/saablogging-why-i-blog.html</guid>
-      <dc:date>2013-11-26T00:00:00-05:00</dc:date>
+      <dc:date>2013-11-26T00:00:00-08:00</dc:date>
     </item>
     <item>
       <title>Making the Case for &quot;Medium&quot; Data</title>
@@ -139,9 +158,9 @@ Chris Stucchio’s recent post &lt;a href=&quot;http://www.chrisstucchio.com/blo
 
 &lt;/div&gt;
 </description>
-      <pubDate>Mon, 30 Sep 2013 00:00:00 -0400</pubDate>
+      <pubDate>Mon, 30 Sep 2013 00:00:00 -0700</pubDate>
       <guid>http://notebook.madsenlab.org/essays/2013/09/30/medium-data.html</guid>
-      <dc:date>2013-09-30T00:00:00-04:00</dc:date>
+      <dc:date>2013-09-30T00:00:00-07:00</dc:date>
     </item>
     <item>
       <title>Notes on Gabora 2013 -- Selectionism versus communal exchange</title>
@@ -160,9 +179,9 @@ This is a working draft, and sections may be incomplete. 6/15/13
 
 &lt;/div&gt;
 </description>
-      <pubDate>Thu, 13 Jun 2013 00:00:00 -0400</pubDate>
+      <pubDate>Thu, 13 Jun 2013 00:00:00 -0700</pubDate>
       <guid>http://notebook.madsenlab.org/cultural%20transmission/theory/essays/2013/06/13/gabora2013-response-notes.html</guid>
-      <dc:date>2013-06-13T00:00:00-04:00</dc:date>
+      <dc:date>2013-06-13T00:00:00-07:00</dc:date>
     </item>
     <item>
       <title>When are Darwinian and Populational Models Useful?</title>
@@ -187,9 +206,9 @@ Lewontin, Richard C. 1970. “The Units of Selection.” &lt;em&gt;Annual Review
 
 &lt;/div&gt;
 </description>
-      <pubDate>Sun, 31 Mar 2013 00:00:00 -0400</pubDate>
+      <pubDate>Sun, 31 Mar 2013 00:00:00 -0700</pubDate>
       <guid>http://notebook.madsenlab.org/cultural%20transmission/theory/essays/2013/03/31/darwinian-populational-models.html</guid>
-      <dc:date>2013-03-31T00:00:00-04:00</dc:date>
+      <dc:date>2013-03-31T00:00:00-07:00</dc:date>
     </item>
     <item>
       <title>Coarse-Graining, History, and CT Models</title>
@@ -206,9 +225,9 @@ By coarse-graining (CG) our CT models, we hope to construct models which can be 
 
 &lt;/div&gt;
 </description>
-      <pubDate>Tue, 02 Oct 2012 00:00:00 -0400</pubDate>
+      <pubDate>Tue, 02 Oct 2012 00:00:00 -0700</pubDate>
       <guid>http://notebook.madsenlab.org/project:coarse%20grained%20model/essays/2012/10/02/coarse-graining-history-ctmodels.html</guid>
-      <dc:date>2012-10-02T00:00:00-04:00</dc:date>
+      <dc:date>2012-10-02T00:00:00-07:00</dc:date>
     </item>
     <item>
       <title>Renormalization Theory and Cultural Transmission in Archaeology</title>
@@ -225,9 +244,9 @@ In general, my topic concerns the “renormalization” of cultural transmission
 
 &lt;/div&gt;
 </description>
-      <pubDate>Thu, 14 Jun 2012 00:00:00 -0400</pubDate>
+      <pubDate>Thu, 14 Jun 2012 00:00:00 -0700</pubDate>
       <guid>http://notebook.madsenlab.org/project:coarse%20grained%20model/essays/2012/06/14/renormalization-theory-archy.html</guid>
-      <dc:date>2012-06-14T00:00:00-04:00</dc:date>
+      <dc:date>2012-06-14T00:00:00-07:00</dc:date>
     </item>
     <item>
       <title>CT Models Incorporating Artifacts and the Record Via Tuple Spaces</title>
@@ -244,10 +263,10 @@ The basic idea here: we cannot model cultural transmission, as it is really impl
 
 &lt;/div&gt;
 </description>
-      <pubDate>Fri, 24 Jun 2011 00:00:00 -0400</pubDate>
+      <pubDate>Fri, 24 Jun 2011 00:00:00 -0700</pubDate>
       <guid>http://notebook.madsenlab.org/project:niche%20construction/essays/open%20problems/2011/06/24/ct-tuplespace-artfacts.html</guid>
-      <dc:date>2011-06-24T00:00:00-04:00</dc:date>
+      <dc:date>2011-06-24T00:00:00-07:00</dc:date>
     </item>
-    <dc:date>2014-08-10T00:00:00-04:00</dc:date>
+    <dc:date>2014-08-29T00:00:00-07:00</dc:date>
   </channel>
 </rss>
