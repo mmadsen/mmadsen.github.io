@@ -8,7 +8,18 @@
     <title>Lab Notebook for Mark E. Madsen</title>
     <link>http://notebook.madsenlab.org</link>
     <description>RSS feed for Lab Notebook for Mark E. Madsen</description>
-    <pubDate>Fri, 29 Aug 2014 00:00:00 -0700</pubDate>
+    <pubDate>Sun, 31 Aug 2014 00:00:00 -0700</pubDate>
+    <item>
+      <title>SeriationCT Experiment Outline</title>
+      <link>http://notebook.madsenlab.org/project:coarse%20grained%20model/model:seriationct/experiment:experiment-seriationct/2014/08/31/seriationct-experiment-outline.html</link>
+      <description>&lt;div class=&quot;references&quot;&gt;
+&lt;h3&gt;Overview&lt;/h3&gt;
+&lt;/div&gt;
+</description>
+      <pubDate>Sun, 31 Aug 2014 00:00:00 -0700</pubDate>
+      <guid>http://notebook.madsenlab.org/project:coarse%20grained%20model/model:seriationct/experiment:experiment-seriationct/2014/08/31/seriationct-experiment-outline.html</guid>
+      <dc:date>2014-08-31T00:00:00-07:00</dc:date>
+    </item>
     <item>
       <title>Abstracts for the 2015 SAA Conference</title>
       <link>http://notebook.madsenlab.org/essays/2014/08/29/saa2015-abstracts.html</link>
@@ -725,6 +736,6 @@
       <guid>http://notebook.madsenlab.org/project:coarse%20grained%20model/reading%20notes/2011/01/11/he-and-stone.html</guid>
       <dc:date>2011-01-11T00:00:00-08:00</dc:date>
     </item>
-    <dc:date>2014-08-29T00:00:00-07:00</dc:date>
+    <dc:date>2014-08-31T00:00:00-07:00</dc:date>
   </channel>
 </rss>
