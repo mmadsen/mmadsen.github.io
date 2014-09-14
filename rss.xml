@@ -8,7 +8,29 @@
     <title>Lab Notebook for Mark E. Madsen</title>
     <link>http://notebook.madsenlab.org</link>
     <description>RSS feed for Lab Notebook for Mark E. Madsen</description>
-    <pubDate>Wed, 10 Sep 2014 00:00:00 -0700</pubDate>
+    <pubDate>Sun, 14 Sep 2014 00:00:00 -0700</pubDate>
+    <item>
+      <title>CTMixtures Experiment Configuration and Execution</title>
+      <link>http://notebook.madsenlab.org/project:coarse%20grained%20model/model:ctmixtures/experiment:experiment-ctmixtures/2014/09/14/ctmixtures-job-execution.html</link>
+      <description>&lt;div class=&quot;references&quot;&gt;
+&lt;h3&gt;Background&lt;/h3&gt;
+&lt;/div&gt;
+</description>
+      <pubDate>Sun, 14 Sep 2014 00:00:00 -0700</pubDate>
+      <guid>http://notebook.madsenlab.org/project:coarse%20grained%20model/model:ctmixtures/experiment:experiment-ctmixtures/2014/09/14/ctmixtures-job-execution.html</guid>
+      <dc:date>2014-09-14T00:00:00-07:00</dc:date>
+    </item>
+    <item>
+      <title>CTMixtures Cluster Setup and Computing Environment</title>
+      <link>http://notebook.madsenlab.org/project:coarse%20grained%20model/model:ctmixtures/experiment:experiment-ctmixtures/2014/09/14/ctmixtures-cluster-setup.html</link>
+      <description>&lt;div class=&quot;references&quot;&gt;
+&lt;h3&gt;Overview&lt;/h3&gt;
+&lt;/div&gt;
+</description>
+      <pubDate>Sun, 14 Sep 2014 00:00:00 -0700</pubDate>
+      <guid>http://notebook.madsenlab.org/project:coarse%20grained%20model/model:ctmixtures/experiment:experiment-ctmixtures/2014/09/14/ctmixtures-cluster-setup.html</guid>
+      <dc:date>2014-09-14T00:00:00-07:00</dc:date>
+    </item>
     <item>
       <title>My Evolutionary Narrative, Part 1</title>
       <link>http://notebook.madsenlab.org/essays/2014/09/10/my_evolutionary_narrative.html</link>
@@ -748,6 +770,6 @@
       <guid>http://notebook.madsenlab.org/project:coarse%20grained%20model/reading%20notes/2011/01/11/he-and-stone.html</guid>
       <dc:date>2011-01-11T00:00:00-08:00</dc:date>
     </item>
-    <dc:date>2014-09-10T00:00:00-07:00</dc:date>
+    <dc:date>2014-09-14T00:00:00-07:00</dc:date>
   </channel>
 </rss>
