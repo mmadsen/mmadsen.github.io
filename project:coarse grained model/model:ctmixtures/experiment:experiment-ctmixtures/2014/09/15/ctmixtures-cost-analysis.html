@@ -3,7 +3,7 @@
 <html lang="en">
   <head prefix="dc: http://purl.org/dc/terms/ og: http://ogp.me/ns#">
     <meta charset="utf-8"/>
-    <title></title>
+    <title>CTMixtures Cost Analysis</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta name="description" content="Lab Notebook for Mark E. Madsen"/>
     <meta name="author" content="Mark E. Madsen"/>
@@ -13,9 +13,9 @@
 
 
 	<!-- For posts, page.date is the date they are published under, which we use as their 'canonical' dc:date -->
-	 <!-- If we don't have a page.date, then use modified time (pages) -->
-	   
-	
+	 
+	  
+	  
 
 	<!-- Posts declare modified timestamps in the sidebar, so would be redundant to put here. But then 
 	     pages don't have a dc:modified... unless we give them their own (modified) sidebar?  
@@ -23,26 +23,26 @@
 	<!-- Ideally we would want date originally created from the _oldest_ git commit too...-->
 
 	<!-- RDFa Metadata (in DublinCore) -->
-	<meta property="dc:title" content="" />
+	<meta property="dc:title" content="CTMixtures Cost Analysis" />
 	<meta property="dc:creator" content="Mark E. Madsen" />
-	<meta property="dc:date" content="2014-09-15T09:40:38-07:00" />
+	<meta property="dc:date" content="2014-09-15T00:00:00-07:00" />
 	<meta property="dc:format" content="text/html" />
 	<meta property="dc:language" content="en" />
-	<meta property="dc:identifier" content="/tag/evolutionary%20biology.html" />
+	<meta property="dc:identifier" content="/project:coarse%20grained%20model/model:ctmixtures/experiment:experiment-ctmixtures/2014/09/15/ctmixtures-cost-analysis.html" />
 	<meta property="dc:rights" content="CC BY-NC-SA 3.0" />
 	<meta property="dc:source" content="Lab Notebook for Mark E. Madsen" />
 	<meta property="dc:subject" content="Anthropology" /> 
 	<meta property="dc:type" content="website" /> 
 	<!-- RDFa Metadata (in OpenGraph) -->
-	<meta property="og:title" content="" />
+	<meta property="og:title" content="CTMixtures Cost Analysis" />
 	<meta property="og:author" content="http://notebook.madsenlab.org/bio.html" />  <!-- Should be Liquid? URI? -->
 	<meta property="og:site_name" content="Lab Notebook for Mark E. Madsen" /> <!-- Same as dc:source? -->
-	<meta property="og:url" content="http://notebook.madsenlab.org/tag/evolutionary%20biology.html" />
+	<meta property="og:url" content="http://notebook.madsenlab.org/project:coarse%20grained%20model/model:ctmixtures/experiment:experiment-ctmixtures/2014/09/15/ctmixtures-cost-analysis.html" />
 	<meta property="og:type" content="website" /> 
 	<!-- Google Scholar Metadata -->
 	<meta name="citation_author" content="Mark E. Madsen"/>
-	<meta name="citation_date" content="2014-09-15T09:40:38-07:00"/>
-	<meta name="citation_title" content=""/>
+	<meta name="citation_date" content="2014-09-15T00:00:00-07:00"/>
+	<meta name="citation_title" content="CTMixtures Cost Analysis"/>
 	<meta name="citation_journal_title" content="Lab Notebook for Mark E. Madsen"/>
 
     <!-- Le styles -->
@@ -179,29 +179,148 @@
           </div><!--/.well -->
         </div><!--/span3-->
 
-            <div  class="span9">
-
-<h2>Posts Tagged: "evolutionary biology"</h2>
-
-<table class="table table-condensed">
-
+            <div class="span8">
+  	<h2>CTMixtures Cost Analysis</h2>
 	
 
-		<tr>
-		<td>10 Sep 2014</td>
-		<td><a href="/essays/2014/09/10/my_evolutionary_narrative.html">My Evolutionary Narrative, Part 1</a></td>
-		</tr>
+		<p class="text-info">
+		<table class="table table-condensed">
+			<tr class="info">
+				<td><small><i class="icon-calendar"></i>&nbsp;Created: 15 Sep 2014</small></td>
+				<td><small><i class="icon-calendar"></i>&nbsp;Modified: 15 Sep 2014</small></td>
+				<td><small><i class="icon-book">&nbsp;</i>&nbsp;<a href=http://greycite.knowledgeblog.org/bib/?uri=http://notebook.madsenlab.org/project:coarse%20grained%20model/model:ctmixtures/experiment:experiment-ctmixtures/2014/09/15/ctmixtures-cost-analysis.html target='_blank'>BibTeX Entry</a>
+</small></td>
+				<td><small><i class="icon-book">&nbsp;</i>&nbsp;<a href=http://greycite.knowledgeblog.org/ris/?uri=http://notebook.madsenlab.org/project:coarse%20grained%20model/model:ctmixtures/experiment:experiment-ctmixtures/2014/09/15/ctmixtures-cost-analysis.html target='_blank'>RIS Citation</a>
+</small></td>
+				<td><small><a href="javascript:window.print()"><i class="icon-print"></i>&nbsp;Print</a></small></td>
+				<!--<td><small><a href="/project:coarse%20grained%20model/model:ctmixtures/experiment:experiment-ctmixtures/2014/09/15/ctmixtures-cost-analysis.html"></i>Permalink</a></small></td> -->
+			</tr>
+		</table>
+		</p>
 
 
+  	
 	
+  <h3 id="cost-estimate">Cost Estimate</h3>
+<p>The following estimates are based upon the AWS instance profile given below, and from measurements of execution times on the actual configured StarCluster compute cluster. The simulation code runs 1.7 times <strong>slower</strong> on the c3.xlarge EC2 instance as on my Macbook Pro. Sadly.</p>
+<p>The comparison here is for 1MM time steps, Kandler-Shennan trait survival interval of 50 generations, and a population size of 100 individuals, but comparing batches of 200K and 100K simulation runs. This is an attempt to see what various sample sizes will cost.</p>
+<table>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Number of total runs</td>
+<td style="text-align: left;">200000</td>
+<td style="text-align: left;">100000</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Minutes to run single sim</td>
+<td style="text-align: left;">4.3</td>
+<td style="text-align: left;">4.3</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Instances Used</td>
+<td style="text-align: left;">10</td>
+<td style="text-align: left;">10</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">vCPUs Used</td>
+<td style="text-align: left;">40</td>
+<td style="text-align: left;">40</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Runs per hour per vCPU</td>
+<td style="text-align: left;">13.95</td>
+<td style="text-align: left;">13.95</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Runs per hour per instance</td>
+<td style="text-align: left;">55.81</td>
+<td style="text-align: left;">55.81</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Hours to completion</td>
+<td style="text-align: left;">358.33</td>
+<td style="text-align: left;">179.17</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Days to Complete Runs</td>
+<td style="text-align: left;">14.93</td>
+<td style="text-align: left;">7.47</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Instance/hours to completion</td>
+<td style="text-align: left;">3583.33</td>
+<td style="text-align: left;">1791.67</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Cost to Completion</strong></td>
+<td style="text-align: left;"><strong>$752.50</strong></td>
+<td style="text-align: left;"><strong>$376.25</strong></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">——————————</td>
+<td style="text-align: left;">—————————————-</td>
+<td style="text-align: left;">————————————</td>
+</tr>
+</tbody>
 </table>
-	
-	
+<h3 id="aws-instance-profile">AWS Instance Profile</h3>
+<table>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Instance Type Used</td>
+<td style="text-align: left;">c3.xlarge</td>
+<td style="text-align: left;">c3.xlarge</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">vCPUs per instance</td>
+<td style="text-align: left;">4</td>
+<td style="text-align: left;">4</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Cost per instance/hour</td>
+<td style="text-align: left;">$0.21</td>
+<td style="text-align: left;">$0.21</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">——————————</td>
+<td style="text-align: left;">—————————————-</td>
+<td style="text-align: left;">————————————</td>
+</tr>
+</tbody>
+</table>
+<div class="references">
+
+</div>
+  
+
+
+<div class="well well-small">
+<p class="text-info"><i class="icon-tags"></i>&nbsp;Tags</p>
+<ul>
+
+<li><a href='/tag/cultural transmission.html'>cultural transmission</a></li>
+
+<li><a href='/tag/time averaging.html'>time averaging</a></li>
+
+<li><a href='/tag/coarse graining.html'>coarse graining</a></li>
+
+<li><a href='/tag/simulation.html'>simulation</a></li>
+
+<li><a href='/tag/dissertation.html'>dissertation</a></li>
+
+<li><a href='/tag/open science.html'>open science</a></li>
+
+<li><a href='/tag/reproducible science.html'>reproducible science</a></li>
+
+<li><a href='/tag/experiments.html'>experiments</a></li>
+
+<li><a href='/tag/experiment-ctmixture.html'>experiment-ctmixture</a></li>
+
+</ul>
 </div>
 
 
-
-
+</div>
 
 
         
