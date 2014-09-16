@@ -8,12 +8,23 @@
     <title>Lab Notebook for Mark E. Madsen</title>
     <link>http://notebook.madsenlab.org</link>
     <description>RSS feed for Lab Notebook for Mark E. Madsen</description>
-    <pubDate>Mon, 15 Sep 2014 00:00:00 -0700</pubDate>
+    <pubDate>Tue, 16 Sep 2014 00:00:00 -0700</pubDate>
+    <item>
+      <title>CTMixtures Status for Batch Equifinality-1</title>
+      <link>http://notebook.madsenlab.org/project:coarse%20grained%20model/model:ctmixtures/experiment:experiment-ctmixtures/2014/09/16/equifinality-experiment-status.html</link>
+      <description>&lt;div class=&quot;references&quot;&gt;
+&lt;h3&gt;First Batch: Equifinality-1&lt;/h3&gt;
+&lt;/div&gt;
+</description>
+      <pubDate>Tue, 16 Sep 2014 00:00:00 -0700</pubDate>
+      <guid>http://notebook.madsenlab.org/project:coarse%20grained%20model/model:ctmixtures/experiment:experiment-ctmixtures/2014/09/16/equifinality-experiment-status.html</guid>
+      <dc:date>2014-09-16T00:00:00-07:00</dc:date>
+    </item>
     <item>
       <title>CTMixtures Cost Analysis</title>
       <link>http://notebook.madsenlab.org/project:coarse%20grained%20model/model:ctmixtures/experiment:experiment-ctmixtures/2014/09/15/ctmixtures-cost-analysis.html</link>
       <description>&lt;div class=&quot;references&quot;&gt;
-&lt;h3&gt;Cost Estimate&lt;/h3&gt;
+&lt;h3&gt;Initial Cost Estimate&lt;/h3&gt;
 &lt;/div&gt;
 </description>
       <pubDate>Mon, 15 Sep 2014 00:00:00 -0700</pubDate>
@@ -781,6 +792,6 @@
       <guid>http://notebook.madsenlab.org/project:coarse%20grained%20model/reading%20notes/2011/01/11/he-and-stone.html</guid>
       <dc:date>2011-01-11T00:00:00-08:00</dc:date>
     </item>
-    <dc:date>2014-09-15T00:00:00-07:00</dc:date>
+    <dc:date>2014-09-16T00:00:00-07:00</dc:date>
   </channel>
 </rss>
