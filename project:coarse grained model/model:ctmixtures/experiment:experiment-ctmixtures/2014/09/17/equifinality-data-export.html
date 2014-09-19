@@ -3,7 +3,7 @@
 <html lang="en">
   <head prefix="dc: http://purl.org/dc/terms/ og: http://ogp.me/ns#">
     <meta charset="utf-8"/>
-    <title></title>
+    <title>CTMixtures Equifinality Data Export</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta name="description" content="Lab Notebook for Mark E. Madsen"/>
     <meta name="author" content="Mark E. Madsen"/>
@@ -13,9 +13,9 @@
 
 
 	<!-- For posts, page.date is the date they are published under, which we use as their 'canonical' dc:date -->
-	 <!-- If we don't have a page.date, then use modified time (pages) -->
-	   
-	
+	 
+	  
+	  
 
 	<!-- Posts declare modified timestamps in the sidebar, so would be redundant to put here. But then 
 	     pages don't have a dc:modified... unless we give them their own (modified) sidebar?  
@@ -23,26 +23,26 @@
 	<!-- Ideally we would want date originally created from the _oldest_ git commit too...-->
 
 	<!-- RDFa Metadata (in DublinCore) -->
-	<meta property="dc:title" content="" />
+	<meta property="dc:title" content="CTMixtures Equifinality Data Export" />
 	<meta property="dc:creator" content="Mark E. Madsen" />
-	<meta property="dc:date" content="2014-09-19T14:12:20-07:00" />
+	<meta property="dc:date" content="2014-09-17T00:00:00-07:00" />
 	<meta property="dc:format" content="text/html" />
 	<meta property="dc:language" content="en" />
-	<meta property="dc:identifier" content="/tag/physics.html" />
+	<meta property="dc:identifier" content="/project:coarse%20grained%20model/model:ctmixtures/experiment:experiment-ctmixtures/2014/09/17/equifinality-data-export.html" />
 	<meta property="dc:rights" content="CC BY-NC-SA 3.0" />
 	<meta property="dc:source" content="Lab Notebook for Mark E. Madsen" />
 	<meta property="dc:subject" content="Anthropology" /> 
 	<meta property="dc:type" content="website" /> 
 	<!-- RDFa Metadata (in OpenGraph) -->
-	<meta property="og:title" content="" />
+	<meta property="og:title" content="CTMixtures Equifinality Data Export" />
 	<meta property="og:author" content="http://notebook.madsenlab.org/bio.html" />  <!-- Should be Liquid? URI? -->
 	<meta property="og:site_name" content="Lab Notebook for Mark E. Madsen" /> <!-- Same as dc:source? -->
-	<meta property="og:url" content="http://notebook.madsenlab.org/tag/physics.html" />
+	<meta property="og:url" content="http://notebook.madsenlab.org/project:coarse%20grained%20model/model:ctmixtures/experiment:experiment-ctmixtures/2014/09/17/equifinality-data-export.html" />
 	<meta property="og:type" content="website" /> 
 	<!-- Google Scholar Metadata -->
 	<meta name="citation_author" content="Mark E. Madsen"/>
-	<meta name="citation_date" content="2014-09-19T14:12:20-07:00"/>
-	<meta name="citation_title" content=""/>
+	<meta name="citation_date" content="2014-09-17T00:00:00-07:00"/>
+	<meta name="citation_title" content="CTMixtures Equifinality Data Export"/>
 	<meta name="citation_journal_title" content="Lab Notebook for Mark E. Madsen"/>
 
     <!-- Le styles -->
@@ -179,29 +179,77 @@
           </div><!--/.well -->
         </div><!--/span3-->
 
-            <div  class="span9">
-
-<h2>Posts Tagged: "physics"</h2>
-
-<table class="table table-condensed">
-
+            <div class="span8">
+  	<h2>CTMixtures Equifinality Data Export</h2>
 	
 
-		<tr>
-		<td>11 Jun 2013</td>
-		<td><a href="/physics/theory/reading%20notes/2013/06/11/duncan2013-conceptual-structure-qft.html">Duncan 2013 -- The Conceptual Framework of Quantum Field Theory</a></td>
-		</tr>
+		<p class="text-info">
+		<table class="table table-condensed">
+			<tr class="info">
+				<td><small><i class="icon-calendar"></i>&nbsp;Created: 17 Sep 2014</small></td>
+				<td><small><i class="icon-calendar"></i>&nbsp;Modified: 19 Sep 2014</small></td>
+				<td><small><i class="icon-book">&nbsp;</i>&nbsp;<a href=http://greycite.knowledgeblog.org/bib/?uri=http://notebook.madsenlab.org/project:coarse%20grained%20model/model:ctmixtures/experiment:experiment-ctmixtures/2014/09/17/equifinality-data-export.html target='_blank'>BibTeX Entry</a>
+</small></td>
+				<td><small><i class="icon-book">&nbsp;</i>&nbsp;<a href=http://greycite.knowledgeblog.org/ris/?uri=http://notebook.madsenlab.org/project:coarse%20grained%20model/model:ctmixtures/experiment:experiment-ctmixtures/2014/09/17/equifinality-data-export.html target='_blank'>RIS Citation</a>
+</small></td>
+				<td><small><a href="javascript:window.print()"><i class="icon-print"></i>&nbsp;Print</a></small></td>
+				<!--<td><small><a href="/project:coarse%20grained%20model/model:ctmixtures/experiment:experiment-ctmixtures/2014/09/17/equifinality-data-export.html"></i>Permalink</a></small></td> -->
+			</tr>
+		</table>
+		</p>
 
 
+  	
 	
-</table>
-	
-	
+  <h3 id="data-consolidation">Data Consolidation</h3>
+<p>At the conclusion of the simulation runs, each of the 8 compute nodes had a separate MongoDB database with identically named databases and collections, but separate rows of data.</p>
+<p>Each MongoDB instance was stopped, and the contents of the <code>/sim/data</code> directory containing the raw MongoDB files was archived and compressed, and copied to a local machine so that the cluster could be terminated (stopping the cost of running it).</p>
+<p>On a local database, a new database called <code>equifinality-1-merged</code> was created, and each node’s database was copied into it via a pair of <code>mongoexport</code> and <code>mongoimport</code> calls. The original MongoDB binary files, in <code>tar.gz</code> format, are archived on S3, as will a merged JSON export format. This is handy in addition to CSV files so that database operations can be used to operate on the dataset, which in datasets much larger than this is preferable to doing it within R or Python on a row-wise basis.</p>
+<h3 id="data-export">Data Export</h3>
+<p>The <code>ctmixtures v2.3</code> simulation code records one data record in a MongoDB database for each simulation run. Since that record contains nested data structures corresponding to different sample sizes and time averaging durations, this note records how the record is unpacked into raw data files which archive the results of simulation, and form the basis of further analysis.</p>
+<p>The script <code>analytics/ctmixtures-export-data.py</code> is used against the MongoDB instance on each running compute cluster node, to produce CSV files, which are then centralized and combined to form the full raw data set from a simulation experiment. The program generates four raw data files:</p>
+<ol type="1">
+<li>general simulation information: random seeds, configuring classes, all model parameters</li>
+<li>population census statistics, model class label, simulation id</li>
+<li>sampled statistics, model class label, simulation id</li>
+<li>time averaged and sampled statistics, model class label, simulation id</li>
+</ol>
+<p>In these data export files, I am not exporting lists of trait counts or frequencies. These will remain in the original database for future queries and analysis, but are not used in the equifinality analysis.</p>
+<h3 id="data-export-process">Data Export Process</h3>
+<p>TBD - exact StarCluster steps for performing the data export</p>
+<div class="references">
+
+</div>
+  
+
+
+<div class="well well-small">
+<p class="text-info"><i class="icon-tags"></i>&nbsp;Tags</p>
+<ul>
+
+<li><a href='/tag/cultural transmission.html'>cultural transmission</a></li>
+
+<li><a href='/tag/time averaging.html'>time averaging</a></li>
+
+<li><a href='/tag/coarse graining.html'>coarse graining</a></li>
+
+<li><a href='/tag/simulation.html'>simulation</a></li>
+
+<li><a href='/tag/dissertation.html'>dissertation</a></li>
+
+<li><a href='/tag/open science.html'>open science</a></li>
+
+<li><a href='/tag/reproducible science.html'>reproducible science</a></li>
+
+<li><a href='/tag/experiments.html'>experiments</a></li>
+
+<li><a href='/tag/experiment-ctmixture.html'>experiment-ctmixture</a></li>
+
+</ul>
 </div>
 
 
-
-
+</div>
 
 
         
