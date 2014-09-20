@@ -3,7 +3,7 @@
 <html lang="en">
   <head prefix="dc: http://purl.org/dc/terms/ og: http://ogp.me/ns#">
     <meta charset="utf-8"/>
-    <title></title>
+    <title>CTMixtures Equifinality Analysis - Initial Ideas</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta name="description" content="Lab Notebook for Mark E. Madsen"/>
     <meta name="author" content="Mark E. Madsen"/>
@@ -13,9 +13,9 @@
 
 
 	<!-- For posts, page.date is the date they are published under, which we use as their 'canonical' dc:date -->
-	 <!-- If we don't have a page.date, then use modified time (pages) -->
-	   
-	
+	 
+	  
+	  
 
 	<!-- Posts declare modified timestamps in the sidebar, so would be redundant to put here. But then 
 	     pages don't have a dc:modified... unless we give them their own (modified) sidebar?  
@@ -23,26 +23,26 @@
 	<!-- Ideally we would want date originally created from the _oldest_ git commit too...-->
 
 	<!-- RDFa Metadata (in DublinCore) -->
-	<meta property="dc:title" content="" />
+	<meta property="dc:title" content="CTMixtures Equifinality Analysis - Initial Ideas" />
 	<meta property="dc:creator" content="Mark E. Madsen" />
-	<meta property="dc:date" content="2014-09-19T20:47:48-07:00" />
+	<meta property="dc:date" content="2014-09-18T00:00:00-07:00" />
 	<meta property="dc:format" content="text/html" />
 	<meta property="dc:language" content="en" />
-	<meta property="dc:identifier" content="/tag/philosophy%20of%20biology.html" />
+	<meta property="dc:identifier" content="/project:coarse%20grained%20model/model:ctmixtures/experiment:experiment-ctmixtures/2014/09/18/equifinality-initial-analysis.html" />
 	<meta property="dc:rights" content="CC BY-NC-SA 3.0" />
 	<meta property="dc:source" content="Lab Notebook for Mark E. Madsen" />
 	<meta property="dc:subject" content="Anthropology" /> 
 	<meta property="dc:type" content="website" /> 
 	<!-- RDFa Metadata (in OpenGraph) -->
-	<meta property="og:title" content="" />
+	<meta property="og:title" content="CTMixtures Equifinality Analysis - Initial Ideas" />
 	<meta property="og:author" content="http://notebook.madsenlab.org/bio.html" />  <!-- Should be Liquid? URI? -->
 	<meta property="og:site_name" content="Lab Notebook for Mark E. Madsen" /> <!-- Same as dc:source? -->
-	<meta property="og:url" content="http://notebook.madsenlab.org/tag/philosophy%20of%20biology.html" />
+	<meta property="og:url" content="http://notebook.madsenlab.org/project:coarse%20grained%20model/model:ctmixtures/experiment:experiment-ctmixtures/2014/09/18/equifinality-initial-analysis.html" />
 	<meta property="og:type" content="website" /> 
 	<!-- Google Scholar Metadata -->
 	<meta name="citation_author" content="Mark E. Madsen"/>
-	<meta name="citation_date" content="2014-09-19T20:47:48-07:00"/>
-	<meta name="citation_title" content=""/>
+	<meta name="citation_date" content="2014-09-18T00:00:00-07:00"/>
+	<meta name="citation_title" content="CTMixtures Equifinality Analysis - Initial Ideas"/>
 	<meta name="citation_journal_title" content="Lab Notebook for Mark E. Madsen"/>
 
     <!-- Le styles -->
@@ -179,29 +179,92 @@
           </div><!--/.well -->
         </div><!--/span3-->
 
-            <div  class="span9">
-
-<h2>Posts Tagged: "philosophy of biology"</h2>
-
-<table class="table table-condensed">
-
+            <div class="span8">
+  	<h2>CTMixtures Equifinality Analysis - Initial Ideas</h2>
 	
 
-		<tr>
-		<td>31 Mar 2013</td>
-		<td><a href="/cultural%20transmission/theory/essays/2013/03/31/darwinian-populational-models.html">When are Darwinian and Populational Models Useful?</a></td>
-		</tr>
+		<p class="text-info">
+		<table class="table table-condensed">
+			<tr class="info">
+				<td><small><i class="icon-calendar"></i>&nbsp;Created: 18 Sep 2014</small></td>
+				<td><small><i class="icon-calendar"></i>&nbsp;Modified: 19 Sep 2014</small></td>
+				<td><small><i class="icon-book">&nbsp;</i>&nbsp;<a href=http://greycite.knowledgeblog.org/bib/?uri=http://notebook.madsenlab.org/project:coarse%20grained%20model/model:ctmixtures/experiment:experiment-ctmixtures/2014/09/18/equifinality-initial-analysis.html target='_blank'>BibTeX Entry</a>
+</small></td>
+				<td><small><i class="icon-book">&nbsp;</i>&nbsp;<a href=http://greycite.knowledgeblog.org/ris/?uri=http://notebook.madsenlab.org/project:coarse%20grained%20model/model:ctmixtures/experiment:experiment-ctmixtures/2014/09/18/equifinality-initial-analysis.html target='_blank'>RIS Citation</a>
+</small></td>
+				<td><small><a href="javascript:window.print()"><i class="icon-print"></i>&nbsp;Print</a></small></td>
+				<!--<td><small><a href="/project:coarse%20grained%20model/model:ctmixtures/experiment:experiment-ctmixtures/2014/09/18/equifinality-initial-analysis.html"></i>Permalink</a></small></td> -->
+			</tr>
+		</table>
+		</p>
 
 
+  	
 	
-</table>
-	
-	
+  <h3 id="trial-run">Trial Run</h3>
+<p>I’m not finished with the data export program yet, working out how to flatten multiple loci and other list/nested data structures. This is particularly important since some elements are measured only once (e.g., configurations or classes) while others are measured on a per-locus basis. At the same time, there’s an element of feature selection and engineering occurring, which is happening via a trial random forest classification.</p>
+<p>The population census data are fairly easy and finite, so I’ve already got them exported with an initial cut at the program, with the following predictors for the four model class labels:</p>
+<ul>
+<li>Slatkin exact test for the configuration or class counts in the population census</li>
+<li>Number of configurations in the population at sample time</li>
+<li>Per-locus Shannon entropy of trait frequencies</li>
+<li>Per-locus IQV diversity of trait frequencies</li>
+<li>Per-locus richness of traits</li>
+<li>Kandler-Shennan traits surviving after 50 generations</li>
+</ul>
+<p>A very quick random forest fit on 80% of the data as training data (with typical classification values) shows that there’s a lot of error correctly classifying data points, and thus good hints of equifinality.</p>
+<pre><code>Call:
+ randomForest(formula = factor(model_class_label) ~ ., data = train,      ntree = 1000, nodesize = 1, mtry = 3) 
+               Type of random forest: classification
+                     Number of trees: 1000
+No. of variables tried at each split: 3
+
+        OOB estimate of  error rate: 48.24%
+Confusion matrix:
+             allneutral mixantidom mixconfdom mixconfequal class.error
+allneutral        27560       1515       1986         1014   0.1407638
+mixantidom         1659      14881       6724         8700   0.5344450
+mixconfdom         2006       7925      13822         8173   0.5670613
+mixconfequal       1665      10860       9526         9984   0.6883409</code></pre>
+<p>Prediction error on the remaining 20% of the data is 0.516. But there’s an interesting pattern here, and some issues with the data export.</p>
+<p>First, it doesn’t seem nearly as hard to tell neutral models from biased models, as it is to tell different bias models apart, as you’d expect. Perhaps this should be the expectation given synchronic population census. We’ll see how this plays out in synchronic sampled data, and of course TA and sampled data. But I should also do a binary classification, lumping the bias models together, and simply predicting neutral vs. bias.</p>
+<p>But second, some of the values are repeated in each row, since a row represents a locus, not a simulation run. I should do further feature engineering and have only one row per simulation run in the data export, and use variables like min/max/median richness, entropy, etc. This will apply to all multilocus data.</p>
+<h3 id="sampled-and-ta-export">Sampled and TA Export</h3>
+<p>In the case of the sampled and TA’d data, I’ll output single rows for each combination of simulation run, sample size, and TA duration, using summary statistics for multilocus elements, and the actual values for configuration/class data.</p>
+<p>Each sample size and TA duration will then be analyzed against its counterparts, not mixed together.</p>
+<div class="references">
+
+</div>
+  
+
+
+<div class="well well-small">
+<p class="text-info"><i class="icon-tags"></i>&nbsp;Tags</p>
+<ul>
+
+<li><a href='/tag/cultural transmission.html'>cultural transmission</a></li>
+
+<li><a href='/tag/time averaging.html'>time averaging</a></li>
+
+<li><a href='/tag/coarse graining.html'>coarse graining</a></li>
+
+<li><a href='/tag/simulation.html'>simulation</a></li>
+
+<li><a href='/tag/dissertation.html'>dissertation</a></li>
+
+<li><a href='/tag/open science.html'>open science</a></li>
+
+<li><a href='/tag/reproducible science.html'>reproducible science</a></li>
+
+<li><a href='/tag/experiments.html'>experiments</a></li>
+
+<li><a href='/tag/experiment-ctmixture.html'>experiment-ctmixture</a></li>
+
+</ul>
 </div>
 
 
-
-
+</div>
 
 
         
