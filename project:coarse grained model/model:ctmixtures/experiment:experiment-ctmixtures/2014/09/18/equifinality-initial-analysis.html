@@ -232,6 +232,32 @@ mixconfequal       1665      10860       9526         9984   0.6883409</code></p
 <h3 id="sampled-and-ta-export">Sampled and TA Export</h3>
 <p>In the case of the sampled and TA’d data, I’ll output single rows for each combination of simulation run, sample size, and TA duration, using summary statistics for multilocus elements, and the actual values for configuration/class data.</p>
 <p>Each sample size and TA duration will then be analyzed against its counterparts, not mixed together.</p>
+<h3 id="analysis-code">Analysis Code</h3>
+<p>The short script I used for the explorations here:</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(randomForest)
+<span class="kw">library</span>(miscTools)
+
+df &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;~/local-research/diss/experiments/experiment-ctmixtures/equifinality-population-data.csv&quot;</span>, <span class="dt">header=</span>T)
+<span class="co"># we don&#39;t want to treat the sim run ID as one of the predictors...</span>
+drops &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&#39;simulation_run_id&#39;</span>)
+dataset &lt;-<span class="st"> </span>df[,!(<span class="kw">names</span>(df) %in%<span class="st"> </span>drops)]
+
+<span class="co"># shuffle the data frame row-wise so that we can randomly sample test and training data from it</span>
+shuffled_df &lt;-<span class="st"> </span>dataset[<span class="kw">sample</span>(<span class="kw">nrow</span>(dataset)),]
+indexes =<span class="st"> </span><span class="kw">sample</span>(<span class="dv">1</span>:<span class="kw">nrow</span>(shuffled_df), <span class="dt">size=</span><span class="fl">0.2</span>*<span class="kw">nrow</span>(shuffled_df))
+test =<span class="st"> </span>shuffled_df[indexes,]
+train =<span class="st"> </span>shuffled_df[-indexes,]
+
+
+fit &lt;-<span class="st"> </span><span class="kw">randomForest</span>(<span class="kw">factor</span>(model_class_label) ~<span class="st"> </span>., <span class="dt">data=</span>train, <span class="dt">ntree=</span><span class="dv">1000</span>, <span class="dt">nodesize =</span> <span class="dv">1</span>, <span class="dt">mtry=</span><span class="dv">3</span>)
+<span class="kw">print</span>(fit)
+<span class="co">#varImpPlot(fit)</span>
+
+<span class="co"># evaluate on test data</span>
+<span class="kw">table</span>(test$model_class_label, <span class="kw">predict</span>(fit, test[<span class="kw">names</span>(shuffled_df)]))
+
+<span class="co"># test error</span>
+<span class="kw">sum</span>(test$model_class_label==<span class="kw">predict</span>(fit, test[<span class="kw">names</span>(shuffled_df)])) /<span class="st"> </span><span class="kw">nrow</span>(test)</code></pre>
 <div class="references">
 
 </div>
