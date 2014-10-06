@@ -8,7 +8,18 @@
     <title>Lab Notebook for Mark E. Madsen</title>
     <link>http://notebook.madsenlab.org</link>
     <description>RSS feed for Lab Notebook for Mark E. Madsen</description>
-    <pubDate>Mon, 22 Sep 2014 00:00:00 -0700</pubDate>
+    <pubDate>Mon, 06 Oct 2014 00:00:00 -0700</pubDate>
+    <item>
+      <title>CTMixtures Equifinality - Calibration Part 2</title>
+      <link>http://notebook.madsenlab.org/project:coarse%20grained%20model/model:ctmixtures/experiment:experiment-ctmixtures/2014/10/06/ctmixtures-calibration-part2.html</link>
+      <description>&lt;div class=&quot;references&quot;&gt;
+&lt;h3&gt;Excess Variation?&lt;/h3&gt;
+&lt;/div&gt;
+</description>
+      <pubDate>Mon, 06 Oct 2014 00:00:00 -0700</pubDate>
+      <guid>http://notebook.madsenlab.org/project:coarse%20grained%20model/model:ctmixtures/experiment:experiment-ctmixtures/2014/10/06/ctmixtures-calibration-part2.html</guid>
+      <dc:date>2014-10-06T00:00:00-07:00</dc:date>
+    </item>
     <item>
       <title>CTMixtures Equifinality - Calibration Issues and Solutions</title>
       <link>http://notebook.madsenlab.org/project:coarse%20grained%20model/model:ctmixtures/experiment:experiment-ctmixtures/2014/09/22/ctmixtures-model-calibration.html</link>
@@ -931,6 +942,6 @@ The basic idea here: we cannot model cultural transmission, as it is really impl
       <guid>http://notebook.madsenlab.org/project:coarse%20grained%20model/reading%20notes/2011/01/11/he-and-stone.html</guid>
       <dc:date>2011-01-11T00:00:00-08:00</dc:date>
     </item>
-    <dc:date>2014-09-22T00:00:00-07:00</dc:date>
+    <dc:date>2014-10-06T00:00:00-07:00</dc:date>
   </channel>
 </rss>

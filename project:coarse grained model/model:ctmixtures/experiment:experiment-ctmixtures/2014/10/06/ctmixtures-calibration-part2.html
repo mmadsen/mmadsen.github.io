@@ -3,7 +3,7 @@
 <html lang="en">
   <head prefix="dc: http://purl.org/dc/terms/ og: http://ogp.me/ns#">
     <meta charset="utf-8"/>
-    <title></title>
+    <title>CTMixtures Equifinality - Calibration Part 2</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta name="description" content="Lab Notebook for Mark E. Madsen"/>
     <meta name="author" content="Mark E. Madsen"/>
@@ -13,9 +13,9 @@
 
 
 	<!-- For posts, page.date is the date they are published under, which we use as their 'canonical' dc:date -->
-	 <!-- If we don't have a page.date, then use modified time (pages) -->
-	   
-	
+	 
+	  
+	  
 
 	<!-- Posts declare modified timestamps in the sidebar, so would be redundant to put here. But then 
 	     pages don't have a dc:modified... unless we give them their own (modified) sidebar?  
@@ -23,26 +23,26 @@
 	<!-- Ideally we would want date originally created from the _oldest_ git commit too...-->
 
 	<!-- RDFa Metadata (in DublinCore) -->
-	<meta property="dc:title" content="" />
+	<meta property="dc:title" content="CTMixtures Equifinality - Calibration Part 2" />
 	<meta property="dc:creator" content="Mark E. Madsen" />
-	<meta property="dc:date" content="2014-07-31T15:26:17-07:00" />
+	<meta property="dc:date" content="2014-10-06T00:00:00-07:00" />
 	<meta property="dc:format" content="text/html" />
 	<meta property="dc:language" content="en" />
-	<meta property="dc:identifier" content="/tag/tools.html" />
+	<meta property="dc:identifier" content="/project:coarse%20grained%20model/model:ctmixtures/experiment:experiment-ctmixtures/2014/10/06/ctmixtures-calibration-part2.html" />
 	<meta property="dc:rights" content="CC BY-NC-SA 3.0" />
 	<meta property="dc:source" content="Lab Notebook for Mark E. Madsen" />
 	<meta property="dc:subject" content="Anthropology" /> 
 	<meta property="dc:type" content="website" /> 
 	<!-- RDFa Metadata (in OpenGraph) -->
-	<meta property="og:title" content="" />
+	<meta property="og:title" content="CTMixtures Equifinality - Calibration Part 2" />
 	<meta property="og:author" content="http://notebook.madsenlab.org/bio.html" />  <!-- Should be Liquid? URI? -->
 	<meta property="og:site_name" content="Lab Notebook for Mark E. Madsen" /> <!-- Same as dc:source? -->
-	<meta property="og:url" content="http://notebook.madsenlab.org/tag/tools.html" />
+	<meta property="og:url" content="http://notebook.madsenlab.org/project:coarse%20grained%20model/model:ctmixtures/experiment:experiment-ctmixtures/2014/10/06/ctmixtures-calibration-part2.html" />
 	<meta property="og:type" content="website" /> 
 	<!-- Google Scholar Metadata -->
 	<meta name="citation_author" content="Mark E. Madsen"/>
-	<meta name="citation_date" content="2014-07-31T15:26:17-07:00"/>
-	<meta name="citation_title" content=""/>
+	<meta name="citation_date" content="2014-10-06T00:00:00-07:00"/>
+	<meta name="citation_title" content="CTMixtures Equifinality - Calibration Part 2"/>
 	<meta name="citation_journal_title" content="Lab Notebook for Mark E. Madsen"/>
 
     <!-- Le styles -->
@@ -179,29 +179,102 @@
           </div><!--/.well -->
         </div><!--/span3-->
 
-            <div  class="span9">
-
-<h2>Posts Tagged: "tools"</h2>
-
-<table class="table table-condensed">
-
+            <div class="span8">
+  	<h2>CTMixtures Equifinality - Calibration Part 2</h2>
 	
 
-		<tr>
-		<td>26 May 2013</td>
-		<td><a href="/2013/05/26/mathjax-test.html">MathJax Test</a></td>
-		</tr>
+		<p class="text-info">
+		<table class="table table-condensed">
+			<tr class="info">
+				<td><small><i class="icon-calendar"></i>&nbsp;Created: 06 Oct 2014</small></td>
+				<td><small><i class="icon-calendar"></i>&nbsp;Modified: 06 Oct 2014</small></td>
+				<td><small><i class="icon-book">&nbsp;</i>&nbsp;<a href=http://greycite.knowledgeblog.org/bib/?uri=http://notebook.madsenlab.org/project:coarse%20grained%20model/model:ctmixtures/experiment:experiment-ctmixtures/2014/10/06/ctmixtures-calibration-part2.html target='_blank'>BibTeX Entry</a>
+</small></td>
+				<td><small><i class="icon-book">&nbsp;</i>&nbsp;<a href=http://greycite.knowledgeblog.org/ris/?uri=http://notebook.madsenlab.org/project:coarse%20grained%20model/model:ctmixtures/experiment:experiment-ctmixtures/2014/10/06/ctmixtures-calibration-part2.html target='_blank'>RIS Citation</a>
+</small></td>
+				<td><small><a href="javascript:window.print()"><i class="icon-print"></i>&nbsp;Print</a></small></td>
+				<!--<td><small><a href="/project:coarse%20grained%20model/model:ctmixtures/experiment:experiment-ctmixtures/2014/10/06/ctmixtures-calibration-part2.html"></i>Permalink</a></small></td> -->
+			</tr>
+		</table>
+		</p>
 
 
+  	
 	
-</table>
-	
-	
+  <h3 id="excess-variation">Excess Variation?</h3>
+<p>About a week ago, I ran <code>equifinality-2-small</code>, which simulated 1000 samples from each of the 4 models. I’m not sure what I think about the data. A random forest classifier is clearly able to distinguish neutral from all biased models, given synchronic population statistics.</p>
+<p>But there’s so many variants in the population, even given the difference in per-locus versus whole trait set copying rules I <a href="/project:coarse%20grained%20model/model:ctmixtures/experiment:experiment-ctmixtures/2014/09/22/ctmixtures-model-calibration.html">discussed in the previous note</a>.</p>
+<p>The distribution of Slatkin test values, when I use the raw per-locus values, those for the neutral models look well distributed (this is the distribution of outcomes from the “Chinese restaurant process”, which is equivalent to the Ewens Sampling Formula).</p>
+<figure>
+<img src="/images/ctmixtures-eq2-slatkin-neutral.png" alt="slatkin-per-locus" /><figcaption>slatkin-per-locus</figcaption>
+</figure>
+<p>So this suggests that looking at summary statistics for the Slatkin values was misleading. Perhaps the neutral model is functioning just fine.</p>
+<p>And, which might be interesting from a research perspective, that intersecting traits and looking at the Slatkin tests of the configuration frequencies doesn’t give you a uniform distribution of Slatkin test values even with a neutral model:</p>
+<figure>
+<img src="/images/ctmixtures-eq2-config-slatkin.png" alt="slatkin-configuration" /><figcaption>slatkin-configuration</figcaption>
+</figure>
+<p>I also looked at the per-locus richness values, not the mean/min/max summaries, but just the raw richness values. My package library <a href="https://github.com/mmadsen/mmadsenr">mmadsenr</a> has a function for applying Equation 4 from Ewens <span class="citation" data-cites="ewens1972sampling">(1972)</span>. We can compare the expected number of traits given the Wright-Fisher infinite alleles model (which will differ from the Moran model by a small factor), to the simulated samples, with the following R code:</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># pull in the per-locus richness data, this can be compared to Ewens 1972, equation 4</span>
+eq2s.rich &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="dt">file=</span><span class="st">&quot;eq2s-pop-richness-locus-data.csv&quot;</span>)
+eq2s.rich.neutral &lt;-<span class="st"> </span><span class="kw">filter</span>(eq2.rich, model_class_label ==<span class="st"> &#39;allneutral&#39;</span>)
+
+popsize &lt;-<span class="st"> </span><span class="dv">100</span>
+innov_rates_for_abline &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="fl">0.1</span>, <span class="fl">0.5</span>, <span class="fl">1.0</span>, <span class="fl">2.0</span>, <span class="fl">3.0</span>, <span class="fl">4.0</span>, <span class="fl">5.0</span>)
+<span class="co"># expected K for innovation rates</span>
+expected_k &lt;-<span class="st"> </span><span class="kw">numeric</span>(<span class="kw">length</span>(innov_rates_for_abline))
+for (i in <span class="dv">1</span>:<span class="kw">length</span>(innov_rates_for_abline)) { expected_k[i] &lt;-<span class="st"> </span><span class="kw">expected_k_pop</span>(popsize, innov_rates_for_abline[i])}
+expected_k_abline &lt;-<span class="st"> </span><span class="kw">data.frame</span>(innov_rates_for_abline, expected_k)
+
+<span class="co"># plot</span>
+plt &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data=</span>eq2s.rich.neutral, <span class="kw">aes</span>(<span class="dt">x=</span>innovation_rate, <span class="dt">y=</span>richness_locus_value)) +<span class="st"> </span><span class="kw">geom_point</span>(<span class="dt">alpha=</span><span class="dv">1</span>/<span class="dv">2</span>,<span class="dt">size=</span><span class="dv">1</span>) +<span class="st"> </span><span class="kw">geom_abline</span>(<span class="dt">data=</span>expected_k_abline, <span class="dt">color=</span><span class="st">&quot;red&quot;</span>)
+plt +<span class="st"> </span><span class="kw">xlab</span>(<span class="st">&quot;Scaled Innovation Rate&quot;</span>) +<span class="st"> </span><span class="kw">ylab</span>(<span class="st">&quot;Number of Traits at a Dimension/Locus&quot;</span>)</code></pre>
+<figure>
+<img src="/images/eq2s-richness-neutral-expectedk.png" alt="expected-k-and-observed" /><figcaption>expected-k-and-observed</figcaption>
+</figure>
+<h3 id="analysis">Analysis</h3>
+<p>So, do I have an issue or not?</p>
+<p>Possibilities:</p>
+<ol type="1">
+<li>The neutral process is functioning just fine, and the distribution of richness is what you’d expect from a single locus copying process.<br /></li>
+<li>The neutral process is functioning just fine, but the process hasn’t washed out the initial level of variation and reached equilibrium by 1MM steps.<br /></li>
+<li>There’s something wrong with the neutral model.</li>
+</ol>
+<p>The last seems unlikely given the spot-on distribution of Slatkin values on a per locus basis, but I’d like to have better calibration on how much variation to expect in this per-locus copying model, instead of the whole genome copying model.</p>
+<p>I might need to convince myself that the rest of the machinery is working by doing some samples from the whole-traitset copying version of neutrality, because the abline ought to lay over the distribution in that case.</p>
+<div class="references">
+<h3>References Cited</h3>
+<p>Ewens, W.J. 1972. “The Sampling Theory of Selectively Neutral Alleles.” <em>Theoretical Population Biology</em> 3 (1): 87–112.</p>
+</div>
+  
+
+
+<div class="well well-small">
+<p class="text-info"><i class="icon-tags"></i>&nbsp;Tags</p>
+<ul>
+
+<li><a href='/tag/cultural transmission.html'>cultural transmission</a></li>
+
+<li><a href='/tag/time averaging.html'>time averaging</a></li>
+
+<li><a href='/tag/coarse graining.html'>coarse graining</a></li>
+
+<li><a href='/tag/simulation.html'>simulation</a></li>
+
+<li><a href='/tag/dissertation.html'>dissertation</a></li>
+
+<li><a href='/tag/open science.html'>open science</a></li>
+
+<li><a href='/tag/reproducible science.html'>reproducible science</a></li>
+
+<li><a href='/tag/experiments.html'>experiments</a></li>
+
+<li><a href='/tag/experiment-ctmixture.html'>experiment-ctmixture</a></li>
+
+</ul>
 </div>
 
 
-
-
+</div>
 
 
         
