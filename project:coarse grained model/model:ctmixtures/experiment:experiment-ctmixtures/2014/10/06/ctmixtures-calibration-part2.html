@@ -187,7 +187,7 @@
 		<table class="table table-condensed">
 			<tr class="info">
 				<td><small><i class="icon-calendar"></i>&nbsp;Created: 06 Oct 2014</small></td>
-				<td><small><i class="icon-calendar"></i>&nbsp;Modified: 06 Oct 2014</small></td>
+				<td><small><i class="icon-calendar"></i>&nbsp;Modified: 07 Oct 2014</small></td>
 				<td><small><i class="icon-book">&nbsp;</i>&nbsp;<a href=http://greycite.knowledgeblog.org/bib/?uri=http://notebook.madsenlab.org/project:coarse%20grained%20model/model:ctmixtures/experiment:experiment-ctmixtures/2014/10/06/ctmixtures-calibration-part2.html target='_blank'>BibTeX Entry</a>
 </small></td>
 				<td><small><i class="icon-book">&nbsp;</i>&nbsp;<a href=http://greycite.knowledgeblog.org/ris/?uri=http://notebook.madsenlab.org/project:coarse%20grained%20model/model:ctmixtures/experiment:experiment-ctmixtures/2014/10/06/ctmixtures-calibration-part2.html target='_blank'>RIS Citation</a>
@@ -206,12 +206,12 @@
 <p>But there’s so many variants in the population, even given the difference in per-locus versus whole trait set copying rules I <a href="/project:coarse%20grained%20model/model:ctmixtures/experiment:experiment-ctmixtures/2014/09/22/ctmixtures-model-calibration.html">discussed in the previous note</a>.</p>
 <p>The distribution of Slatkin test values, when I use the raw per-locus values, those for the neutral models look well distributed (this is the distribution of outcomes from the “Chinese restaurant process”, which is equivalent to the Ewens Sampling Formula).</p>
 <figure>
-<img src="/images/ctmixtures-eq2-slatkin-neutral.png" alt="slatkin-per-locus" /><figcaption>slatkin-per-locus</figcaption>
+<img src="/images/ctmixtures-eq2-slatkin-neutral.png" alt="Figure 1: Slatkin exact test values per dimension/locus" /><figcaption>Figure 1: Slatkin exact test values per dimension/locus</figcaption>
 </figure>
 <p>So this suggests that looking at summary statistics for the Slatkin values was misleading. Perhaps the neutral model is functioning just fine.</p>
 <p>And, which might be interesting from a research perspective, that intersecting traits and looking at the Slatkin tests of the configuration frequencies doesn’t give you a uniform distribution of Slatkin test values even with a neutral model:</p>
 <figure>
-<img src="/images/ctmixtures-eq2-config-slatkin.png" alt="slatkin-configuration" /><figcaption>slatkin-configuration</figcaption>
+<img src="/images/ctmixtures-eq2-config-slatkin.png" alt="Figure 2: Slatkin exact test values for configurations of all dimensions/loci" /><figcaption>Figure 2: Slatkin exact test values for configurations of all dimensions/loci</figcaption>
 </figure>
 <p>I also looked at the per-locus richness values, not the mean/min/max summaries, but just the raw richness values. My package library <a href="https://github.com/mmadsen/mmadsenr">mmadsenr</a> has a function for applying Equation 4 from Ewens <span class="citation" data-cites="ewens1972sampling">(1972)</span>. We can compare the expected number of traits given the Wright-Fisher infinite alleles model (which will differ from the Moran model by a small factor), to the simulated samples, with the following R code:</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="co"># pull in the per-locus richness data, this can be compared to Ewens 1972, equation 4</span>
@@ -229,7 +229,7 @@ expected_k_abline &lt;-<span class="st"> </span><span class="kw">data.frame</spa
 plt &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data=</span>eq2s.rich.neutral, <span class="kw">aes</span>(<span class="dt">x=</span>innovation_rate, <span class="dt">y=</span>richness_locus_value)) +<span class="st"> </span><span class="kw">geom_point</span>(<span class="dt">alpha=</span><span class="dv">1</span>/<span class="dv">2</span>,<span class="dt">size=</span><span class="dv">1</span>) +<span class="st"> </span><span class="kw">geom_abline</span>(<span class="dt">data=</span>expected_k_abline, <span class="dt">color=</span><span class="st">&quot;red&quot;</span>)
 plt +<span class="st"> </span><span class="kw">xlab</span>(<span class="st">&quot;Scaled Innovation Rate&quot;</span>) +<span class="st"> </span><span class="kw">ylab</span>(<span class="st">&quot;Number of Traits at a Dimension/Locus&quot;</span>)</code></pre>
 <figure>
-<img src="/images/eq2s-richness-neutral-expectedk.png" alt="expected-k-and-observed" /><figcaption>expected-k-and-observed</figcaption>
+<img src="/images/eq2s-richness-neutral-expectedk.png" alt="Figure 3: Observed richness versus predicted population richness per dimension/locus" /><figcaption>Figure 3: Observed richness versus predicted population richness per dimension/locus</figcaption>
 </figure>
 <h3 id="analysis">Analysis</h3>
 <p>So, do I have an issue or not?</p>
