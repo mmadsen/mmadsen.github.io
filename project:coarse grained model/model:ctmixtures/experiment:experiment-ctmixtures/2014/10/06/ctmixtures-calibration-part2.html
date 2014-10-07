@@ -3,7 +3,7 @@
 <html lang="en">
   <head prefix="dc: http://purl.org/dc/terms/ og: http://ogp.me/ns#">
     <meta charset="utf-8"/>
-    <title>CTMixtures Equifinality - Calibration Part 2</title>
+    <title>CTMixtures Equifinality - Calibration Experiment and Conclusions</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta name="description" content="Lab Notebook for Mark E. Madsen"/>
     <meta name="author" content="Mark E. Madsen"/>
@@ -23,7 +23,7 @@
 	<!-- Ideally we would want date originally created from the _oldest_ git commit too...-->
 
 	<!-- RDFa Metadata (in DublinCore) -->
-	<meta property="dc:title" content="CTMixtures Equifinality - Calibration Part 2" />
+	<meta property="dc:title" content="CTMixtures Equifinality - Calibration Experiment and Conclusions" />
 	<meta property="dc:creator" content="Mark E. Madsen" />
 	<meta property="dc:date" content="2014-10-06T00:00:00-07:00" />
 	<meta property="dc:format" content="text/html" />
@@ -34,7 +34,7 @@
 	<meta property="dc:subject" content="Anthropology" /> 
 	<meta property="dc:type" content="website" /> 
 	<!-- RDFa Metadata (in OpenGraph) -->
-	<meta property="og:title" content="CTMixtures Equifinality - Calibration Part 2" />
+	<meta property="og:title" content="CTMixtures Equifinality - Calibration Experiment and Conclusions" />
 	<meta property="og:author" content="http://notebook.madsenlab.org/bio.html" />  <!-- Should be Liquid? URI? -->
 	<meta property="og:site_name" content="Lab Notebook for Mark E. Madsen" /> <!-- Same as dc:source? -->
 	<meta property="og:url" content="http://notebook.madsenlab.org/project:coarse%20grained%20model/model:ctmixtures/experiment:experiment-ctmixtures/2014/10/06/ctmixtures-calibration-part2.html" />
@@ -42,7 +42,7 @@
 	<!-- Google Scholar Metadata -->
 	<meta name="citation_author" content="Mark E. Madsen"/>
 	<meta name="citation_date" content="2014-10-06T00:00:00-07:00"/>
-	<meta name="citation_title" content="CTMixtures Equifinality - Calibration Part 2"/>
+	<meta name="citation_title" content="CTMixtures Equifinality - Calibration Experiment and Conclusions"/>
 	<meta name="citation_journal_title" content="Lab Notebook for Mark E. Madsen"/>
 
     <!-- Le styles -->
@@ -180,7 +180,7 @@
         </div><!--/span3-->
 
             <div class="span8">
-  	<h2>CTMixtures Equifinality - Calibration Part 2</h2>
+  	<h2>CTMixtures Equifinality - Calibration Experiment and Conclusions</h2>
 	
 
 		<p class="text-info">
@@ -231,9 +231,7 @@ plt +<span class="st"> </span><span class="kw">xlab</span>(<span class="st">&quo
 <figure>
 <img src="/images/eq2s-richness-neutral-expectedk.png" alt="Figure 3: Observed richness versus predicted population richness per dimension/locus" /><figcaption>Figure 3: Observed richness versus predicted population richness per dimension/locus</figcaption>
 </figure>
-<h3 id="analysis">Analysis</h3>
-<p>So, do I have an issue or not?</p>
-<p>Possibilities:</p>
+<h3 id="possible-causes">Possible Causes</h3>
 <ol type="1">
 <li>The neutral process is functioning just fine, and the distribution of richness is what you’d expect from a single locus copying process.<br /></li>
 <li>The neutral process is functioning just fine, but the process hasn’t washed out the initial level of variation and reached equilibrium by 1MM steps.<br /></li>
@@ -241,6 +239,19 @@ plt +<span class="st"> </span><span class="kw">xlab</span>(<span class="st">&quo
 </ol>
 <p>The last seems unlikely given the spot-on distribution of Slatkin values on a per locus basis, but I’d like to have better calibration on how much variation to expect in this per-locus copying model, instead of the whole genome copying model.</p>
 <p>I might need to convince myself that the rest of the machinery is working by doing some samples from the whole-traitset copying version of neutrality, because the abline ought to lay over the distribution in that case.</p>
+<h3 id="both-copying-models-and-multiple-simulation-lengths">Both Copying Models and Multiple Simulation Lengths</h3>
+<p>Today, I looked at “all locus” versus “random locus” models, and also varied the maximum length of the simulation, doing “all locus” models for 4 and 8 million steps. The results in Figure 4 are combined with the original random locus values for 1MM steps in <code>equifinality-2-small</code>:</p>
+<figure>
+<img src="/images/combined-excess-richness.png" alt="Figure 4: 1 million, 4 million, and 8 million steps for random and all locus models" /><figcaption>Figure 4: 1 million, 4 million, and 8 million steps for random and all locus models</figcaption>
+</figure>
+<p>Two things are apparent.</p>
+<ol type="1">
+<li><p>There is definitely more variation in random locus models, probably because it takes longer for any given allele to drift out given that not all loci are replaced by a copying event.</p></li>
+<li><p>1MM steps is not enough – the 4 and 8 million step models have clearly reached stationarity, but 1MM and 4MM aren’t close, so somewhere between 1MM and 4MM steps is the stationarity point. There is little change in the location or slope of the trends between 4MM and 8MM.</p></li>
+</ol>
+<h3 id="next-steps">Next Steps</h3>
+<p>The next step is to repeat <code>equifinality-2</code> across all four models, using 4MM steps per simulation run, and then repeat the random forest analysis.</p>
+<p>I plan to run <code>equifinality-3</code> as a full model run, with 25,000 samples per model, for a total of 100,000 data points. I’m going to run it on a StarCluster with 4 instances of c3.4xlarge type, for a total of 64 vCPUs. This should take between 3 and 4 days, with an initial cost estimate of about $300.</p>
 <div class="references">
 <h3>References Cited</h3>
 <p>Ewens, W.J. 1972. “The Sampling Theory of Selectively Neutral Alleles.” <em>Theoretical Population Biology</em> 3 (1): 87–112.</p>
