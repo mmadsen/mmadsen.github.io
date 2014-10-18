@@ -206,7 +206,7 @@
 <p>I looked at Ewens <span class="citation" data-cites="Ewens2004">(2004)</span> again, and added a method to the <code>pytransmission</code> library to calculate the expected number of alleles in a sample, and its variance, given Equations 3.83 - 3.86.</p>
 <p>I also:</p>
 <ol type="1">
-<li>Changed the formula for turning the scaled innovation rate (<span class="math">\(\theta\)</span>) into a per-individual/locus rate (<span class="math">\(\mu\)</span>), choosing a simpler formula rather than solving the formula 3.98 in which a factor <span class="math">\(\mu / (1 - \mu)\)</span> occurs. Instead, <span class="math">\(\mu\)</span> is calculated simply as <span class="math">\(\theta / N \)</span>.<br /></li>
+<li>Changed the formula for turning the scaled innovation rate (<span class="math">\(\theta\)</span>) into a per-individual/locus rate (<span class="math">\(\mu\)</span>), choosing a simpler formula rather than solving the formula 3.98 in which a factor <span class="math">\(\mu / (1 - \mu)\)</span> occurs. Instead, <span class="math">\(\mu\)</span> is calculated simply as $/ N $.<br /></li>
 <li>Stopped using the “random locus” copying rule for neutral traits, since the Moran model is defined to have a whole individual drop out and be replaced by a clone of another individual.</li>
 </ol>
 <p>These changes are split across the <code>ctmixtures</code> and <code>pytransmission</code> codebases, involving at most single lines of code in several places.</p>

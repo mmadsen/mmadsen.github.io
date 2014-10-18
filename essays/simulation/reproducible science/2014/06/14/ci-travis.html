@@ -204,14 +204,14 @@
 <p>Travis reports by email and in their web interface, of course, but more importantly, each project has a “badge” or icon which can be included in the project’s <code>README.md</code> on Github, and which shows whether the build is broken, or passing all tests. This is an improvement to simply having unit or functional tests in one’s project, because the public can understand whether a project is working without downloading and building it.</p>
 <p>Here, for example, is the status of my current projects:</p>
 <ul>
-<li><code>CTPy</code>: <a href="https://travis-ci.org/mmadsen/CTPy"><embed src="https://travis-ci.org/mmadsen/CTPy.svg?branch=master" /></a></li>
-<li><code>axelrod-ct</code>: <a href="https://travis-ci.org/mmadsen/axelrod-ct"><embed src="https://travis-ci.org/mmadsen/axelrod-ct.svg?branch=master" /></a></li>
-<li><code>ctmixtures</code>: <a href="https://travis-ci.org/mmadsen/ctmixtures"><embed src="https://travis-ci.org/mmadsen/ctmixtures.svg?branch=master" /></a></li>
+<li><code>CTPy</code>: <a href="https://travis-ci.org/mmadsen/CTPy"><img src="https://travis-ci.org/mmadsen/CTPy.svg?branch=master" alt="Build Status" /></a></li>
+<li><code>axelrod-ct</code>: <a href="https://travis-ci.org/mmadsen/axelrod-ct"><img src="https://travis-ci.org/mmadsen/axelrod-ct.svg?branch=master" alt="Build Status" /></a></li>
+<li><code>ctmixtures</code>: <a href="https://travis-ci.org/mmadsen/ctmixtures"><img src="https://travis-ci.org/mmadsen/ctmixtures.svg?branch=master" alt="Build Status" /></a></li>
 </ul>
 <p>and several of their common code dependencies:</p>
 <ul>
-<li><code>pytransmission</code>: <a href="https://travis-ci.org/mmadsen/pytransmission"><embed src="https://travis-ci.org/mmadsen/pytransmission.svg?branch=master" /></a></li>
-<li><code>mmadsenr</code>: <a href="https://travis-ci.org/mmadsen/mmadsenr"><embed src="https://travis-ci.org/mmadsen/mmadsenr.svg?branch=master" /></a></li>
+<li><code>pytransmission</code>: <a href="https://travis-ci.org/mmadsen/pytransmission"><img src="https://travis-ci.org/mmadsen/pytransmission.svg?branch=master" alt="Build Status" /></a></li>
+<li><code>mmadsenr</code>: <a href="https://travis-ci.org/mmadsen/mmadsenr"><img src="https://travis-ci.org/mmadsen/mmadsenr.svg?branch=master" alt="Build Status" /></a></li>
 </ul>
 <h3 id="improving-ease-of-installation">Improving Ease of Installation</h3>
 <p>I also found that Travis drastically improved the installability (and thus reproducibility) of my projects, especially across platforms. All of the projects listed here are based on Python 2.7, but they rely on a variety of dependencies, some of which link to common (but very large) C++ libraries and others linked Python to my own C code via the SWIG code generator. In one’s own work, none of this infrastructure ever gets built all at once – instead, it evolves in one’s development environment as capabilities are added. So it is easy to forget what a <strong>complete</strong> build process looks like.</p>
