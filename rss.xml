@@ -8,7 +8,18 @@
     <title>Lab Notebook for Mark E. Madsen</title>
     <link>http://notebook.madsenlab.org</link>
     <description>RSS feed for Lab Notebook for Mark E. Madsen</description>
-    <pubDate>Fri, 17 Oct 2014 00:00:00 -0700</pubDate>
+    <pubDate>Fri, 07 Nov 2014 00:00:00 -0800</pubDate>
+    <item>
+      <title>CTMixtures Analysis -- Equifinality 3 Notes</title>
+      <link>http://notebook.madsenlab.org/project:coarse%20grained%20model/model:ctmixtures/experiment:experiment-ctmixtures/2014/11/07/ctmixtures-analysis-randomforests.html</link>
+      <description>&lt;div class=&quot;references&quot;&gt;
+&lt;h3&gt;Equifinality-3&lt;/h3&gt;
+&lt;/div&gt;
+</description>
+      <pubDate>Fri, 07 Nov 2014 00:00:00 -0800</pubDate>
+      <guid>http://notebook.madsenlab.org/project:coarse%20grained%20model/model:ctmixtures/experiment:experiment-ctmixtures/2014/11/07/ctmixtures-analysis-randomforests.html</guid>
+      <dc:date>2014-11-07T00:00:00-08:00</dc:date>
+    </item>
     <item>
       <title>How Might Washingtonians Enforce the McCleary Decision?</title>
       <link>http://notebook.madsenlab.org/essays/politics/education/2014/10/17/how-washingtonians-might-enforce-mccleary.html</link>
@@ -847,6 +858,6 @@
       <guid>http://notebook.madsenlab.org/project:coarse%20grained%20model/reading%20notes/2011/01/11/he-and-stone.html</guid>
       <dc:date>2011-01-11T00:00:00-08:00</dc:date>
     </item>
-    <dc:date>2014-10-17T00:00:00-07:00</dc:date>
+    <dc:date>2014-11-07T00:00:00-08:00</dc:date>
   </channel>
 </rss>

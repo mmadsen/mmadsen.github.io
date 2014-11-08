@@ -3,7 +3,7 @@
 <html lang="en">
   <head prefix="dc: http://purl.org/dc/terms/ og: http://ogp.me/ns#">
     <meta charset="utf-8"/>
-    <title></title>
+    <title>CTMixtures Analysis -- Equifinality 3 Notes</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta name="description" content="Lab Notebook for Mark E. Madsen"/>
     <meta name="author" content="Mark E. Madsen"/>
@@ -13,9 +13,9 @@
 
 
 	<!-- For posts, page.date is the date they are published under, which we use as their 'canonical' dc:date -->
-	 <!-- If we don't have a page.date, then use modified time (pages) -->
-	   
-	
+	 
+	  
+	  
 
 	<!-- Posts declare modified timestamps in the sidebar, so would be redundant to put here. But then 
 	     pages don't have a dc:modified... unless we give them their own (modified) sidebar?  
@@ -23,26 +23,26 @@
 	<!-- Ideally we would want date originally created from the _oldest_ git commit too...-->
 
 	<!-- RDFa Metadata (in DublinCore) -->
-	<meta property="dc:title" content="" />
+	<meta property="dc:title" content="CTMixtures Analysis -- Equifinality 3 Notes" />
 	<meta property="dc:creator" content="Mark E. Madsen" />
-	<meta property="dc:date" content="2014-11-08T15:13:47-08:00" />
+	<meta property="dc:date" content="2014-11-07T00:00:00-08:00" />
 	<meta property="dc:format" content="text/html" />
 	<meta property="dc:language" content="en" />
-	<meta property="dc:identifier" content="/tag/natural%20selection.html" />
+	<meta property="dc:identifier" content="/project:coarse%20grained%20model/model:ctmixtures/experiment:experiment-ctmixtures/2014/11/07/ctmixtures-analysis-randomforests.html" />
 	<meta property="dc:rights" content="CC BY-NC-SA 3.0" />
 	<meta property="dc:source" content="Lab Notebook for Mark E. Madsen" />
 	<meta property="dc:subject" content="Anthropology" /> 
 	<meta property="dc:type" content="website" /> 
 	<!-- RDFa Metadata (in OpenGraph) -->
-	<meta property="og:title" content="" />
+	<meta property="og:title" content="CTMixtures Analysis -- Equifinality 3 Notes" />
 	<meta property="og:author" content="http://notebook.madsenlab.org/bio.html" />  <!-- Should be Liquid? URI? -->
 	<meta property="og:site_name" content="Lab Notebook for Mark E. Madsen" /> <!-- Same as dc:source? -->
-	<meta property="og:url" content="http://notebook.madsenlab.org/tag/natural%20selection.html" />
+	<meta property="og:url" content="http://notebook.madsenlab.org/project:coarse%20grained%20model/model:ctmixtures/experiment:experiment-ctmixtures/2014/11/07/ctmixtures-analysis-randomforests.html" />
 	<meta property="og:type" content="website" /> 
 	<!-- Google Scholar Metadata -->
 	<meta name="citation_author" content="Mark E. Madsen"/>
-	<meta name="citation_date" content="2014-11-08T15:13:47-08:00"/>
-	<meta name="citation_title" content=""/>
+	<meta name="citation_date" content="2014-11-07T00:00:00-08:00"/>
+	<meta name="citation_title" content="CTMixtures Analysis -- Equifinality 3 Notes"/>
 	<meta name="citation_journal_title" content="Lab Notebook for Mark E. Madsen"/>
 
     <!-- Le styles -->
@@ -179,29 +179,85 @@
           </div><!--/.well -->
         </div><!--/span3-->
 
-            <div  class="span9">
-
-<h2>Posts Tagged: "natural selection"</h2>
-
-<table class="table table-condensed">
-
+            <div class="span8">
+  	<h2>CTMixtures Analysis -- Equifinality 3 Notes</h2>
 	
 
-		<tr>
-		<td>13 Jun 2013</td>
-		<td><a href="/cultural%20transmission/theory/essays/2013/06/13/gabora2013-response-notes.html">Notes on Gabora 2013 -- Selectionism versus communal exchange</a></td>
-		</tr>
+		<p class="text-info">
+		<table class="table table-condensed">
+			<tr class="info">
+				<td><small><i class="icon-calendar"></i>&nbsp;Created: 07 Nov 2014</small></td>
+				<td><small><i class="icon-calendar"></i>&nbsp;Modified: 08 Nov 2014</small></td>
+				<td><small><i class="icon-book">&nbsp;</i>&nbsp;<a href=http://greycite.knowledgeblog.org/bib/?uri=http://notebook.madsenlab.org/project:coarse%20grained%20model/model:ctmixtures/experiment:experiment-ctmixtures/2014/11/07/ctmixtures-analysis-randomforests.html target='_blank'>BibTeX Entry</a>
+</small></td>
+				<td><small><i class="icon-book">&nbsp;</i>&nbsp;<a href=http://greycite.knowledgeblog.org/ris/?uri=http://notebook.madsenlab.org/project:coarse%20grained%20model/model:ctmixtures/experiment:experiment-ctmixtures/2014/11/07/ctmixtures-analysis-randomforests.html target='_blank'>RIS Citation</a>
+</small></td>
+				<td><small><a href="javascript:window.print()"><i class="icon-print"></i>&nbsp;Print</a></small></td>
+				<!--<td><small><a href="/project:coarse%20grained%20model/model:ctmixtures/experiment:experiment-ctmixtures/2014/11/07/ctmixtures-analysis-randomforests.html"></i>Permalink</a></small></td> -->
+			</tr>
+		</table>
+		</p>
 
 
+  	
 	
-</table>
-	
-	
+  <h3 id="equifinality-3">Equifinality-3</h3>
+<p>Given the results of <a href="/project:coarse%20grained%20model/model:ctmixtures/experiment:experiment-ctmixtures/2014/10/06/ctmixtures-calibration-part2.html">calibration experiments</a>, I ran 100,000 simulations (25K for each of four models), on a StarCluster of 4 instances, each with 16 vCPUs, for a total of 64 cores. The time estimate was low by a bit, and the experimental run cost almost $500 instead of $300, which means I need better cost estimation.</p>
+<p>The raw data for <code>equifinality-3</code> are stored on <a href="https://madsen-dissertation.s3.amazonaws.com/experiment-ctmixtures/">Amazon S3, here</a>, and the analysis, scripts, and paper on <a href="https://github.com/mmadsen/experiment-ctmixtures">Github, here</a>.</p>
+<p>Currently, I’ve exported population census and sampled data, and am working on exporting the time averaged and sampled data correctly.</p>
+<h3 id="model-analysis-and-tuning">Model Analysis and Tuning</h3>
+<p>I am still convinced that random forest classifiers are the best method of proceeding to detect equifinality given a set of summary statistics. For <code>equifinality-3</code>, I decided that it wasn’t enough to eyeball the tuning parameters for the random forest algorith, however. Using the superb <code>caret</code> package in R, I proceed as follows:</p>
+<ol type="1">
+<li>Split the data set into 80% train, 20% test data, with balanced numbers from each model class.</li>
+<li>Train the random forest classifier over the training set, using 1000 trees and different values of <code>mtry</code>.<br /></li>
+<li>Perform the training step #2 using 10-fold CV and 10 repeated CV trials, and using ROC and Kappa values, select the model which has the lowest error on the CV hold-out folds over the 100 trials.<br /></li>
+<li>Using this final tuned model, evaluate the classifier performance on the 20% test set, which has not been involved in any training and tuning.</li>
+</ol>
+<p>Evaluation of the final model constitutes the equifinality evaluation itself, and I’m using the following statistics to perform the analysis:</p>
+<ol type="1">
+<li>Relationship between ROC curves for each of the sets of CT model summary statistics (population census, sampled, TA/sampled). This includes the area under the ROC curve (AUC).<br /></li>
+<li>Specificity and sensitivity values (true positive and false positive rates per class).<br /></li>
+<li>Patterns in the confusion matrices (e.g., are neutral models often mistaken for bias, but not the other way around?)</li>
+</ol>
+<p>I should note that the training and tuning process is extremely time consuming given sample sizes this large, with 10/10 repeated cross-validation. Each set of summary statistics (census and sampled) took between 8 and 10 hours, with parallelization across 4 cores (and the sampled data is split into sample size chunks of 100K observations each, so it’s about 10 hours per sample size chunk).</p>
+<h3 id="separation-or-mixing-of-sample-sizeta-intervals">Separation or Mixing of Sample Size/TA Intervals</h3>
+<p>Most of the time, of course, real-world samples will come from a variety of population sizes, sample sizes, time averaging durations, etc. But the most rigorous test for <strong>irreducible</strong> equifinalities occurs when we hold all of the parameters constant and examine our ability to construct a classifier which correctly identifies cases stemming from different transmission models.</p>
+<p>Thus, in one set of analyses, I separate data with different sample sizes (and, if relevant, time averaging durations) and analyze classifier performance separately. This is the reason for having a large simulation data set, like 25,000 simulations from each model. Each model is thus represented by synchronic sampled data over 2 sample sizes (12,500 simulations each), and for 8 combinations of sample size and time averaging duration, 3125 samples for each parameter combination. Using fewer total simulations would be problematic when I analyze each parameter combination separately.</p>
+<p>Separating parameter values also allows us to examine how classifier performance (and thus equifinality) scale with sample size and duration, for a particular class of observable statistics (e.g., census, time averaged samples).</p>
+<p>But the classifier can also be trained on the combined parameter values, without including the parameters themselves in the classifier. I expect degraded classification performance, but perhaps not by much compared to the “pure” case.</p>
+<div class="references">
+<h3>References Cited</h3>
+</div>
+  
+
+
+<div class="well well-small">
+<p class="text-info"><i class="icon-tags"></i>&nbsp;Tags</p>
+<ul>
+
+<li><a href='/tag/cultural transmission.html'>cultural transmission</a></li>
+
+<li><a href='/tag/time averaging.html'>time averaging</a></li>
+
+<li><a href='/tag/coarse graining.html'>coarse graining</a></li>
+
+<li><a href='/tag/simulation.html'>simulation</a></li>
+
+<li><a href='/tag/dissertation.html'>dissertation</a></li>
+
+<li><a href='/tag/open science.html'>open science</a></li>
+
+<li><a href='/tag/reproducible science.html'>reproducible science</a></li>
+
+<li><a href='/tag/experiments.html'>experiments</a></li>
+
+<li><a href='/tag/experiment-ctmixture.html'>experiment-ctmixture</a></li>
+
+</ul>
 </div>
 
 
-
-
+</div>
 
 
         
