@@ -187,7 +187,7 @@
 		<table class="table table-condensed">
 			<tr class="info">
 				<td><small><i class="icon-calendar"></i>&nbsp;Created: 07 Nov 2014</small></td>
-				<td><small><i class="icon-calendar"></i>&nbsp;Modified: 08 Nov 2014</small></td>
+				<td><small><i class="icon-calendar"></i>&nbsp;Modified: 15 Nov 2014</small></td>
 				<td><small><i class="icon-book">&nbsp;</i>&nbsp;<a href=http://greycite.knowledgeblog.org/bib/?uri=http://notebook.madsenlab.org/project:coarse%20grained%20model/model:ctmixtures/experiment:experiment-ctmixtures/2014/11/07/ctmixtures-analysis-randomforests.html target='_blank'>BibTeX Entry</a>
 </small></td>
 				<td><small><i class="icon-book">&nbsp;</i>&nbsp;<a href=http://greycite.knowledgeblog.org/ris/?uri=http://notebook.madsenlab.org/project:coarse%20grained%20model/model:ctmixtures/experiment:experiment-ctmixtures/2014/11/07/ctmixtures-analysis-randomforests.html target='_blank'>RIS Citation</a>
@@ -222,9 +222,8 @@
 <p>I should note that the training and tuning process is extremely time consuming given sample sizes this large, with 10/10 repeated cross-validation. Each set of summary statistics (census and sampled) took between 8 and 10 hours, with parallelization across 4 cores (and the sampled data is split into sample size chunks of 100K observations each, so it’s about 10 hours per sample size chunk).</p>
 <h3 id="separation-or-mixing-of-sample-sizeta-intervals">Separation or Mixing of Sample Size/TA Intervals</h3>
 <p>Most of the time, of course, real-world samples will come from a variety of population sizes, sample sizes, time averaging durations, etc. But the most rigorous test for <strong>irreducible</strong> equifinalities occurs when we hold all of the parameters constant and examine our ability to construct a classifier which correctly identifies cases stemming from different transmission models.</p>
-<p>Thus, in one set of analyses, I separate data with different sample sizes (and, if relevant, time averaging durations) and analyze classifier performance separately. This is the reason for having a large simulation data set, like 25,000 simulations from each model. Each model is thus represented by synchronic sampled data over 2 sample sizes (12,500 simulations each), and for 8 combinations of sample size and time averaging duration, 3125 samples for each parameter combination. Using fewer total simulations would be problematic when I analyze each parameter combination separately.</p>
-<p>Separating parameter values also allows us to examine how classifier performance (and thus equifinality) scale with sample size and duration, for a particular class of observable statistics (e.g., census, time averaged samples).</p>
-<p>But the classifier can also be trained on the combined parameter values, without including the parameters themselves in the classifier. I expect degraded classification performance, but perhaps not by much compared to the “pure” case.</p>
+<p>Thus, in one set of analyses, I separate data with different sample sizes (and, if relevant, time averaging durations) and analyze classifier performance separately. Since all 8 combinations of sample size and TA duration are taken from each simulation run during data recording, there are actually 800,000 rows of data in the time averaged and sampled data set, giving a full 100,000 data points for each combination, retaining comparability of the analysis when we try to compare classifier performance from the population census data against sampled against time averaged &amp; sampled data.</p>
+<p>We can also evaluate the classifier performance on mixed combinations of sample size and time averaging duration, by not taking subsets of the data set, and training across the entire data set. We might do a stratified random downsample in order to make sample sizes comparable between this analysis and the population and sampled data sets.</p>
 <div class="references">
 <h3>References Cited</h3>
 </div>
