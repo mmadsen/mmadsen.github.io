@@ -3,7 +3,7 @@
 <html lang="en">
   <head prefix="dc: http://purl.org/dc/terms/ og: http://ogp.me/ns#">
     <meta charset="utf-8"/>
-    <title></title>
+    <title>Implementing temporal networks in Python, Part 2</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta name="description" content="Lab Notebook for Mark E. Madsen"/>
     <meta name="author" content="Mark E. Madsen"/>
@@ -13,9 +13,9 @@
 
 
 	<!-- For posts, page.date is the date they are published under, which we use as their 'canonical' dc:date -->
-	 <!-- If we don't have a page.date, then use modified time (pages) -->
-	   
-	
+	 
+	  
+	  
 
 	<!-- Posts declare modified timestamps in the sidebar, so would be redundant to put here. But then 
 	     pages don't have a dc:modified... unless we give them their own (modified) sidebar?  
@@ -23,26 +23,26 @@
 	<!-- Ideally we would want date originally created from the _oldest_ git commit too...-->
 
 	<!-- RDFa Metadata (in DublinCore) -->
-	<meta property="dc:title" content="" />
+	<meta property="dc:title" content="Implementing temporal networks in Python, Part 2" />
 	<meta property="dc:creator" content="Mark E. Madsen" />
-	<meta property="dc:date" content="2014-12-03T22:00:44-08:00" />
+	<meta property="dc:date" content="2014-11-28T00:00:00-08:00" />
 	<meta property="dc:format" content="text/html" />
 	<meta property="dc:language" content="en" />
-	<meta property="dc:identifier" content="/tag/misfeasance.html" />
+	<meta property="dc:identifier" content="/project:coarse%20grained%20model/model:seriationct/experiment:experiment-seriationct/2014/11/28/more-temporal-networks-python.html" />
 	<meta property="dc:rights" content="CC BY-NC-SA 3.0" />
 	<meta property="dc:source" content="Lab Notebook for Mark E. Madsen" />
 	<meta property="dc:subject" content="Anthropology" /> 
 	<meta property="dc:type" content="website" /> 
 	<!-- RDFa Metadata (in OpenGraph) -->
-	<meta property="og:title" content="" />
+	<meta property="og:title" content="Implementing temporal networks in Python, Part 2" />
 	<meta property="og:author" content="http://notebook.madsenlab.org/bio.html" />  <!-- Should be Liquid? URI? -->
 	<meta property="og:site_name" content="Lab Notebook for Mark E. Madsen" /> <!-- Same as dc:source? -->
-	<meta property="og:url" content="http://notebook.madsenlab.org/tag/misfeasance.html" />
+	<meta property="og:url" content="http://notebook.madsenlab.org/project:coarse%20grained%20model/model:seriationct/experiment:experiment-seriationct/2014/11/28/more-temporal-networks-python.html" />
 	<meta property="og:type" content="website" /> 
 	<!-- Google Scholar Metadata -->
 	<meta name="citation_author" content="Mark E. Madsen"/>
-	<meta name="citation_date" content="2014-12-03T22:00:44-08:00"/>
-	<meta name="citation_title" content=""/>
+	<meta name="citation_date" content="2014-11-28T00:00:00-08:00"/>
+	<meta name="citation_title" content="Implementing temporal networks in Python, Part 2"/>
 	<meta name="citation_journal_title" content="Lab Notebook for Mark E. Madsen"/>
 
     <!-- Le styles -->
@@ -179,29 +179,89 @@
           </div><!--/.well -->
         </div><!--/span3-->
 
-            <div  class="span9">
-
-<h2>Posts Tagged: "misfeasance"</h2>
-
-<table class="table table-condensed">
-
+            <div class="span8">
+  	<h2>Implementing temporal networks in Python, Part 2</h2>
 	
 
-		<tr>
-		<td>17 Oct 2014</td>
-		<td><a href="/essays/politics/education/2014/10/17/how-washingtonians-might-enforce-mccleary.html">How Might Washingtonians Enforce the McCleary Decision?</a></td>
-		</tr>
+		<p class="text-info">
+		<table class="table table-condensed">
+			<tr class="info">
+				<td><small><i class="icon-calendar"></i>&nbsp;Created: 28 Nov 2014</small></td>
+				<td><small><i class="icon-calendar"></i>&nbsp;Modified: 03 Dec 2014</small></td>
+				<td><small><i class="icon-book">&nbsp;</i>&nbsp;<a href=http://greycite.knowledgeblog.org/bib/?uri=http://notebook.madsenlab.org/project:coarse%20grained%20model/model:seriationct/experiment:experiment-seriationct/2014/11/28/more-temporal-networks-python.html target='_blank'>BibTeX Entry</a>
+</small></td>
+				<td><small><i class="icon-book">&nbsp;</i>&nbsp;<a href=http://greycite.knowledgeblog.org/ris/?uri=http://notebook.madsenlab.org/project:coarse%20grained%20model/model:seriationct/experiment:experiment-seriationct/2014/11/28/more-temporal-networks-python.html target='_blank'>RIS Citation</a>
+</small></td>
+				<td><small><a href="javascript:window.print()"><i class="icon-print"></i>&nbsp;Print</a></small></td>
+				<!--<td><small><a href="/project:coarse%20grained%20model/model:seriationct/experiment:experiment-seriationct/2014/11/28/more-temporal-networks-python.html"></i>Permalink</a></small></td> -->
+			</tr>
+		</table>
+		</p>
 
 
+  	
 	
-</table>
-	
-	
+  <h3 id="overview">Overview</h3>
+<p>In <a href="/project:coarse%20grained%20model/model:seriationct/experiment:experiment-seriationct/2014/07/28/implementing-temporal-networks-in-python.html">Part 1</a> (a few months back), I started making notes about implementing “interval” style temporal networks in Python, using NumPy and NetworkX. This note continues that thinking, as Carl and I begin serious work on the <a href="https://github.com/mmadsen/seriationct">SeriationCT</a> for our SAA paper in San Francisco.</p>
+<p>The goal is to use interval temporal networks (“ITN”) as a representation for the history of cultural transmission intensity (or “regional transmission model” or “RTM”) between a shifting set of nucleated communities in a region, where:</p>
+<ol type="1">
+<li>Vertices represent a nucleated community</li>
+<li>Vertices have origin times, and may go away during the time interval being modeled.<br /></li>
+<li>Edges between vertices represent a measurable degree of interaction between two communities, whether by trade, simple communication, or residential movement and marriage patterns.<br /></li>
+<li>Edge weights represent a measure of the intensity of that interaction, and can be binary, ordinal, or real valued rates.</li>
+</ol>
+<p>In Part 1, I proposed using NumPy matrices to perform all the comparisons between the graphs representing each subinterval. This is a sound strategy, both because all the operations are fast given NumPy’s matrix code, but because I can rely upon well coded algorithms instead of risk errors in trying to write my own versions directly on top of NetworkX.</p>
+<p>There is a “gotcha” that we have to keep in mind in using the matrix representation: vertices don’t have a unique identifier other than their column and row position. So deleting a vertex, to represent a community which has exited our model, has to be done carefully. We cannot, in fact, delete it from the NetworkX object, because that would delete it from the underlying matrix, shifting all the columns and rows <strong>after</strong> that index by one:</p>
+<pre class="sourceCode python"><code class="sourceCode python"><span class="ch">import</span> networkx <span class="ch">as</span> nx
+<span class="ch">import</span> numpy <span class="ch">as</span> np
+
+
+t1 = np.array([[<span class="dv">1</span>,<span class="dv">3</span>,<span class="dv">1</span>,<span class="dv">1</span>],[<span class="dv">3</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>],[<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>],[<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>]])
+g = nx.to_networkx_graph(t1)
+g.add_node(<span class="dv">4</span>)
+g.add_edge(<span class="dv">1</span>,<span class="dv">4</span>)
+m1 = nx.to_numpy_matrix(g)
+g.remove_node(<span class="dv">3</span>)
+m2 = nx.to_numpy_matrix(g)</code></pre>
+<p>When we look at <code>m1</code>, with 5 vertices, we see the following matrix:</p>
+<pre class="sourceCode python"><code class="sourceCode python">[[ <span class="dv">1</span>.  <span class="dv">3</span>.  <span class="dv">1</span>.  <span class="dv">1</span>.  <span class="dv">0</span>.]
+ [ <span class="dv">3</span>.  <span class="dv">1</span>.  <span class="dv">1</span>.  <span class="dv">1</span>.  <span class="dv">1</span>.]
+ [ <span class="dv">1</span>.  <span class="dv">1</span>.  <span class="dv">1</span>.  <span class="dv">1</span>.  <span class="dv">0</span>.]
+ [ <span class="dv">1</span>.  <span class="dv">1</span>.  <span class="dv">1</span>.  <span class="dv">1</span>.  <span class="dv">0</span>.]
+ [ <span class="dv">0</span>.  <span class="dv">1</span>.  <span class="dv">0</span>.  <span class="dv">0</span>.  <span class="dv">0</span>.]]</code></pre>
+<p>While <code>m2</code>, after we delete node 3, is the following:</p>
+<pre class="sourceCode python"><code class="sourceCode python">[[ <span class="dv">1</span>.  <span class="dv">3</span>.  <span class="dv">1</span>.  <span class="dv">0</span>.]
+ [ <span class="dv">3</span>.  <span class="dv">1</span>.  <span class="dv">1</span>.  <span class="dv">1</span>.]
+ [ <span class="dv">1</span>.  <span class="dv">1</span>.  <span class="dv">1</span>.  <span class="dv">0</span>.]
+ [ <span class="dv">0</span>.  <span class="dv">1</span>.  <span class="dv">0</span>.  <span class="dv">0</span>.]]</code></pre>
+<p>It is always alright to add a vertex to the graph; in the NumPy matrix representation this always results in a new row and column with the index equal to the integer ID of the vertex itself. It is never alright, however, to actually remove a vertex from the graph. When we “delete” a community from the regional transmission model, we have to leave the vertex in the graph object, but flip an attribute that we use to track “active” vertices. Of course, at that point, the vertex participates in no edges, so its column and row in the matrix is all zeros. We do not simply use this fact to represent “inactive” vertices, however, because an isolated community with no interactions would also show up the same way, should we need to model one in a RTM.</p>
+<div class="references">
+<h3>References Cited</h3>
+</div>
+  
+
+
+<div class="well well-small">
+<p class="text-info"><i class="icon-tags"></i>&nbsp;Tags</p>
+<ul>
+
+<li><a href='/tag/cultural transmission.html'>cultural transmission</a></li>
+
+<li><a href='/tag/coarse graining.html'>coarse graining</a></li>
+
+<li><a href='/tag/simulation.html'>simulation</a></li>
+
+<li><a href='/tag/dissertation.html'>dissertation</a></li>
+
+<li><a href='/tag/seriation.html'>seriation</a></li>
+
+<li><a href='/tag/temporal network.html'>temporal network</a></li>
+
+</ul>
 </div>
 
 
-
-
+</div>
 
 
         
