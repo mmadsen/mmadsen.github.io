@@ -8,7 +8,18 @@
     <title>Lab Notebook for Mark E. Madsen</title>
     <link>http://notebook.madsenlab.org</link>
     <description>Essays RSS feed for Lab Notebook for Mark E. Madsen</description>
-    <pubDate>Mon, 23 Feb 2015 00:00:00 -0800</pubDate>
+    <pubDate>Sat, 07 Mar 2015 00:00:00 -0800</pubDate>
+    <item>
+      <title>Structured Information Transmission, Prerequisites, and PAC Learning</title>
+      <link>http://notebook.madsenlab.org/essays/project:structured%20information/model:axelrod-ct/2015/03/07/structured-information-pac-learning.html</link>
+      <description>&lt;div class=&quot;references&quot;&gt;
+&lt;h3&gt;&lt;/h3&gt;
+&lt;/div&gt;
+</description>
+      <pubDate>Sat, 07 Mar 2015 00:00:00 -0800</pubDate>
+      <guid>http://notebook.madsenlab.org/essays/project:structured%20information/model:axelrod-ct/2015/03/07/structured-information-pac-learning.html</guid>
+      <dc:date>2015-03-07T00:00:00-08:00</dc:date>
+    </item>
     <item>
       <title>Research Priorities for 2015</title>
       <link>http://notebook.madsenlab.org/essays/2015/01/01/research-priorities-2015.html</link>
@@ -205,6 +216,6 @@
       <guid>http://notebook.madsenlab.org/project:niche%20construction/essays/open%20problems/2011/06/24/ct-tuplespace-artfacts.html</guid>
       <dc:date>2011-06-24T00:00:00-07:00</dc:date>
     </item>
-    <dc:date>2015-02-23T00:00:00-08:00</dc:date>
+    <dc:date>2015-03-07T00:00:00-08:00</dc:date>
   </channel>
 </rss>

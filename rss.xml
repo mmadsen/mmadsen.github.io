@@ -8,7 +8,22 @@
     <title>Lab Notebook for Mark E. Madsen</title>
     <link>http://notebook.madsenlab.org</link>
     <description>RSS feed for Lab Notebook for Mark E. Madsen</description>
-    <pubDate>Mon, 23 Feb 2015 00:00:00 -0800</pubDate>
+    <pubDate>Sat, 07 Mar 2015 00:00:00 -0800</pubDate>
+    <item>
+      <title>Structured Information Transmission, Prerequisites, and PAC Learning</title>
+      <link>http://notebook.madsenlab.org/essays/project:structured%20information/model:axelrod-ct/2015/03/07/structured-information-pac-learning.html</link>
+      <description>&lt;div class=&quot;references&quot;&gt;
+&lt;h3&gt;
+&lt;/h3&gt;
+&lt;/div&gt;
+&lt;div class=&quot;references&quot;&gt;
+
+&lt;/div&gt;
+</description>
+      <pubDate>Sat, 07 Mar 2015 00:00:00 -0800</pubDate>
+      <guid>http://notebook.madsenlab.org/essays/project:structured%20information/model:axelrod-ct/2015/03/07/structured-information-pac-learning.html</guid>
+      <dc:date>2015-03-07T00:00:00-08:00</dc:date>
+    </item>
     <item>
       <title>Experiment Plan for seriationct-1</title>
       <link>http://notebook.madsenlab.org/project:coarse%20grained%20model/model:seriationct/experiment:experiment-seriationct/2015/02/23/seriationct-experiment-plan.html</link>
@@ -1025,6 +1040,6 @@ The basic idea here: we cannot model cultural transmission, as it is really impl
       <guid>http://notebook.madsenlab.org/project:coarse%20grained%20model/reading%20notes/2011/01/11/he-and-stone.html</guid>
       <dc:date>2011-01-11T00:00:00-08:00</dc:date>
     </item>
-    <dc:date>2015-02-23T00:00:00-08:00</dc:date>
+    <dc:date>2015-03-07T00:00:00-08:00</dc:date>
   </channel>
 </rss>
