@@ -19,7 +19,7 @@
 			"file": "_posts/2015-03-07-structured-information-pac-learning.md",
 			"settings":
 			{
-				"buffer_size": 292,
+				"buffer_size": 325,
 				"line_ending": "Unix"
 			}
 		},
@@ -33,9 +33,14 @@
 		}
 	],
 	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
 	"command_palette":
 	{
 		"height": 392.0,
+		"last_filter": "",
 		"selected_items":
 		[
 			[
@@ -266,15 +271,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 292,
+						"buffer_size": 325,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								292,
-								292
+								39,
+								39
 							]
 						],
 						"settings":
@@ -358,6 +363,7 @@
 	{
 		"height": 0.0
 	},
+	"pinned_build_system": "",
 	"project": "lnraw.sublime-project",
 	"replace":
 	{
@@ -367,6 +373,7 @@
 	"select_file":
 	{
 		"height": 0.0,
+		"last_filter": "",
 		"selected_items":
 		[
 			[
@@ -379,6 +386,7 @@
 	"select_project":
 	{
 		"height": 500.0,
+		"last_filter": "",
 		"selected_items":
 		[
 			[
@@ -391,6 +399,7 @@
 	"select_symbol":
 	{
 		"height": 0.0,
+		"last_filter": "",
 		"selected_items":
 		[
 		],
