@@ -8,7 +8,24 @@
     <title>Lab Notebook for Mark E. Madsen</title>
     <link>http://notebook.madsenlab.org</link>
     <description>Essays RSS feed for Lab Notebook for Mark E. Madsen</description>
-    <pubDate>Sat, 07 Mar 2015 00:00:00 -0800</pubDate>
+    <pubDate>Sat, 11 Apr 2015 00:00:00 -0700</pubDate>
+    <item>
+      <title>Presentations for the 2015 SAA Conference</title>
+      <link>http://notebook.madsenlab.org/essays/2015/04/11/saa2015-papers.html</link>
+      <description>&lt;p&gt;
+Abstracts are in for the Society for American Archaeology meetings next year in San Francisco. Carl Lipo and I are collaborating on two papers, one on our continuing work mating cultural transmission models with diachronic seriations and fitting them to archaeological data, and one on reproducible science and simulation methods.
+&lt;/p&gt;
+&lt;div class=&quot;references&quot;&gt;
+
+&lt;/div&gt;
+&lt;div class=&quot;references&quot;&gt;
+
+&lt;/div&gt;
+</description>
+      <pubDate>Sat, 11 Apr 2015 00:00:00 -0700</pubDate>
+      <guid>http://notebook.madsenlab.org/essays/2015/04/11/saa2015-papers.html</guid>
+      <dc:date>2015-04-11T00:00:00-07:00</dc:date>
+    </item>
     <item>
       <title>PLACEHOLDER - Structured Information Transmission, Prerequisites, and PAC Learning</title>
       <link>http://notebook.madsenlab.org/essays/project:structured%20information/model:axelrod-ct/2015/03/07/structured-information-pac-learning.html</link>
@@ -310,6 +327,6 @@ The basic idea here: we cannot model cultural transmission, as it is really impl
       <guid>http://notebook.madsenlab.org/project:niche%20construction/essays/open%20problems/2011/06/24/ct-tuplespace-artfacts.html</guid>
       <dc:date>2011-06-24T00:00:00-07:00</dc:date>
     </item>
-    <dc:date>2015-03-07T00:00:00-08:00</dc:date>
+    <dc:date>2015-04-11T00:00:00-07:00</dc:date>
   </channel>
 </rss>
