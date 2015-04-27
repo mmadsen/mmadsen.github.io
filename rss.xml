@@ -8,7 +8,18 @@
     <title>Lab Notebook for Mark E. Madsen</title>
     <link>http://notebook.madsenlab.org</link>
     <description>RSS feed for Lab Notebook for Mark E. Madsen</description>
-    <pubDate>Sat, 11 Apr 2015 00:00:00 -0700</pubDate>
+    <pubDate>Mon, 27 Apr 2015 00:00:00 -0700</pubDate>
+    <item>
+      <title>SeriationCT Next Steps</title>
+      <link>http://notebook.madsenlab.org/project:coarse%20grained%20model/model:seriationct/experiment:experiment-seriationct/2015/04/27/seriationct-next-steps.html</link>
+      <description>&lt;div class=&quot;references&quot;&gt;
+&lt;h3&gt;Network Models&lt;/h3&gt;
+&lt;/div&gt;
+</description>
+      <pubDate>Mon, 27 Apr 2015 00:00:00 -0700</pubDate>
+      <guid>http://notebook.madsenlab.org/project:coarse%20grained%20model/model:seriationct/experiment:experiment-seriationct/2015/04/27/seriationct-next-steps.html</guid>
+      <dc:date>2015-04-27T00:00:00-07:00</dc:date>
+    </item>
     <item>
       <title>Presentations for the 2015 SAA Conference</title>
       <link>http://notebook.madsenlab.org/essays/2015/04/11/saa2015-papers.html</link>
@@ -1059,6 +1070,6 @@ The basic idea here: we cannot model cultural transmission, as it is really impl
       <guid>http://notebook.madsenlab.org/project:coarse%20grained%20model/reading%20notes/2011/01/11/he-and-stone.html</guid>
       <dc:date>2011-01-11T00:00:00-08:00</dc:date>
     </item>
-    <dc:date>2015-04-11T00:00:00-07:00</dc:date>
+    <dc:date>2015-04-27T00:00:00-07:00</dc:date>
   </channel>
 </rss>
