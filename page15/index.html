@@ -3,7 +3,7 @@
 <html lang="en">
   <head prefix="dc: http://purl.org/dc/terms/ og: http://ogp.me/ns#">
     <meta charset="utf-8"/>
-    <title>Adding a Project</title>
+    <title>Cultural Transmission of Structured Information</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta name="description" content="Lab Notebook for Mark E. Madsen"/>
     <meta name="author" content="Mark E. Madsen"/>
@@ -13,9 +13,9 @@
 
 
 	<!-- For posts, page.date is the date they are published under, which we use as their 'canonical' dc:date -->
-	 <!-- If we don't have a page.date, then use modified time (pages) -->
-	   
-	
+	 
+	  
+	  
 
 	<!-- Posts declare modified timestamps in the sidebar, so would be redundant to put here. But then 
 	     pages don't have a dc:modified... unless we give them their own (modified) sidebar?  
@@ -23,26 +23,26 @@
 	<!-- Ideally we would want date originally created from the _oldest_ git commit too...-->
 
 	<!-- RDFa Metadata (in DublinCore) -->
-	<meta property="dc:title" content="Adding a Project" />
+	<meta property="dc:title" content="Cultural Transmission of Structured Information" />
 	<meta property="dc:creator" content="Mark E. Madsen" />
-	<meta property="dc:date" content="2015-05-16T12:51:35-07:00" />
+	<meta property="dc:date" content="2013-05-27T17:00:00-07:00" />
 	<meta property="dc:format" content="text/html" />
 	<meta property="dc:language" content="en" />
-	<meta property="dc:identifier" content="/doc/adding-project.html" />
+	<meta property="dc:identifier" content="/page15/index.html" />
 	<meta property="dc:rights" content="CC BY-NC-SA 3.0" />
 	<meta property="dc:source" content="Lab Notebook for Mark E. Madsen" />
 	<meta property="dc:subject" content="Anthropology" /> 
 	<meta property="dc:type" content="website" /> 
 	<!-- RDFa Metadata (in OpenGraph) -->
-	<meta property="og:title" content="Adding a Project" />
+	<meta property="og:title" content="Cultural Transmission of Structured Information" />
 	<meta property="og:author" content="http://notebook.madsenlab.org/bio.html" />  <!-- Should be Liquid? URI? -->
 	<meta property="og:site_name" content="Lab Notebook for Mark E. Madsen" /> <!-- Same as dc:source? -->
-	<meta property="og:url" content="http://notebook.madsenlab.org/doc/adding-project.html" />
+	<meta property="og:url" content="http://notebook.madsenlab.org/page15/index.html" />
 	<meta property="og:type" content="website" /> 
 	<!-- Google Scholar Metadata -->
 	<meta name="citation_author" content="Mark E. Madsen"/>
-	<meta name="citation_date" content="2015-05-16T12:51:35-07:00"/>
-	<meta name="citation_title" content="Adding a Project"/>
+	<meta name="citation_date" content="2013-05-27T17:00:00-07:00"/>
+	<meta name="citation_title" content="Cultural Transmission of Structured Information"/>
 	<meta name="citation_journal_title" content="Lab Notebook for Mark E. Madsen"/>
 
     <!-- Le styles -->
@@ -180,33 +180,225 @@
           </div><!--/.well -->
         </div><!--/span3-->
         <div class="span9">
-            <h2>Adding a Project</h2>
+            <h2>Cultural Transmission of Structured Information</h2>
+
+<h3>Project Description</h3>
+
+<p>Theoretical, experiment, and ethnographic studies of cultural transmission have long recognized that the information acquired by social learning is not atomistic nor holistic, but structured (Mesoudi and O'Brien 2008 employ the term "hierarchical"). </p>  
+
+<p>By "structure," I simply mean that cultural information often (if not almost always) comes in pieces which have relationships to other pieces.  An example of such relationships is "abstract vs concrete," while another is that Piece A is a "prerequisite" to Piece B.  Many other such relationships exist, of course, because concepts and sets of concepts bear many _semantic_ relationships. </p>  
+
+<p>Despite the recognition in theory and observation that cultural information, skills, and traits are structured in this way, our formal models (both mathematical and simulation) tend to represent cultural variation as _unstructured._  This is a result of employing the mathematical machinery of population genetics, for the most part.  We treat cultural traits as if they were genetic loci, with variants as alleles.  The copying and innovation rules we implement -- again, for the most part -- operate on single loci.  Occasionally we model interactions between loci, as when one locus models the level of conformist bias an individual displays, which affects the copying of another locus containing a substantive design variant. </p>  
+
+<p>The literature on the _evolution of cumulative culture and transmission itself_ is also somewhat reflective on the nature of the cultural information load itself (aside:  we have no good term which mimics "genotype" or "genome" and I refuse to use "memeome" or anything reminiscent of memetics).  Joe Henrich, among others, have modeled the consequences of different transmission rules and demographic models, on the accumulation of cultural information, with very interesting results. </p> 
+
+<p>But none of this work really treats cultural variation as _structured_, in the sense described here.  The closest approach is Mesoudi and O'Brien's (2008) modeling of cultural "recipes" (sensu Neff 1992, Krause 1985) and their importance compared to "holistic" or "atomistic" (their term is "diffusionist") structures. </p>  
+
+<p>This project follows in Mesoudi and O'Brien's footsteps, but seeks to extend the notion of a "recipe" to encompass a variety of semantic relationships.  Some blocks of cultural information do, in fact, comprise something like a "recipe," _sensu stricto_.  But we also need to understand what the spatiotemporal and time series consequences are for the transmission of information that has prerequisite-type relationships, since these are ubiquitious in complex technologies and tasks.  </p> 
+
+<p>In particular, "prerequisite" information and "abstract/concrete" relationships should create emergent effects that William Wimsatt has called "generative entrenchment," a key aspect of both genetic and cultural "evo-devo" systems.  To date, it has been impossible to see such effects in our simple "beanbag" cultural transmission models.</p> 
+
+<p>Little of this project will be composed of analytical models.  The ability to represent semantic relationships like those described is algorithmic and data-driven.  Thus, the primary tool is simulation modeling, employing semantic technology derived from a decade of work in cognitive science, computer science, and the Semantic Web. </p>  
+
+<p>This project is just getting off the ground, but I am laying the groundwork for code modules which will allow simple versions of structure information models.</p> 
+
+<h3>Project Notes</h3>
+
+
+<table class="table table-condensed">
 
 
 
-<div id="home">
-<h3>Instructions</h3>
-</div>
+	<tr>
+	<td>07 Mar 2015</td>
+	<td><a href="/essays/project:structured%20information/model:axelrod-ct/2015/03/07/structured-information-pac-learning.html">PLACEHOLDER - Structured Information Transmission, Prerequisites, and PAC Learning</a></td>
+	</tr>
 
-<p>
-A project is composed of two elements.  First, a project has a description page, which gives a brief overview of the project itself, as well as providing a time-sorted listing of posts and notes related to the project.  Second, each project then has a sequence of lab notes and posts, which are controlled by the use of the post <code>category</code> field.  A project category has the form: <code>project:NAME</code>.  
 
-Tags are used to further classify posts within a project, allowing one to have different experiments, reading notes, analyses, and so on.  
 
-To create a new project:
 
-<ul>
-	<li>Create a directory for the project under <code>/projects</code>.  The directory name is not important except that it will be in the URL in the nav bars.</li>
 
-	<li>Add an <code>index.html</code> page to the project directory.  This page should have the standard Jekyll metadata header, and use <code>project_layout</code> as the layout.  </li>
+	<tr>
+	<td>09 Jul 2014</td>
+	<td><a href="/project:structured%20information/model:axelrod-ct/experiment:experiment-semanticaxelrod/2014/07/09/semanticaxelrod-review-revisions.html">Semantic Axelrod Review Comments/Revision Plan</a></td>
+	</tr>
 
-	<li>This page can then include arbitrary HTML to describe the project, link to outside materials, etc.  At the bottom of this project page, you should include a Jekyll block to iterate over the posts in <code>site.categories["category-name"]</code>.  Any existing project page has an example.</li>
 
-	<li>Include the project page in the layouts for <code>default.html</code> and <code>project_layout.html</code> so that it shows up in the navigation bars on all pages.  </li>
-</ul>
- 
 
-</p>
+
+
+	<tr>
+	<td>14 Jun 2014</td>
+	<td><a href="/project:structured%20information/open%20problems/2014/06/14/open-structured-problems.html">Open Problems in Structured Information Models</a></td>
+	</tr>
+
+
+
+
+
+	<tr>
+	<td>26 Apr 2014</td>
+	<td><a href="/project:structured%20information/model:axelrod-ct/experiment:experiment-semanticaxelrod/2014/04/26/semantic-next-steps.html">Semantic Axelrod - Next Steps</a></td>
+	</tr>
+
+
+
+
+
+	<tr>
+	<td>16 Mar 2014</td>
+	<td><a href="/project:structured%20information/model:axelrod-ct/experiment:experiment-semanticaxelrod/2014/03/16/semantic-todo-list.html">TODO for Semantic Axelrod project</a></td>
+	</tr>
+
+
+
+
+
+	<tr>
+	<td>10 Mar 2014</td>
+	<td><a href="/project:structured%20information/model:axelrod-ct/experiment:experiment-semanticaxelrod/2014/03/10/symmetries-multiple-tree-components.html">Analysis of Symmetry Metrics for Forests of Balanced Trees</a></td>
+	</tr>
+
+
+
+
+
+	<tr>
+	<td>11 Feb 2014</td>
+	<td><a href="/project:structured%20information/model:axelrod-ct/experiment:experiment-semanticaxelrod/2014/02/11/semantic-update-observables.html">Update on Tree Structure Models and Observable Variables</a></td>
+	</tr>
+
+
+
+
+
+	<tr>
+	<td>18 Jan 2014</td>
+	<td><a href="/project:structured%20information/model:axelrod-ct/experiment:experiment-semanticaxelrod/2014/01/18/semantic-trait-graphs-and-symmetries.html">Knowledge Prerequisites and Graph Symmetries</a></td>
+	</tr>
+
+
+
+
+
+	<tr>
+	<td>11 Jan 2014</td>
+	<td><a href="/project:structured%20information/model:axelrod-ct/experiment:experiment-semanticaxelrod/2014/01/11/semantic-axelrod-prerequisites.html">Tree Structured Axelrod for Knowledge Prerequisites</a></td>
+	</tr>
+
+
+
+
+
+	<tr>
+	<td>28 Dec 2013</td>
+	<td><a href="/project:structured%20information/model:axelrod-ct/experiment:experiment-semanticaxelrod/2013/12/28/issues-with-tree-axelrod.html">Issues with Tree Structured Axelrod</a></td>
+	</tr>
+
+
+
+
+
+	<tr>
+	<td>11 Dec 2013</td>
+	<td><a href="/project:structured%20information/model:axelrod-ct/experiment:experiment-semanticaxelrod/2013/12/11/semantic-trees-and-graphs.html">Semantic Axelrod with Concept Trees and Graphs</a></td>
+	</tr>
+
+
+
+
+
+	<tr>
+	<td>18 Nov 2013</td>
+	<td><a href="/project:structured%20information/model:axelrod-ct/experiment:experiment-semanticaxelrod/2013/11/18/axelrod-to-semantic-model-notes.html">Original Axelrod to Semantic Axelrod model - implementation notes</a></td>
+	</tr>
+
+
+
+
+
+	<tr>
+	<td>23 Oct 2013</td>
+	<td><a href="/project:structured%20information/model:axelrod-ct/experiment:experiment-semanticaxelrod/2013/10/23/semanticaxelrod-research-design.html">Research Design for Semantic Axelrod Model</a></td>
+	</tr>
+
+
+
+
+
+	<tr>
+	<td>05 Sep 2013</td>
+	<td><a href="/project:structured%20information/model:axelrod-ct/experiment:experiment-semanticaxelrod/2013/09/05/saa2014-abstract-draft.html">SAA 2014 Abstract Draft</a></td>
+	</tr>
+
+
+
+
+
+	<tr>
+	<td>11 Aug 2013</td>
+	<td><a href="/project:structured%20information/model:axelrod-ct/experiment:experiment-semanticaxelrod/2013/08/11/semanticaxelrod-implementation.html">Implementing Semantic Axelrod in CTPy</a></td>
+	</tr>
+
+
+
+
+
+	<tr>
+	<td>11 Aug 2013</td>
+	<td><a href="/project:structured%20information/model:axelrod-ct/experiment:experiment-semanticaxelrod/2013/08/11/semanticaxelrod-abstract-notes.html">Semantic Axelrod Model - Conference Abstract and Project Notes</a></td>
+	</tr>
+
+
+
+
+
+	<tr>
+	<td>11 Aug 2013</td>
+	<td><a href="/project:structured%20information/model:axelrod-ct/experiment:experiment-semanticaxelrod/2013/08/11/semantic-ct-models-2007-notes.html">Madsen and Lipo 2007 - Beyond Beanbag Models of Cultural Transmission</a></td>
+	</tr>
+
+
+
+
+
+	<tr>
+	<td>24 Jul 2013</td>
+	<td><a href="/project:structured%20information/model:axelrod-ct/experiment:experiment-semanticaxelrod/2013/07/24/semantic-axelrod.html">The Semantic Axelrod Model</a></td>
+	</tr>
+
+
+
+
+
+	<tr>
+	<td>07 Jun 2013</td>
+	<td><a href="/project:structured%20information/2013/06/07/structured-info-notes.html">Rough notes on structured information in CT models</a></td>
+	</tr>
+
+
+
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -214,7 +406,17 @@ To create a new project:
 			<p class="text-info"><i class="icon-tags"></i>&nbsp;Tags</p>
 			<ul>
 			
-			<li><a href='/tag/documentation.html'>documentation</a></li>
+			<li><a href='/tag/cultural transmission.html'>cultural transmission</a></li>
+			
+			<li><a href='/tag/state space.html'>state space</a></li>
+			
+			<li><a href='/tag/structured information.html'>structured information</a></li>
+			
+			<li><a href='/tag/evodevo.html'>evodevo</a></li>
+			
+			<li><a href='/tag/development.html'>development</a></li>
+			
+			<li><a href='/tag/thick models.html'>thick models</a></li>
 			
 			</ul>
 			</div>

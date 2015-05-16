@@ -3,7 +3,7 @@
 <html lang="en">
   <head prefix="dc: http://purl.org/dc/terms/ og: http://ogp.me/ns#">
     <meta charset="utf-8"/>
-    <title></title>
+    <title>SeriationCT Sample Size Series experiments</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta name="description" content="Lab Notebook for Mark E. Madsen"/>
     <meta name="author" content="Mark E. Madsen"/>
@@ -13,9 +13,9 @@
 
 
 	<!-- For posts, page.date is the date they are published under, which we use as their 'canonical' dc:date -->
-	 <!-- If we don't have a page.date, then use modified time (pages) -->
-	   
-	
+	 
+	  
+	  
 
 	<!-- Posts declare modified timestamps in the sidebar, so would be redundant to put here. But then 
 	     pages don't have a dc:modified... unless we give them their own (modified) sidebar?  
@@ -23,26 +23,26 @@
 	<!-- Ideally we would want date originally created from the _oldest_ git commit too...-->
 
 	<!-- RDFa Metadata (in DublinCore) -->
-	<meta property="dc:title" content="" />
+	<meta property="dc:title" content="SeriationCT Sample Size Series experiments" />
 	<meta property="dc:creator" content="Mark E. Madsen" />
-	<meta property="dc:date" content="2015-05-16T12:51:38-07:00" />
+	<meta property="dc:date" content="2015-05-14T00:00:00-07:00" />
 	<meta property="dc:format" content="text/html" />
 	<meta property="dc:language" content="en" />
-	<meta property="dc:identifier" content="/tag/semantic%20models.html" />
+	<meta property="dc:identifier" content="/project:coarse%20grained%20model/model:seriationct/experiment:experiment-seriationct/2015/05/14/seriationct-sample-size-experiments.html" />
 	<meta property="dc:rights" content="CC BY-NC-SA 3.0" />
 	<meta property="dc:source" content="Lab Notebook for Mark E. Madsen" />
 	<meta property="dc:subject" content="Anthropology" /> 
 	<meta property="dc:type" content="website" /> 
 	<!-- RDFa Metadata (in OpenGraph) -->
-	<meta property="og:title" content="" />
+	<meta property="og:title" content="SeriationCT Sample Size Series experiments" />
 	<meta property="og:author" content="http://notebook.madsenlab.org/bio.html" />  <!-- Should be Liquid? URI? -->
 	<meta property="og:site_name" content="Lab Notebook for Mark E. Madsen" /> <!-- Same as dc:source? -->
-	<meta property="og:url" content="http://notebook.madsenlab.org/tag/semantic%20models.html" />
+	<meta property="og:url" content="http://notebook.madsenlab.org/project:coarse%20grained%20model/model:seriationct/experiment:experiment-seriationct/2015/05/14/seriationct-sample-size-experiments.html" />
 	<meta property="og:type" content="website" /> 
 	<!-- Google Scholar Metadata -->
 	<meta name="citation_author" content="Mark E. Madsen"/>
-	<meta name="citation_date" content="2015-05-16T12:51:38-07:00"/>
-	<meta name="citation_title" content=""/>
+	<meta name="citation_date" content="2015-05-14T00:00:00-07:00"/>
+	<meta name="citation_title" content="SeriationCT Sample Size Series experiments"/>
 	<meta name="citation_journal_title" content="Lab Notebook for Mark E. Madsen"/>
 
     <!-- Le styles -->
@@ -179,29 +179,76 @@
           </div><!--/.well -->
         </div><!--/span3-->
 
-            <div  class="span9">
-
-<h2>Posts Tagged: "semantic models"</h2>
-
-<table class="table table-condensed">
-
+            <div class="span8">
+  	<h2>SeriationCT Sample Size Series experiments</h2>
 	
 
-		<tr>
-		<td>11 Aug 2013</td>
-		<td><a href="/project:structured%20information/model:axelrod-ct/experiment:experiment-semanticaxelrod/2013/08/11/semantic-ct-models-2007-notes.html">Madsen and Lipo 2007 - Beyond Beanbag Models of Cultural Transmission</a></td>
-		</tr>
+		<p class="text-info">
+		<table class="table table-condensed">
+			<tr class="info">
+				<td><small><i class="icon-calendar"></i>&nbsp;Created: 14 May 2015</small></td>
+				<td><small><i class="icon-calendar"></i>&nbsp;Modified: 16 May 2015</small></td>
+				<td><small><i class="icon-book">&nbsp;</i>&nbsp;<a href=http://greycite.knowledgeblog.org/bib/?uri=http://notebook.madsenlab.org/project:coarse%20grained%20model/model:seriationct/experiment:experiment-seriationct/2015/05/14/seriationct-sample-size-experiments.html target='_blank'>BibTeX Entry</a>
+</small></td>
+				<td><small><i class="icon-book">&nbsp;</i>&nbsp;<a href=http://greycite.knowledgeblog.org/ris/?uri=http://notebook.madsenlab.org/project:coarse%20grained%20model/model:seriationct/experiment:experiment-seriationct/2015/05/14/seriationct-sample-size-experiments.html target='_blank'>RIS Citation</a>
+</small></td>
+				<td><small><a href="javascript:window.print()"><i class="icon-print"></i>&nbsp;Print</a></small></td>
+				<!--<td><small><a href="/project:coarse%20grained%20model/model:seriationct/experiment:experiment-seriationct/2015/05/14/seriationct-sample-size-experiments.html"></i>Permalink</a></small></td> -->
+			</tr>
+		</table>
+		</p>
 
 
+  	
 	
-</table>
-	
-	
+  <h3 id="effect-of-varying-sample-size">Effect of Varying Sample Size</h3>
+<p>After SAA’s, I used some existing simulations (seriationct-27 from the <a href="http://github.com/mmadsen/experiment-seriationct-2">experiment-seriationct-2</a> repository) to prototype examining the effects of sample size on:</p>
+<ol type="1">
+<li>The gross structure of the seriation solutions: how much branching when small? do we get isolates?<br /></li>
+<li>Lineage structure recovery</li>
+</ol>
+<p>Working with the existing simulation results and post-processed samples, I wrote a quick modification of the assemblage sampler called <code>seriationct-sample-assemblages-for-samplesize-sequence-seriation.py</code>. The script takes the output from the <code>seriationct-export-data.py</code> script and performs subsampling as follows:</p>
+<ol type="1">
+<li>Uses a <code>samplefraction</code> parameter to select an initial sample of assemblages, just like the normal <code>seriationct-sample-assemblages-for-seriation.py</code>.<br /></li>
+<li>Selects these samples given the <code>sampletype</code> parameter, as a pure random sample of assemblages, a spatially stratified sample given NxN quadrats, temporally stratified given N even periods of time, and spatiotemporal sampling which stratifies by quadrats and periods.</li>
+<li>Subsamples the <code>samplefraction</code> assemblages in a sequence decreasing by 2, so for example, if <code>samplefraction</code> is 30, the largest set of assemblages will be 30 randomly sampled, and then 28 sampled from the 30, 26 sampled from the original 30, and so on.</li>
+</ol>
+<p>The net result is a nested series of samples (rather than independent random samples of different sizes).</p>
+<h3 id="statistics-brainstorm">Statistics Brainstorm</h3>
+<p>Some of the things I want to know are:</p>
+<ol type="1">
+<li>How consistent is the lineage structure of each seriation solution, at each sample size? (i.e., along a branch, how mixed are lineage identifiers?)</li>
+<li>How consistent is the temporal sequence of the solution?<br /></li>
+<li>How “branchy” is the solution?<br /></li>
+<li>Furthermore, what is the average and variance of these measures, across the sequence of sample sizes? Or perhaps the quantiles and order statistics?</li>
+<li>At what sample size does lineage structure and chronology become visible and semi-stable?</li>
+</ol>
+<p>I’m just starting to build measures for these items, since they involve traversal and parsing of the annotated minmax graphs.</p>
+<div class="references">
+<h3>References Cited</h3>
+</div>
+  
+
+
+<div class="well well-small">
+<p class="text-info"><i class="icon-tags"></i>&nbsp;Tags</p>
+<ul>
+
+<li><a href='/tag/cultural transmission.html'>cultural transmission</a></li>
+
+<li><a href='/tag/coarse graining.html'>coarse graining</a></li>
+
+<li><a href='/tag/simulation.html'>simulation</a></li>
+
+<li><a href='/tag/dissertation.html'>dissertation</a></li>
+
+<li><a href='/tag/seriation.html'>seriation</a></li>
+
+</ul>
 </div>
 
 
-
-
+</div>
 
 
         
