@@ -8,7 +8,18 @@
     <title>Lab Notebook for Mark E. Madsen</title>
     <link>http://notebook.madsenlab.org</link>
     <description>Essays RSS feed for Lab Notebook for Mark E. Madsen</description>
-    <pubDate>Thu, 14 May 2015 00:00:00 -0700</pubDate>
+    <pubDate>Tue, 07 Jul 2015 00:00:00 -0700</pubDate>
+    <item>
+      <title>Changing Strategy for Cultural Transmission Computing</title>
+      <link>http://notebook.madsenlab.org/essays/2015/07/07/new-directions-ct-computing.html</link>
+      <description>&lt;div class=&quot;references&quot;&gt;
+&lt;h3&gt;Background&lt;/h3&gt;
+&lt;/div&gt;
+</description>
+      <pubDate>Tue, 07 Jul 2015 00:00:00 -0700</pubDate>
+      <guid>http://notebook.madsenlab.org/essays/2015/07/07/new-directions-ct-computing.html</guid>
+      <dc:date>2015-07-07T00:00:00-07:00</dc:date>
+    </item>
     <item>
       <title>Presentations for the 2015 SAA Conference</title>
       <link>http://notebook.madsenlab.org/essays/2015/04/11/saa2015-papers.html</link>
@@ -217,6 +228,6 @@
       <guid>http://notebook.madsenlab.org/project:niche%20construction/essays/open%20problems/2011/06/24/ct-tuplespace-artfacts.html</guid>
       <dc:date>2011-06-24T00:00:00-07:00</dc:date>
     </item>
-    <dc:date>2015-05-14T00:00:00-07:00</dc:date>
+    <dc:date>2015-07-07T00:00:00-07:00</dc:date>
   </channel>
 </rss>
