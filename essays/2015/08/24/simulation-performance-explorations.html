@@ -3,7 +3,7 @@
 <html lang="en">
   <head prefix="dc: http://purl.org/dc/terms/ og: http://ogp.me/ns#">
     <meta charset="utf-8"/>
-    <title></title>
+    <title>Improving Simulation Performance for CT Models</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta name="description" content="Lab Notebook for Mark E. Madsen"/>
     <meta name="author" content="Mark E. Madsen"/>
@@ -13,9 +13,9 @@
 
 
 	<!-- For posts, page.date is the date they are published under, which we use as their 'canonical' dc:date -->
-	 <!-- If we don't have a page.date, then use modified time (pages) -->
-	   
-	
+	 
+	  
+	  
 
 	<!-- Posts declare modified timestamps in the sidebar, so would be redundant to put here. But then 
 	     pages don't have a dc:modified... unless we give them their own (modified) sidebar?  
@@ -23,26 +23,26 @@
 	<!-- Ideally we would want date originally created from the _oldest_ git commit too...-->
 
 	<!-- RDFa Metadata (in DublinCore) -->
-	<meta property="dc:title" content="" />
+	<meta property="dc:title" content="Improving Simulation Performance for CT Models" />
 	<meta property="dc:creator" content="Mark E. Madsen" />
-	<meta property="dc:date" content="2015-08-24T16:15:29-07:00" />
+	<meta property="dc:date" content="2015-08-24T00:00:00-07:00" />
 	<meta property="dc:format" content="text/html" />
 	<meta property="dc:language" content="en" />
-	<meta property="dc:identifier" content="/tag/reproducible%20science.html" />
+	<meta property="dc:identifier" content="/essays/2015/08/24/simulation-performance-explorations.html" />
 	<meta property="dc:rights" content="CC BY-NC-SA 3.0" />
 	<meta property="dc:source" content="Lab Notebook for Mark E. Madsen" />
 	<meta property="dc:subject" content="Anthropology" /> 
 	<meta property="dc:type" content="website" /> 
 	<!-- RDFa Metadata (in OpenGraph) -->
-	<meta property="og:title" content="" />
+	<meta property="og:title" content="Improving Simulation Performance for CT Models" />
 	<meta property="og:author" content="http://notebook.madsenlab.org/bio.html" />  <!-- Should be Liquid? URI? -->
 	<meta property="og:site_name" content="Lab Notebook for Mark E. Madsen" /> <!-- Same as dc:source? -->
-	<meta property="og:url" content="http://notebook.madsenlab.org/tag/reproducible%20science.html" />
+	<meta property="og:url" content="http://notebook.madsenlab.org/essays/2015/08/24/simulation-performance-explorations.html" />
 	<meta property="og:type" content="website" /> 
 	<!-- Google Scholar Metadata -->
 	<meta name="citation_author" content="Mark E. Madsen"/>
-	<meta name="citation_date" content="2015-08-24T16:15:29-07:00"/>
-	<meta name="citation_title" content=""/>
+	<meta name="citation_date" content="2015-08-24T00:00:00-07:00"/>
+	<meta name="citation_title" content="Improving Simulation Performance for CT Models"/>
 	<meta name="citation_journal_title" content="Lab Notebook for Mark E. Madsen"/>
 
     <!-- Le styles -->
@@ -179,149 +179,107 @@
           </div><!--/.well -->
         </div><!--/span3-->
 
-            <div  class="span9">
+            <div class="span8">
+  	<h2>Improving Simulation Performance for CT Models</h2>
+	
 
-<h2>Posts Tagged: "reproducible science"</h2>
+		<p class="text-info">
+		<table class="table table-condensed">
+			<tr class="info">
+				<td><small><i class="icon-backward"></i>&nbsp;<a href="/blog.html">Back to Essay List</a></small></td>
+				<td><small><i class="icon-calendar"></i>&nbsp;Modified: 24 Aug 2015</small></td>
+				<td><small><i class="icon-book">&nbsp;</i>&nbsp;<a href=http://greycite.knowledgeblog.org/bib/?uri=http://notebook.madsenlab.org/essays/2015/08/24/simulation-performance-explorations.html target='_blank'>BibTeX Entry</a>
+</small></td>
+				<td><small><i class="icon-book">&nbsp;</i>&nbsp;<a href=http://greycite.knowledgeblog.org/ris/?uri=http://notebook.madsenlab.org/essays/2015/08/24/simulation-performance-explorations.html target='_blank'>RIS Citation</a>
+</small></td>
+				<td><small><a href="javascript:window.print()"><i class="icon-print"></i>&nbsp;Print</a></small></td>
+			</tr>
+		</table>
+		</p>
 
+
+  	
+	
+  <h3 id="background">Background</h3>
+<p>A side project this summer has been to improve the performance of my basic simulation model codes, so I can increase my experiment “velocity” and do more analyses with larger sample and/or population sizes. Since getting a Xeon/Phi workstation (the machine I <a href="/essays/2015/07/07/new-directions-ct-computing.html">described a few months ago</a>), I’ve been retraining on C++11 for situations which call for mixed Python/C++ performance, or for all C++ simulations when I can’t figure out a good offload or parallelism model for Python code. At the moment I’m using a pure C++ simulation of the Wright-Fisher neutral model, with infinite-alleles mutation on several loci for my testing. The <a href="https://github.com/mmadsen/neutral-model-cpp">simulation code is available here</a> with Makefiles for several compilers, including clang (i.e., modern OS X), GCC 5.2 (which has first-gen support for compiling offload for the Xeon Phi coprocessors), and the Intel C/C++ compiler. (Mental note, I should include a plain vanilla Makefile which would use which ever “GCC” is present…).</p>
+<p>These notes describe what I’ve found so far about improving performance in this code.</p>
+<h3 id="implementation-notes">Implementation Notes</h3>
+<p>The simulation model is (hopefully) designed to allow for both parallelism across cores/threads, and for use of the Intel Xeon’s native (and considerable) vectorization infrastructure.</p>
+<ol type="1">
+<li><p>The “population” is represented by an array of size numloci columns by popsize rows, with integers representing trait ID’s. This block is allocated a single linear block, and at least on the Intel compiler is 64-byte aligned to maximize use of the wide vectorization units (and the even wider ones on the Phi).</p></li>
+<li><p>This creates “unit stride” access for many common operations, like calculating trait counts.</p></li>
+<li><p>Complex operations like calling the C++11 random number library are extracted from nested loops and done separately, to allow the results of random number generation to be used in loops which are then parallelized AND vectorized.</p></li>
+<li><p>OpenMP is used to parallelize nested loops for actual trait transmission.</p></li>
+<li><p>Explicit vectorization via <code>#pragma SIMD</code> is forced in a couple of places where the compiler cannot necessarily figure out the loop count easily.</p></li>
+</ol>
+<h3 id="test-setup">Test Setup</h3>
+<p>The resulting program, <code>neutral-test</code>, is called as follows to generate timing and performance information:</p>
+<p><code>export OMP_NUM_THREADS=4; time ./neutral-test --popsize 10000 --numloci 5 --inittraits 6 --innovrate 0.0001 --simlength 25000 --debug 1 --ruletype wfia</code></p>
+<p>The population size is large enough to generate opportunities both for vectorization and effective use of OpenMP parallel for loops, and the simulation length is long enough to create stable timing.</p>
+<h3 id="no-optimizations">No Optimizations</h3>
+<p>If we turn off all optimizations (using <code>-O0 -no-vec</code> and not passing <code>-openmp</code> to the Intel compiler), we get the straight line, single core, un-vectorized performance:</p>
+<pre><code>real    0m42.556s
+user    0m42.176s
+sys     0m0.178s</code></pre>
+<p>We can see that the vast majority of time is spent in user code, mostly in tight loops, or in the C++11 library (which isn’t kernel code), and that kernel code occupies a tiny fraction of execution time (mostly some I/O at the beginning and end since I have logging turned way down). Real time and user time is basically the same, showing that we are totally single-threaded.</p>
+<h3 id="vectorization-without-parallelism">Vectorization Without Parallelism</h3>
+<p>If we turn off OpenMP parallelism, but enable vectorization and aggressive compiler optimization (<code>-O3</code>), we see dramatic improvement:</p>
+<pre><code>real    0m11.765s
+user    0m11.666s
+sys     0m0.045s</code></pre>
+<p>This is a speedup of 3.62x, simply by allowing the compiler to vectorize code in a situation where memory access has been designed for easy vectorization (i.e., unit stride access).</p>
+<h3 id="parallelism-without-vectorization">Parallelism Without Vectorization</h3>
+<p>If we enable OpenMP parallelism but turn off vectorization, we allow the use of multiple cores for copying tasks, although by the nature of this code base not all loops should be handled in parallel. The code is compiled with <code>-O3 -openmp -no-vec</code>.</p>
+<pre><code>real    0m10.370s
+user    0m39.686s
+sys     0m0.918s</code></pre>
+<p>Here we get 4.1x speedup, and we can see the effect of parallelism, where the user portion of code executes for 3.9x the wall clock time. So there is real benefit from parallelism here, and I’m exploring whether more of the loops can be parallelized.</p>
+<h3 id="parallelism-and-vectorization">Parallelism and Vectorization</h3>
+<p>Finally, I enable everything (<code>-O3 -openmp</code>):</p>
+<pre><code>real    0m10.211s
+user    0m39.313s
+sys     0m0.811s</code></pre>
+<p>The improvement with both is tiny over either approach alone. I need to investigate the reasons for this, but a hotspot analysis with Intel’s Vtune Amplifier XE profiler showed that the code, at this point, is constrained mainly by the speed of random number generation, not my copying or mutation code.</p>
+<p>What surprised me in this analysis wasn’t the performance of paralellism (with or without vectorization), but the near equivalent performance of <strong>just vectorizing</strong> the code. This suggests that instead of spending a lot of time working on parallelism, I could just ensure that code was vectorizing sufficiently, and then use many cores to run many processes representing many parameter sets, to add a huge factor to overall experiment throughput.</p>
+<div class="references">
+
+</div>
+  
+
+
+
+<div class="well well-small">
 <table class="table table-condensed">
+			<tr>
+				<td><small><i class="icon-backward"></i>&nbsp;<a href="/blog.html">Back to Essay List</a></small></td>
+				<td><small><i class="icon-calendar"></i>&nbsp;Modified: 24 Aug 2015</small></td>
+				<td><small><i class="icon-book">&nbsp;</i>&nbsp;<a href=http://greycite.knowledgeblog.org/bib/?uri=http://notebook.madsenlab.org/essays/2015/08/24/simulation-performance-explorations.html target='_blank'>BibTeX Entry</a>
+</small></td>
+				<td><small><i class="icon-book">&nbsp;</i>&nbsp;<a href=http://greycite.knowledgeblog.org/ris/?uri=http://notebook.madsenlab.org/essays/2015/08/24/simulation-performance-explorations.html target='_blank'>RIS Citation</a>
+</small></td>
+				<td><small><a href="javascript:window.print()"><i class="icon-print"></i>&nbsp;Print</a></small></td>
+			</tr>
+		</table>
+<p class="text-info"><i class="icon-tags"></i>&nbsp;Tags</p>
+<ul>
 
-	
+<li><a href='/tag/cultural transmission.html'>cultural transmission</a></li>
 
-		<tr>
-		<td>11 Apr 2015</td>
-		<td><a href="/essays/2015/04/11/saa2015-papers.html">Presentations for the 2015 SAA Conference</a></td>
-		</tr>
+<li><a href='/tag/simulation.html'>simulation</a></li>
 
+<li><a href='/tag/computing.html'>computing</a></li>
 
-	
+<li><a href='/tag/HPC.html'>HPC</a></li>
 
-		<tr>
-		<td>15 Feb 2015</td>
-		<td><a href="/project:coarse%20grained%20model/model:ctmixtures/experiment:experiment-ctmixtures/2015/02/15/ctmixtures-docker-container.html">CTMixtures Simulation in Docker</a></td>
-		</tr>
+<li><a href='/tag/computational science.html'>computational science</a></li>
 
-
-	
-
-		<tr>
-		<td>07 Dec 2014</td>
-		<td><a href="/project:coarse%20grained%20model/model:ctmixtures/experiment:experiment-ctmixtures/2014/12/07/equifinality-4-todo.html">CTMixtures Analysis -- Equifinality-4 Progress and Tasks</a></td>
-		</tr>
-
-
-	
-
-		<tr>
-		<td>04 Dec 2014</td>
-		<td><a href="/project:coarse%20grained%20model/model:ctmixtures/experiment:experiment-ctmixtures/2014/12/04/ctmixtures-splitting-analysis.html">CTMixtures Analysis -- Splitting the Analysis</a></td>
-		</tr>
-
-
-	
-
-		<tr>
-		<td>20 Nov 2014</td>
-		<td><a href="/project:coarse%20grained%20model/model:ctmixtures/experiment:experiment-ctmixtures/2014/11/20/ctmixtures-analysis-gbm-next-steps.html">CTMixtures Analysis -- RF to GBM and Next Steps</a></td>
-		</tr>
-
-
-	
-
-		<tr>
-		<td>07 Nov 2014</td>
-		<td><a href="/project:coarse%20grained%20model/model:ctmixtures/experiment:experiment-ctmixtures/2014/11/07/ctmixtures-analysis-randomforests.html">CTMixtures Analysis -- Equifinality 3 Notes</a></td>
-		</tr>
-
-
-	
-
-		<tr>
-		<td>06 Oct 2014</td>
-		<td><a href="/project:coarse%20grained%20model/model:ctmixtures/experiment:experiment-ctmixtures/2014/10/06/ctmixtures-calibration-part2.html">CTMixtures Equifinality - Calibration Experiment and Conclusions</a></td>
-		</tr>
-
-
-	
-
-		<tr>
-		<td>22 Sep 2014</td>
-		<td><a href="/project:coarse%20grained%20model/model:ctmixtures/experiment:experiment-ctmixtures/2014/09/22/ctmixtures-model-calibration.html">CTMixtures Equifinality - Calibration Issues and Solutions</a></td>
-		</tr>
-
-
-	
-
-		<tr>
-		<td>18 Sep 2014</td>
-		<td><a href="/project:coarse%20grained%20model/model:ctmixtures/experiment:experiment-ctmixtures/2014/09/18/equifinality-initial-analysis.html">CTMixtures Equifinality Analysis - Initial Ideas</a></td>
-		</tr>
-
-
-	
-
-		<tr>
-		<td>17 Sep 2014</td>
-		<td><a href="/project:coarse%20grained%20model/model:ctmixtures/experiment:experiment-ctmixtures/2014/09/17/equifinality-data-export.html">CTMixtures Equifinality Data Export</a></td>
-		</tr>
-
-
-	
-
-		<tr>
-		<td>16 Sep 2014</td>
-		<td><a href="/project:coarse%20grained%20model/model:ctmixtures/experiment:experiment-ctmixtures/2014/09/16/equifinality-experiment-status.html">CTMixtures Status for Batch Equifinality-1</a></td>
-		</tr>
-
-
-	
-
-		<tr>
-		<td>14 Sep 2014</td>
-		<td><a href="/project:coarse%20grained%20model/model:ctmixtures/experiment:experiment-ctmixtures/2014/09/14/ctmixtures-job-execution.html">CTMixtures Experiment Configuration and Execution</a></td>
-		</tr>
-
-
-	
-
-		<tr>
-		<td>14 Sep 2014</td>
-		<td><a href="/project:coarse%20grained%20model/model:ctmixtures/experiment:experiment-ctmixtures/2014/09/14/ctmixtures-cluster-setup.html">CTMixtures Cluster Setup and Computing Environment</a></td>
-		</tr>
-
-
-	
-
-		<tr>
-		<td>29 Aug 2014</td>
-		<td><a href="/essays/2014/08/29/saa2015-abstracts.html">Abstracts for the 2015 SAA Conference</a></td>
-		</tr>
-
-
-	
-
-		<tr>
-		<td>16 Jul 2014</td>
-		<td><a href="/essays/simulation/reproducible%20science/2014/07/16/experiment-template-openscience.html">Experiment Template for Reproducible Simulation Models</a></td>
-		</tr>
-
-
-	
-
-		<tr>
-		<td>14 Jun 2014</td>
-		<td><a href="/essays/simulation/reproducible%20science/2014/06/14/ci-travis.html">Continuous Integration and Testing for Simulation Codes</a></td>
-		</tr>
-
-
-	
-</table>
-	
-	
+</ul>
 </div>
 
 
 
 
+</div>
 
 
         
