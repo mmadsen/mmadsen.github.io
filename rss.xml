@@ -8,7 +8,19 @@
     <title>Lab Notebook for Mark E. Madsen</title>
     <link>http://notebook.madsenlab.org</link>
     <description>RSS feed for Lab Notebook for Mark E. Madsen</description>
-    <pubDate>Mon, 24 Aug 2015 00:00:00 -0700</pubDate>
+    <pubDate>Tue, 01 Sep 2015 00:00:00 -0700</pubDate>
+    <item>
+      <title>IDSS Seriation Software Version 2.3 released</title>
+      <link>http://notebook.madsenlab.org/project:coarse%20grained%20model/2015/09/01/idss-seration-version-2.3-released.html</link>
+      <description>&lt;p&gt;Today, Carl Lipo and I released &lt;a href=&quot;https://github.com/clipo/idss-seriation/releases/tag/v2.3&quot;&gt;Version 2.3&lt;/a&gt; of our &lt;a href=&quot;https://github.com/clipo/idss-seriation&quot;&gt;IDSS seriation software&lt;/a&gt;, described in our &lt;a href=&quot;http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0124942&quot;&gt;recent PLoS One article&lt;/a&gt;.&lt;/p&gt;
+&lt;div class=&quot;references&quot;&gt;
+
+&lt;/div&gt;
+</description>
+      <pubDate>Tue, 01 Sep 2015 00:00:00 -0700</pubDate>
+      <guid>http://notebook.madsenlab.org/project:coarse%20grained%20model/2015/09/01/idss-seration-version-2.3-released.html</guid>
+      <dc:date>2015-09-01T00:00:00-07:00</dc:date>
+    </item>
     <item>
       <title>Improving Simulation Performance for CT Models</title>
       <link>http://notebook.madsenlab.org/essays/2015/08/24/simulation-performance-explorations.html</link>
@@ -1004,6 +1016,6 @@
       <guid>http://notebook.madsenlab.org/project:coarse%20grained%20model/reading%20notes/2011/01/11/he-and-stone.html</guid>
       <dc:date>2011-01-11T00:00:00-08:00</dc:date>
     </item>
-    <dc:date>2015-08-24T00:00:00-07:00</dc:date>
+    <dc:date>2015-09-01T00:00:00-07:00</dc:date>
   </channel>
 </rss>

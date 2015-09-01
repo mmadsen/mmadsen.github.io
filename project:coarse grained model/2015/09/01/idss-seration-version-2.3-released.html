@@ -3,7 +3,7 @@
 <html lang="en">
   <head prefix="dc: http://purl.org/dc/terms/ og: http://ogp.me/ns#">
     <meta charset="utf-8"/>
-    <title></title>
+    <title>IDSS Seriation Software Version 2.3 released</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta name="description" content="Lab Notebook for Mark E. Madsen"/>
     <meta name="author" content="Mark E. Madsen"/>
@@ -13,9 +13,9 @@
 
 
 	<!-- For posts, page.date is the date they are published under, which we use as their 'canonical' dc:date -->
-	 <!-- If we don't have a page.date, then use modified time (pages) -->
-	   
-	
+	 
+	  
+	  
 
 	<!-- Posts declare modified timestamps in the sidebar, so would be redundant to put here. But then 
 	     pages don't have a dc:modified... unless we give them their own (modified) sidebar?  
@@ -23,26 +23,26 @@
 	<!-- Ideally we would want date originally created from the _oldest_ git commit too...-->
 
 	<!-- RDFa Metadata (in DublinCore) -->
-	<meta property="dc:title" content="" />
+	<meta property="dc:title" content="IDSS Seriation Software Version 2.3 released" />
 	<meta property="dc:creator" content="Mark E. Madsen" />
-	<meta property="dc:date" content="2015-09-01T15:02:33-07:00" />
+	<meta property="dc:date" content="2015-09-01T00:00:00-07:00" />
 	<meta property="dc:format" content="text/html" />
 	<meta property="dc:language" content="en" />
-	<meta property="dc:identifier" content="/tag/medium%20data.html" />
+	<meta property="dc:identifier" content="/project:coarse%20grained%20model/2015/09/01/idss-seration-version-2.3-released.html" />
 	<meta property="dc:rights" content="CC BY-NC-SA 3.0" />
 	<meta property="dc:source" content="Lab Notebook for Mark E. Madsen" />
 	<meta property="dc:subject" content="Anthropology" /> 
 	<meta property="dc:type" content="website" /> 
 	<!-- RDFa Metadata (in OpenGraph) -->
-	<meta property="og:title" content="" />
+	<meta property="og:title" content="IDSS Seriation Software Version 2.3 released" />
 	<meta property="og:author" content="http://notebook.madsenlab.org/bio.html" />  <!-- Should be Liquid? URI? -->
 	<meta property="og:site_name" content="Lab Notebook for Mark E. Madsen" /> <!-- Same as dc:source? -->
-	<meta property="og:url" content="http://notebook.madsenlab.org/tag/medium%20data.html" />
+	<meta property="og:url" content="http://notebook.madsenlab.org/project:coarse%20grained%20model/2015/09/01/idss-seration-version-2.3-released.html" />
 	<meta property="og:type" content="website" /> 
 	<!-- Google Scholar Metadata -->
 	<meta name="citation_author" content="Mark E. Madsen"/>
-	<meta name="citation_date" content="2015-09-01T15:02:33-07:00"/>
-	<meta name="citation_title" content=""/>
+	<meta name="citation_date" content="2015-09-01T00:00:00-07:00"/>
+	<meta name="citation_title" content="IDSS Seriation Software Version 2.3 released"/>
 	<meta name="citation_journal_title" content="Lab Notebook for Mark E. Madsen"/>
 
     <!-- Le styles -->
@@ -179,29 +179,80 @@
           </div><!--/.well -->
         </div><!--/span3-->
 
-            <div  class="span9">
-
-<h2>Posts Tagged: "medium data"</h2>
-
-<table class="table table-condensed">
-
+            <div class="span8">
+  	<h2>IDSS Seriation Software Version 2.3 released</h2>
 	
 
-		<tr>
-		<td>30 Sep 2013</td>
-		<td><a href="/essays/2013/09/30/medium-data.html">Making the Case for "Medium" Data</a></td>
-		</tr>
+		<p class="text-info">
+		<table class="table table-condensed">
+			<tr class="info">
+				<td><small><i class="icon-calendar"></i>&nbsp;Created: 01 Sep 2015</small></td>
+				<td><small><i class="icon-calendar"></i>&nbsp;Modified: 01 Sep 2015</small></td>
+				<td><small><i class="icon-book">&nbsp;</i>&nbsp;<a href=http://greycite.knowledgeblog.org/bib/?uri=http://notebook.madsenlab.org/project:coarse%20grained%20model/2015/09/01/idss-seration-version-2.3-released.html target='_blank'>BibTeX Entry</a>
+</small></td>
+				<td><small><i class="icon-book">&nbsp;</i>&nbsp;<a href=http://greycite.knowledgeblog.org/ris/?uri=http://notebook.madsenlab.org/project:coarse%20grained%20model/2015/09/01/idss-seration-version-2.3-released.html target='_blank'>RIS Citation</a>
+</small></td>
+				<td><small><a href="javascript:window.print()"><i class="icon-print"></i>&nbsp;Print</a></small></td>
+				<!--<td><small><a href="/project:coarse%20grained%20model/2015/09/01/idss-seration-version-2.3-released.html"></i>Permalink</a></small></td> -->
+			</tr>
+		</table>
+		</p>
 
 
+  	
 	
-</table>
-	
-	
+  <p>Today, Carl Lipo and I released <a href="https://github.com/clipo/idss-seriation/releases/tag/v2.3">Version 2.3</a> of our <a href="https://github.com/clipo/idss-seriation">IDSS seriation software</a>, described in our <a href="http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0124942">recent PLoS One article</a>.</p>
+<p>This version contains:</p>
+<ol type="1">
+<li>A bug fix for a triple ordering issue found by <a href="http://bsc-es.academia.edu/XavierRubio">Xavier Rubio-Campillo</a> of the Barcelona Supercomputing Center (thank you, Xavi!). We did not incorporate his full pull request, since we are undecided about some of the changes, but did integrate this fix.</li>
+<li>A performance rewrite of the spatial/geographic significance bootstrap test, which improved the average runtime of this test about 4.5x (which helps with larger numbers of assemblages).</li>
+<li>Every run now gets a UUID and is associated with the release tag and Github commit identifier, to allow results to be tracked to specific software commits, not just periodic numbered releases.</li>
+<li>UUID and software commit identifiers are written to a “metadata” file in the output directory, and to the database if you use the MongoDB driver script.</li>
+<li>The pickled temporary directory (used for parallel processing) is now written in /tmp for convenience, and unless you specify –preservepickle 1, it is cleaned up at the end of the seriation run. This yields a cleaner setup for batch processing.</li>
+</ol>
+<p>The easiest way to try out the software is to grab the source for the PLoS One article, which contains the data and a Makefile for regenerating our seriation output:</p>
+<pre class="shell"><code>$ git clone git@github.com:clipo/idss-seriation.git
+...ignoring lines...
+$ cd idss-seriation
+$ python setup.py install
+$ cd ..
+$ git clone git@github.com:mmadsen/lipomadsen2015-idss-seriation-paper.git
+$ cd lipomadsen2015-idss-seriation-paper/seriation-analysis
+$ make</code></pre>
+<p>You should see output that looks like this:</p>
+<pre class="shell"><code>IDSS seriation Version 2.3
+2015-09-01 14:56:37,451 INFO: seriation run identifier: urn:uuid:5183fa22-50f4-11e5-959b-b8f6b1154c9b
+Bootstrap CI calculation using 1000 samples - elapsed time: 0.037674 sec
+Time elapsed for frequency seriation processing: 28 seconds
+Seriation complete.
+Maximum size of seriation: 3
+Number of frequency seriation solutions at last step: 1139
+Assemblages not part of final solution:
+*** All assemblages used in seriations.***
+Time elapsed for completion of program: 83 seconds</code></pre>
+<p>and several graph windows will pop up. The “minmax” graph shows the best solution with branching to show how different partial seriations relate. There will be an “output” directory with full output.</p>
+<p>Please contact me or Carl Lipo if you have questions about IDSS and this release!</p>
+<div class="references">
+
+</div>
+  
+
+
+<div class="well well-small">
+<p class="text-info"><i class="icon-tags"></i>&nbsp;Tags</p>
+<ul>
+
+<li><a href='/tag/cultural transmission.html'>cultural transmission</a></li>
+
+<li><a href='/tag/coarse graining.html'>coarse graining</a></li>
+
+<li><a href='/tag/seriation.html'>seriation</a></li>
+
+</ul>
 </div>
 
 
-
-
+</div>
 
 
         
