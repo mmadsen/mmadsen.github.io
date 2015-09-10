@@ -8,7 +8,18 @@
     <title>Lab Notebook for Mark E. Madsen</title>
     <link>http://notebook.madsenlab.org</link>
     <description>RSS feed for Lab Notebook for Mark E. Madsen</description>
-    <pubDate>Tue, 01 Sep 2015 00:00:00 -0700</pubDate>
+    <pubDate>Sun, 06 Sep 2015 00:00:00 -0700</pubDate>
+    <item>
+      <title>Abstract for the 2016 SAA Conference</title>
+      <link>http://notebook.madsenlab.org/essays/2015/09/06/saa2016-abstract.html</link>
+      <description>&lt;div class=&quot;references&quot;&gt;
+&lt;h3&gt;Abstract&lt;/h3&gt;
+&lt;/div&gt;
+</description>
+      <pubDate>Sun, 06 Sep 2015 00:00:00 -0700</pubDate>
+      <guid>http://notebook.madsenlab.org/essays/2015/09/06/saa2016-abstract.html</guid>
+      <dc:date>2015-09-06T00:00:00-07:00</dc:date>
+    </item>
     <item>
       <title>IDSS Seriation Software Version 2.3 released</title>
       <link>http://notebook.madsenlab.org/project:coarse%20grained%20model/2015/09/01/idss-seration-version-2.3-released.html</link>
@@ -1016,6 +1027,6 @@
       <guid>http://notebook.madsenlab.org/project:coarse%20grained%20model/reading%20notes/2011/01/11/he-and-stone.html</guid>
       <dc:date>2011-01-11T00:00:00-08:00</dc:date>
     </item>
-    <dc:date>2015-09-01T00:00:00-07:00</dc:date>
+    <dc:date>2015-09-06T00:00:00-07:00</dc:date>
   </channel>
 </rss>

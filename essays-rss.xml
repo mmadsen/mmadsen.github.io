@@ -8,7 +8,23 @@
     <title>Lab Notebook for Mark E. Madsen</title>
     <link>http://notebook.madsenlab.org</link>
     <description>Essays RSS feed for Lab Notebook for Mark E. Madsen</description>
-    <pubDate>Tue, 01 Sep 2015 00:00:00 -0700</pubDate>
+    <pubDate>Sun, 06 Sep 2015 00:00:00 -0700</pubDate>
+    <item>
+      <title>Abstract for the 2016 SAA Conference</title>
+      <link>http://notebook.madsenlab.org/essays/2015/09/06/saa2016-abstract.html</link>
+      <description>&lt;div class=&quot;references&quot;&gt;
+&lt;h3&gt;
+Abstract
+&lt;/h3&gt;
+&lt;/div&gt;
+&lt;div class=&quot;references&quot;&gt;
+
+&lt;/div&gt;
+</description>
+      <pubDate>Sun, 06 Sep 2015 00:00:00 -0700</pubDate>
+      <guid>http://notebook.madsenlab.org/essays/2015/09/06/saa2016-abstract.html</guid>
+      <dc:date>2015-09-06T00:00:00-07:00</dc:date>
+    </item>
     <item>
       <title>Improving Simulation Performance for CT Models</title>
       <link>http://notebook.madsenlab.org/essays/2015/08/24/simulation-performance-explorations.html</link>
@@ -342,6 +358,6 @@ The basic idea here: we cannot model cultural transmission, as it is really impl
       <guid>http://notebook.madsenlab.org/project:niche%20construction/essays/open%20problems/2011/06/24/ct-tuplespace-artfacts.html</guid>
       <dc:date>2011-06-24T00:00:00-07:00</dc:date>
     </item>
-    <dc:date>2015-09-01T00:00:00-07:00</dc:date>
+    <dc:date>2015-09-06T00:00:00-07:00</dc:date>
   </channel>
 </rss>
