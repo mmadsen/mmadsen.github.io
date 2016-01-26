@@ -1,0 +1,309 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head prefix="dc: http://purl.org/dc/terms/ og: http://ogp.me/ns#">
+    <meta charset="utf-8"/>
+    <title>Continuous Integration and Testing for Simulation Codes</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="description" content="Lab Notebook for Mark E. Madsen"/>
+    <meta name="author" content="Mark E. Madsen"/>
+
+	<!-- Get date last modified from git log. (Uses current time if file entry not found, e.g. projects/)  -->
+	
+
+
+	<!-- For posts, page.date is the date they are published under, which we use as their 'canonical' dc:date -->
+	 
+	  
+	  
+
+	<!-- Posts declare modified timestamps in the sidebar, so would be redundant to put here. But then 
+	     pages don't have a dc:modified... unless we give them their own (modified) sidebar?  
+	-->
+	<!-- Ideally we would want date originally created from the _oldest_ git commit too...-->
+
+	<!-- RDFa Metadata (in DublinCore) -->
+	<meta property="dc:title" content="Continuous Integration and Testing for Simulation Codes" />
+	<meta property="dc:creator" content="Mark E. Madsen" />
+	<meta property="dc:date" content="2014-06-14T00:00:00-07:00" />
+	<meta property="dc:format" content="text/html" />
+	<meta property="dc:language" content="en" />
+	<meta property="dc:identifier" content="/essays/simulation/reproducible%20science/2014/06/14/ci-travis.html" />
+	<meta property="dc:rights" content="CC BY-NC-SA 3.0" />
+	<meta property="dc:source" content="Lab Notebook for Mark E. Madsen" />
+	<meta property="dc:subject" content="Anthropology" /> 
+	<meta property="dc:type" content="website" /> 
+	<!-- RDFa Metadata (in OpenGraph) -->
+	<meta property="og:title" content="Continuous Integration and Testing for Simulation Codes" />
+	<meta property="og:author" content="http://notebook.madsenlab.org/bio.html" />  <!-- Should be Liquid? URI? -->
+	<meta property="og:site_name" content="Lab Notebook for Mark E. Madsen" /> <!-- Same as dc:source? -->
+	<meta property="og:url" content="http://notebook.madsenlab.org/essays/simulation/reproducible%20science/2014/06/14/ci-travis.html" />
+	<meta property="og:type" content="website" /> 
+	<!-- Google Scholar Metadata -->
+	<meta name="citation_author" content="Mark E. Madsen"/>
+	<meta name="citation_date" content="2014-06-14T00:00:00-07:00"/>
+	<meta name="citation_title" content="Continuous Integration and Testing for Simulation Codes"/>
+	<meta name="citation_journal_title" content="Lab Notebook for Mark E. Madsen"/>
+
+    <!-- Le styles -->
+    <link href="/assets/css/bootstrap.css" rel="stylesheet">
+    <link href="/assets/css/octicons.css" rel="stylesheet">
+    <style type="text/css">
+      body {
+        padding-top: 60px;
+        padding-bottom: 40px;
+      }
+      .sidebar-nav {
+        padding: 9px 0;
+      }
+
+      @media (max-width: 980px) {
+        /* Enable use of floated navbar text */
+        .navbar-text.pull-right {
+          float: none;
+          padding-left: 5px;
+          padding-right: 5px;
+        }
+      }
+    </style>
+    <link href="/assets/css/bootstrap-responsive.css" rel="stylesheet">
+    <link href="/css/syntax.css" rel="stylesheet">
+    
+  <script type="text/javascript" src="//use.typekit.net/xtg2arw.js"></script>
+  <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+  <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  <script>
+  MathJax.Hub.Config({
+    showProcessingMessages: false,
+    jax: ["input/TeX", "output/HTML-CSS"],
+    tex2jax: {
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+    }
+  });
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+  </script>
+<!-- Google Analytics -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-11944342-4', 'madsenlab.org');
+  ga('send', 'pageview');
+
+</script>
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="../assets/js/html5shiv.js"></script>
+    <![endif]-->
+
+    <!-- Fav and touch icons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../assets/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../assets/ico/apple-touch-icon-114-precomposed.png">
+      <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../assets/ico/apple-touch-icon-72-precomposed.png">
+                    <link rel="apple-touch-icon-precomposed" href="../assets/ico/apple-touch-icon-57-precomposed.png">
+                                   <link rel="shortcut icon" href="../assets/ico/favicon.png">
+  </head>
+
+  <body>
+
+    <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container-fluid">
+          <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="brand" href="/">MadsenLabNotebook</a>
+          <div class="nav-collapse collapse">
+                  <!-- Search site using Google's index -->
+      <form class="navbar-search pull-right" method="get" action="http://google.com/search">
+        <p>
+          <input type="hidden" name="q" value="site:notebook.madsenlab.org" />
+          <input type="text" class="search-query" name="q" />
+          <button class="btn btn-mini" type="submit"><i class="icon-search"></i></button> 
+        </p>
+      </form>
+            <ul class="nav">
+              <li class="active"><a href="/">Home</a></li>
+              <li><a href="/labnotebook.html">About</a></li>
+              <li><a href="http://about.me/mark.e.madsen">Contact</a></li>
+              <li><a href="/blog.html">Essays</a></li>
+              <li><a href="/rss.xml">Full RSS Feed</a></li>
+              <li><a href="/essays-rss.xml">Essays Only RSS Feed</a></li>
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+    </div>
+
+    <div class="container-fluid">
+      <div class="row-fluid">
+        <div class="span3">
+          <div class="well sidebar-nav">
+            <ul class="nav nav-list">
+              <li><img src="/images/madsenlabnotebook-350px.png" class="img-responsive" alt="MadsenLab Notebook"/></li>
+              <li class="nav-header">General</li>
+              <li><a href="/tags.html">Notes by Tag</a></li>
+              <li><a href="/allposts.html">All Notes by Date</a></li>
+              <li><a href="/blog.html">Essays and General Writings</a></li>
+              <li class="nav-header">Projects</li>
+              <li><a href="/projects/coarsegraining/">Coarse Grained Models of CT</a></li>
+              <li><a href="/projects/nicheconstruction/">Niche Construction and CT Modeling</a></li>
+              <li><a href="/projects/structuredinfo/">CT of Structured Information</a></li>
+              <li class="nav-header">Simulations and Experiments</li>
+              <li><a href="/byexperiment.html">Notes by Experiment</a></li>
+              <li><a href="/bymodel.html">Notes by Simulation Model</a></li>
+              <li class="nav-header">Topics</li>
+              <li><a href="/tag/cultural%20transmission.html">Cultural transmission theory</a></li>
+              <li><a href="/tag/evolutionary%20theory.html">Darwinian evolutionary theory</a></li>
+			        <li><a href="/tag/dissertation.html">Dissertation Research</a></li>
+              <li><a href="/tag/reading%20notes.html">Reading notes</a></li>
+              <li><a href="/openproblems.html">Open Research Problems</a></li>
+
+              <li class="nav-header">Meta</li>
+              <li><a href="/bio.html">Bio</a></li>
+              <li><a href="/software.html">Software</a></li>
+              <li><a href="/tools.html">Tools I Use</a></li>
+              <li><a href="/publications.html">Publications</a></li>
+              <li><a href="/openscience.html">About Open Science</a></li>
+			<li><a href="/labnotebook.html">About this Notebook</a></li>
+            </ul>
+          </div><!--/.well -->
+        </div><!--/span3-->
+
+            <div class="span8">
+  	<h2>Continuous Integration and Testing for Simulation Codes</h2>
+	
+
+		<p class="text-info">
+		<table class="table table-condensed">
+			<tr class="info">
+				<td><small><i class="icon-backward"></i>&nbsp;<a href="/blog.html">Back to Essay List</a></small></td>
+				<td><small><i class="icon-calendar"></i>&nbsp;Modified: 17 Jun 2014</small></td>
+				<td><small><i class="icon-book">&nbsp;</i>&nbsp;<a href=http://greycite.knowledgeblog.org/bib/?uri=http://notebook.madsenlab.org/essays/simulation/reproducible%20science/2014/06/14/ci-travis.html target='_blank'>BibTeX Entry</a>
+</small></td>
+				<td><small><i class="icon-book">&nbsp;</i>&nbsp;<a href=http://greycite.knowledgeblog.org/ris/?uri=http://notebook.madsenlab.org/essays/simulation/reproducible%20science/2014/06/14/ci-travis.html target='_blank'>RIS Citation</a>
+</small></td>
+				<td><small><a href="javascript:window.print()"><i class="icon-print"></i>&nbsp;Print</a></small></td>
+			</tr>
+		</table>
+		</p>
+
+
+  	
+	
+  <p>This week I added all of my simulation projects to the <a href="https://travis-ci.org/">Travis CI continuous integration</a> system. Travis is a hosted service, running a Ruby-based project which will check out your code from Github, run it on a clean virtual machine preloaded with common build tools and pieces of infrastructure (e.g., databases, libraries), and perform your unit or functional tests.</p>
+<p>Travis reports by email and in their web interface, of course, but more importantly, each project has a “badge” or icon which can be included in the project’s <code>README.md</code> on Github, and which shows whether the build is broken, or passing all tests. This is an improvement to simply having unit or functional tests in one’s project, because the public can understand whether a project is working without downloading and building it.</p>
+<p>Here, for example, is the status of my current projects:</p>
+<ul>
+<li><code>CTPy</code>: <a href="https://travis-ci.org/mmadsen/CTPy"><embed src="https://travis-ci.org/mmadsen/CTPy.svg?branch=master" /></a></li>
+<li><code>axelrod-ct</code>: <a href="https://travis-ci.org/mmadsen/axelrod-ct"><embed src="https://travis-ci.org/mmadsen/axelrod-ct.svg?branch=master" /></a></li>
+<li><code>ctmixtures</code>: <a href="https://travis-ci.org/mmadsen/ctmixtures"><embed src="https://travis-ci.org/mmadsen/ctmixtures.svg?branch=master" /></a></li>
+</ul>
+<p>and several of their common code dependencies:</p>
+<ul>
+<li><code>pytransmission</code>: <a href="https://travis-ci.org/mmadsen/pytransmission"><embed src="https://travis-ci.org/mmadsen/pytransmission.svg?branch=master" /></a></li>
+<li><code>mmadsenr</code>: <a href="https://travis-ci.org/mmadsen/mmadsenr"><embed src="https://travis-ci.org/mmadsen/mmadsenr.svg?branch=master" /></a></li>
+</ul>
+<h3 id="improving-ease-of-installation">Improving Ease of Installation</h3>
+<p>I also found that Travis drastically improved the installability (and thus reproducibility) of my projects, especially across platforms. All of the projects listed here are based on Python 2.7, but they rely on a variety of dependencies, some of which link to common (but very large) C++ libraries and others linked Python to my own C code via the SWIG code generator. In one’s own work, none of this infrastructure ever gets built all at once – instead, it evolves in one’s development environment as capabilities are added. So it is easy to forget what a <strong>complete</strong> build process looks like.</p>
+<p>Travis forced me to iterate on build and test scripts until every dependency was accounted for, and could be added (via <code>apt</code>) or built from scratch, on a clean Ubuntu 12.04 LTS system. So I am sure that on a stock Ubuntu system, anybody can install any of the projects listed here (although I still need to add a manual install script to each project to replicate what Travis does).</p>
+<p>I do hope that the Travis folks add options for more build environments. It was very hard, for example, to get a modern version of <code>SciPy</code> working on Ubuntu 12.04 LTS. The stock version is too old to have the special mathematical functions library, so you have to build it from scratch. Which takes <strong>forever</strong>. The projects above take from 6 seconds to 3 minutes to build and test. Except for <code>axelrod-ct</code>, which takes 24 minutes. 23 of which are simply building <code>scipy</code> – every time I make a change. That inefficiency could be solved by having a more recent binary package for 12.04, or test environments based upon something more recent in the Ubuntu lineup (say, 13.10).</p>
+<h3 id="improving-the-travis-experience-itself">Improving the Travis Experience Itself</h3>
+<p>Iterating on Travis was time consuming, especially for the first project (to be expected), and for a particularly tricky build which used SWIG to generate glue code between python and a C library.</p>
+<p>I found a good solution by simulating the Travis build environment with an EC2 instance running Ubuntu 12.04 LTS, with <code>build-essentials</code> and a host of other basics installed (a subset of packages described in the Travis docs themselves, including mongodb and git). The resulting AMI is useful for running your code through various build processes, to make sure that you’re not missing something in the Travis environment that (say) your desktop environment has by default, etc.</p>
+<p>I’ve made the AMI public on EC2: <code>ami-1edd2176</code>, image name is <code>Travis Tests - Everything Installed</code>. You should be able to boot this image (and choose an instance size as appropriate, I used a relatively large instance for compiling scipy, otherwise it would have taken hours on a free <code>t1.micro</code> instance. But the free tier should be adequate for many, many projects especially pure R or python projects.)<a href="#fn1" class="footnoteRef" id="fnref1"><sup>1</sup></a></p>
+<p>This is a decent solution, but it would be <strong>terrific</strong> if the Travis CI team released their own official AMIs and perhaps a VMware image, so that folks have an official, clean environment to work against, to prevent slow iteration against the full system. This is particularly important when your code or a dependency might have a very long build – a good example is a dependency on a particular version of the Boost C++ libraries. If a binary version isn’t available for Ubuntu 12.04 LTS, it’s a looong compile on the Travis environment. Heck, it’s a long build even when you throw all of the cores on a quad i7 at it…</p>
+<div class="references">
+
+</div>
+<section class="footnotes">
+<hr />
+<ol>
+<li id="fn1"><p>Although, looking at my bill, I still spent less than a dollar on computing time to get the long scipy build completed. So, maybe splurge beyond <code>t1.micro</code> and tear less of your hair out.<a href="#fnref1">↩</a></p></li>
+</ol>
+</section>
+  
+
+
+
+<div class="well well-small">
+<table class="table table-condensed">
+			<tr>
+				<td><small><i class="icon-backward"></i>&nbsp;<a href="/blog.html">Back to Essay List</a></small></td>
+				<td><small><i class="icon-calendar"></i>&nbsp;Modified: 17 Jun 2014</small></td>
+				<td><small><i class="icon-book">&nbsp;</i>&nbsp;<a href=http://greycite.knowledgeblog.org/bib/?uri=http://notebook.madsenlab.org/essays/simulation/reproducible%20science/2014/06/14/ci-travis.html target='_blank'>BibTeX Entry</a>
+</small></td>
+				<td><small><i class="icon-book">&nbsp;</i>&nbsp;<a href=http://greycite.knowledgeblog.org/ris/?uri=http://notebook.madsenlab.org/essays/simulation/reproducible%20science/2014/06/14/ci-travis.html target='_blank'>RIS Citation</a>
+</small></td>
+				<td><small><a href="javascript:window.print()"><i class="icon-print"></i>&nbsp;Print</a></small></td>
+			</tr>
+		</table>
+<p class="text-info"><i class="icon-tags"></i>&nbsp;Tags</p>
+<ul>
+
+<li><a href='/tag/experiments.html'>experiments</a></li>
+
+<li><a href='/tag/simulation.html'>simulation</a></li>
+
+<li><a href='/tag/open science.html'>open science</a></li>
+
+<li><a href='/tag/reproducible science.html'>reproducible science</a></li>
+
+</ul>
+</div>
+
+
+
+
+</div>
+
+
+        
+      </div><!--/row-->
+
+
+    
+
+
+ 
+      <hr>
+
+      <footer>
+		        <p>&copy; Mark E. Madsen 2011-2014    <a href="mailto:mark@madsenlab.org">Email</a>&nbsp;||
+		  <a href="http://orcid.org/0000-0001-9320-8377">ORCId</a>&nbsp;||
+		  <a href="http://figshare.com/authors/Mark%20Madsen/279062">Figshare</a>&nbsp;||
+		    <a href="http://www.linkedin.com/profile/view?id=8751">LinkedIn</a>&nbsp;|| 	    <a href="http://github.com/mmadsen">GitHub</a>&nbsp;||
+        <a href="http://www.researchgate.net/profile/Mark_Madsen3/">ResearchGate</a>&nbsp;||
+        <a href="https://washington.academia.edu/MarkMadsen">Academia.edu</a></p>
+      </footer>
+
+    </div><!--/.fluid-container-->
+
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="/assets/js/jquery.js"></script>
+    <script src="/assets/js/bootstrap-transition.js"></script>
+    <script src="/assets/js/bootstrap-alert.js"></script>
+    <script src="/assets/js/bootstrap-modal.js"></script>
+    <script src="/assets/js/bootstrap-dropdown.js"></script>
+    <script src="/assets/js/bootstrap-scrollspy.js"></script>
+    <script src="/assets/js/bootstrap-tab.js"></script>
+    <script src="/assets/js/bootstrap-tooltip.js"></script>
+    <script src="/assets/js/bootstrap-popover.js"></script>
+    <script src="/assets/js/bootstrap-button.js"></script>
+    <script src="/assets/js/bootstrap-collapse.js"></script>
+    <script src="/assets/js/bootstrap-carousel.js"></script>
+    <script src="/assets/js/bootstrap-typeahead.js"></script>
+
+  </body>
+</html>

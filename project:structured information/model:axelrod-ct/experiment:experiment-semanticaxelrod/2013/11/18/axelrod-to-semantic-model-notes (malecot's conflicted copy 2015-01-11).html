@@ -1,0 +1,327 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head prefix="dc: http://purl.org/dc/terms/ og: http://ogp.me/ns#">
+    <meta charset="utf-8"/>
+    <title>Original Axelrod to Semantic Axelrod model - implementation notes</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="description" content="Lab Notebook for Mark E. Madsen"/>
+    <meta name="author" content="Mark E. Madsen"/>
+
+	<!-- Get date last modified from git log. (Uses current time if file entry not found, e.g. projects/)  -->
+	
+
+
+	<!-- For posts, page.date is the date they are published under, which we use as their 'canonical' dc:date -->
+	 
+	  
+	  
+
+	<!-- Posts declare modified timestamps in the sidebar, so would be redundant to put here. But then 
+	     pages don't have a dc:modified... unless we give them their own (modified) sidebar?  
+	-->
+	<!-- Ideally we would want date originally created from the _oldest_ git commit too...-->
+
+	<!-- RDFa Metadata (in DublinCore) -->
+	<meta property="dc:title" content="Original Axelrod to Semantic Axelrod model - implementation notes" />
+	<meta property="dc:creator" content="Mark E. Madsen" />
+	<meta property="dc:date" content="2013-11-18T00:00:00-08:00" />
+	<meta property="dc:format" content="text/html" />
+	<meta property="dc:language" content="en" />
+	<meta property="dc:identifier" content="/project:structured%20information/model:axelrod-ct/experiment:experiment-semanticaxelrod/2013/11/18/axelrod-to-semantic-model-notes.html" />
+	<meta property="dc:rights" content="CC BY-NC-SA 3.0" />
+	<meta property="dc:source" content="Lab Notebook for Mark E. Madsen" />
+	<meta property="dc:subject" content="Anthropology" /> 
+	<meta property="dc:type" content="website" /> 
+	<!-- RDFa Metadata (in OpenGraph) -->
+	<meta property="og:title" content="Original Axelrod to Semantic Axelrod model - implementation notes" />
+	<meta property="og:author" content="http://notebook.madsenlab.org/bio.html" />  <!-- Should be Liquid? URI? -->
+	<meta property="og:site_name" content="Lab Notebook for Mark E. Madsen" /> <!-- Same as dc:source? -->
+	<meta property="og:url" content="http://notebook.madsenlab.org/project:structured%20information/model:axelrod-ct/experiment:experiment-semanticaxelrod/2013/11/18/axelrod-to-semantic-model-notes.html" />
+	<meta property="og:type" content="website" /> 
+	<!-- Google Scholar Metadata -->
+	<meta name="citation_author" content="Mark E. Madsen"/>
+	<meta name="citation_date" content="2013-11-18T00:00:00-08:00"/>
+	<meta name="citation_title" content="Original Axelrod to Semantic Axelrod model - implementation notes"/>
+	<meta name="citation_journal_title" content="Lab Notebook for Mark E. Madsen"/>
+
+    <!-- Le styles -->
+    <link href="/assets/css/bootstrap.css" rel="stylesheet">
+    <link href="/assets/css/octicons.css" rel="stylesheet">
+    <style type="text/css">
+      body {
+        padding-top: 60px;
+        padding-bottom: 40px;
+      }
+      .sidebar-nav {
+        padding: 9px 0;
+      }
+
+      @media (max-width: 980px) {
+        /* Enable use of floated navbar text */
+        .navbar-text.pull-right {
+          float: none;
+          padding-left: 5px;
+          padding-right: 5px;
+        }
+      }
+    </style>
+    <link href="/assets/css/bootstrap-responsive.css" rel="stylesheet">
+    <link href="/css/syntax.css" rel="stylesheet">
+    
+  <script type="text/javascript" src="//use.typekit.net/xtg2arw.js"></script>
+  <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+  <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  <script>
+  MathJax.Hub.Config({
+    showProcessingMessages: false,
+    jax: ["input/TeX", "output/HTML-CSS"],
+    tex2jax: {
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+    }
+  });
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+  </script>
+<!-- Google Analytics -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-11944342-4', 'madsenlab.org');
+  ga('send', 'pageview');
+
+</script>
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="../assets/js/html5shiv.js"></script>
+    <![endif]-->
+
+    <!-- Fav and touch icons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../assets/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../assets/ico/apple-touch-icon-114-precomposed.png">
+      <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../assets/ico/apple-touch-icon-72-precomposed.png">
+                    <link rel="apple-touch-icon-precomposed" href="../assets/ico/apple-touch-icon-57-precomposed.png">
+                                   <link rel="shortcut icon" href="../assets/ico/favicon.png">
+  </head>
+
+  <body>
+
+    <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container-fluid">
+          <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="brand" href="/">MadsenLabNotebook</a>
+          <div class="nav-collapse collapse">
+                  <!-- Search site using Google's index -->
+      <form class="navbar-search pull-right" method="get" action="http://google.com/search">
+        <p>
+          <input type="hidden" name="q" value="site:notebook.madsenlab.org" />
+          <input type="text" class="search-query" name="q" />
+          <button class="btn btn-mini" type="submit"><i class="icon-search"></i></button> 
+        </p>
+      </form>
+            <ul class="nav">
+              <li class="active"><a href="/">Home</a></li>
+              <li><a href="/labnotebook.html">About</a></li>
+              <li><a href="http://about.me/mark.e.madsen">Contact</a></li>
+              <li><a href="/blog.html">Essays</a></li>
+              <li><a href="/rss.xml">Full RSS Feed</a></li>
+              <li><a href="/essays-rss.xml">Essays Only RSS Feed</a></li>
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+    </div>
+
+    <div class="container-fluid">
+      <div class="row-fluid">
+        <div class="span3">
+          <div class="well sidebar-nav">
+            <ul class="nav nav-list">
+              <li><img src="/images/madsenlabnotebook-350px.png" class="img-responsive" alt="MadsenLab Notebook"/></li>
+              <li class="nav-header">General</li>
+              <li><a href="/tags.html">Notes by Tag</a></li>
+              <li><a href="/allposts.html">All Notes by Date</a></li>
+              <li><a href="/blog.html">Essays and General Writings</a></li>
+              <li class="nav-header">Projects</li>
+              <li><a href="/projects/coarsegraining/">Coarse Grained Models of CT</a></li>
+              <li><a href="/projects/nicheconstruction/">Niche Construction and CT Modeling</a></li>
+              <li><a href="/projects/structuredinfo/">CT of Structured Information</a></li>
+              <li class="nav-header">Simulations and Experiments</li>
+              <li><a href="/byexperiment.html">Notes by Experiment</a></li>
+              <li><a href="/bymodel.html">Notes by Simulation Model</a></li>
+              <li class="nav-header">Topics</li>
+              <li><a href="/tag/cultural%20transmission.html">Cultural transmission theory</a></li>
+              <li><a href="/tag/evolutionary%20theory.html">Darwinian evolutionary theory</a></li>
+			        <li><a href="/tag/dissertation.html">Dissertation Research</a></li>
+              <li><a href="/tag/reading%20notes.html">Reading notes</a></li>
+              <li><a href="/openproblems.html">Open Research Problems</a></li>
+
+              <li class="nav-header">Meta</li>
+              <li><a href="/bio.html">Bio</a></li>
+              <li><a href="/software.html">Software</a></li>
+              <li><a href="/tools.html">Tools I Use</a></li>
+              <li><a href="/publications.html">Publications</a></li>
+              <li><a href="/openscience.html">About Open Science</a></li>
+			<li><a href="/labnotebook.html">About this Notebook</a></li>
+            </ul>
+          </div><!--/.well -->
+        </div><!--/span3-->
+
+            <div class="span8">
+  	<h2>Original Axelrod to Semantic Axelrod model - implementation notes</h2>
+	
+
+		<p class="text-info">
+		<table class="table table-condensed">
+			<tr class="info">
+				<td><small><i class="icon-calendar"></i>&nbsp;Created: 18 Nov 2013</small></td>
+				<td><small><i class="icon-calendar"></i>&nbsp;Modified: 19 Jun 2014</small></td>
+				<td><small><i class="icon-book">&nbsp;</i>&nbsp;<a href=http://greycite.knowledgeblog.org/bib/?uri=http://notebook.madsenlab.org/project:structured%20information/model:axelrod-ct/experiment:experiment-semanticaxelrod/2013/11/18/axelrod-to-semantic-model-notes.html target='_blank'>BibTeX Entry</a>
+</small></td>
+				<td><small><i class="icon-book">&nbsp;</i>&nbsp;<a href=http://greycite.knowledgeblog.org/ris/?uri=http://notebook.madsenlab.org/project:structured%20information/model:axelrod-ct/experiment:experiment-semanticaxelrod/2013/11/18/axelrod-to-semantic-model-notes.html target='_blank'>RIS Citation</a>
+</small></td>
+				<td><small><a href="javascript:window.print()"><i class="icon-print"></i>&nbsp;Print</a></small></td>
+				<!--<td><small><a href="/project:structured%20information/model:axelrod-ct/experiment:experiment-semanticaxelrod/2013/11/18/axelrod-to-semantic-model-notes.html"></i>Permalink</a></small></td> -->
+			</tr>
+		</table>
+		</p>
+
+
+  	
+	
+  <h3 id="axelrod-model">Axelrod Model</h3>
+<p>Currently, I’ve got a good framework for Axelrod-style models of cultural influence and homophily. The code is available on Github as <a href="https://github.com/mmadsen/axelrod-ct">axelrod-ct</a>. The framework stores simulation run statistics in a MongoDB database instance, and has a single simulation running and a parallel batch runner. The code is a generic evolution of the <a href="https://github.com/mmadsen/ctpy">CTPy</a> but without the dependency upon <code>simuPOP</code>.</p>
+<h3 id="adding-semantic-models">Adding Semantic Models</h3>
+<p>The next tasks revolve around the “trait model” we use, giving traits relational structure, and any modifications to the Axelrod rules themselves to accomodate these structural changes. Specifically, I think the steps involve:</p>
+<ol type="1">
+<li>Allow the definition of the features to be “extensible” for individuals. In other words, <code>F</code> features might be present, but the initial configuration of individuals will be random and possibly less than <code>F</code>. Individuals might gain new features by copying, but overlap will still initially calculated in a “traditional” manner.<br /></li>
+<li>Add statistics for the “size” of an individual’s feature list. The resulting model will be a useful “neutral” bridge where copying is unbiased+homophily but no structure to the traits themselves.<br /></li>
+<li>Add structure to the traits themselves, in the form of a directed graph, and rules by which copying is possible given the presence of upstream prerequisites.</li>
+</ol>
+<h3 id="extensible-trait-lists">Extensible Trait Lists</h3>
+<p>Most cultural transmission models have followed the “loci and alleles” paradigm, where there is a fixed set of features (loci), which can have a limited or (practically speaking) unlimited number of alleles. The simplest models, of course, have one feature/locus, and two possible traits.</p>
+<p>Some CT models don’t follow this pattern, and allow the accumulation of information over time. This is what we want to model because in addition to population size and demographic structure, the growth of cultural knowledge (i.e., growth in <code>F</code> over time per person) is a key ingredient in long-term enrichment of the cultural endowment of human populations. So it’s essential to model unfixed <code>F</code>.</p>
+<p>This means that copying rules can no longer be easily written as “pick a feature, copy the target agent’s trait” – which is how most CT models are written, as was the original Axelrod model for homophily.</p>
+<h3 id="implementation-of-extensible-traits">Implementation of Extensible Traits</h3>
+<p>Looking at the existing Axelrod models, there are several operations on/with single traits or sets of traits that I need to reimplement in such a way that two individuals may have different numbers of features, without “locus/allele” structure.</p>
+<p>The following are notes about how each requirement might be implemented with a Set rather than a list of integers. In the following I do not assume that traits have any specific structure among themselves. Some will exist as sets of alternatives along a dimension, but I make no assumption about individuals being able to adopt only one of a set of alternatives in this model. I’m not worrying about initialization here because it doesn’t need to be efficient, it just needs to work.</p>
+<p><strong>Requirements</strong></p>
+<ol type="1">
+<li>replace a trait or set of traits with new ones</li>
+</ol>
+<pre class="sourceCode python"><code class="sourceCode python"><span class="ch">import</span> random
+
+<span class="co"># assume &quot;agent_traits&quot; is an object of type set()</span>
+<span class="co"># this case comes up in drift, for example</span>
+t_new = select_random_trait()
+t_old = random.choice(agent_traits)
+agent_traits.remove(t_old)
+agent_traits.add(t_new)</code></pre>
+<ol start="2" type="1">
+<li>initiatize an agent with a random set of traits, perhaps with a random number of traits</li>
+<li>generate a unique representation of a set of traits, for stats, and coloring diagrams</li>
+<li>calculation of overlap between trait sets</li>
+</ol>
+<pre class="sourceCode python"><code class="sourceCode python"><span class="co"># since the sets can vary in size, the overlap is simply the Jaccard coefficient</span>
+<span class="co"># while the probability of interaction is the Jaccard distance</span>
+
+overlap = <span class="dt">len</span>(focal.intersection(neighbor)) / <span class="dt">len</span>(focal.union(neighbor))
+prob = <span class="dt">len</span>(focal.symmetric_difference(neighbor)) / <span class="dt">len</span>(focal.union(neighbor))</code></pre>
+<ol start="5" type="1">
+<li>find list of traits which differ between two agents</li>
+</ol>
+<pre class="sourceCode python"><code class="sourceCode python"><span class="co"># trick here is that we need two things:  first, the traits in the focal agent which </span>
+<span class="co"># differ with the target agent (set difference), and then we need the target&#39;s traits which </span>
+<span class="co"># differ from the focal agent.  We choose a random differing trait in the focal, to replace</span>
+<span class="co"># with a random differing trait from the target.  This is true to the spirit of the Axelrod </span>
+<span class="co"># model without requiring a specific set of loci/alleles (features/traits)</span>
+
+focal_uniq = focal.difference(neighbor)
+neighbor_uniq = neighbor.difference(focal)
+focal_to_replace = random.choice(focal_uniq)
+neighbor_to_adopt = random.choice(neighbor_uniq)</code></pre>
+<div class="references">
+
+</div>
+  
+
+
+<div class="well well-small">
+<p class="text-info"><i class="icon-tags"></i>&nbsp;Tags</p>
+<ul>
+
+<li><a href='/tag/SAA2014.html'>SAA2014</a></li>
+
+<li><a href='/tag/axelrod model.html'>axelrod model</a></li>
+
+<li><a href='/tag/structured information.html'>structured information</a></li>
+
+<li><a href='/tag/cultural transmission.html'>cultural transmission</a></li>
+
+<li><a href='/tag/dissertation.html'>dissertation</a></li>
+
+<li><a href='/tag/experiments.html'>experiments</a></li>
+
+<li><a href='/tag/experiment-semanticaxelrod.html'>experiment-semanticaxelrod</a></li>
+
+<li><a href='/tag/blogarch.html'>blogarch</a></li>
+
+</ul>
+</div>
+
+
+</div>
+
+
+        
+      </div><!--/row-->
+
+
+    
+
+
+ 
+      <hr>
+
+      <footer>
+		        <p>&copy; Mark E. Madsen 2011-2014    <a href="mailto:mark@madsenlab.org">Email</a>&nbsp;||
+		  <a href="http://orcid.org/0000-0001-9320-8377">ORCId</a>&nbsp;||
+		  <a href="http://figshare.com/authors/Mark%20Madsen/279062">Figshare</a>&nbsp;||
+		    <a href="http://www.linkedin.com/profile/view?id=8751">LinkedIn</a>&nbsp;|| 	    <a href="http://github.com/mmadsen">GitHub</a>&nbsp;||
+        <a href="http://www.researchgate.net/profile/Mark_Madsen3/">ResearchGate</a>&nbsp;||
+        <a href="https://washington.academia.edu/MarkMadsen">Academia.edu</a></p>
+      </footer>
+
+    </div><!--/.fluid-container-->
+
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="/assets/js/jquery.js"></script>
+    <script src="/assets/js/bootstrap-transition.js"></script>
+    <script src="/assets/js/bootstrap-alert.js"></script>
+    <script src="/assets/js/bootstrap-modal.js"></script>
+    <script src="/assets/js/bootstrap-dropdown.js"></script>
+    <script src="/assets/js/bootstrap-scrollspy.js"></script>
+    <script src="/assets/js/bootstrap-tab.js"></script>
+    <script src="/assets/js/bootstrap-tooltip.js"></script>
+    <script src="/assets/js/bootstrap-popover.js"></script>
+    <script src="/assets/js/bootstrap-button.js"></script>
+    <script src="/assets/js/bootstrap-collapse.js"></script>
+    <script src="/assets/js/bootstrap-carousel.js"></script>
+    <script src="/assets/js/bootstrap-typeahead.js"></script>
+
+  </body>
+</html>

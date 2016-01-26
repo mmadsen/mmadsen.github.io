@@ -1,0 +1,306 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head prefix="dc: http://purl.org/dc/terms/ og: http://ogp.me/ns#">
+    <meta charset="utf-8"/>
+    <title>Renormalization and Archaeological Applications</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="description" content="Lab Notebook for Mark E. Madsen"/>
+    <meta name="author" content="Mark E. Madsen"/>
+
+	<!-- Get date last modified from git log. (Uses current time if file entry not found, e.g. projects/)  -->
+	
+
+
+	<!-- For posts, page.date is the date they are published under, which we use as their 'canonical' dc:date -->
+	 
+	  
+	  
+
+	<!-- Posts declare modified timestamps in the sidebar, so would be redundant to put here. But then 
+	     pages don't have a dc:modified... unless we give them their own (modified) sidebar?  
+	-->
+	<!-- Ideally we would want date originally created from the _oldest_ git commit too...-->
+
+	<!-- RDFa Metadata (in DublinCore) -->
+	<meta property="dc:title" content="Renormalization and Archaeological Applications" />
+	<meta property="dc:creator" content="Mark E. Madsen" />
+	<meta property="dc:date" content="2011-02-23T00:00:00-08:00" />
+	<meta property="dc:format" content="text/html" />
+	<meta property="dc:language" content="en" />
+	<meta property="dc:identifier" content="/project:coarse%20grained%20model/reading%20notes/2011/02/23/renormalization.html" />
+	<meta property="dc:rights" content="CC BY-NC-SA 3.0" />
+	<meta property="dc:source" content="Lab Notebook for Mark E. Madsen" />
+	<meta property="dc:subject" content="Anthropology" /> 
+	<meta property="dc:type" content="website" /> 
+	<!-- RDFa Metadata (in OpenGraph) -->
+	<meta property="og:title" content="Renormalization and Archaeological Applications" />
+	<meta property="og:author" content="http://notebook.madsenlab.org/bio.html" />  <!-- Should be Liquid? URI? -->
+	<meta property="og:site_name" content="Lab Notebook for Mark E. Madsen" /> <!-- Same as dc:source? -->
+	<meta property="og:url" content="http://notebook.madsenlab.org/project:coarse%20grained%20model/reading%20notes/2011/02/23/renormalization.html" />
+	<meta property="og:type" content="website" /> 
+	<!-- Google Scholar Metadata -->
+	<meta name="citation_author" content="Mark E. Madsen"/>
+	<meta name="citation_date" content="2011-02-23T00:00:00-08:00"/>
+	<meta name="citation_title" content="Renormalization and Archaeological Applications"/>
+	<meta name="citation_journal_title" content="Lab Notebook for Mark E. Madsen"/>
+
+    <!-- Le styles -->
+    <link href="/assets/css/bootstrap.css" rel="stylesheet">
+    <link href="/assets/css/octicons.css" rel="stylesheet">
+    <style type="text/css">
+      body {
+        padding-top: 60px;
+        padding-bottom: 40px;
+      }
+      .sidebar-nav {
+        padding: 9px 0;
+      }
+
+      @media (max-width: 980px) {
+        /* Enable use of floated navbar text */
+        .navbar-text.pull-right {
+          float: none;
+          padding-left: 5px;
+          padding-right: 5px;
+        }
+      }
+    </style>
+    <link href="/assets/css/bootstrap-responsive.css" rel="stylesheet">
+    <link href="/css/syntax.css" rel="stylesheet">
+    
+  <script type="text/javascript" src="//use.typekit.net/xtg2arw.js"></script>
+  <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+  <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  <script>
+  MathJax.Hub.Config({
+    showProcessingMessages: false,
+    jax: ["input/TeX", "output/HTML-CSS"],
+    tex2jax: {
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+    }
+  });
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+  </script>
+<!-- Google Analytics -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-11944342-4', 'madsenlab.org');
+  ga('send', 'pageview');
+
+</script>
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="../assets/js/html5shiv.js"></script>
+    <![endif]-->
+
+    <!-- Fav and touch icons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../assets/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../assets/ico/apple-touch-icon-114-precomposed.png">
+      <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../assets/ico/apple-touch-icon-72-precomposed.png">
+                    <link rel="apple-touch-icon-precomposed" href="../assets/ico/apple-touch-icon-57-precomposed.png">
+                                   <link rel="shortcut icon" href="../assets/ico/favicon.png">
+  </head>
+
+  <body>
+
+    <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container-fluid">
+          <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="brand" href="/">MadsenLabNotebook</a>
+          <div class="nav-collapse collapse">
+                  <!-- Search site using Google's index -->
+      <form class="navbar-search pull-right" method="get" action="http://google.com/search">
+        <p>
+          <input type="hidden" name="q" value="site:notebook.madsenlab.org" />
+          <input type="text" class="search-query" name="q" />
+          <button class="btn btn-mini" type="submit"><i class="icon-search"></i></button> 
+        </p>
+      </form>
+            <ul class="nav">
+              <li class="active"><a href="/">Home</a></li>
+              <li><a href="/labnotebook.html">About</a></li>
+              <li><a href="http://about.me/mark.e.madsen">Contact</a></li>
+              <li><a href="/blog.html">Essays</a></li>
+              <li><a href="/rss.xml">Full RSS Feed</a></li>
+              <li><a href="/essays-rss.xml">Essays Only RSS Feed</a></li>
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+    </div>
+
+    <div class="container-fluid">
+      <div class="row-fluid">
+        <div class="span3">
+          <div class="well sidebar-nav">
+            <ul class="nav nav-list">
+              <li><img src="/images/madsenlabnotebook-350px.png" class="img-responsive" alt="MadsenLab Notebook"/></li>
+              <li class="nav-header">General</li>
+              <li><a href="/tags.html">Notes by Tag</a></li>
+              <li><a href="/allposts.html">All Notes by Date</a></li>
+              <li><a href="/blog.html">Essays and General Writings</a></li>
+              <li class="nav-header">Projects</li>
+              <li><a href="/projects/coarsegraining/">Coarse Grained Models of CT</a></li>
+              <li><a href="/projects/nicheconstruction/">Niche Construction and CT Modeling</a></li>
+              <li><a href="/projects/structuredinfo/">CT of Structured Information</a></li>
+              <li class="nav-header">Simulations and Experiments</li>
+              <li><a href="/byexperiment.html">Notes by Experiment</a></li>
+              <li><a href="/bymodel.html">Notes by Simulation Model</a></li>
+              <li class="nav-header">Topics</li>
+              <li><a href="/tag/cultural%20transmission.html">Cultural transmission theory</a></li>
+              <li><a href="/tag/evolutionary%20theory.html">Darwinian evolutionary theory</a></li>
+			        <li><a href="/tag/dissertation.html">Dissertation Research</a></li>
+              <li><a href="/tag/reading%20notes.html">Reading notes</a></li>
+              <li><a href="/openproblems.html">Open Research Problems</a></li>
+
+              <li class="nav-header">Meta</li>
+              <li><a href="/bio.html">Bio</a></li>
+              <li><a href="/software.html">Software</a></li>
+              <li><a href="/tools.html">Tools I Use</a></li>
+              <li><a href="/publications.html">Publications</a></li>
+              <li><a href="/openscience.html">About Open Science</a></li>
+			<li><a href="/labnotebook.html">About this Notebook</a></li>
+            </ul>
+          </div><!--/.well -->
+        </div><!--/span3-->
+
+            <div class="span8">
+  	<h2>Renormalization and Archaeological Applications</h2>
+	
+
+		<p class="text-info">
+		<table class="table table-condensed">
+			<tr class="info">
+				<td><small><i class="icon-calendar"></i>&nbsp;Created: 23 Feb 2011</small></td>
+				<td><small><i class="icon-calendar"></i>&nbsp;Modified: 19 Jun 2014</small></td>
+				<td><small><i class="icon-book">&nbsp;</i>&nbsp;<a href=http://greycite.knowledgeblog.org/bib/?uri=http://notebook.madsenlab.org/project:coarse%20grained%20model/reading%20notes/2011/02/23/renormalization.html target='_blank'>BibTeX Entry</a>
+</small></td>
+				<td><small><i class="icon-book">&nbsp;</i>&nbsp;<a href=http://greycite.knowledgeblog.org/ris/?uri=http://notebook.madsenlab.org/project:coarse%20grained%20model/reading%20notes/2011/02/23/renormalization.html target='_blank'>RIS Citation</a>
+</small></td>
+				<td><small><a href="javascript:window.print()"><i class="icon-print"></i>&nbsp;Print</a></small></td>
+				<!--<td><small><a href="/project:coarse%20grained%20model/reading%20notes/2011/02/23/renormalization.html"></i>Permalink</a></small></td> -->
+			</tr>
+		</table>
+		</p>
+
+
+  	
+	
+  <h2 id="relevance-to-archaeology">Relevance to Archaeology</h2>
+<p>If there ever was a social science that needed an explicit body of methods for scaling individual-level social theory to large-scale patterns, it’s archaeology. Archaeologists are continually attempting to formulate and use individual-level models of social processes. Whether this is foraging theory, game theory, evolutionary theory, or something more nebulous, we are borrowers of microscopic theory from other social and natural sciences.</p>
+<p>But our empirical record is not even remotely reflective of the scale at which those microscopic social processes act. We observe a macroscopic record whose “characteristic scale” is many times the time scale of the social processes we use as explanations, and aggregating together many events that are the result of many people.</p>
+<p>We also observe that record using analytical classifications and variables which are chosen for convenience and have no systematic or provable relationship to any hypothetical “units” in the past.</p>
+<h2 id="basic-concept">Basic Concept</h2>
+<p>If we strip away all of the terminology which is specific to renormalization problems in specific theoretical realms (e.g., QFT or condensed matter physics), the principle is simple:</p>
+<blockquote>
+<p>Renormalization is the formal analysis of how to describe a system’s dynamics, through a measurement process, at different scales of observation.</p>
+</blockquote>
+<p>Two things are important here:</p>
+<ol type="1">
+<li>The way we observe a system normally needs to be part of our model of the system.<br /></li>
+<li>The “scale” of our observational methods determines aspects of the quantitative relationships we will measure about a system.</li>
+</ol>
+<p>The first point has been central to physical theory since the development of quantum theory, but is relevant to all systems. It’s just that when we talk about systems described at a single scale that is the same as our measurement scale, and when the measurement process does not perturb the measured system, we can usually “factor out” the details of measurement.</p>
+<p>The second point is less well understood, but is pretty much a consequence of the first. Our measurement processes operate at “characteristic scales,” and typically there is some kind of “cutoff scale” at which we cannot observe details that are smaller, faster, or higher in frequency. But our inability to measure or observe those details doesn’t mean they don’t influence or even determine the dynamics at larger scales, so we need to account or them somehow, not just ignore them.</p>
+<p>Renormalization is the process of “integrating out” the effects of physics below a cutoff scale. To use an example from Susskind, if we’re trying to describe physics at the scale of atoms and molecules, we’re not concerned with the details of how quarks form nucleons. And if we’re interested in the properties of a volume of liquid, we’re not terribly interested in how electrons and nucleons are put together to form atoms.</p>
+<p>It turns out that we can’t simply <em>ignore</em> the effect of the smaller/faster scales, however. We need, instead, to understand how to <em>scale</em> our understanding of the dynamics at a given level to our observational methods, averaging over all the stuff below the cutoff.</p>
+<h2 id="basic-process">Basic Process</h2>
+<p>The goal is to integrate out the fast and small degrees of freedom, and use a “mean-field” type approximation for all the fast/small stuff as the basis for a dynamical description of the whole at a higher level (see above).</p>
+<p>In practice this mean:</p>
+<ol type="1">
+<li>Separate scales</li>
+<li>Separate processes</li>
+<li>Summarize scales and processes occurring fast &amp; small</li>
+<li>Rewrite the description of the entire system using the summarized description of fast/small dynamics instead of the detailed contributions of fast/small entities</li>
+<li>Find new high level observables for this renormalized description</li>
+</ol>
+<h3 id="separate-scales">Separate Scales</h3>
+<p>This is primarily time scales, but it’s also distance scales. So, basically in our case, it’s separation of spatiotemporal scales.</p>
+<p>As a prime example, assume we are investigating regional variation in ceramic assemblages, with assemblages representing chunks of time from residential communities (e.g., late prehistoric nucleated villages).</p>
+<p>The resolution of our observations is necessarily coarse-grained in such cases: the frequencies of analytical classes for each assemblage, which is equivalent to treating the <strong>average</strong> frequency of each class as constant over the duration of the assemblage (in the absence of data about artifact accumulation rates by artifact class).</p>
+<p>Given this level of observational resolution:</p>
+<ol type="1">
+<li>We probably cannot meaningfully differentiate models and hypotheses which describe individual-level variation, unless those theories display strong phase transitions whose character is distinguishable at macro scales. <em>Whether a process model does have a sharp phase transition which can be distinguished at longer, averaged scales, is something that must be investigated for each process model. No generic answer is possible.</em></li>
+<li>We need an “averaged” description of possible lower level transmission models, weighted by their frequency or prevalence, to drive the higher level description.</li>
+</ol>
+<h3 id="separate-processes">Separate Processes</h3>
+<p>This is related to separating scales, actually. Think about Susskind’s example of the two atoms interacting. Ideally the Hamiltonian is composed of a sum of terms, referring to the effects of different processes or components, and we can make a decision about whether a given process is part of the “fast” or “slow” stuff, and renormalize it out accordingly.</p>
+<p>So the point here is simply that we have to watch our theory-building carefully and try not to have terms in the Hamiltonian which combine fast and slow things into the same term, this can make it hard to renormalize (I’m pretty sure, I’m inferring that given what I know at this stage of the game).</p>
+<div class="references">
+
+</div>
+  
+
+
+<div class="well well-small">
+<p class="text-info"><i class="icon-tags"></i>&nbsp;Tags</p>
+<ul>
+
+<li><a href='/tag/cultural transmission.html'>cultural transmission</a></li>
+
+<li><a href='/tag/coarse graining.html'>coarse graining</a></li>
+
+<li><a href='/tag/renormalization.html'>renormalization</a></li>
+
+</ul>
+</div>
+
+
+</div>
+
+
+        
+      </div><!--/row-->
+
+
+    
+
+
+ 
+      <hr>
+
+      <footer>
+		        <p>&copy; Mark E. Madsen 2011-2014    <a href="mailto:mark@madsenlab.org">Email</a>&nbsp;||
+		  <a href="http://orcid.org/0000-0001-9320-8377">ORCId</a>&nbsp;||
+		  <a href="http://figshare.com/authors/Mark%20Madsen/279062">Figshare</a>&nbsp;||
+		    <a href="http://www.linkedin.com/profile/view?id=8751">LinkedIn</a>&nbsp;|| 	    <a href="http://github.com/mmadsen">GitHub</a>&nbsp;||
+        <a href="http://www.researchgate.net/profile/Mark_Madsen3/">ResearchGate</a>&nbsp;||
+        <a href="https://washington.academia.edu/MarkMadsen">Academia.edu</a></p>
+      </footer>
+
+    </div><!--/.fluid-container-->
+
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="/assets/js/jquery.js"></script>
+    <script src="/assets/js/bootstrap-transition.js"></script>
+    <script src="/assets/js/bootstrap-alert.js"></script>
+    <script src="/assets/js/bootstrap-modal.js"></script>
+    <script src="/assets/js/bootstrap-dropdown.js"></script>
+    <script src="/assets/js/bootstrap-scrollspy.js"></script>
+    <script src="/assets/js/bootstrap-tab.js"></script>
+    <script src="/assets/js/bootstrap-tooltip.js"></script>
+    <script src="/assets/js/bootstrap-popover.js"></script>
+    <script src="/assets/js/bootstrap-button.js"></script>
+    <script src="/assets/js/bootstrap-collapse.js"></script>
+    <script src="/assets/js/bootstrap-carousel.js"></script>
+    <script src="/assets/js/bootstrap-typeahead.js"></script>
+
+  </body>
+</html>

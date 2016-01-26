@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0"
+  xmlns:content="http://purl.org/rss/1.0/modules/content/"
+  xmlns:dc="http://purl.org/dc/elements/1.1/"
+  xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd"
+  xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/">
+  <channel>
+    <title>Lab Notebook for Mark E. Madsen</title>
+    <link>http://notebook.madsenlab.org</link>
+    <description>Essays RSS feed for Lab Notebook for Mark E. Madsen</description>
+    <pubDate>Mon, 06 Oct 2014 00:00:00 -0700</pubDate>
+    <item>
+      <title>My Evolutionary Narrative, Part 1</title>
+      <link>http://notebook.madsenlab.org/essays/2014/09/10/my_evolutionary_narrative.html</link>
+      <description>&lt;p&gt;Over the last few days, I have been reading my way through a stack of literature on “Approximate Bayesian Computation,” to sharpen my approach on a numerical and simulation analysis of cultural transmission models. Tonight, I started reading Jeremy Brown’s paper “Predictive Approaches to Assessing the Fit of Evolutionary Models” and was struck immediately by the idea that my own intellectual path has been one of merging explicit models with evolutionary narratives &lt;span class=&quot;citation&quot; data-cites=&quot;Brown01052014&quot;&gt;(Brown 2014)&lt;/span&gt;.&lt;/p&gt;
+&lt;div class=&quot;references&quot;&gt;
+&lt;p&gt;Brown, Jeremy M. 2014. “Predictive Approaches to Assessing the Fit of Evolutionary Models.” &lt;em&gt;Systematic Biology&lt;/em&gt; 63 (3): 289–292. doi:&lt;a href=&quot;http://dx.doi.org/10.1093/sysbio/syu009&quot;&gt;10.1093/sysbio/syu009&lt;/a&gt;. &lt;a href=&quot;http://sysbio.oxfordjournals.org/content/63/3/289.short&quot;&gt;http://sysbio.oxfordjournals.org/content/63/3/289.short&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+</description>
+      <pubDate>Wed, 10 Sep 2014 00:00:00 -0700</pubDate>
+      <guid>http://notebook.madsenlab.org/essays/2014/09/10/my_evolutionary_narrative.html</guid>
+      <dc:date>2014-09-10T00:00:00-07:00</dc:date>
+    </item>
+    <item>
+      <title>Abstracts for the 2015 SAA Conference</title>
+      <link>http://notebook.madsenlab.org/essays/2014/08/29/saa2015-abstracts.html</link>
+      <description>&lt;p&gt;Abstracts are in for the Society for American Archaeology meetings next year in San Francisco. Carl Lipo and I are collaborating on two papers, one on our continuing work mating cultural transmission models with diachronic seriations and fitting them to archaeological data, and one on reproducible science and simulation methods.&lt;/p&gt;
+&lt;div class=&quot;references&quot;&gt;
+
+&lt;/div&gt;
+</description>
+      <pubDate>Fri, 29 Aug 2014 00:00:00 -0700</pubDate>
+      <guid>http://notebook.madsenlab.org/essays/2014/08/29/saa2015-abstracts.html</guid>
+      <dc:date>2014-08-29T00:00:00-07:00</dc:date>
+    </item>
+    <item>
+      <title>Eight Years on San Juan Island</title>
+      <link>http://notebook.madsenlab.org/essays/personal/2014/07/17/eight-years-on-sanjuan.html</link>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;The cost of a thing is the amount of what I will call life which is required to be exchanged for it, immediately or in the long run. – Henry David Thoreau, &lt;strong&gt;Walden&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;div class=&quot;references&quot;&gt;
+
+&lt;/div&gt;
+</description>
+      <pubDate>Thu, 17 Jul 2014 00:00:00 -0700</pubDate>
+      <guid>http://notebook.madsenlab.org/essays/personal/2014/07/17/eight-years-on-sanjuan.html</guid>
+      <dc:date>2014-07-17T00:00:00-07:00</dc:date>
+    </item>
+    <item>
+      <title>Experiment Template for Reproducible Simulation Models</title>
+      <link>http://notebook.madsenlab.org/essays/simulation/reproducible%20science/2014/07/16/experiment-template-openscience.html</link>
+      <description>&lt;div class=&quot;references&quot;&gt;
+&lt;h3&gt;What is an “Experiment Template”?&lt;/h3&gt;
+&lt;/div&gt;
+</description>
+      <pubDate>Wed, 16 Jul 2014 00:00:00 -0700</pubDate>
+      <guid>http://notebook.madsenlab.org/essays/simulation/reproducible%20science/2014/07/16/experiment-template-openscience.html</guid>
+      <dc:date>2014-07-16T00:00:00-07:00</dc:date>
+    </item>
+    <item>
+      <title>Continuous Integration and Testing for Simulation Codes</title>
+      <link>http://notebook.madsenlab.org/essays/simulation/reproducible%20science/2014/06/14/ci-travis.html</link>
+      <description>&lt;p&gt;This week I added all of my simulation projects to the &lt;a href=&quot;https://travis-ci.org/&quot;&gt;Travis CI continuous integration&lt;/a&gt; system. Travis is a hosted service, running a Ruby-based project which will check out your code from Github, run it on a clean virtual machine preloaded with common build tools and pieces of infrastructure (e.g., databases, libraries), and perform your unit or functional tests.&lt;/p&gt;
+&lt;div class=&quot;references&quot;&gt;
+
+&lt;/div&gt;
+</description>
+      <pubDate>Sat, 14 Jun 2014 00:00:00 -0700</pubDate>
+      <guid>http://notebook.madsenlab.org/essays/simulation/reproducible%20science/2014/06/14/ci-travis.html</guid>
+      <dc:date>2014-06-14T00:00:00-07:00</dc:date>
+    </item>
+    <item>
+      <title>A Personal History of Personal Computing, 2014 Update</title>
+      <link>http://notebook.madsenlab.org/essays/2014/06/08/personal-history-personal-computing.html</link>
+      <description>&lt;p&gt;Back in 2003 on my “original” blog, and then in 2005 on &lt;a href=&quot;http://mark.madsenlab.org&quot;&gt;Extended Phenotype&lt;/a&gt;, I started a serial essay called “A Personal History of Personal Computing.” My first blog is long gone in the transition away from Radio Userland to Typepad, but otherwise my output from 2004 onward is still intact (including a conversion to Wordpress from Typepad).&lt;/p&gt;
+&lt;div class=&quot;references&quot;&gt;
+
+&lt;/div&gt;
+</description>
+      <pubDate>Sun, 08 Jun 2014 00:00:00 -0700</pubDate>
+      <guid>http://notebook.madsenlab.org/essays/2014/06/08/personal-history-personal-computing.html</guid>
+      <dc:date>2014-06-08T00:00:00-07:00</dc:date>
+    </item>
+    <item>
+      <title>Why I Support the OPALCO Board and the OPALCO Broadband Initiative</title>
+      <link>http://notebook.madsenlab.org/essays/2014/04/11/opalco-broadband-initiative.html</link>
+      <description>&lt;p&gt;by Mark Madsen, San Juan Island&lt;/p&gt;
+&lt;div class=&quot;references&quot;&gt;
+
+&lt;/div&gt;
+</description>
+      <pubDate>Fri, 11 Apr 2014 00:00:00 -0700</pubDate>
+      <guid>http://notebook.madsenlab.org/essays/2014/04/11/opalco-broadband-initiative.html</guid>
+      <dc:date>2014-04-11T00:00:00-07:00</dc:date>
+    </item>
+    <item>
+      <title>Blogging Archaeology Carnival for SAA 2014</title>
+      <link>http://notebook.madsenlab.org/essays/2013/11/26/saablogging-why-i-blog.html</link>
+      <description>&lt;p&gt;In the lead-up to the 2014 Society for American Archaeology meetings and the session on “blogging archaeology,” a “blogging carnival” has been &lt;a href=&quot;http://dougsarchaeology.wordpress.com/2013/11/05/blogging-archaeology/&quot;&gt;organized by Doug&lt;/a&gt;. Everyone is associating their posts with the hashtag &lt;a href=&quot;https://twitter.com/search?q=%23blogarch&amp;amp;src=hash&quot;&gt;&lt;code&gt;#blogarch&lt;/code&gt;&lt;/a&gt; to track it all.&lt;/p&gt;
+&lt;div class=&quot;references&quot;&gt;
+
+&lt;/div&gt;
+</description>
+      <pubDate>Tue, 26 Nov 2013 00:00:00 -0800</pubDate>
+      <guid>http://notebook.madsenlab.org/essays/2013/11/26/saablogging-why-i-blog.html</guid>
+      <dc:date>2013-11-26T00:00:00-08:00</dc:date>
+    </item>
+    <item>
+      <title>Making the Case for &quot;Medium&quot; Data</title>
+      <link>http://notebook.madsenlab.org/essays/2013/09/30/medium-data.html</link>
+      <description>&lt;p&gt;Chris Stucchio’s recent post &lt;a href=&quot;http://www.chrisstucchio.com/blog/2013/hadoop_hatred.html&quot;&gt;“Don’t use Hadoop - your data isn’t that big”&lt;/a&gt; is a valuable read for many of us in the sciences, whose data are “large,” but not “big data” in the current industry buzzword sense of the term. In the sciences, astronomers doing automated sky sweeps have big data. The physicists are CERN have big data. Mostly, the rest of us have small to medium data. I’d like to make a case that there are methods and best practices for the analysis of &lt;strong&gt;medium&lt;/strong&gt; scale data that have been largely ignored until now. And that folks doing computational studies in any discipline need to think about how to set up an analysis of medium-scale data such that it’s replicable and accurate.&lt;/p&gt;
+&lt;div class=&quot;references&quot;&gt;
+
+&lt;/div&gt;
+</description>
+      <pubDate>Mon, 30 Sep 2013 00:00:00 -0700</pubDate>
+      <guid>http://notebook.madsenlab.org/essays/2013/09/30/medium-data.html</guid>
+      <dc:date>2013-09-30T00:00:00-07:00</dc:date>
+    </item>
+    <item>
+      <title>Notes on Gabora 2013 -- Selectionism versus communal exchange</title>
+      <link>http://notebook.madsenlab.org/cultural%20transmission/theory/essays/2013/06/13/gabora2013-response-notes.html</link>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;This is a working draft, and sections may be incomplete. 6/15/13&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;div class=&quot;references&quot;&gt;
+
+&lt;/div&gt;
+</description>
+      <pubDate>Thu, 13 Jun 2013 00:00:00 -0700</pubDate>
+      <guid>http://notebook.madsenlab.org/cultural%20transmission/theory/essays/2013/06/13/gabora2013-response-notes.html</guid>
+      <dc:date>2013-06-13T00:00:00-07:00</dc:date>
+    </item>
+    <item>
+      <title>When are Darwinian and Populational Models Useful?</title>
+      <link>http://notebook.madsenlab.org/cultural%20transmission/theory/essays/2013/03/31/darwinian-populational-models.html</link>
+      <description>&lt;p&gt;&lt;span class=&quot;citation&quot; data-cites=&quot;godfrey2009darwinian&quot;&gt;(Godfrey-Smith 2009)&lt;/span&gt; uses a specific distinction between “Darwinian” explanations, and merely “populational” explanations, that is different than I’d always thought about &lt;span class=&quot;citation&quot; data-cites=&quot;Lewontin1974 Lewontin1970&quot;&gt;(R. Lewontin 1974; R. C. Lewontin 1970)&lt;/span&gt;, but is useful. And he questions whether cultural phenomena are uniformly subject to Darwinian explanations, or even populational ones.&lt;/p&gt;
+&lt;div class=&quot;references&quot;&gt;
+&lt;p&gt;Godfrey-Smith, Peter. 2009. &lt;em&gt;Darwinian Populations and Natural Selection&lt;/em&gt;. Oxford University Press.&lt;/p&gt;
+&lt;p&gt;Lewontin, Richard. 1974. &lt;em&gt;The Genetic Basis of Evolutionary Change&lt;/em&gt;. Columbia University Press.&lt;/p&gt;
+&lt;p&gt;Lewontin, Richard C. 1970. “The Units of Selection.” &lt;em&gt;Annual Reviews of Ecology and Systematics&lt;/em&gt; 1: 1–18.&lt;/p&gt;
+&lt;/div&gt;
+</description>
+      <pubDate>Sun, 31 Mar 2013 00:00:00 -0700</pubDate>
+      <guid>http://notebook.madsenlab.org/cultural%20transmission/theory/essays/2013/03/31/darwinian-populational-models.html</guid>
+      <dc:date>2013-03-31T00:00:00-07:00</dc:date>
+    </item>
+    <item>
+      <title>Coarse-Graining, History, and CT Models</title>
+      <link>http://notebook.madsenlab.org/project:coarse%20grained%20model/essays/2012/10/02/coarse-graining-history-ctmodels.html</link>
+      <description>&lt;p&gt;By coarse-graining (CG) our CT models, we hope to construct models which can be used to extract observable predictions and thus testable hypotheses at particular scales.&lt;/p&gt;
+&lt;div class=&quot;references&quot;&gt;
+
+&lt;/div&gt;
+</description>
+      <pubDate>Tue, 02 Oct 2012 00:00:00 -0700</pubDate>
+      <guid>http://notebook.madsenlab.org/project:coarse%20grained%20model/essays/2012/10/02/coarse-graining-history-ctmodels.html</guid>
+      <dc:date>2012-10-02T00:00:00-07:00</dc:date>
+    </item>
+    <item>
+      <title>Renormalization Theory and Cultural Transmission in Archaeology</title>
+      <link>http://notebook.madsenlab.org/project:coarse%20grained%20model/essays/2012/06/14/renormalization-theory-archy.html</link>
+      <description>&lt;p&gt;In general, my topic concerns the “renormalization” of cultural transmission models. This terminology will probably be unfamiliar to anthropologists and social scientists, so I’m not going to emphasize the term or formal renormalization theory in upcoming publications or my dissertation, but it is absolutely what I’m studying. I thought a blog post would be a good place to describe this concept, and its relationship to concepts more familiar to anthropologists.&lt;/p&gt;
+&lt;div class=&quot;references&quot;&gt;
+
+&lt;/div&gt;
+</description>
+      <pubDate>Thu, 14 Jun 2012 00:00:00 -0700</pubDate>
+      <guid>http://notebook.madsenlab.org/project:coarse%20grained%20model/essays/2012/06/14/renormalization-theory-archy.html</guid>
+      <dc:date>2012-06-14T00:00:00-07:00</dc:date>
+    </item>
+    <item>
+      <title>CT Models Incorporating Artifacts and the Record Via Tuple Spaces</title>
+      <link>http://notebook.madsenlab.org/project:niche%20construction/essays/open%20problems/2011/06/24/ct-tuplespace-artfacts.html</link>
+      <description>&lt;p&gt;The basic idea here: we cannot model cultural transmission, as it is really implemented in humans, by acting like traits are alleles at genetic loci. Such models were important, because they gave us a &lt;em&gt;modeling framework&lt;/em&gt; within which we can analyze CT models, but neutral Wright-Fisher or the SIS/contact model are not CT.&lt;/p&gt;
+&lt;div class=&quot;references&quot;&gt;
+
+&lt;/div&gt;
+</description>
+      <pubDate>Fri, 24 Jun 2011 00:00:00 -0700</pubDate>
+      <guid>http://notebook.madsenlab.org/project:niche%20construction/essays/open%20problems/2011/06/24/ct-tuplespace-artfacts.html</guid>
+      <dc:date>2011-06-24T00:00:00-07:00</dc:date>
+    </item>
+    <dc:date>2014-10-06T00:00:00-07:00</dc:date>
+  </channel>
+</rss>

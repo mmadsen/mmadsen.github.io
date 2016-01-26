@@ -1,0 +1,311 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head prefix="dc: http://purl.org/dc/terms/ og: http://ogp.me/ns#">
+    <meta charset="utf-8"/>
+    <title>Coarse-Graining, History, and CT Models</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="description" content="Lab Notebook for Mark E. Madsen"/>
+    <meta name="author" content="Mark E. Madsen"/>
+
+	<!-- Get date last modified from git log. (Uses current time if file entry not found, e.g. projects/)  -->
+	
+
+
+	<!-- For posts, page.date is the date they are published under, which we use as their 'canonical' dc:date -->
+	 
+	  
+	  
+
+	<!-- Posts declare modified timestamps in the sidebar, so would be redundant to put here. But then 
+	     pages don't have a dc:modified... unless we give them their own (modified) sidebar?  
+	-->
+	<!-- Ideally we would want date originally created from the _oldest_ git commit too...-->
+
+	<!-- RDFa Metadata (in DublinCore) -->
+	<meta property="dc:title" content="Coarse-Graining, History, and CT Models" />
+	<meta property="dc:creator" content="Mark E. Madsen" />
+	<meta property="dc:date" content="2012-10-02T00:00:00-07:00" />
+	<meta property="dc:format" content="text/html" />
+	<meta property="dc:language" content="en" />
+	<meta property="dc:identifier" content="/project:coarse%20grained%20model/essays/2012/10/02/coarse-graining-history-ctmodels.html" />
+	<meta property="dc:rights" content="CC BY-NC-SA 3.0" />
+	<meta property="dc:source" content="Lab Notebook for Mark E. Madsen" />
+	<meta property="dc:subject" content="Anthropology" /> 
+	<meta property="dc:type" content="website" /> 
+	<!-- RDFa Metadata (in OpenGraph) -->
+	<meta property="og:title" content="Coarse-Graining, History, and CT Models" />
+	<meta property="og:author" content="http://notebook.madsenlab.org/bio.html" />  <!-- Should be Liquid? URI? -->
+	<meta property="og:site_name" content="Lab Notebook for Mark E. Madsen" /> <!-- Same as dc:source? -->
+	<meta property="og:url" content="http://notebook.madsenlab.org/project:coarse%20grained%20model/essays/2012/10/02/coarse-graining-history-ctmodels.html" />
+	<meta property="og:type" content="website" /> 
+	<!-- Google Scholar Metadata -->
+	<meta name="citation_author" content="Mark E. Madsen"/>
+	<meta name="citation_date" content="2012-10-02T00:00:00-07:00"/>
+	<meta name="citation_title" content="Coarse-Graining, History, and CT Models"/>
+	<meta name="citation_journal_title" content="Lab Notebook for Mark E. Madsen"/>
+
+    <!-- Le styles -->
+    <link href="/assets/css/bootstrap.css" rel="stylesheet">
+    <link href="/assets/css/octicons.css" rel="stylesheet">
+    <style type="text/css">
+      body {
+        padding-top: 60px;
+        padding-bottom: 40px;
+      }
+      .sidebar-nav {
+        padding: 9px 0;
+      }
+
+      @media (max-width: 980px) {
+        /* Enable use of floated navbar text */
+        .navbar-text.pull-right {
+          float: none;
+          padding-left: 5px;
+          padding-right: 5px;
+        }
+      }
+    </style>
+    <link href="/assets/css/bootstrap-responsive.css" rel="stylesheet">
+    <link href="/css/syntax.css" rel="stylesheet">
+    
+  <script type="text/javascript" src="//use.typekit.net/xtg2arw.js"></script>
+  <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+  <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  <script>
+  MathJax.Hub.Config({
+    showProcessingMessages: false,
+    jax: ["input/TeX", "output/HTML-CSS"],
+    tex2jax: {
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+    }
+  });
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+  </script>
+<!-- Google Analytics -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-11944342-4', 'madsenlab.org');
+  ga('send', 'pageview');
+
+</script>
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="../assets/js/html5shiv.js"></script>
+    <![endif]-->
+
+    <!-- Fav and touch icons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../assets/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../assets/ico/apple-touch-icon-114-precomposed.png">
+      <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../assets/ico/apple-touch-icon-72-precomposed.png">
+                    <link rel="apple-touch-icon-precomposed" href="../assets/ico/apple-touch-icon-57-precomposed.png">
+                                   <link rel="shortcut icon" href="../assets/ico/favicon.png">
+  </head>
+
+  <body>
+
+    <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container-fluid">
+          <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="brand" href="/">MadsenLabNotebook</a>
+          <div class="nav-collapse collapse">
+                  <!-- Search site using Google's index -->
+      <form class="navbar-search pull-right" method="get" action="http://google.com/search">
+        <p>
+          <input type="hidden" name="q" value="site:notebook.madsenlab.org" />
+          <input type="text" class="search-query" name="q" />
+          <button class="btn btn-mini" type="submit"><i class="icon-search"></i></button> 
+        </p>
+      </form>
+            <ul class="nav">
+              <li class="active"><a href="/">Home</a></li>
+              <li><a href="/labnotebook.html">About</a></li>
+              <li><a href="http://about.me/mark.e.madsen">Contact</a></li>
+              <li><a href="/blog.html">Essays</a></li>
+              <li><a href="/rss.xml">Full RSS Feed</a></li>
+              <li><a href="/essays-rss.xml">Essays Only RSS Feed</a></li>
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+    </div>
+
+    <div class="container-fluid">
+      <div class="row-fluid">
+        <div class="span3">
+          <div class="well sidebar-nav">
+            <ul class="nav nav-list">
+              <li><img src="/images/madsenlabnotebook-350px.png" class="img-responsive" alt="MadsenLab Notebook"/></li>
+              <li class="nav-header">General</li>
+              <li><a href="/tags.html">Notes by Tag</a></li>
+              <li><a href="/allposts.html">All Notes by Date</a></li>
+              <li><a href="/blog.html">Essays and General Writings</a></li>
+              <li class="nav-header">Projects</li>
+              <li><a href="/projects/coarsegraining/">Coarse Grained Models of CT</a></li>
+              <li><a href="/projects/nicheconstruction/">Niche Construction and CT Modeling</a></li>
+              <li><a href="/projects/structuredinfo/">CT of Structured Information</a></li>
+              <li class="nav-header">Simulations and Experiments</li>
+              <li><a href="/byexperiment.html">Notes by Experiment</a></li>
+              <li><a href="/bymodel.html">Notes by Simulation Model</a></li>
+              <li class="nav-header">Topics</li>
+              <li><a href="/tag/cultural%20transmission.html">Cultural transmission theory</a></li>
+              <li><a href="/tag/evolutionary%20theory.html">Darwinian evolutionary theory</a></li>
+			        <li><a href="/tag/dissertation.html">Dissertation Research</a></li>
+              <li><a href="/tag/reading%20notes.html">Reading notes</a></li>
+              <li><a href="/openproblems.html">Open Research Problems</a></li>
+
+              <li class="nav-header">Meta</li>
+              <li><a href="/bio.html">Bio</a></li>
+              <li><a href="/software.html">Software</a></li>
+              <li><a href="/tools.html">Tools I Use</a></li>
+              <li><a href="/publications.html">Publications</a></li>
+              <li><a href="/openscience.html">About Open Science</a></li>
+			<li><a href="/labnotebook.html">About this Notebook</a></li>
+            </ul>
+          </div><!--/.well -->
+        </div><!--/span3-->
+
+            <div class="span8">
+  	<h2>Coarse-Graining, History, and CT Models</h2>
+	
+
+		<p class="text-info">
+		<table class="table table-condensed">
+			<tr class="info">
+				<td><small><i class="icon-backward"></i>&nbsp;<a href="/blog.html">Back to Essay List</a></small></td>
+				<td><small><i class="icon-calendar"></i>&nbsp;Modified: 19 Jun 2014</small></td>
+				<td><small><i class="icon-book">&nbsp;</i>&nbsp;<a href=http://greycite.knowledgeblog.org/bib/?uri=http://notebook.madsenlab.org/project:coarse%20grained%20model/essays/2012/10/02/coarse-graining-history-ctmodels.html target='_blank'>BibTeX Entry</a>
+</small></td>
+				<td><small><i class="icon-book">&nbsp;</i>&nbsp;<a href=http://greycite.knowledgeblog.org/ris/?uri=http://notebook.madsenlab.org/project:coarse%20grained%20model/essays/2012/10/02/coarse-graining-history-ctmodels.html target='_blank'>RIS Citation</a>
+</small></td>
+				<td><small><a href="javascript:window.print()"><i class="icon-print"></i>&nbsp;Print</a></small></td>
+			</tr>
+		</table>
+		</p>
+
+
+  	
+	
+  <p>By coarse-graining (CG) our CT models, we hope to construct models which can be used to extract observable predictions and thus testable hypotheses at particular scales.</p>
+<p>But it’s important to keep in mind that the models we usually analyze are simple equilibrium processes (e.g., neutrality, conformism), and their behavior is usually highly convergent. It may not be strictly ergodic, since the exact equilibria of a full process may depend upon initial conditions, or the variants preserved, but unlabled observables (i.e., instead of the exact frequency distribution of variants, we can look at the frequency spectrum of unlabeled variants as Ewens 2004 does) will achieve equilibrium values.</p>
+<p>CGing such a process eventually yields a universality class of models, given the strong parallels between stochastic CT models and equilibrium statistical mechanics (in fact, the q-state Potts model can be mapped exactly to neutral k-alleles mutation models). Which means that at some scale, it becomes useless to talk about detailed models. Instead, we’re interested in unique histories, and how universal processes shape those unique histories.</p>
+<h2 id="when-will-cg-equilibrium-models-be-useful">When Will CG Equilibrium Models Be Useful?</h2>
+<p>This is not to say that equilibrium models, appropriately CG’d, aren’t useful empirically. Consider a situation where we have a series of assemblages, with duration understood at least to rough interval estimates for each, and what we know are the frequencies of observational classes (e.g., artifact classes), and thus the frequency distribution or spectrum.</p>
+<p>The data are observations which are coarse-grained in at least two relevant ways from microscopic observables, in addition to taphonomic loss functions which winnow the original variation in artifact discard.</p>
+<ul>
+<li>Accumulative temporal aggregation</li>
+<li>Classificatory aggregation</li>
+</ul>
+<p>If we understand how an equilibrium CT model CG’s under these two types of transforms, and how detailed models converge to universality (or partial universality – i.e., equifinality), then the frequency spectra predicted by models can be evaluated against empirical spectra for goodness of fit.</p>
+<p>What might such goodness of fit tell us? Broad parameter regions for broad sets of models, perhaps. Or if models fall into partial universality classes with respect to some observables, rather than full convergence, then we can do model selection as a means of “induction to the best model.” But in a direct empirical sense, that’s pretty much it.</p>
+<p>We might also use such models as components of other models, as well – as the bookkeeping mechanism for models focusing on selection or game theoretic interactions.</p>
+<h2 id="historical-ct-models">Historical CT Models</h2>
+<p>But often our interest is going to be in specific historical trajectories. Because our empirical data,and the phenomena from which we measure those data, are a unique historical trajectory.</p>
+<p>In some sense, we want to know, “how likely is it, that trajectory X is an outcome from stochastic process Y.” We can do this for a sampled time series from a stochastic process, but it’s much harder to do with scattered data points.</p>
+<p>And in any case, our processes are rarely in equilibrium and ergodic. So we need a different notion of what the question “what kind of histories does process Y generate?”</p>
+<p>Coalescent theory is the right kind of answer, for a set of time-concurrent samples and an equilibrium, backward-facing process. It’s a specialized tool for answering questions about the history and characteristics of a diachronic evolutionary process given samples of its outcomes. Cladistics is another kind of “history” that has shape and characteristics of its own, which differ between processes.</p>
+<ul>
+<li>How do cladograms vary under different processes?</li>
+<li>This is strongly related to my dissertation question about how seriations vary – again, a diachronic view on a non-equilibrium process.</li>
+</ul>
+<h2 id="richer-ct-models">Richer CT Models</h2>
+<p>Ultimately, our simplest CT models are pure imitation models. B-D and D-B updating give us two “directions” for the causality here, and can have slightly different consequences in structured populations (and, possibly, affect whether a population of learners is “Darwinian enough” in Godrey-Smith’s terms to support cumulative, creative, selection).</p>
+<p>But variation tends to both “churn” and “drain” from these types of CT models. And that might be appropriate for neutral models where we don’t have a performance-based reason for something to “work.” But much of the cultural legacy we seek to explain is also involved in doing real work in supporting us, and thus there are powerful conservative forces (in the physics sense) keeping technologies and artifact complexes relatively stable. There is, in Wimsatt’s terms, “generative entrenchment” of some information and designs, which become foundational for other elements, which fit together in both designed and accidental (kludged) ways.</p>
+<p>This kind of structured information has yet to be incorporated into our models, although Gabora to her credit alludes to this in certain ways in her writings (and I need to spend more time with Sperber, who seems to see this as a major criticism of B&amp;R-style CT models).</p>
+<div class="references">
+
+</div>
+  
+
+
+
+<div class="well well-small">
+<table class="table table-condensed">
+			<tr>
+				<td><small><i class="icon-backward"></i>&nbsp;<a href="/blog.html">Back to Essay List</a></small></td>
+				<td><small><i class="icon-calendar"></i>&nbsp;Modified: 19 Jun 2014</small></td>
+				<td><small><i class="icon-book">&nbsp;</i>&nbsp;<a href=http://greycite.knowledgeblog.org/bib/?uri=http://notebook.madsenlab.org/project:coarse%20grained%20model/essays/2012/10/02/coarse-graining-history-ctmodels.html target='_blank'>BibTeX Entry</a>
+</small></td>
+				<td><small><i class="icon-book">&nbsp;</i>&nbsp;<a href=http://greycite.knowledgeblog.org/ris/?uri=http://notebook.madsenlab.org/project:coarse%20grained%20model/essays/2012/10/02/coarse-graining-history-ctmodels.html target='_blank'>RIS Citation</a>
+</small></td>
+				<td><small><a href="javascript:window.print()"><i class="icon-print"></i>&nbsp;Print</a></small></td>
+			</tr>
+		</table>
+<p class="text-info"><i class="icon-tags"></i>&nbsp;Tags</p>
+<ul>
+
+<li><a href='/tag/cultural transmission.html'>cultural transmission</a></li>
+
+<li><a href='/tag/coarse graining.html'>coarse graining</a></li>
+
+<li><a href='/tag/renormalization.html'>renormalization</a></li>
+
+<li><a href='/tag/dissertation.html'>dissertation</a></li>
+
+<li><a href='/tag/diachronic models.html'>diachronic models</a></li>
+
+<li><a href='/tag/history.html'>history</a></li>
+
+</ul>
+</div>
+
+
+
+
+</div>
+
+
+        
+      </div><!--/row-->
+
+
+    
+
+
+ 
+      <hr>
+
+      <footer>
+		        <p>&copy; Mark E. Madsen 2011-2014    <a href="mailto:mark@madsenlab.org">Email</a>&nbsp;||
+		  <a href="http://orcid.org/0000-0001-9320-8377">ORCId</a>&nbsp;||
+		  <a href="http://figshare.com/authors/Mark%20Madsen/279062">Figshare</a>&nbsp;||
+		    <a href="http://www.linkedin.com/profile/view?id=8751">LinkedIn</a>&nbsp;|| 	    <a href="http://github.com/mmadsen">GitHub</a>&nbsp;||
+        <a href="http://www.researchgate.net/profile/Mark_Madsen3/">ResearchGate</a>&nbsp;||
+        <a href="https://washington.academia.edu/MarkMadsen">Academia.edu</a></p>
+      </footer>
+
+    </div><!--/.fluid-container-->
+
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="/assets/js/jquery.js"></script>
+    <script src="/assets/js/bootstrap-transition.js"></script>
+    <script src="/assets/js/bootstrap-alert.js"></script>
+    <script src="/assets/js/bootstrap-modal.js"></script>
+    <script src="/assets/js/bootstrap-dropdown.js"></script>
+    <script src="/assets/js/bootstrap-scrollspy.js"></script>
+    <script src="/assets/js/bootstrap-tab.js"></script>
+    <script src="/assets/js/bootstrap-tooltip.js"></script>
+    <script src="/assets/js/bootstrap-popover.js"></script>
+    <script src="/assets/js/bootstrap-button.js"></script>
+    <script src="/assets/js/bootstrap-collapse.js"></script>
+    <script src="/assets/js/bootstrap-carousel.js"></script>
+    <script src="/assets/js/bootstrap-typeahead.js"></script>
+
+  </body>
+</html>

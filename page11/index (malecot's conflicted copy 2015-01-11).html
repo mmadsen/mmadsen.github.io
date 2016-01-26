@@ -1,0 +1,453 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head prefix="dc: http://purl.org/dc/terms/ og: http://ogp.me/ns#">
+    <meta charset="utf-8"/>
+    <title>Cultural Transmission of Structured Information</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="description" content="Lab Notebook for Mark E. Madsen"/>
+    <meta name="author" content="Mark E. Madsen"/>
+
+	<!-- Get date last modified from git log. (Uses current time if file entry not found, e.g. projects/)  -->
+	
+
+
+	<!-- For posts, page.date is the date they are published under, which we use as their 'canonical' dc:date -->
+	 
+	  
+	  
+
+	<!-- Posts declare modified timestamps in the sidebar, so would be redundant to put here. But then 
+	     pages don't have a dc:modified... unless we give them their own (modified) sidebar?  
+	-->
+	<!-- Ideally we would want date originally created from the _oldest_ git commit too...-->
+
+	<!-- RDFa Metadata (in DublinCore) -->
+	<meta property="dc:title" content="Cultural Transmission of Structured Information" />
+	<meta property="dc:creator" content="Mark E. Madsen" />
+	<meta property="dc:date" content="2013-05-27T17:00:00-07:00" />
+	<meta property="dc:format" content="text/html" />
+	<meta property="dc:language" content="en" />
+	<meta property="dc:identifier" content="/page11/index.html" />
+	<meta property="dc:rights" content="CC BY-NC-SA 3.0" />
+	<meta property="dc:source" content="Lab Notebook for Mark E. Madsen" />
+	<meta property="dc:subject" content="Anthropology" /> 
+	<meta property="dc:type" content="website" /> 
+	<!-- RDFa Metadata (in OpenGraph) -->
+	<meta property="og:title" content="Cultural Transmission of Structured Information" />
+	<meta property="og:author" content="http://notebook.madsenlab.org/bio.html" />  <!-- Should be Liquid? URI? -->
+	<meta property="og:site_name" content="Lab Notebook for Mark E. Madsen" /> <!-- Same as dc:source? -->
+	<meta property="og:url" content="http://notebook.madsenlab.org/page11/index.html" />
+	<meta property="og:type" content="website" /> 
+	<!-- Google Scholar Metadata -->
+	<meta name="citation_author" content="Mark E. Madsen"/>
+	<meta name="citation_date" content="2013-05-27T17:00:00-07:00"/>
+	<meta name="citation_title" content="Cultural Transmission of Structured Information"/>
+	<meta name="citation_journal_title" content="Lab Notebook for Mark E. Madsen"/>
+
+    <!-- Le styles -->
+    <link href="/assets/css/bootstrap.css" rel="stylesheet">
+    <link href="/assets/css/octicons.css" rel="stylesheet">
+    <style type="text/css">
+      body {
+        padding-top: 60px;
+        padding-bottom: 40px;
+      }
+      .sidebar-nav {
+        padding: 9px 0;
+      }
+
+      @media (max-width: 980px) {
+        /* Enable use of floated navbar text */
+        .navbar-text.pull-right {
+          float: none;
+          padding-left: 5px;
+          padding-right: 5px;
+        }
+      }
+    </style>
+    <link href="/assets/css/bootstrap-responsive.css" rel="stylesheet">
+
+    
+  <script type="text/javascript" src="//use.typekit.net/xtg2arw.js"></script>
+  <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+  <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  <script>
+  MathJax.Hub.Config({
+    showProcessingMessages: false,
+    jax: ["input/TeX", "output/HTML-CSS"],
+    tex2jax: {
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+    }
+  });
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+  </script>
+
+<!-- Google Analytics -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-11944342-4', 'madsenlab.org');
+  ga('send', 'pageview');
+
+</script>
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="../assets/js/html5shiv.js"></script>
+    <![endif]-->
+
+    <!-- Fav and touch icons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../assets/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../assets/ico/apple-touch-icon-114-precomposed.png">
+      <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../assets/ico/apple-touch-icon-72-precomposed.png">
+                    <link rel="apple-touch-icon-precomposed" href="../assets/ico/apple-touch-icon-57-precomposed.png">
+                                   <link rel="shortcut icon" href="../assets/ico/favicon.png">
+  </head>
+
+  <body>
+
+    <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container-fluid">
+          <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="brand" href="/">MadsenLabNotebook</a>
+          <div class="nav-collapse collapse">
+                  <!-- Search site using Google's index -->
+      <form class="navbar-search pull-right" method="get" action="http://google.com/search">
+        <p>
+          <input type="hidden" name="q" value="site:notebook.madsenlab.org" />
+          <input type="text" class="search-query" name="q" />
+          <button class="btn btn-mini" type="submit"><i class="icon-search"></i></button> 
+        </p>
+      </form>
+            <ul class="nav">
+              <li class="active"><a href="/">Home</a></li>
+              <li><a href="/labnotebook.html">About</a></li>
+              <li><a href="http://about.me/mark.e.madsen">Contact</a></li>
+              <li><a href="/blog.html">Essays</a></li>
+              <li><a href="/rss.xml">Full RSS Feed</a></li>
+              <li><a href="/essays-rss.xml">Essays Only RSS Feed</a></li>
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+    </div>
+
+    <div class="container-fluid">
+      <div class="row-fluid">
+        <div class="span3">
+          <div class="well sidebar-nav">
+            <ul class="nav nav-list">
+              <li><img src="/images/madsenlabnotebook-350px.png" class="img-responsive" alt="MadsenLab Notebook"/></li>
+              <li class="nav-header">General</li>
+              <li><a href="/tags.html">Notes by Tag</a></li>
+              <li><a href="/allposts.html">All Notes by Date</a></li>
+              <li><a href="/blog.html">Essays and General Writings</a></li>
+              <li class="nav-header">Projects</li>
+              <li><a href="/projects/coarsegraining/">Coarse Grained Models of CT</a></li>
+              <li><a href="/projects/nicheconstruction/">Niche Construction and CT Modeling</a></li>
+              <li><a href="/projects/structuredinfo/">CT of Structured Information</a></li>
+              <li class="nav-header">Simulations and Experiments</li>
+              <li><a href="/byexperiment.html">Notes by Experiment</a></li>
+              <li><a href="/bymodel.html">Notes by Simulation Model</a></li>
+              <li class="nav-header">Topics</li>
+              <li><a href="/tag/cultural%20transmission.html">Cultural transmission theory</a></li>
+              <li><a href="/tag/evolutionary%20theory.html">Darwinian evolutionary theory</a></li>
+              <li><a href="/tag/dissertation.html">Dissertation Research</a></li>
+              <li><a href="/tag/reading%20notes.html">Reading notes</a></li>
+              <li><a href="/openproblems.html">Open Research Problems</a></li>
+              <li class="nav-header">Meta</li>
+              <li><a href="/bio.html">Bio</a></li>
+              <li><a href="/software.html">Software</a></li>
+              <li><a href="/tools.html">Tools I Use</a></li>
+              <li><a href="/publications.html">Publications</a></li>
+              <li><a href="/openscience.html">About Open Science</a></li>
+      <li><a href="/labnotebook.html">About this Notebook</a></li>
+            </ul>
+          </div><!--/.well -->
+        </div><!--/span3-->
+        <div class="span9">
+            <h2>Cultural Transmission of Structured Information</h2>
+
+<h3>Project Description</h3>
+
+<p>Theoretical, experiment, and ethnographic studies of cultural transmission have long recognized that the information acquired by social learning is not atomistic nor holistic, but structured (Mesoudi and O'Brien 2008 employ the term "hierarchical"). </p>  
+
+<p>By "structure," I simply mean that cultural information often (if not almost always) comes in pieces which have relationships to other pieces.  An example of such relationships is "abstract vs concrete," while another is that Piece A is a "prerequisite" to Piece B.  Many other such relationships exist, of course, because concepts and sets of concepts bear many _semantic_ relationships. </p>  
+
+<p>Despite the recognition in theory and observation that cultural information, skills, and traits are structured in this way, our formal models (both mathematical and simulation) tend to represent cultural variation as _unstructured._  This is a result of employing the mathematical machinery of population genetics, for the most part.  We treat cultural traits as if they were genetic loci, with variants as alleles.  The copying and innovation rules we implement -- again, for the most part -- operate on single loci.  Occasionally we model interactions between loci, as when one locus models the level of conformist bias an individual displays, which affects the copying of another locus containing a substantive design variant. </p>  
+
+<p>The literature on the _evolution of cumulative culture and transmission itself_ is also somewhat reflective on the nature of the cultural information load itself (aside:  we have no good term which mimics "genotype" or "genome" and I refuse to use "memeome" or anything reminiscent of memetics).  Joe Henrich, among others, have modeled the consequences of different transmission rules and demographic models, on the accumulation of cultural information, with very interesting results. </p> 
+
+<p>But none of this work really treats cultural variation as _structured_, in the sense described here.  The closest approach is Mesoudi and O'Brien's (2008) modeling of cultural "recipes" (sensu Neff 1992, Krause 1985) and their importance compared to "holistic" or "atomistic" (their term is "diffusionist") structures. </p>  
+
+<p>This project follows in Mesoudi and O'Brien's footsteps, but seeks to extend the notion of a "recipe" to encompass a variety of semantic relationships.  Some blocks of cultural information do, in fact, comprise something like a "recipe," _sensu stricto_.  But we also need to understand what the spatiotemporal and time series consequences are for the transmission of information that has prerequisite-type relationships, since these are ubiquitious in complex technologies and tasks.  </p> 
+
+<p>In particular, "prerequisite" information and "abstract/concrete" relationships should create emergent effects that William Wimsatt has called "generative entrenchment," a key aspect of both genetic and cultural "evo-devo" systems.  To date, it has been impossible to see such effects in our simple "beanbag" cultural transmission models.</p> 
+
+<p>Little of this project will be composed of analytical models.  The ability to represent semantic relationships like those described is algorithmic and data-driven.  Thus, the primary tool is simulation modeling, employing semantic technology derived from a decade of work in cognitive science, computer science, and the Semantic Web. </p>  
+
+<p>This project is just getting off the ground, but I am laying the groundwork for code modules which will allow simple versions of structure information models.</p> 
+
+<h3>Project Notes</h3>
+
+
+<table class="table table-condensed">
+
+
+
+	<tr>
+	<td>09 Jul 2014</td>
+	<td><a href="/project:structured%20information/model:axelrod-ct/experiment:experiment-semanticaxelrod/2014/07/09/semanticaxelrod-review-revisions.html">Semantic Axelrod Review Comments/Revision Plan</a></td>
+	</tr>
+
+
+
+
+
+	<tr>
+	<td>14 Jun 2014</td>
+	<td><a href="/project:structured%20information/open%20problems/2014/06/14/open-structured-problems.html">Open Problems in Structured Information Models</a></td>
+	</tr>
+
+
+
+
+
+	<tr>
+	<td>26 Apr 2014</td>
+	<td><a href="/project:structured%20information/model:axelrod-ct/experiment:experiment-semanticaxelrod/2014/04/26/semantic-next-steps.html">Semantic Axelrod - Next Steps</a></td>
+	</tr>
+
+
+
+
+
+	<tr>
+	<td>16 Mar 2014</td>
+	<td><a href="/project:structured%20information/model:axelrod-ct/experiment:experiment-semanticaxelrod/2014/03/16/semantic-todo-list.html">TODO for Semantic Axelrod project</a></td>
+	</tr>
+
+
+
+
+
+	<tr>
+	<td>10 Mar 2014</td>
+	<td><a href="/project:structured%20information/model:axelrod-ct/experiment:experiment-semanticaxelrod/2014/03/10/symmetries-multiple-tree-components.html">Analysis of Symmetry Metrics for Forests of Balanced Trees</a></td>
+	</tr>
+
+
+
+
+
+	<tr>
+	<td>11 Feb 2014</td>
+	<td><a href="/project:structured%20information/model:axelrod-ct/experiment:experiment-semanticaxelrod/2014/02/11/semantic-update-observables.html">Update on Tree Structure Models and Observable Variables</a></td>
+	</tr>
+
+
+
+
+
+	<tr>
+	<td>18 Jan 2014</td>
+	<td><a href="/project:structured%20information/model:axelrod-ct/experiment:experiment-semanticaxelrod/2014/01/18/semantic-trait-graphs-and-symmetries.html">Knowledge Prerequisites and Graph Symmetries</a></td>
+	</tr>
+
+
+
+
+
+	<tr>
+	<td>11 Jan 2014</td>
+	<td><a href="/project:structured%20information/model:axelrod-ct/experiment:experiment-semanticaxelrod/2014/01/11/semantic-axelrod-prerequisites.html">Tree Structured Axelrod for Knowledge Prerequisites</a></td>
+	</tr>
+
+
+
+
+
+	<tr>
+	<td>28 Dec 2013</td>
+	<td><a href="/project:structured%20information/model:axelrod-ct/experiment:experiment-semanticaxelrod/2013/12/28/issues-with-tree-axelrod.html">Issues with Tree Structured Axelrod</a></td>
+	</tr>
+
+
+
+
+
+	<tr>
+	<td>11 Dec 2013</td>
+	<td><a href="/project:structured%20information/model:axelrod-ct/experiment:experiment-semanticaxelrod/2013/12/11/semantic-trees-and-graphs.html">Semantic Axelrod with Concept Trees and Graphs</a></td>
+	</tr>
+
+
+
+
+
+	<tr>
+	<td>18 Nov 2013</td>
+	<td><a href="/project:structured%20information/model:axelrod-ct/experiment:experiment-semanticaxelrod/2013/11/18/axelrod-to-semantic-model-notes.html">Original Axelrod to Semantic Axelrod model - implementation notes</a></td>
+	</tr>
+
+
+
+
+
+	<tr>
+	<td>23 Oct 2013</td>
+	<td><a href="/project:structured%20information/model:axelrod-ct/experiment:experiment-semanticaxelrod/2013/10/23/semanticaxelrod-research-design.html">Research Design for Semantic Axelrod Model</a></td>
+	</tr>
+
+
+
+
+
+	<tr>
+	<td>05 Sep 2013</td>
+	<td><a href="/project:structured%20information/model:axelrod-ct/experiment:experiment-semanticaxelrod/2013/09/05/saa2014-abstract-draft.html">SAA 2014 Abstract Draft</a></td>
+	</tr>
+
+
+
+
+
+	<tr>
+	<td>11 Aug 2013</td>
+	<td><a href="/project:structured%20information/model:axelrod-ct/experiment:experiment-semanticaxelrod/2013/08/11/semanticaxelrod-implementation.html">Implementing Semantic Axelrod in CTPy</a></td>
+	</tr>
+
+
+
+
+
+	<tr>
+	<td>11 Aug 2013</td>
+	<td><a href="/project:structured%20information/model:axelrod-ct/experiment:experiment-semanticaxelrod/2013/08/11/semanticaxelrod-abstract-notes.html">Semantic Axelrod Model - Conference Abstract and Project Notes</a></td>
+	</tr>
+
+
+
+
+
+	<tr>
+	<td>11 Aug 2013</td>
+	<td><a href="/project:structured%20information/model:axelrod-ct/experiment:experiment-semanticaxelrod/2013/08/11/semantic-ct-models-2007-notes.html">Madsen and Lipo 2007 - Beyond Beanbag Models of Cultural Transmission</a></td>
+	</tr>
+
+
+
+
+
+	<tr>
+	<td>24 Jul 2013</td>
+	<td><a href="/project:structured%20information/model:axelrod-ct/experiment:experiment-semanticaxelrod/2013/07/24/semantic-axelrod.html">The Semantic Axelrod Model</a></td>
+	</tr>
+
+
+
+
+
+	<tr>
+	<td>07 Jun 2013</td>
+	<td><a href="/project:structured%20information/2013/06/07/structured-info-notes.html">Rough notes on structured information in CT models</a></td>
+	</tr>
+
+
+
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+			<div class="well well-small">
+			<p class="text-info"><i class="icon-tags"></i>&nbsp;Tags</p>
+			<ul>
+			
+			<li><a href='/tag/cultural transmission.html'>cultural transmission</a></li>
+			
+			<li><a href='/tag/state space.html'>state space</a></li>
+			
+			<li><a href='/tag/structured information.html'>structured information</a></li>
+			
+			<li><a href='/tag/evodevo.html'>evodevo</a></li>
+			
+			<li><a href='/tag/development.html'>development</a></li>
+			
+			<li><a href='/tag/thick models.html'>thick models</a></li>
+			
+			</ul>
+			</div>
+        </div> 
+      </div><!--/row-->
+
+
+    
+
+
+ 
+      <hr>
+
+      <footer>
+        <p>&copy; Mark E. Madsen 2011-2014      <a href="mailto:mark@madsenlab.org">Email</a>&nbsp;||
+  <a href="http://orcid.org/0000-0001-9320-8377">ORCId</a>&nbsp;||
+  <a href="http://figshare.com/authors/Mark%20Madsen/279062">Figshare</a>&nbsp;||
+    <a href="http://www.linkedin.com/profile/view?id=8751">LinkedIn</a>&nbsp;|| 	    <a href="http://github.com/mmadsen">GitHub</a>&nbsp;||
+        <a href="http://www.researchgate.net/profile/Mark_Madsen3/">ResearchGate</a>&nbsp;||
+        <a href="https://washington.academia.edu/MarkMadsen">Academia.edu</a></p>
+      </footer>
+
+    </div><!--/.fluid-container-->
+
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="/assets/js/jquery.js"></script>
+    <script src="/assets/js/bootstrap-transition.js"></script>
+    <script src="/assets/js/bootstrap-alert.js"></script>
+    <script src="/assets/js/bootstrap-modal.js"></script>
+    <script src="/assets/js/bootstrap-dropdown.js"></script>
+    <script src="/assets/js/bootstrap-scrollspy.js"></script>
+    <script src="/assets/js/bootstrap-tab.js"></script>
+    <script src="/assets/js/bootstrap-tooltip.js"></script>
+    <script src="/assets/js/bootstrap-popover.js"></script>
+    <script src="/assets/js/bootstrap-button.js"></script>
+    <script src="/assets/js/bootstrap-collapse.js"></script>
+    <script src="/assets/js/bootstrap-carousel.js"></script>
+    <script src="/assets/js/bootstrap-typeahead.js"></script>
+
+  </body>
+</html>

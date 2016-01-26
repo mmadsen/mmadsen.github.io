@@ -16,50 +16,10 @@
 	"buffers":
 	[
 		{
-			"file": "_posts/2015-07-27-simupop-performance-in-seriationct.md",
-			"settings":
-			{
-				"buffer_size": 7288,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "_posts/2015-08-24-simulation-performance-explorations.md",
-			"settings":
-			{
-				"buffer_size": 8281,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "_posts/2015-05-14-seriationct-sample-size-experiments.md",
-			"settings":
-			{
-				"buffer_size": 2500,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "_posts/2015-09-01-idss-seration-version-2.3-released.md",
-			"settings":
-			{
-				"buffer_size": 2895,
-				"line_ending": "Unix"
-			}
-		},
-		{
 			"file": "_posts/2015-09-06-saa2016-abstract.md",
 			"settings":
 			{
-				"buffer_size": 1310,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "/Users/mark/Library/Application Support/Sublime Text 3/Packages/User/Preferences.sublime-settings",
-			"settings":
-			{
-				"buffer_size": 166,
+				"buffer_size": 6184,
 				"line_ending": "Unix"
 			}
 		}
@@ -119,6 +79,11 @@
 	"file_history":
 	[
 		"/Users/mark/Library/Application Support/Sublime Text 3/Packages/User/Preferences.sublime-settings",
+		"/Users/mark/Dropbox/Research/websites/lnraw/_posts/2015-07-27-simupop-performance-in-seriationct.md",
+		"/Users/mark/Dropbox/Research/websites/lnraw/_posts/2015-08-24-simulation-performance-explorations.md",
+		"/Users/mark/Dropbox/Research/websites/lnraw/_posts/2015-05-14-seriationct-sample-size-experiments.md",
+		"/Users/mark/Dropbox/Research/websites/lnraw/_posts/2015-09-01-idss-seration-version-2.3-released.md",
+		"/Users/mark/Dropbox/Research/websites/lnraw/_posts/2015-09-06-saa2016-abstract.md",
 		"/Users/mark/Dropbox/Research/websites/lnraw/_drafts/states-of-ct-research.md",
 		"/Users/mark/Dropbox/Research/websites/lnraw/_posts/2015-07-07-new-directions-ct-computing.md",
 		"/Users/mark/Dropbox/Research/websites/lnraw/_drafts/new-directions-ct-computing.md",
@@ -126,7 +91,6 @@
 		"/Users/mark/Dropbox/Research/websites/lnraw/_posts/2015-03-07-structured-information-pac-learning.md",
 		"/Users/mark/Dropbox/Research/websites/lnraw/_posts/2015-05-26-state-of-ct-research.md",
 		"/Users/mark/Dropbox/Research/websites/lnraw/_posts/2015-04-27-seriationct-next-steps.md",
-		"/Users/mark/Dropbox/Research/websites/lnraw/_posts/2015-05-14-seriationct-sample-size-experiments.md",
 		"/Users/mark/Dropbox/Research/websites/lnraw/_posts/2015-04-11-saa2015-papers.md",
 		"/Users/mark/Dropbox/Research/websites/lnraw/_layouts/default.html",
 		"/Users/mark/Dropbox/Research/websites/lnraw/_layouts/project_layout.html",
@@ -241,11 +205,7 @@
 		"/Users/mark/Dropbox/Research/websites/lnraw/doc/adding-experiment.html",
 		"/Users/mark/Dropbox/Research/websites/lnraw/doc/adding-project.html",
 		"/Users/mark/Dropbox/Research/websites/lnraw/_posts/2012-07-25-approaches-evolution-culture.md",
-		"/Users/mark/Dropbox/Research/websites/lnraw/_posts/2013-03-31-darwinian-populational-models.md",
-		"/Users/mark/Dropbox/Research/websites/lnraw/_posts/2013-04-10-psu-talk-notes.md",
-		"/Users/mark/Dropbox/Research/websites/lnraw/_posts/2013-05-27-time-in-archaeology.md",
-		"/Users/mark/Dropbox/Research/websites/lnraw/_posts/2013-06-05-psu-talk-presentation.md",
-		"/Users/mark/Dropbox/Research/websites/lnraw/_posts/2013-07-10-time-perspectivism-annotated-bib.md"
+		"/Users/mark/Dropbox/Research/websites/lnraw/_posts/2013-03-31-darwinian-populational-models.md"
 	],
 	"find":
 	{
@@ -291,140 +251,24 @@
 	"groups":
 	[
 		{
-			"selected": 4,
+			"selected": 0,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "_posts/2015-07-27-simupop-performance-in-seriationct.md",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 7288,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								7259,
-								7259
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Markdown/Markdown.tmLanguage",
-							"tab_size": 8,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 1009.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 5,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "_posts/2015-08-24-simulation-performance-explorations.md",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 8281,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								8270,
-								8270
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Markdown/Markdown.tmLanguage",
-							"tab_size": 8,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 1672.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 4,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "_posts/2015-05-14-seriationct-sample-size-experiments.md",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 2500,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								194,
-								194
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Markdown/Markdown.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 3,
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "_posts/2015-09-01-idss-seration-version-2.3-released.md",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 2895,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								2382,
-								2382
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Markdown/Markdown.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 2,
-					"type": "text"
-				},
-				{
-					"buffer": 4,
 					"file": "_posts/2015-09-06-saa2016-abstract.md",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1310,
+						"buffer_size": 6184,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1254,
-								1254
+								252,
+								252
 							]
 						],
 						"settings":
@@ -432,38 +276,10 @@
 							"syntax": "Packages/Markdown/Markdown.tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 21.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
-					"type": "text"
-				},
-				{
-					"buffer": 5,
-					"file": "/Users/mark/Library/Application Support/Sublime Text 3/Packages/User/Preferences.sublime-settings",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 166,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								123,
-								123
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JSON.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
 					"type": "text"
 				}
 			]

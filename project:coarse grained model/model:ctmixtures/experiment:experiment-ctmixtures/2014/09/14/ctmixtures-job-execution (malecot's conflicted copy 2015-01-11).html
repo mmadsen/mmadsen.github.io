@@ -1,0 +1,343 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head prefix="dc: http://purl.org/dc/terms/ og: http://ogp.me/ns#">
+    <meta charset="utf-8"/>
+    <title>CTMixtures Experiment Configuration and Execution</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="description" content="Lab Notebook for Mark E. Madsen"/>
+    <meta name="author" content="Mark E. Madsen"/>
+
+	<!-- Get date last modified from git log. (Uses current time if file entry not found, e.g. projects/)  -->
+	
+
+
+	<!-- For posts, page.date is the date they are published under, which we use as their 'canonical' dc:date -->
+	 
+	  
+	  
+
+	<!-- Posts declare modified timestamps in the sidebar, so would be redundant to put here. But then 
+	     pages don't have a dc:modified... unless we give them their own (modified) sidebar?  
+	-->
+	<!-- Ideally we would want date originally created from the _oldest_ git commit too...-->
+
+	<!-- RDFa Metadata (in DublinCore) -->
+	<meta property="dc:title" content="CTMixtures Experiment Configuration and Execution" />
+	<meta property="dc:creator" content="Mark E. Madsen" />
+	<meta property="dc:date" content="2014-09-14T00:00:00-07:00" />
+	<meta property="dc:format" content="text/html" />
+	<meta property="dc:language" content="en" />
+	<meta property="dc:identifier" content="/project:coarse%20grained%20model/model:ctmixtures/experiment:experiment-ctmixtures/2014/09/14/ctmixtures-job-execution.html" />
+	<meta property="dc:rights" content="CC BY-NC-SA 3.0" />
+	<meta property="dc:source" content="Lab Notebook for Mark E. Madsen" />
+	<meta property="dc:subject" content="Anthropology" /> 
+	<meta property="dc:type" content="website" /> 
+	<!-- RDFa Metadata (in OpenGraph) -->
+	<meta property="og:title" content="CTMixtures Experiment Configuration and Execution" />
+	<meta property="og:author" content="http://notebook.madsenlab.org/bio.html" />  <!-- Should be Liquid? URI? -->
+	<meta property="og:site_name" content="Lab Notebook for Mark E. Madsen" /> <!-- Same as dc:source? -->
+	<meta property="og:url" content="http://notebook.madsenlab.org/project:coarse%20grained%20model/model:ctmixtures/experiment:experiment-ctmixtures/2014/09/14/ctmixtures-job-execution.html" />
+	<meta property="og:type" content="website" /> 
+	<!-- Google Scholar Metadata -->
+	<meta name="citation_author" content="Mark E. Madsen"/>
+	<meta name="citation_date" content="2014-09-14T00:00:00-07:00"/>
+	<meta name="citation_title" content="CTMixtures Experiment Configuration and Execution"/>
+	<meta name="citation_journal_title" content="Lab Notebook for Mark E. Madsen"/>
+
+    <!-- Le styles -->
+    <link href="/assets/css/bootstrap.css" rel="stylesheet">
+    <link href="/assets/css/octicons.css" rel="stylesheet">
+    <style type="text/css">
+      body {
+        padding-top: 60px;
+        padding-bottom: 40px;
+      }
+      .sidebar-nav {
+        padding: 9px 0;
+      }
+
+      @media (max-width: 980px) {
+        /* Enable use of floated navbar text */
+        .navbar-text.pull-right {
+          float: none;
+          padding-left: 5px;
+          padding-right: 5px;
+        }
+      }
+    </style>
+    <link href="/assets/css/bootstrap-responsive.css" rel="stylesheet">
+    <link href="/css/syntax.css" rel="stylesheet">
+    
+  <script type="text/javascript" src="//use.typekit.net/xtg2arw.js"></script>
+  <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+  <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  <script>
+  MathJax.Hub.Config({
+    showProcessingMessages: false,
+    jax: ["input/TeX", "output/HTML-CSS"],
+    tex2jax: {
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+    }
+  });
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+  </script>
+<!-- Google Analytics -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-11944342-4', 'madsenlab.org');
+  ga('send', 'pageview');
+
+</script>
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="../assets/js/html5shiv.js"></script>
+    <![endif]-->
+
+    <!-- Fav and touch icons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../assets/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../assets/ico/apple-touch-icon-114-precomposed.png">
+      <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../assets/ico/apple-touch-icon-72-precomposed.png">
+                    <link rel="apple-touch-icon-precomposed" href="../assets/ico/apple-touch-icon-57-precomposed.png">
+                                   <link rel="shortcut icon" href="../assets/ico/favicon.png">
+  </head>
+
+  <body>
+
+    <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container-fluid">
+          <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="brand" href="/">MadsenLabNotebook</a>
+          <div class="nav-collapse collapse">
+                  <!-- Search site using Google's index -->
+      <form class="navbar-search pull-right" method="get" action="http://google.com/search">
+        <p>
+          <input type="hidden" name="q" value="site:notebook.madsenlab.org" />
+          <input type="text" class="search-query" name="q" />
+          <button class="btn btn-mini" type="submit"><i class="icon-search"></i></button> 
+        </p>
+      </form>
+            <ul class="nav">
+              <li class="active"><a href="/">Home</a></li>
+              <li><a href="/labnotebook.html">About</a></li>
+              <li><a href="http://about.me/mark.e.madsen">Contact</a></li>
+              <li><a href="/blog.html">Essays</a></li>
+              <li><a href="/rss.xml">Full RSS Feed</a></li>
+              <li><a href="/essays-rss.xml">Essays Only RSS Feed</a></li>
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+    </div>
+
+    <div class="container-fluid">
+      <div class="row-fluid">
+        <div class="span3">
+          <div class="well sidebar-nav">
+            <ul class="nav nav-list">
+              <li><img src="/images/madsenlabnotebook-350px.png" class="img-responsive" alt="MadsenLab Notebook"/></li>
+              <li class="nav-header">General</li>
+              <li><a href="/tags.html">Notes by Tag</a></li>
+              <li><a href="/allposts.html">All Notes by Date</a></li>
+              <li><a href="/blog.html">Essays and General Writings</a></li>
+              <li class="nav-header">Projects</li>
+              <li><a href="/projects/coarsegraining/">Coarse Grained Models of CT</a></li>
+              <li><a href="/projects/nicheconstruction/">Niche Construction and CT Modeling</a></li>
+              <li><a href="/projects/structuredinfo/">CT of Structured Information</a></li>
+              <li class="nav-header">Simulations and Experiments</li>
+              <li><a href="/byexperiment.html">Notes by Experiment</a></li>
+              <li><a href="/bymodel.html">Notes by Simulation Model</a></li>
+              <li class="nav-header">Topics</li>
+              <li><a href="/tag/cultural%20transmission.html">Cultural transmission theory</a></li>
+              <li><a href="/tag/evolutionary%20theory.html">Darwinian evolutionary theory</a></li>
+			        <li><a href="/tag/dissertation.html">Dissertation Research</a></li>
+              <li><a href="/tag/reading%20notes.html">Reading notes</a></li>
+              <li><a href="/openproblems.html">Open Research Problems</a></li>
+
+              <li class="nav-header">Meta</li>
+              <li><a href="/bio.html">Bio</a></li>
+              <li><a href="/software.html">Software</a></li>
+              <li><a href="/tools.html">Tools I Use</a></li>
+              <li><a href="/publications.html">Publications</a></li>
+              <li><a href="/openscience.html">About Open Science</a></li>
+			<li><a href="/labnotebook.html">About this Notebook</a></li>
+            </ul>
+          </div><!--/.well -->
+        </div><!--/span3-->
+
+            <div class="span8">
+  	<h2>CTMixtures Experiment Configuration and Execution</h2>
+	
+
+		<p class="text-info">
+		<table class="table table-condensed">
+			<tr class="info">
+				<td><small><i class="icon-calendar"></i>&nbsp;Created: 14 Sep 2014</small></td>
+				<td><small><i class="icon-calendar"></i>&nbsp;Modified: 14 Sep 2014</small></td>
+				<td><small><i class="icon-book">&nbsp;</i>&nbsp;<a href=http://greycite.knowledgeblog.org/bib/?uri=http://notebook.madsenlab.org/project:coarse%20grained%20model/model:ctmixtures/experiment:experiment-ctmixtures/2014/09/14/ctmixtures-job-execution.html target='_blank'>BibTeX Entry</a>
+</small></td>
+				<td><small><i class="icon-book">&nbsp;</i>&nbsp;<a href=http://greycite.knowledgeblog.org/ris/?uri=http://notebook.madsenlab.org/project:coarse%20grained%20model/model:ctmixtures/experiment:experiment-ctmixtures/2014/09/14/ctmixtures-job-execution.html target='_blank'>RIS Citation</a>
+</small></td>
+				<td><small><a href="javascript:window.print()"><i class="icon-print"></i>&nbsp;Print</a></small></td>
+				<!--<td><small><a href="/project:coarse%20grained%20model/model:ctmixtures/experiment:experiment-ctmixtures/2014/09/14/ctmixtures-job-execution.html"></i>Permalink</a></small></td> -->
+			</tr>
+		</table>
+		</p>
+
+
+  	
+	
+  <h3 id="background">Background</h3>
+<p>Given a <code>StarCluster</code> running the <code>ctmixtures-cluster</code> AMI on EC2, it is possible to configure, run, and monitor a very large number of simulation models. These notes record how I’m doing it.</p>
+<p>There are two main approaches to running the simulation jobs:</p>
+<ol type="1">
+<li>Granular - submit each simulation as a separate job</li>
+<li>Coarse - for N instances x M vCPU, submit <span class="math">\(N * M\)</span> jobs</li>
+</ol>
+<p>In theory, there should be no difference in the final result, but if we want to plan for eventualities like crashes, or the need to restart jobs which throw errors (unlikely, but it’s possible), a granular approach might be best. But for very large numbers of jobs, it’s unclear to me how SGE handles job queues in the <span class="math">\(10^5\)</span> or <span class="math">\(10^6\)</span> range. So for my first experiment, which employs 100K simulation runs, I’m going to try something in the middle.</p>
+<ol start="3" type="1">
+<li>Semi-granular – each “job” is a batch of 100 simulation runs</li>
+</ol>
+<p>SGE and StarCluster are responsible for pipelining each batch of 100 across the available vCPUs in the cluster, and if a job encounters a problem, that batch can be investigated and restarted without strongly delaying the overall completion time. Thus, a set of 100K simulation runs would yield 1000 job scripts, each containing 100 command lines to execute an individual simulation.</p>
+<h3 id="experiment-construction">Experiment Construction</h3>
+<p>This is constructed in <code>ctmixtures</code> using the <code>ctmixtures-priorsampler-runbuilder.py</code> program, as follows:</p>
+<pre class="shell"><code>$ ctmixtures-priorsampler-runbuilder.py --experiment clustertest --simprefix /usr/local/anaconda/bin --expconfig neutral-priors.json --confprefix /home/sgeadmin --configuration /sim/src/an-al-wm.json --debug 0 --parallelism 1000 --numsims 100000 --model neutral</code></pre>
+<p>This program produces 100,000 shell commands, each of which executes one simulation run, with parameters either specified in the <code>expconfig</code> configuration for the experiment as a whole, or sampled from prior distributions given in the <code>expconfig</code>. The example given is simulating a pure neutral model, for which there is one prior distribution, the scaled population level innovation rate (given in standard units of <span class="math">\(2N\mu\)</span> following standard practice in population genetic theory). The contents of <code>neutral-priors.json</code> are as follows:</p>
+<pre class="sourceCode json"><code class="sourceCode json">{
+    <span class="dt">&quot;theta_low&quot;</span>: <span class="fl">0.1</span>,
+    <span class="dt">&quot;theta_high&quot;</span>: <span class="fl">5.0</span>,
+    <span class="dt">&quot;kandler_interval&quot;</span>: <span class="dv">50</span>,
+    <span class="dt">&quot;maxinittraits&quot;</span>: <span class="dv">10</span>,
+    <span class="dt">&quot;numloci&quot;</span>: <span class="dv">4</span>,
+    <span class="dt">&quot;popsize&quot;</span>: <span class="dv">100</span>,
+    <span class="dt">&quot;endtime&quot;</span>: <span class="dv">1000000</span>
+}<span class="er">%</span></code></pre>
+<p>Variables with suffixes “low” and “high” represent uniform priors over the given range. Other single-valued variables are point parameters, or general simulation configuration (e.g., endtime).</p>
+<p>For any prior distributions, the runbuilder will sample the given number of simulations (e.g., 100,000) over joint draws from all of the priors, and give each simulation run a unique random seed in the range <span class="math">\([1, 2^{62}]\)</span>.</p>
+<p>The simulation configuration itself specifies several other parameters common aross the set of simulations, and the names of Python code classes which are used to construct the desired simulation model (the code is a modular framework). An example of a pure neutral model is:</p>
+<pre class="sourceCode json"><code class="sourceCode json">{
+    <span class="dt">&quot;TIME_AVERAGING_DURATIONS&quot;</span> : [<span class="dv">50</span>,<span class="dv">100</span>,<span class="dv">200</span>],
+    <span class="dt">&quot;SAMPLE_SIZES_STUDIED&quot;</span> : [<span class="dv">25</span>,<span class="dv">50</span>,<span class="dv">100</span>],
+    <span class="dt">&quot;INTERACTION_RULE_CLASS&quot;</span> : {<span class="dt">&quot;ctmixtures.rules.NeutralAllLociCopyingRule&quot;</span>: <span class="fl">1.0</span>},
+    <span class="dt">&quot;POPULATION_STRUCTURE_CLASS&quot;</span> : <span class="st">&quot;ctmixtures.population.FixedTraitStructurePopulation&quot;</span>,
+    <span class="dt">&quot;INNOVATION_RULE_CLASS&quot;</span> : <span class="st">&quot;ctmixtures.rules.InfiniteAllelesMutationRule&quot;</span>,
+    <span class="dt">&quot;NETWORK_FACTORY_CLASS&quot;</span> : <span class="st">&quot;ctmixtures.population.CompleteGraphFactory&quot;</span>,
+    <span class="dt">&quot;TRAIT_FACTORY_CLASS&quot;</span> : <span class="st">&quot;ctmixtures.traits.LocusAlleleTraitFactory&quot;</span>,
+    <span class="dt">&quot;TIME_AVERAGING_CLASS&quot;</span> : <span class="st">&quot;pytransmission.aggregation.MoranCumulativeTimeAverager&quot;</span>,
+    <span class="dt">&quot;DYNAMICS_CLASS&quot;</span> : <span class="st">&quot;ctmixtures.dynamics.MoranDynamics&quot;</span>,
+    <span class="dt">&quot;MODEL_CLASS_LABEL&quot;</span> : <span class="st">&quot;pureneutral&quot;</span>
+}</code></pre>
+<p>The “INTERACTION_RULE_CLASS” is used to create mixture models, where a specified proportion of the population is represented by a Python class giving a social learning rule. The other class specifications here yield a population with locus/allele trait structure, infinite-alleles innovation (i.e., no back-mutation to existing alleles), well-mixed interaction (i.e., agents sit on a complete graph), and the simulation runs according to the Moran approximation to a continuous time Markov process.</p>
+<p>This model is given a label, <code>pureneutral</code>, which is usable by logistic regression, support vector machines, or ABC methods to perform a classification of the resulting data and cross validation, which is the cornerstone of the <code>ctmixtures</code> equifinality analysis.</p>
+<p>Executing the runbuilder as above yields 1000 shell scripts in the current working directory, named as <code>simrunner-exp-clustertest-neutral-392.sh</code>.</p>
+<p>The two “prefix” options cause the runbuilder to prepend absolute paths for the simulation script itself and its configuration file, to allow for clean execution on the cluster nodes regardless of whether SGE and StarCluster copy and execute job scripts. In this case, <code>/usr/local/anaconda/bin/sim-ctmixture-timeaveraging.py</code> already exists given the <code>ctmixtures</code> setup and install script (<code>setup.py</code> in the GitHub repository). The configuration file will be covered in the next section.</p>
+<h3 id="experiment-execution">Experiment Execution</h3>
+<p>After executing the runbuilder, I bundled the job scripts and simulation configuration file (e.g., an-al-wm.json, which specifies an all-neutral model, where copying occurs across all loci simultaneously – whole repertoire copying, in a well-mixed population). Before archiving into a tar file, I made the job scripts executable.</p>
+<pre class="shell"><code>$ chmod +x *.sh
+$ tar cvf clustertest-job.tar *.sh *.json</code></pre>
+<p>This tar archive (zip is fine too) is then copied to the master node of your running compute cluster. <strong>The StarCluster “put” command gave me an error about not being able to find the master node, in version 0.95, so I fell back to direct SSH/SCP copying, specifying the appropriate EC2 IAM RSA key on the command line</strong></p>
+<p>On the master node, I unpacked this tar archive in the large EBS volume, under <code>/sim/src</code>, and copied the simulation configuration file to <code>/home/sgeadmin/conf</code>. Everything under <code>/home</code> is shared among the cluster nodes via NFS, so it will automatically be visible in this location to all of the compute nodes.</p>
+<p>At this point, I am ready to submit jobs. First, I became the <code>sgeadmin</code> user, for access to running Sun Grid Engine commands. Then, each job script is given to the <code>qsub</code> command, which submits a job to the queue. In the following, I assume that the job scripts are directly in <code>/sim/src</code> where they were unpacked.</p>
+<pre class="shell"><code>(root)$ su - sgeadmin
+(sgeadmin):/home/sgeadmin$  for d in `ls /sim/src/simrunner*.sh`; do ( qsub -V $d ); done</code></pre>
+<p>Once submitted, the <code>qstat</code> command gives you a list of the state of all jobs in the queue. Initially each job will be in the <code>qw</code> state as it initializes, and switch to <code>r</code> as it runs. In the current directory where the job commands were run, each job will have two output files, with suffixes <code>.e&lt;job id&gt;</code> and <code>.o&lt;job id&gt;</code>, respectively. The former captures STDERR, and the latter STDOUT. Thus, a typical error file would be: <code>simrunner-exp-foo-neutral-0.sh.e105</code> for job 105.</p>
+<p>By default, the jobs are submitted first to fill all SGE slots (i.e., vCPUs) on one compute node, before moving to the next compute node. For a very long running batch like this, it doesn’t matter how we submit them, but to switch to round-robin mode (circulating among compute nodes, one job to each until all vCPUs are full):</p>
+<pre class="shell"><code>(sgeadmin):/home/sgeadmin$  qconf -mp orte</code></pre>
+<p>This will open a VI editing session, and you can change the variable <code>allocation_rule</code> to <code>$round_robin</code>.</p>
+<h3 id="finishing-a-simulation-batch">Finishing a Simulation Batch</h3>
+<p>At the completion of a simulation batch:</p>
+<ol type="1">
+<li>Export simulation data from MongoDB</li>
+<li>Copy simulation data from each node back to a local machine</li>
+<li>Stop and terminate the cluster</li>
+</ol>
+<p><strong>More detail on data export is forthcoming, after I do some tests on batch export and copying, which will help a great deal with large clusters</strong></p>
+<div class="references">
+
+</div>
+  
+
+
+<div class="well well-small">
+<p class="text-info"><i class="icon-tags"></i>&nbsp;Tags</p>
+<ul>
+
+<li><a href='/tag/cultural transmission.html'>cultural transmission</a></li>
+
+<li><a href='/tag/time averaging.html'>time averaging</a></li>
+
+<li><a href='/tag/coarse graining.html'>coarse graining</a></li>
+
+<li><a href='/tag/simulation.html'>simulation</a></li>
+
+<li><a href='/tag/dissertation.html'>dissertation</a></li>
+
+<li><a href='/tag/open science.html'>open science</a></li>
+
+<li><a href='/tag/reproducible science.html'>reproducible science</a></li>
+
+<li><a href='/tag/experiments.html'>experiments</a></li>
+
+<li><a href='/tag/experiment-ctmixture.html'>experiment-ctmixture</a></li>
+
+</ul>
+</div>
+
+
+</div>
+
+
+        
+      </div><!--/row-->
+
+
+    
+
+
+ 
+      <hr>
+
+      <footer>
+		        <p>&copy; Mark E. Madsen 2011-2014    <a href="mailto:mark@madsenlab.org">Email</a>&nbsp;||
+		  <a href="http://orcid.org/0000-0001-9320-8377">ORCId</a>&nbsp;||
+		  <a href="http://figshare.com/authors/Mark%20Madsen/279062">Figshare</a>&nbsp;||
+		    <a href="http://www.linkedin.com/profile/view?id=8751">LinkedIn</a>&nbsp;|| 	    <a href="http://github.com/mmadsen">GitHub</a>&nbsp;||
+        <a href="http://www.researchgate.net/profile/Mark_Madsen3/">ResearchGate</a>&nbsp;||
+        <a href="https://washington.academia.edu/MarkMadsen">Academia.edu</a></p>
+      </footer>
+
+    </div><!--/.fluid-container-->
+
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="/assets/js/jquery.js"></script>
+    <script src="/assets/js/bootstrap-transition.js"></script>
+    <script src="/assets/js/bootstrap-alert.js"></script>
+    <script src="/assets/js/bootstrap-modal.js"></script>
+    <script src="/assets/js/bootstrap-dropdown.js"></script>
+    <script src="/assets/js/bootstrap-scrollspy.js"></script>
+    <script src="/assets/js/bootstrap-tab.js"></script>
+    <script src="/assets/js/bootstrap-tooltip.js"></script>
+    <script src="/assets/js/bootstrap-popover.js"></script>
+    <script src="/assets/js/bootstrap-button.js"></script>
+    <script src="/assets/js/bootstrap-collapse.js"></script>
+    <script src="/assets/js/bootstrap-carousel.js"></script>
+    <script src="/assets/js/bootstrap-typeahead.js"></script>
+
+  </body>
+</html>

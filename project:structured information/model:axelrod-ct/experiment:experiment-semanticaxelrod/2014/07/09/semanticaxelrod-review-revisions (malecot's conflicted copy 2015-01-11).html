@@ -1,0 +1,294 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head prefix="dc: http://purl.org/dc/terms/ og: http://ogp.me/ns#">
+    <meta charset="utf-8"/>
+    <title>Semantic Axelrod Review Comments/Revision Plan</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="description" content="Lab Notebook for Mark E. Madsen"/>
+    <meta name="author" content="Mark E. Madsen"/>
+
+	<!-- Get date last modified from git log. (Uses current time if file entry not found, e.g. projects/)  -->
+	
+
+
+	<!-- For posts, page.date is the date they are published under, which we use as their 'canonical' dc:date -->
+	 
+	  
+	  
+
+	<!-- Posts declare modified timestamps in the sidebar, so would be redundant to put here. But then 
+	     pages don't have a dc:modified... unless we give them their own (modified) sidebar?  
+	-->
+	<!-- Ideally we would want date originally created from the _oldest_ git commit too...-->
+
+	<!-- RDFa Metadata (in DublinCore) -->
+	<meta property="dc:title" content="Semantic Axelrod Review Comments/Revision Plan" />
+	<meta property="dc:creator" content="Mark E. Madsen" />
+	<meta property="dc:date" content="2014-07-09T00:00:00-07:00" />
+	<meta property="dc:format" content="text/html" />
+	<meta property="dc:language" content="en" />
+	<meta property="dc:identifier" content="/project:structured%20information/model:axelrod-ct/experiment:experiment-semanticaxelrod/2014/07/09/semanticaxelrod-review-revisions.html" />
+	<meta property="dc:rights" content="CC BY-NC-SA 3.0" />
+	<meta property="dc:source" content="Lab Notebook for Mark E. Madsen" />
+	<meta property="dc:subject" content="Anthropology" /> 
+	<meta property="dc:type" content="website" /> 
+	<!-- RDFa Metadata (in OpenGraph) -->
+	<meta property="og:title" content="Semantic Axelrod Review Comments/Revision Plan" />
+	<meta property="og:author" content="http://notebook.madsenlab.org/bio.html" />  <!-- Should be Liquid? URI? -->
+	<meta property="og:site_name" content="Lab Notebook for Mark E. Madsen" /> <!-- Same as dc:source? -->
+	<meta property="og:url" content="http://notebook.madsenlab.org/project:structured%20information/model:axelrod-ct/experiment:experiment-semanticaxelrod/2014/07/09/semanticaxelrod-review-revisions.html" />
+	<meta property="og:type" content="website" /> 
+	<!-- Google Scholar Metadata -->
+	<meta name="citation_author" content="Mark E. Madsen"/>
+	<meta name="citation_date" content="2014-07-09T00:00:00-07:00"/>
+	<meta name="citation_title" content="Semantic Axelrod Review Comments/Revision Plan"/>
+	<meta name="citation_journal_title" content="Lab Notebook for Mark E. Madsen"/>
+
+    <!-- Le styles -->
+    <link href="/assets/css/bootstrap.css" rel="stylesheet">
+    <link href="/assets/css/octicons.css" rel="stylesheet">
+    <style type="text/css">
+      body {
+        padding-top: 60px;
+        padding-bottom: 40px;
+      }
+      .sidebar-nav {
+        padding: 9px 0;
+      }
+
+      @media (max-width: 980px) {
+        /* Enable use of floated navbar text */
+        .navbar-text.pull-right {
+          float: none;
+          padding-left: 5px;
+          padding-right: 5px;
+        }
+      }
+    </style>
+    <link href="/assets/css/bootstrap-responsive.css" rel="stylesheet">
+    <link href="/css/syntax.css" rel="stylesheet">
+    
+  <script type="text/javascript" src="//use.typekit.net/xtg2arw.js"></script>
+  <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+  <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  <script>
+  MathJax.Hub.Config({
+    showProcessingMessages: false,
+    jax: ["input/TeX", "output/HTML-CSS"],
+    tex2jax: {
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+    }
+  });
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+  </script>
+<!-- Google Analytics -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-11944342-4', 'madsenlab.org');
+  ga('send', 'pageview');
+
+</script>
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="../assets/js/html5shiv.js"></script>
+    <![endif]-->
+
+    <!-- Fav and touch icons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../assets/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../assets/ico/apple-touch-icon-114-precomposed.png">
+      <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../assets/ico/apple-touch-icon-72-precomposed.png">
+                    <link rel="apple-touch-icon-precomposed" href="../assets/ico/apple-touch-icon-57-precomposed.png">
+                                   <link rel="shortcut icon" href="../assets/ico/favicon.png">
+  </head>
+
+  <body>
+
+    <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container-fluid">
+          <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="brand" href="/">MadsenLabNotebook</a>
+          <div class="nav-collapse collapse">
+                  <!-- Search site using Google's index -->
+      <form class="navbar-search pull-right" method="get" action="http://google.com/search">
+        <p>
+          <input type="hidden" name="q" value="site:notebook.madsenlab.org" />
+          <input type="text" class="search-query" name="q" />
+          <button class="btn btn-mini" type="submit"><i class="icon-search"></i></button> 
+        </p>
+      </form>
+            <ul class="nav">
+              <li class="active"><a href="/">Home</a></li>
+              <li><a href="/labnotebook.html">About</a></li>
+              <li><a href="http://about.me/mark.e.madsen">Contact</a></li>
+              <li><a href="/blog.html">Essays</a></li>
+              <li><a href="/rss.xml">Full RSS Feed</a></li>
+              <li><a href="/essays-rss.xml">Essays Only RSS Feed</a></li>
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+    </div>
+
+    <div class="container-fluid">
+      <div class="row-fluid">
+        <div class="span3">
+          <div class="well sidebar-nav">
+            <ul class="nav nav-list">
+              <li><img src="/images/madsenlabnotebook-350px.png" class="img-responsive" alt="MadsenLab Notebook"/></li>
+              <li class="nav-header">General</li>
+              <li><a href="/tags.html">Notes by Tag</a></li>
+              <li><a href="/allposts.html">All Notes by Date</a></li>
+              <li><a href="/blog.html">Essays and General Writings</a></li>
+              <li class="nav-header">Projects</li>
+              <li><a href="/projects/coarsegraining/">Coarse Grained Models of CT</a></li>
+              <li><a href="/projects/nicheconstruction/">Niche Construction and CT Modeling</a></li>
+              <li><a href="/projects/structuredinfo/">CT of Structured Information</a></li>
+              <li class="nav-header">Simulations and Experiments</li>
+              <li><a href="/byexperiment.html">Notes by Experiment</a></li>
+              <li><a href="/bymodel.html">Notes by Simulation Model</a></li>
+              <li class="nav-header">Topics</li>
+              <li><a href="/tag/cultural%20transmission.html">Cultural transmission theory</a></li>
+              <li><a href="/tag/evolutionary%20theory.html">Darwinian evolutionary theory</a></li>
+			        <li><a href="/tag/dissertation.html">Dissertation Research</a></li>
+              <li><a href="/tag/reading%20notes.html">Reading notes</a></li>
+              <li><a href="/openproblems.html">Open Research Problems</a></li>
+
+              <li class="nav-header">Meta</li>
+              <li><a href="/bio.html">Bio</a></li>
+              <li><a href="/software.html">Software</a></li>
+              <li><a href="/tools.html">Tools I Use</a></li>
+              <li><a href="/publications.html">Publications</a></li>
+              <li><a href="/openscience.html">About Open Science</a></li>
+			<li><a href="/labnotebook.html">About this Notebook</a></li>
+            </ul>
+          </div><!--/.well -->
+        </div><!--/span3-->
+
+            <div class="span8">
+  	<h2>Semantic Axelrod Review Comments/Revision Plan</h2>
+	
+
+		<p class="text-info">
+		<table class="table table-condensed">
+			<tr class="info">
+				<td><small><i class="icon-calendar"></i>&nbsp;Created: 09 Jul 2014</small></td>
+				<td><small><i class="icon-calendar"></i>&nbsp;Modified: 25 Jul 2014</small></td>
+				<td><small><i class="icon-book">&nbsp;</i>&nbsp;<a href=http://greycite.knowledgeblog.org/bib/?uri=http://notebook.madsenlab.org/project:structured%20information/model:axelrod-ct/experiment:experiment-semanticaxelrod/2014/07/09/semanticaxelrod-review-revisions.html target='_blank'>BibTeX Entry</a>
+</small></td>
+				<td><small><i class="icon-book">&nbsp;</i>&nbsp;<a href=http://greycite.knowledgeblog.org/ris/?uri=http://notebook.madsenlab.org/project:structured%20information/model:axelrod-ct/experiment:experiment-semanticaxelrod/2014/07/09/semanticaxelrod-review-revisions.html target='_blank'>RIS Citation</a>
+</small></td>
+				<td><small><a href="javascript:window.print()"><i class="icon-print"></i>&nbsp;Print</a></small></td>
+				<!--<td><small><a href="/project:structured%20information/model:axelrod-ct/experiment:experiment-semanticaxelrod/2014/07/09/semanticaxelrod-review-revisions.html"></i>Permalink</a></small></td> -->
+			</tr>
+		</table>
+		</p>
+
+
+  	
+	
+  <h3 id="review-comments">Review Comments</h3>
+<p>Since the latest version went out for review in late May, I’ve gotten two sets of comments.</p>
+<h4 id="anon-reviewer">Anon Reviewer</h4>
+<p>Note: comments refer to double-spaced referee version.</p>
+<ol type="1">
+<li><p>Reviewer noted that we focused on cultural evolution in hominins rather than the larger group of hominids, and suggested that we discuss social learning among other apes. <strong>Plan: This is a book series specifically about the modern human/Neanderthal transition, so at most I might point to a review of social learning outside this particular clade.</strong></p></li>
+<li><p>Page 11: A relevant aspect of the learning strategy discussion is the cost-benefit tradeoff of the teachers discussed in Shennan and Steele 1999. <strong>Plan: Need to look at Shennan and Steele, might be good to mention, but we’re not modeling the fitness of any particular strategy here.</strong></p></li>
+<li><p>Page 21-24: A general question about the use of information with tree-structure concerns the suitability of this model for various cultural traits. When would non-tree structure be a better model for the structure of information? The justification of the tree structure as well as the various graph metrics needs to be more explicitly outlined in this section. This would help the reader understand the importance of different metrics of the graphs that are varied in the model. At the moment, it is difficult for the reader to trace the expectations of different graph structures or properties of the graph like automorphism. <strong>Plan: (a) new paragraph or subsection describing more explicitly how different network topologies would be useful in constructing different models of concept/trait relations, (b) stress how any design space model is a conceptual tool, and there can be many design spaces overlaid on the same set of cultural phenomena, depending upon the questions we ask.</strong></p></li>
+<li><p>Page 26-27: The link between the simulation experiments and the archaeological problem outlined in the introduction could be better articulated here. <strong>Plan: I’m wondering if I’m not setting up expectations clearly enough, or perhaps I’m just not reiterating them well in Section 4.</strong></p></li>
+<li><p>Page 29: What else could explain the extremely low cultural diversity that characterizes the material culture during the Lower and Middle Paleolithic? It is important to think about the overlap in outcomes between the variables presented in this model and other evolutionary forces including selection, particularly when discussing an analogy with technology that could have some outcome on food gathering, and processing. <strong>Plan: TBD</strong>.</p></li>
+</ol>
+<h4 id="ken-aoki">Ken Aoki</h4>
+<p>Note: comments refer to single-spaced Arxiv.org version.</p>
+<ol type="1">
+<li><p><strong>DONE</strong>: Eq. (2) on page 12 appears to be a distance measure. Shouldn’t the probability of interaction be <span class="math">\(1 - J(A,B)\)</span>? <strong>Plan: KA caught an error, but the probability shouldn’t be <span class="math">\(1 - J(A,B)\)</span>, but just <span class="math">\(J(A,B)\)</span> given that we want similiarity, not dissimilarity. But the equation as printed is incorrect, it should be <span class="math">\(J(A,B) = \frac{|A \cap B|}{|A \cup B|}\)</span>.</strong></p></li>
+<li><p>Fig. 5 reports important results, but is confusing because there are horizontal and vertical axes for each embedded figure as well as for the whole figure. Perhaps one of the embedded figures could be presented separately and explained in detail. <strong>Plan: Ken’s right, this histogram matrix is doing too much work. (a) Find a different way of capturing how the spread and centroid of distributions changes with design space size and prerequisite learning rate. Much of the work here can be done by showing how regression slopes change, or? (b) If I stay with histograms, perhaps show one first and thoroughly explain what it means.</strong></p></li>
+<li><p>Two lines below Fig. 5, it is stated “left hand peak corresponds to simulation runs which had no global innovation….” Does this mean that the left hand peak represents runs in which innovation did not occur by chance? <strong>PLAN: Need to focus only on the analysis with non-zero innovation rates. Do not combine the two sets of simulation runs, to make this clearer.</strong></p></li>
+<li><p>In the paragraph below Fig. 7, you make the interesting statement “mean radius declines … due to the slower velocity at which an innovation diffuses.” Are there any studies on the original Axelrod model that explore the effect of changing the interaction distance? <strong>PLAN: I must be saying something which could lead to the impression that I’m talking about spatial effects here, and I’m not, so clarify. There might be interesting spatial effects, but we’re not doing anything spatial in this paper.</strong></p></li>
+<li><p>Design space is assumed to be finite, which entails that hominid imagination is also limited. Could you discuss further what would be the effect of evolutionary advances in imagination? <strong>PLAN: This is an important comment, and it’s related to the conceptual/empirical thing I mention in the anonymous comments above. Some of the design spaces considered here are practically infinite, from the perspective of a small population of individuals, and even in the smallest design spaces, the population explores a tiny fraction of the possible space. But I should discuss this more explicitly.</strong></p></li>
+</ol>
+<div class="references">
+<h3>References Cited</h3>
+</div>
+  
+
+
+<div class="well well-small">
+<p class="text-info"><i class="icon-tags"></i>&nbsp;Tags</p>
+<ul>
+
+<li><a href='/tag/SAA2014.html'>SAA2014</a></li>
+
+<li><a href='/tag/axelrod model.html'>axelrod model</a></li>
+
+<li><a href='/tag/structured information.html'>structured information</a></li>
+
+<li><a href='/tag/cultural transmission.html'>cultural transmission</a></li>
+
+<li><a href='/tag/dissertation.html'>dissertation</a></li>
+
+<li><a href='/tag/experiments.html'>experiments</a></li>
+
+<li><a href='/tag/experiment-semanticaxelrod.html'>experiment-semanticaxelrod</a></li>
+
+</ul>
+</div>
+
+
+</div>
+
+
+        
+      </div><!--/row-->
+
+
+    
+
+
+ 
+      <hr>
+
+      <footer>
+		        <p>&copy; Mark E. Madsen 2011-2014    <a href="mailto:mark@madsenlab.org">Email</a>&nbsp;||
+		  <a href="http://orcid.org/0000-0001-9320-8377">ORCId</a>&nbsp;||
+		  <a href="http://figshare.com/authors/Mark%20Madsen/279062">Figshare</a>&nbsp;||
+		    <a href="http://www.linkedin.com/profile/view?id=8751">LinkedIn</a>&nbsp;|| 	    <a href="http://github.com/mmadsen">GitHub</a>&nbsp;||
+        <a href="http://www.researchgate.net/profile/Mark_Madsen3/">ResearchGate</a>&nbsp;||
+        <a href="https://washington.academia.edu/MarkMadsen">Academia.edu</a></p>
+      </footer>
+
+    </div><!--/.fluid-container-->
+
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="/assets/js/jquery.js"></script>
+    <script src="/assets/js/bootstrap-transition.js"></script>
+    <script src="/assets/js/bootstrap-alert.js"></script>
+    <script src="/assets/js/bootstrap-modal.js"></script>
+    <script src="/assets/js/bootstrap-dropdown.js"></script>
+    <script src="/assets/js/bootstrap-scrollspy.js"></script>
+    <script src="/assets/js/bootstrap-tab.js"></script>
+    <script src="/assets/js/bootstrap-tooltip.js"></script>
+    <script src="/assets/js/bootstrap-popover.js"></script>
+    <script src="/assets/js/bootstrap-button.js"></script>
+    <script src="/assets/js/bootstrap-collapse.js"></script>
+    <script src="/assets/js/bootstrap-carousel.js"></script>
+    <script src="/assets/js/bootstrap-typeahead.js"></script>
+
+  </body>
+</html>

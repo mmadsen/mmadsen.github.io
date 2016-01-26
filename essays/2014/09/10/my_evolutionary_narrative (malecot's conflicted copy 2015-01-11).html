@@ -1,0 +1,296 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head prefix="dc: http://purl.org/dc/terms/ og: http://ogp.me/ns#">
+    <meta charset="utf-8"/>
+    <title>My Evolutionary Narrative, Part 1</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="description" content="Lab Notebook for Mark E. Madsen"/>
+    <meta name="author" content="Mark E. Madsen"/>
+
+	<!-- Get date last modified from git log. (Uses current time if file entry not found, e.g. projects/)  -->
+	
+
+
+	<!-- For posts, page.date is the date they are published under, which we use as their 'canonical' dc:date -->
+	 
+	  
+	  
+
+	<!-- Posts declare modified timestamps in the sidebar, so would be redundant to put here. But then 
+	     pages don't have a dc:modified... unless we give them their own (modified) sidebar?  
+	-->
+	<!-- Ideally we would want date originally created from the _oldest_ git commit too...-->
+
+	<!-- RDFa Metadata (in DublinCore) -->
+	<meta property="dc:title" content="My Evolutionary Narrative, Part 1" />
+	<meta property="dc:creator" content="Mark E. Madsen" />
+	<meta property="dc:date" content="2014-09-10T00:00:00-07:00" />
+	<meta property="dc:format" content="text/html" />
+	<meta property="dc:language" content="en" />
+	<meta property="dc:identifier" content="/essays/2014/09/10/my_evolutionary_narrative.html" />
+	<meta property="dc:rights" content="CC BY-NC-SA 3.0" />
+	<meta property="dc:source" content="Lab Notebook for Mark E. Madsen" />
+	<meta property="dc:subject" content="Anthropology" /> 
+	<meta property="dc:type" content="website" /> 
+	<!-- RDFa Metadata (in OpenGraph) -->
+	<meta property="og:title" content="My Evolutionary Narrative, Part 1" />
+	<meta property="og:author" content="http://notebook.madsenlab.org/bio.html" />  <!-- Should be Liquid? URI? -->
+	<meta property="og:site_name" content="Lab Notebook for Mark E. Madsen" /> <!-- Same as dc:source? -->
+	<meta property="og:url" content="http://notebook.madsenlab.org/essays/2014/09/10/my_evolutionary_narrative.html" />
+	<meta property="og:type" content="website" /> 
+	<!-- Google Scholar Metadata -->
+	<meta name="citation_author" content="Mark E. Madsen"/>
+	<meta name="citation_date" content="2014-09-10T00:00:00-07:00"/>
+	<meta name="citation_title" content="My Evolutionary Narrative, Part 1"/>
+	<meta name="citation_journal_title" content="Lab Notebook for Mark E. Madsen"/>
+
+    <!-- Le styles -->
+    <link href="/assets/css/bootstrap.css" rel="stylesheet">
+    <link href="/assets/css/octicons.css" rel="stylesheet">
+    <style type="text/css">
+      body {
+        padding-top: 60px;
+        padding-bottom: 40px;
+      }
+      .sidebar-nav {
+        padding: 9px 0;
+      }
+
+      @media (max-width: 980px) {
+        /* Enable use of floated navbar text */
+        .navbar-text.pull-right {
+          float: none;
+          padding-left: 5px;
+          padding-right: 5px;
+        }
+      }
+    </style>
+    <link href="/assets/css/bootstrap-responsive.css" rel="stylesheet">
+    <link href="/css/syntax.css" rel="stylesheet">
+    
+  <script type="text/javascript" src="//use.typekit.net/xtg2arw.js"></script>
+  <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+  <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  <script>
+  MathJax.Hub.Config({
+    showProcessingMessages: false,
+    jax: ["input/TeX", "output/HTML-CSS"],
+    tex2jax: {
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+    }
+  });
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+  </script>
+<!-- Google Analytics -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-11944342-4', 'madsenlab.org');
+  ga('send', 'pageview');
+
+</script>
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="../assets/js/html5shiv.js"></script>
+    <![endif]-->
+
+    <!-- Fav and touch icons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../assets/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../assets/ico/apple-touch-icon-114-precomposed.png">
+      <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../assets/ico/apple-touch-icon-72-precomposed.png">
+                    <link rel="apple-touch-icon-precomposed" href="../assets/ico/apple-touch-icon-57-precomposed.png">
+                                   <link rel="shortcut icon" href="../assets/ico/favicon.png">
+  </head>
+
+  <body>
+
+    <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container-fluid">
+          <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="brand" href="/">MadsenLabNotebook</a>
+          <div class="nav-collapse collapse">
+                  <!-- Search site using Google's index -->
+      <form class="navbar-search pull-right" method="get" action="http://google.com/search">
+        <p>
+          <input type="hidden" name="q" value="site:notebook.madsenlab.org" />
+          <input type="text" class="search-query" name="q" />
+          <button class="btn btn-mini" type="submit"><i class="icon-search"></i></button> 
+        </p>
+      </form>
+            <ul class="nav">
+              <li class="active"><a href="/">Home</a></li>
+              <li><a href="/labnotebook.html">About</a></li>
+              <li><a href="http://about.me/mark.e.madsen">Contact</a></li>
+              <li><a href="/blog.html">Essays</a></li>
+              <li><a href="/rss.xml">Full RSS Feed</a></li>
+              <li><a href="/essays-rss.xml">Essays Only RSS Feed</a></li>
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+    </div>
+
+    <div class="container-fluid">
+      <div class="row-fluid">
+        <div class="span3">
+          <div class="well sidebar-nav">
+            <ul class="nav nav-list">
+              <li><img src="/images/madsenlabnotebook-350px.png" class="img-responsive" alt="MadsenLab Notebook"/></li>
+              <li class="nav-header">General</li>
+              <li><a href="/tags.html">Notes by Tag</a></li>
+              <li><a href="/allposts.html">All Notes by Date</a></li>
+              <li><a href="/blog.html">Essays and General Writings</a></li>
+              <li class="nav-header">Projects</li>
+              <li><a href="/projects/coarsegraining/">Coarse Grained Models of CT</a></li>
+              <li><a href="/projects/nicheconstruction/">Niche Construction and CT Modeling</a></li>
+              <li><a href="/projects/structuredinfo/">CT of Structured Information</a></li>
+              <li class="nav-header">Simulations and Experiments</li>
+              <li><a href="/byexperiment.html">Notes by Experiment</a></li>
+              <li><a href="/bymodel.html">Notes by Simulation Model</a></li>
+              <li class="nav-header">Topics</li>
+              <li><a href="/tag/cultural%20transmission.html">Cultural transmission theory</a></li>
+              <li><a href="/tag/evolutionary%20theory.html">Darwinian evolutionary theory</a></li>
+			        <li><a href="/tag/dissertation.html">Dissertation Research</a></li>
+              <li><a href="/tag/reading%20notes.html">Reading notes</a></li>
+              <li><a href="/openproblems.html">Open Research Problems</a></li>
+
+              <li class="nav-header">Meta</li>
+              <li><a href="/bio.html">Bio</a></li>
+              <li><a href="/software.html">Software</a></li>
+              <li><a href="/tools.html">Tools I Use</a></li>
+              <li><a href="/publications.html">Publications</a></li>
+              <li><a href="/openscience.html">About Open Science</a></li>
+			<li><a href="/labnotebook.html">About this Notebook</a></li>
+            </ul>
+          </div><!--/.well -->
+        </div><!--/span3-->
+
+            <div class="span8">
+  	<h2>My Evolutionary Narrative, Part 1</h2>
+	
+
+		<p class="text-info">
+		<table class="table table-condensed">
+			<tr class="info">
+				<td><small><i class="icon-backward"></i>&nbsp;<a href="/blog.html">Back to Essay List</a></small></td>
+				<td><small><i class="icon-calendar"></i>&nbsp;Modified: 14 Sep 2014</small></td>
+				<td><small><i class="icon-book">&nbsp;</i>&nbsp;<a href=http://greycite.knowledgeblog.org/bib/?uri=http://notebook.madsenlab.org/essays/2014/09/10/my_evolutionary_narrative.html target='_blank'>BibTeX Entry</a>
+</small></td>
+				<td><small><i class="icon-book">&nbsp;</i>&nbsp;<a href=http://greycite.knowledgeblog.org/ris/?uri=http://notebook.madsenlab.org/essays/2014/09/10/my_evolutionary_narrative.html target='_blank'>RIS Citation</a>
+</small></td>
+				<td><small><a href="javascript:window.print()"><i class="icon-print"></i>&nbsp;Print</a></small></td>
+			</tr>
+		</table>
+		</p>
+
+
+  	
+	
+  <p>Over the last few days, I have been reading my way through a stack of literature on “Approximate Bayesian Computation,” to sharpen my approach on a numerical and simulation analysis of cultural transmission models. Tonight, I started reading Jeremy Brown’s paper “Predictive Approaches to Assessing the Fit of Evolutionary Models” and was struck immediately by the idea that my own intellectual path has been one of merging explicit models with evolutionary narratives <span class="citation" data-cites="Brown01052014">(Brown 2014)</span>.</p>
+<p>In a second post, I’ll discuss the technical aspects of the journey, but tonight I want to write about the personal aspects, since they came rushing back and are never far from my thinking about my work.</p>
+<p>I was at the University of Washington as an undergraduate, in the Arts and Sciences Honors Program in the mid 1980’s, and was dual majoring at the time in History and Physics, two of my great fascinations. I was not, at the time, really qualified mathematically, to be a physicist, despite a lifetime of wanting to be. So the history degree was actually proceeding much more smoothly than my scientific ambitions. This was largely because of a deficient background in mathematics, which was largely the result of being inattentive in high school and generally slackery about it, counting on my intelligence and interest to carry me through. Sadly, mathematics is an enterprise where hard work, not merely interest, is required.</p>
+<p>So by the end of my freshman year, I’d made good progress in history and social sciences, and was essentially a wannabe physicist. I was incredibly fortunate, however, to have several instructors in the Honors core classes who began my introduction to the social sciences <em>as science</em>. Stevan Harrell from Anthropology (who, at the time, was also in charge of the Honors program), and Robert Crutchfield from Sociology, showed me how we could approach the social phenomena I’d studied non-quantitatively in History, to great effect.</p>
+<p>In college, I took summer classes and studied straight through, and the summer after my freshman year, I took several anthropology classes, from the late Robert Greengo and Stephanie Livingston, on various archaeological subjects, which accorded more strongly with my interest in deep time and historical change. Greengo’s class covered the prehistory of the Northwest Coast, and Livingston covered basic archaeological methods, including light quantitative methods for studying material culture and artifact assemblages. Greengo’s class involved a visit to excavations on San Juan Island, and then a personal field project, for which I inventoried rock art sites on the Puget Sound inlets around our family’s cabin on the Kitsap Peninsula (in heavy rain and fog). I was hooked.</p>
+<p>By the winter of my sophomore year, I was finishing my college Honors science courses with a seminar on evolutionary biology taught, fortuitously, by Laura Newell in anthropology. In Newell’s seminar, I read most of Stephen J. Gould’s essays, and some of his technical works, as a way of introducing us to Darwinian thinking, evolutionary biology, and paleontology.</p>
+<p>In the spring of 1987, I signed up for Peter Ward’s graduate level introduction to paleobiology, and took David Spain’s Honors course on the history of anthropology theory. In that course, I encountered anthropology’s fitful brushes with Darwinism, and chose as my final paper an interview with Robert Dunnell, an evolutionary anthropologist from our department.</p>
+<p>That interview was to change my thinking and my course of study completely. I met with Dunnell in the spring of 1987, having read and (I thought) understood his papers on evolutionary archaeology. He looked over his glasses at me, and demolished that idea in seconds. I left the interview having had, I believed, a credible discussion of the place of Darwinian theory in anthropology, but more importantly, with a stack of reprints and an invitation to take his entering graduate course (Archy 497) on archaeological theory.</p>
+<p>At the same time, Ward was marinating me in the basics of modern paleobiology, and I read widely in the paleontological literature, reading Gould, Raup, Sepkoski, and others who had recently revolutionized the study of fossils from temporal markers and introduced true evolutionary paleobiology and continued the work of George Gaylord Simpson in studying “macroevolution.” In Ward’s course, we did numerical studies of phylogenies, while also rooting around in the mud of the Duwamish and Alki Point for death assemblages of recent invertebrates.</p>
+<p>At the end of my junior year, I’d signed up to do my archaeological field school on San Juan Island under Julie Stein, at English Camp, after visiting the excavations with Bob Greengo in 1985, and again making a trip in 1986. Fortuitously, during Ward’s class, I learned of a paleobiology conference at the Friday Harbor Laboratories on San Juan Island during the summer of 1987. Naturally, I signed up as an attendee, and got permission to attend the conference while at the field school at English Camp.</p>
+<p>The conference was a revelation: my first professional conference, with papers by Susan Kidwell, Nina Jablonski, Dolph Seilacher, and other luminaries. I do not believe Geerat Vermeij was there, but I first read his work that summer. I listened to the talks with rapt attention, and then went back to my tent in the woods at English Camp and tried to make sense in my notes.</p>
+<p>That fall, I began my senior year with the entering graduate series in archaeological theory and Dr. Grayson’s graduate course in faunal (animal bone) identification, while pondering my senior thesis. I’d committed to a senior thesis, conference paper, and publication in the spring of 1988 with Julie Stein, studying microartifacts from the Garrison Bay site at English Camp. This was my first serious piece of independent research, and first conference paper and publication.</p>
+<p>I sit here, on my patio, 25 years after that crucial year, on San Juan Island, barely 3 miles from English Camp, reflecting on my path. My research today centers on the evolutionary and cultural transmission models I began studying as a result of the events I related above. My life has had twists and turns since, but I have always come back to my core interest: a Darwinian and paleobiologist’s sensibility about long-term human evolution, especially the evolution of culture. I have many people to thank for that path, all named above, but most especially Robert C. Dunnell (now deceased), Peter Ward, and Laura Newell. Without them, I wouldn’t have the rich evolutionary view of life that I now get to explore.</p>
+<p>Nor would I have found my way, years later, to an island and a life that I adore.</p>
+<div class="references">
+<h3>References Cited</h3>
+<p>Brown, Jeremy M. 2014. “Predictive Approaches to Assessing the Fit of Evolutionary Models.” <em>Systematic Biology</em> 63 (3): 289–292. doi:<a href="http://dx.doi.org/10.1093/sysbio/syu009">10.1093/sysbio/syu009</a>. <a href="http://sysbio.oxfordjournals.org/content/63/3/289.short">http://sysbio.oxfordjournals.org/content/63/3/289.short</a>.</p>
+</div>
+  
+
+
+
+<div class="well well-small">
+<table class="table table-condensed">
+			<tr>
+				<td><small><i class="icon-backward"></i>&nbsp;<a href="/blog.html">Back to Essay List</a></small></td>
+				<td><small><i class="icon-calendar"></i>&nbsp;Modified: 14 Sep 2014</small></td>
+				<td><small><i class="icon-book">&nbsp;</i>&nbsp;<a href=http://greycite.knowledgeblog.org/bib/?uri=http://notebook.madsenlab.org/essays/2014/09/10/my_evolutionary_narrative.html target='_blank'>BibTeX Entry</a>
+</small></td>
+				<td><small><i class="icon-book">&nbsp;</i>&nbsp;<a href=http://greycite.knowledgeblog.org/ris/?uri=http://notebook.madsenlab.org/essays/2014/09/10/my_evolutionary_narrative.html target='_blank'>RIS Citation</a>
+</small></td>
+				<td><small><a href="javascript:window.print()"><i class="icon-print"></i>&nbsp;Print</a></small></td>
+			</tr>
+		</table>
+<p class="text-info"><i class="icon-tags"></i>&nbsp;Tags</p>
+<ul>
+
+<li><a href='/tag/personal.html'>personal</a></li>
+
+<li><a href='/tag/evolutionary biology.html'>evolutionary biology</a></li>
+
+<li><a href='/tag/anthropology.html'>anthropology</a></li>
+
+<li><a href='/tag/history.html'>history</a></li>
+
+</ul>
+</div>
+
+
+
+
+</div>
+
+
+        
+      </div><!--/row-->
+
+
+    
+
+
+ 
+      <hr>
+
+      <footer>
+		        <p>&copy; Mark E. Madsen 2011-2014    <a href="mailto:mark@madsenlab.org">Email</a>&nbsp;||
+		  <a href="http://orcid.org/0000-0001-9320-8377">ORCId</a>&nbsp;||
+		  <a href="http://figshare.com/authors/Mark%20Madsen/279062">Figshare</a>&nbsp;||
+		    <a href="http://www.linkedin.com/profile/view?id=8751">LinkedIn</a>&nbsp;|| 	    <a href="http://github.com/mmadsen">GitHub</a>&nbsp;||
+        <a href="http://www.researchgate.net/profile/Mark_Madsen3/">ResearchGate</a>&nbsp;||
+        <a href="https://washington.academia.edu/MarkMadsen">Academia.edu</a></p>
+      </footer>
+
+    </div><!--/.fluid-container-->
+
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="/assets/js/jquery.js"></script>
+    <script src="/assets/js/bootstrap-transition.js"></script>
+    <script src="/assets/js/bootstrap-alert.js"></script>
+    <script src="/assets/js/bootstrap-modal.js"></script>
+    <script src="/assets/js/bootstrap-dropdown.js"></script>
+    <script src="/assets/js/bootstrap-scrollspy.js"></script>
+    <script src="/assets/js/bootstrap-tab.js"></script>
+    <script src="/assets/js/bootstrap-tooltip.js"></script>
+    <script src="/assets/js/bootstrap-popover.js"></script>
+    <script src="/assets/js/bootstrap-button.js"></script>
+    <script src="/assets/js/bootstrap-collapse.js"></script>
+    <script src="/assets/js/bootstrap-carousel.js"></script>
+    <script src="/assets/js/bootstrap-typeahead.js"></script>
+
+  </body>
+</html>
