@@ -212,7 +212,7 @@
 <p>My current research is aimed at developing ways of treating IDSS seriation solution graphs as data points in machine learning algorithms, with the goal of fitting coarse grained, regional models of cultural transmission and information diffusion to our data. Seriations are the perfect tool for capturing regional-scale social influences that are time-transgressive.</p>
 <p>There are several challenges in this work. The first, which is described in a <a href="http://localhost:4000/project:coarse%20grained%20model/model:seriationct/experiment:experiment-seriationct/2014/06/17/seriationct-requirements.html">previous post</a> is to create regional metapopulation models with cultural transmission that yield seriations, rather than just type or variant frequencies, as their observable output.</p>
 <p>The second challenge is then to find an inferential framework for model selection which allows one to measure the goodness-of-fit between the theoretical model’s output, and specific empirical seriations like Figure 1.</p>
-<p>This second challenge is perfectly suited to an Approximate Bayesian Computation approach [<span class="citation" data-cites="Beaumont2002">Beaumont, Zhang, and Balding (2002)</span>;Csillery2010;Marin2012;Toni2009], since while we can simulate data from each social learning model, writing down the likelihood function for each model is generally an intractable problem.</p>
+<p>This second challenge is perfectly suited to an Approximate Bayesian Computation approach <span class="citation" data-cites="Beaumont2002 Csillery2010 Marin2012 Toni2009">(Beaumont, Zhang, and Balding 2002; Csill<span>é</span>ry et al. 2010; Marin et al. 2012; Toni et al. 2009)</span>, since while we can simulate data from each social learning model, writing down the likelihood function for each model is generally an intractable problem.</p>
 <p>In brief, ABC model selection involves simulating a large number of synthetic data points from each model, calculating summary statistics from those data points, measuring the distance (losses) between summary statistics and observed data, and choosing the model whose losses are the smallest.</p>
 <p>In my current work, the “models” are actually a combination of:</p>
 <ol type="1">
@@ -284,9 +284,12 @@
 <div class="references">
 <h3>References Cited</h3>
 <p>Beaumont, Mark A, W Zhang, and D J Balding. 2002. “Approximate Bayesian computation in population genetics.” <em>Genetics</em>. <a href="http://www.genetics.org/content/162/4/2025.short" class="uri">http://www.genetics.org/content/162/4/2025.short</a>.</p>
+<p>Csill<span>é</span>ry, Katalin, Michael G B Blum, Oscar E Gaggiotti, and Olivier Fran<span>ç</span>ois. 2010. “Approximate Bayesian Computation (ABC) in practice.” <em>Trends in Ecology &amp; Evolution</em> 25 (7): 410–18. doi:<a href="http://dx.doi.org/10.1016/j.tree.2010.04.001">10.1016/j.tree.2010.04.001</a>.</p>
 <p>Godsil, Christopher David, and Gordon Royle. 2001. <em>Algebraic Graph Theory</em>. Vol. 8. Springer New York.</p>
 <p>Koutra, Danai, Ankur Parikh, Aaditya Ramdas, and Jing Xiang. 2011. <em>Algorithms for Graph Similarity and Subgraph Matching</em>. Technical Report of Carnegie-Mellon-University.</p>
 <p>Lipo, Mark E. AND Dunnell, Carl P. AND Madsen. 2015. “A Theoretically-Sufficient and Computationally-Practical Technique for Deterministic Frequency Seriation.” <em>PLoS ONE</em> 10 (4). Public Library of Science: e0124942. doi:<a href="http://dx.doi.org/10.1371/journal.pone.0124942">10.1371/journal.pone.0124942</a>.</p>
+<p>Marin, Jean-Michel, Pierre Pudlo, Christian P Robert, and Robin J Ryder. 2012. “Approximate Bayesian Computational Methods.” <em>Statistics and Computing</em> 22 (6). Springer: 1167–80.</p>
+<p>Toni, Tina, David Welch, Natalja Strelkowa, Andreas Ipsen, and Michael P H Stumpf. 2009. “Approximate Bayesian computation scheme for parameter inference and model selection in dynamical systems.” <em>Journal of Royal Society Interface</em> 6 (31). The Royal Society: 187–202. doi:<a href="http://dx.doi.org/10.1098/rsif.2008.0172">10.1098/rsif.2008.0172</a>.</p>
 <p>Zager, Laura A, and George C Verghese. 2008. “Graph Similarity Scoring and Matching.” <em>Applied Mathematics Letters</em> 21 (1). Elsevier: 86–94.</p>
 </div>
   
