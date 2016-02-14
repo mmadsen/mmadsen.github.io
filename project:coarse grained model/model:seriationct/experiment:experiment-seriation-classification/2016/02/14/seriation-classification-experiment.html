@@ -3,7 +3,7 @@
 <html lang="en">
   <head prefix="dc: http://purl.org/dc/terms/ og: http://ogp.me/ns#">
     <meta charset="utf-8"/>
-    <title>Identifying metapopulation models from seriated output of simulated cultural transmission</title>
+    <title>Identifying Metapopulation Models from Simulated CT and Seriations</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta name="description" content="Lab Notebook for Mark E. Madsen"/>
     <meta name="author" content="Mark E. Madsen"/>
@@ -23,7 +23,7 @@
 	<!-- Ideally we would want date originally created from the _oldest_ git commit too...-->
 
 	<!-- RDFa Metadata (in DublinCore) -->
-	<meta property="dc:title" content="Identifying metapopulation models from seriated output of simulated cultural transmission" />
+	<meta property="dc:title" content="Identifying Metapopulation Models from Simulated CT and Seriations" />
 	<meta property="dc:creator" content="Mark E. Madsen" />
 	<meta property="dc:date" content="2016-02-14T00:00:00-08:00" />
 	<meta property="dc:format" content="text/html" />
@@ -34,7 +34,7 @@
 	<meta property="dc:subject" content="Anthropology" /> 
 	<meta property="dc:type" content="website" /> 
 	<!-- RDFa Metadata (in OpenGraph) -->
-	<meta property="og:title" content="Identifying metapopulation models from seriated output of simulated cultural transmission" />
+	<meta property="og:title" content="Identifying Metapopulation Models from Simulated CT and Seriations" />
 	<meta property="og:author" content="http://notebook.madsenlab.org/bio.html" />  <!-- Should be Liquid? URI? -->
 	<meta property="og:site_name" content="Lab Notebook for Mark E. Madsen" /> <!-- Same as dc:source? -->
 	<meta property="og:url" content="http://notebook.madsenlab.org/project:coarse%20grained%20model/model:seriationct/experiment:experiment-seriation-classification/2016/02/14/seriation-classification-experiment.html" />
@@ -42,7 +42,7 @@
 	<!-- Google Scholar Metadata -->
 	<meta name="citation_author" content="Mark E. Madsen"/>
 	<meta name="citation_date" content="2016-02-14T00:00:00-08:00"/>
-	<meta name="citation_title" content="Identifying metapopulation models from seriated output of simulated cultural transmission"/>
+	<meta name="citation_title" content="Identifying Metapopulation Models from Simulated CT and Seriations"/>
 	<meta name="citation_journal_title" content="Lab Notebook for Mark E. Madsen"/>
 
     <!-- Le styles -->
@@ -179,7 +179,7 @@
         </div><!--/span3-->
 
             <div class="span8">
-  	<h2>Identifying metapopulation models from seriated output of simulated cultural transmission</h2>
+  	<h2>Identifying Metapopulation Models from Simulated CT and Seriations</h2>
 	
 
 		<p class="text-info">
@@ -201,7 +201,40 @@
   	
 	
   <h3 id="background">Background</h3>
-<p>Test</p>
+<p>In a [previous note], I described the problem of inferring the goodness of fit between a regional network model and the sampled output of cultural transmission on that regional network, as measured through seriations. I am now ready with the simulation and inference code to start testing the spectral similarity metric I discussed in that note across pairs and sets of regional network models.</p>
+<p>Here, I describe the first such comparison.</p>
+<h2 id="experiment-sc-1">Experiment: SC-1</h2>
+<p>SC-1 is a simple contrast between two regional network models. A regional network model is a time-transgressive description of the interaction patterns that existed among a set of subpopulations, described by an “interval temporal network” representation (see <a href="http://notebook.madsenlab.org/project:coarse%20grained%20model/model:seriationct/experiment:experiment-seriationct/2014/11/28/more-temporal-networks-python.html">note 2</a> and <a href="http://notebook.madsenlab.org/project:coarse%20grained%20model/model:seriationct/experiment:experiment-seriationct/2014/07/28/implementing-temporal-networks-in-python.html">note 1</a> about the implementation of such models).</p>
+<p>Both models are composed of 10 time slices.</p>
+<p>Model #1 is called “linear” in the experiment directory because it should ideally yield simple, linear seriation solutions because the only thing occurring is sampling through time. At any given time, the metapopulation is composed of 64 subpopulations each. Each subpopulation is fully connected, so that any subpopulation can exchange migrants with any other, and there are no differences in edge weights (and thus migration rates). Each subpopulation in slice <span class="math">\(N\)</span> is the child of a random subpopulation in slice <span class="math">\(N-1\)</span>.</p>
+<p>Model #2 is called “lineage” in the experiment directory because it features 4 clusters of subpopulations, with 8 subpopulations per cluster. Subpopulations are fully connected within a cluster, with edge weight 10. Subpopulations are connected between subpopulations at fraction 0.1, with edge weight 1. This yields a strong tendency to exchange migrants within clusters, and at a much lower rate between clusters. For the first 4 time slices, all four clusters of subpopulations are interconnected, but in slice 4, a “split” occurs, removing interconnections between two sets of clusters, leaving <span class="math">\({1,2}\)</span> interconnected and <span class="math">\({3,4}\)</span> interconnected, but no connections between these sets. The resulting clusters then evolve for 6 more time slices on separate trajectories, giving rise to a “lineage split.”</p>
+<p>Neutral cultural transmission is simulated across these two network models, with 50 simulation replicates on each model, and a common set of parameters:</p>
+<pre class="sourceCode json"><code class="sourceCode json"><span class="fu">{</span>
+    <span class="dt">&quot;theta_low&quot;</span><span class="fu">:</span> <span class="fl">0.00001</span><span class="fu">,</span>
+    <span class="dt">&quot;theta_high&quot;</span><span class="fu">:</span> <span class="fl">0.0001</span><span class="fu">,</span>
+    <span class="dt">&quot;maxinittraits&quot;</span><span class="fu">:</span> <span class="dv">5</span><span class="fu">,</span>
+    <span class="dt">&quot;numloci&quot;</span><span class="fu">:</span> <span class="dv">3</span><span class="fu">,</span>
+    <span class="dt">&quot;popsize&quot;</span><span class="fu">:</span> <span class="dv">250</span><span class="fu">,</span>
+    <span class="dt">&quot;simlength&quot;</span><span class="fu">:</span> <span class="dv">8000</span><span class="fu">,</span>
+    <span class="dt">&quot;samplefraction&quot;</span> <span class="fu">:</span> <span class="fl">0.5</span><span class="fu">,</span>
+    <span class="dt">&quot;migrationfraction_low&quot;</span> <span class="fu">:</span> <span class="fl">0.05</span><span class="fu">,</span>
+    <span class="dt">&quot;migrationfraction_high&quot;</span> <span class="fu">:</span> <span class="fl">0.1</span><span class="fu">,</span>
+    <span class="dt">&quot;replicates&quot;</span> <span class="fu">:</span> <span class="dv">1</span>
+<span class="fu">}</span></code></pre>
+<p>Innovation rates and migration fractions are chosen uniformly at random from the ranges given for each simulation run. Each locus evolves randomly, but we track combinations of loci as “classes” in the archaeological sense of the term as our observable variables. Populations evolve for 8000 generations, giving approximately 800 transmission events per individual during a time slice (i.e., step in the regional metapopulation evolution). We can think of that as approximately monthly opportunities for copying artifacts or behavioral traits, over a lifetime of approximately 65 years.</p>
+<p>The raw data from each community in a simulated network model are then aggregated over the duration that community persists, giving us a time averaged picture of the frequency of cultural traits.</p>
+<p>I then perform the following sampling steps:</p>
+<ol type="1">
+<li><p>I take a sample of each time averaged data collection similar to the size of a typical archaeological surface collection: 500 samples are taken without replacement from each community, with probability proportional to class frequency. This yields a smaller set of classes, since many hundreds or thousands of combinations are only seen once or twice in the simulation data, and thus are very hard to measure from empirical samples.</p></li>
+<li><p>I then take a sample of communities to seriate. From each of the two network models, I take temporally stratified samples, with 3 communities per time slice sampled out of the 64 present in each slice. In real sampling situations, we would not know how communities break down temporally, but we often do attempt to get samples of assemblages which cover our entire study duration. In the case of Model #1, we take a 5% sample of communities in each time slice. In the case of Model #2, given the different structure of the model, we take a 12% sample of communities in each time slice.</p></li>
+<li><p>Within the overall sample from each simulation run, comprised now of the time averaged class frequencies from 30 sampled communities, I examine the classes/types themselves, and drop any types (columns) which do not have data values for at least 3 communities. This is standard pre-processing for seriation analyses (or was in the Fordian manual days of seriation analysis) since without more than 3 values, a column does not contribute to ordering the communities.</p></li>
+</ol>
+<p>These final samples are contained in directories:</p>
+<ul>
+<li><code>slice-stratified-filtered-lineage-data</code></li>
+<li><code>slice-stratified-filtered-linear-data</code></li>
+</ul>
+<p>The <a href="https://github.com/clipo/idss-seriation">IDSS Seriation</a> package is then used to seriate the stratified, filtered data files for each simulation run across the two models.</p>
 <div class="references">
 <h3>References Cited</h3>
 </div>
