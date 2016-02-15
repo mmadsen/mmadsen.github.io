@@ -186,7 +186,7 @@
 		<table class="table table-condensed">
 			<tr class="info">
 				<td><small><i class="icon-calendar"></i>&nbsp;Created: 14 Feb 2016</small></td>
-				<td><small><i class="icon-calendar"></i>&nbsp;Modified: 14 Feb 2016</small></td>
+				<td><small><i class="icon-calendar"></i>&nbsp;Modified: 15 Feb 2016</small></td>
 				<td><small><i class="icon-book">&nbsp;</i>&nbsp;<a href=http://greycite.knowledgeblog.org/bib/?uri=http://notebook.madsenlab.org/project:coarse%20grained%20model/model:seriationct/experiment:experiment-seriation-classification/2016/02/14/seriation-classification-experiment.html target='_blank'>BibTeX Entry</a>
 </small></td>
 				<td><small><i class="icon-book">&nbsp;</i>&nbsp;<a href=http://greycite.knowledgeblog.org/ris/?uri=http://notebook.madsenlab.org/project:coarse%20grained%20model/model:seriationct/experiment:experiment-seriation-classification/2016/02/14/seriation-classification-experiment.html target='_blank'>RIS Citation</a>
@@ -203,6 +203,7 @@
   <h3 id="background">Background</h3>
 <p>In a <a href="http://notebook.madsenlab.org/project:coarse%20grained%20model/model:seriationct/experiment:experiment-seriationct/2016/01/26/quantifying-similarity-seriations.html">previous note</a>, I described the problem of inferring the goodness of fit between a regional network model and the sampled output of cultural transmission on that regional network, as measured through seriations. I am now ready with the simulation and inference code to start testing the spectral similarity metric I discussed in that note across pairs and sets of regional network models.</p>
 <p>Here, I describe the first such comparison.</p>
+<p>The full Github repository for this and related seriation classification experiments is: <a href="https://github.com/mmadsen/experiment-seriation-classification">seriation-classification</a></p>
 <h3 id="experiment-sc-1">Experiment: SC-1</h3>
 <p>SC-1 is a simple contrast between two regional network models. A regional network model is a time-transgressive description of the interaction patterns that existed among a set of subpopulations, described by an “interval temporal network” representation (see <a href="http://notebook.madsenlab.org/project:coarse%20grained%20model/model:seriationct/experiment:experiment-seriationct/2014/11/28/more-temporal-networks-python.html">note 2</a> and <a href="http://notebook.madsenlab.org/project:coarse%20grained%20model/model:seriationct/experiment:experiment-seriationct/2014/07/28/implementing-temporal-networks-in-python.html">note 1</a> about the implementation of such models).</p>
 <p>Both models are composed of 10 time slices.</p>
@@ -269,6 +270,7 @@ Accuracy on test for 7 neighbors: 0.747
 Accuracy on test for 9 neighbors: 0.758
 Accuracy on test for 11 neighbors: 0.788
 Accuracy on test for 15 neighbors: 0.788</code></pre>
+<p>NOTE: <a href="https://github.com/mmadsen/experiment-seriation-classification/blob/master/analysis/sc-1/sc-1-seriation-classification-analysis.ipynb">Full iPython notebook and pickled data files available on Github</a>.</p>
 <div class="references">
 <h3>References Cited</h3>
 </div>
