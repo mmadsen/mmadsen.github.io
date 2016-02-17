@@ -3,7 +3,7 @@
 <html lang="en">
   <head prefix="dc: http://purl.org/dc/terms/ og: http://ogp.me/ns#">
     <meta charset="utf-8"/>
-    <title>renormalization</title>
+    <title>Feature Engineering for Seriation Classification</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta name="description" content="Lab Notebook for Mark E. Madsen"/>
     <meta name="author" content="Mark E. Madsen"/>
@@ -13,9 +13,9 @@
 
 
 	<!-- For posts, page.date is the date they are published under, which we use as their 'canonical' dc:date -->
-	 <!-- If we don't have a page.date, then use modified time (pages) -->
-	   
-	
+	 
+	  
+	  
 
 	<!-- Posts declare modified timestamps in the sidebar, so would be redundant to put here. But then 
 	     pages don't have a dc:modified... unless we give them their own (modified) sidebar?  
@@ -23,26 +23,26 @@
 	<!-- Ideally we would want date originally created from the _oldest_ git commit too...-->
 
 	<!-- RDFa Metadata (in DublinCore) -->
-	<meta property="dc:title" content="renormalization" />
+	<meta property="dc:title" content="Feature Engineering for Seriation Classification" />
 	<meta property="dc:creator" content="Mark E. Madsen" />
-	<meta property="dc:date" content="2016-02-16T18:12:00-08:00" />
+	<meta property="dc:date" content="2016-02-16T00:00:00-08:00" />
 	<meta property="dc:format" content="text/html" />
 	<meta property="dc:language" content="en" />
-	<meta property="dc:identifier" content="/tag/renormalization/" />
+	<meta property="dc:identifier" content="/project:coarse%20grained%20model/model:seriationct/experiment:experiment-seriation-classification/2016/02/16/feature-engineering-seriation-classification.html" />
 	<meta property="dc:rights" content="CC BY-NC-SA 3.0" />
 	<meta property="dc:source" content="Lab Notebook for Mark E. Madsen" />
 	<meta property="dc:subject" content="Anthropology" /> 
 	<meta property="dc:type" content="website" /> 
 	<!-- RDFa Metadata (in OpenGraph) -->
-	<meta property="og:title" content="renormalization" />
+	<meta property="og:title" content="Feature Engineering for Seriation Classification" />
 	<meta property="og:author" content="http://notebook.madsenlab.org/bio.html" />  <!-- Should be Liquid? URI? -->
 	<meta property="og:site_name" content="Lab Notebook for Mark E. Madsen" /> <!-- Same as dc:source? -->
-	<meta property="og:url" content="http://notebook.madsenlab.org/tag/renormalization/" />
+	<meta property="og:url" content="http://notebook.madsenlab.org/project:coarse%20grained%20model/model:seriationct/experiment:experiment-seriation-classification/2016/02/16/feature-engineering-seriation-classification.html" />
 	<meta property="og:type" content="website" /> 
 	<!-- Google Scholar Metadata -->
 	<meta name="citation_author" content="Mark E. Madsen"/>
-	<meta name="citation_date" content="2016-02-16T18:12:00-08:00"/>
-	<meta name="citation_title" content="renormalization"/>
+	<meta name="citation_date" content="2016-02-16T00:00:00-08:00"/>
+	<meta name="citation_title" content="Feature Engineering for Seriation Classification"/>
 	<meta name="citation_journal_title" content="Lab Notebook for Mark E. Madsen"/>
 
     <!-- Le styles -->
@@ -178,55 +178,96 @@
           </div><!--/.well -->
         </div><!--/span3-->
 
-            <div  class="span9">
-<!--
-<h2>Posts Tagged: ""</h2>
-
-<table class="table table-condensed">
-
+            <div class="span8">
+  	<h2>Feature Engineering for Seriation Classification</h2>
 	
 
-		<tr>
-		<td>02 Oct 2012</td>
-		<td><a href="/project:coarse%20grained%20model/essays/2012/10/02/coarse-graining-history-ctmodels.html">Coarse-Graining, History, and CT Models</a></td>
-		</tr>
+		<p class="text-info">
+		<table class="table table-condensed">
+			<tr class="info">
+				<td><small><i class="icon-calendar"></i>&nbsp;Created: 16 Feb 2016</small></td>
+				<td><small><i class="icon-calendar"></i>&nbsp;Modified: 16 Feb 2016</small></td>
+				<td><small><i class="icon-book">&nbsp;</i>&nbsp;<a href=http://greycite.knowledgeblog.org/bib/?uri=http://notebook.madsenlab.org/project:coarse%20grained%20model/model:seriationct/experiment:experiment-seriation-classification/2016/02/16/feature-engineering-seriation-classification.html target='_blank'>BibTeX Entry</a>
+</small></td>
+				<td><small><i class="icon-book">&nbsp;</i>&nbsp;<a href=http://greycite.knowledgeblog.org/ris/?uri=http://notebook.madsenlab.org/project:coarse%20grained%20model/model:seriationct/experiment:experiment-seriation-classification/2016/02/16/feature-engineering-seriation-classification.html target='_blank'>RIS Citation</a>
+</small></td>
+				<td><small><a href="javascript:window.print()"><i class="icon-print"></i>&nbsp;Print</a></small></td>
+				<!--<td><small><a href="/project:coarse%20grained%20model/model:seriationct/experiment:experiment-seriation-classification/2016/02/16/feature-engineering-seriation-classification.html"></i>Permalink</a></small></td> -->
+			</tr>
+		</table>
+		</p>
 
 
+  	
 	
+  <h3 id="feature-engineering">Feature Engineering</h3>
+<p>In my <a href="http://notebook.madsenlab.org/project:coarse%20grained%20model/model:seriationct/experiment:experiment-seriation-classification/2016/02/14/seriation-classification-experiment.html">previous note</a>, I used the graph spectral distance (i.e., the euclidean distance between Laplacian eigenvalue spectra from two seriation solutions) in a kNN classifer to predict which regional network model generated a seriation graph. This achieved accuracy around 80% with 3 nearest neighbors.</p>
+<p>Doing better meant changing approaches, and giving the classifier a larger space within which to draw decision boundaries. My first thought was to not reduce the Laplacian spectrum to distances, but instead of use the spectra themselves as numeric features. This would require that, say, column 1 represented the largest eigenvalue in each graph’s spectrum, column 2 the second largest, etc, which is easily accomplished.</p>
+<p>The resulting feature matrix is then suitable for any classifier algorithm. I chose gradient boosted trees because of their high accuracy (essentially equivalent to random forests or better in most applications), and without any hyperparameter tuning at all, achieve anywhere from 85% to 100% accuracy depending upon the train/test split (it’s a small sample size). Optimizing hyperparameters improves this and I can get 100% pretty often with different train test splits.</p>
+<p>So this might be the standard method for seriation classification for the moment. The good thing is that it lends itself to direct interpretation as an ABC (approximate Bayesian computation) estimator, as described in <span class="citation" data-cites="pudlo2014abc">(Pudlo et al. 2014)</span>, especially if I actually use random forests (although I’m not sure the random forest bit is terribly important).</p>
+<h3 id="implementation-details">Implementation Details</h3>
+<p>The following code snippet takes a list of NetworkX graph objects, and returns a Numpy matrix with a chosen number of eigenvalues (it isn’t clear how many are relevant):</p>
+<pre class="sourceCode python"><code class="sourceCode python"><span class="kw">def</span> graphs_to_eigenvalue_matrix(graph_list, num_eigenvalues = <span class="ot">None</span>):
+    <span class="co">&quot;&quot;&quot;</span>
+<span class="co">    Given a list of NetworkX graphs, returns a numeric matrix where rows represent graphs, </span>
+<span class="co">    and columns represent the reverse sorted eigenvalues of the Laplacian matrix for each graph,</span>
+<span class="co">    possibly trimmed to only use the num_eigenvalues largest values.  If num_eigenvalues is </span>
+<span class="co">    unspecified, all eigenvalues are used.</span>
+<span class="co">    &quot;&quot;&quot;</span>
+    <span class="co"># peek at the first graph and see how many eigenvalues there are</span>
+    tg = graph_list[<span class="dv">0</span>]
+    n = <span class="dt">len</span>(nx.spectrum.laplacian_spectrum(tg, weight=<span class="ot">None</span>))
+    
+    <span class="co"># we either use all of the eigenvalues, or we use the smaller of</span>
+    <span class="co"># the requested number or the actual number (if it is smaller than requested)</span>
+    <span class="kw">if</span> num_eigenvalues is <span class="ot">None</span>:
+        ev_used = n
+    <span class="kw">else</span>:
+        ev_used = <span class="dt">min</span>(n, num_eigenvalues)
 
-		<tr>
-		<td>23 Feb 2011</td>
-		<td><a href="/project:coarse%20grained%20model/reading%20notes/2011/02/23/renormalization.html">Renormalization and Archaeological Applications</a></td>
-		</tr>
-
-
-	
-</table>
--->
-	
-<h2>Posts and Essays Tagged: </h2>
-
-<table class="table table-condensed">
+    <span class="dt">print</span> <span class="st">&quot;(debug) eigenvalues - test graph: </span><span class="ot">%s</span><span class="st"> num_eigenvalues: </span><span class="ot">%s</span><span class="st"> ev_used: </span><span class="ot">%s</span><span class="st">&quot;</span> % (n, num_eigenvalues, ev_used)
+    
+    data_mat = np.zeros((<span class="dt">len</span>(graph_list),ev_used))
+    <span class="co">#print &quot;data matrix shape: &quot;, data_mat.shape</span>
+    
+    <span class="kw">for</span> ix in <span class="dt">range</span>(<span class="dv">0</span>, <span class="dt">len</span>(graph_list)):
+        spectrum = <span class="dt">sorted</span>(nx.spectrum.laplacian_spectrum(graph_list[ix], weight=<span class="ot">None</span>), reverse=<span class="ot">True</span>)
+        data_mat[ix,:] = spectrum[<span class="dv">0</span>:ev_used]
+        
+    <span class="kw">return</span> data_mat</code></pre>
+<h3 id="resources">Resources</h3>
+<p><a href="http://nbviewer.jupyter.org/github/mmadsen/experiment-seriation-classification/blob/master/analysis/sc-1/sc-1-seriation-feature-engineering.ipynb">Full analysis notebook</a> on NBViewer, from the Github repository.</p>
+<p>Github Repository: <a href="https://github.com/mmadsen/experiment-seriation-classification">experiment-seriation-classification</a></p>
+<div class="references">
+<h3>References Cited</h3>
+<p>Pudlo, Pierre, Jean-Michel Marin, Arnaud Estoup, Jean-Marie Cornuet, Mathieu Gautier, and Christian P Robert. 2014. “ABC Model Choice via Random Forests.” <em>ArXiv Preprint ArXiv:1406.6288</em>.</p>
+</div>
   
-    <tr>
-    <td><span class="post-date">Oct 2, 2012</td>
-    <td><a class="post-link" href="/project:coarse%20grained%20model/essays/2012/10/02/coarse-graining-history-ctmodels.html">Coarse-Graining, History, and CT Models</a></td>
-    </tr>
-  
-    <tr>
-    <td><span class="post-date">Feb 23, 2011</td>
-    <td><a class="post-link" href="/project:coarse%20grained%20model/reading%20notes/2011/02/23/renormalization.html">Renormalization and Archaeological Applications</a></td>
-    </tr>
-  
-</table>
 
 
-	
+<div class="well well-small">
+<p class="text-info"><i class="icon-tags"></i>&nbsp;Tags</p>
+<ul>
+
+<li><a href='/tag/cultural+transmission.html'>cultural transmission</a></li>
+
+<li><a href='/tag/coarse+graining.html'>coarse graining</a></li>
+
+<li><a href='/tag/simulation.html'>simulation</a></li>
+
+<li><a href='/tag/dissertation.html'>dissertation</a></li>
+
+<li><a href='/tag/seriation.html'>seriation</a></li>
+
+<li><a href='/tag/algorithms.html'>algorithms</a></li>
+
+<li><a href='/tag/ML.html'>ML</a></li>
+
+</ul>
 </div>
 
-<!-- | prepend: site.baseurl  -->
 
-
+</div>
 
 
         
