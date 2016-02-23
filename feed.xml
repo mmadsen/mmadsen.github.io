@@ -1,4 +1,76 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.1.0">Jekyll</generator><link href="http://notebook.madsenlab.org/feed.xml" rel="self" type="application/atom+xml" /><link href="http://notebook.madsenlab.org/" rel="alternate" type="text/html" /><updated>2016-02-16T18:12:12-08:00</updated><id>http://notebook.madsenlab.org/</id><title>Lab Notebook for Mark E. Madsen</title><author><name>Mark E. Madsen</name></author><entry><title>Feature Engineering for Seriation Classification</title><link href="http://notebook.madsenlab.org/project:coarse%20grained%20model/model:seriationct/experiment:experiment-seriation-classification/2016/02/16/feature-engineering-seriation-classification.html" rel="alternate" type="text/html" title="Feature Engineering for Seriation Classification" /><published>2016-02-16T00:00:00-08:00</published><updated>2016-02-16T00:00:00-08:00</updated><id>http://notebook.madsenlab.org/project:coarse%20grained%20model/model:seriationct/experiment:experiment-seriation-classification/2016/02/16/feature-engineering-seriation-classification</id><content type="html" xml:base="http://notebook.madsenlab.org/project:coarse%20grained%20model/model:seriationct/experiment:experiment-seriation-classification/2016/02/16/feature-engineering-seriation-classification.html">&lt;h3 id=&quot;feature-engineering&quot;&gt;Feature Engineering&lt;/h3&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.1.0">Jekyll</generator><link href="http://notebook.madsenlab.org/feed.xml" rel="self" type="application/atom+xml" /><link href="http://notebook.madsenlab.org/" rel="alternate" type="text/html" /><updated>2016-02-23T08:45:50-08:00</updated><id>http://notebook.madsenlab.org/</id><title>Lab Notebook for Mark E. Madsen</title><author><name>Mark E. Madsen</name></author><entry><title>Limits of model resolution for seriation classification</title><link href="http://notebook.madsenlab.org/project:coarse%20grained%20model/model:seriationct/experiment:experiment-seriation-classification/2016/02/22/equifinality-model-variants-seriation-classification.html" rel="alternate" type="text/html" title="Limits of model resolution for seriation classification" /><published>2016-02-22T00:00:00-08:00</published><updated>2016-02-22T00:00:00-08:00</updated><id>http://notebook.madsenlab.org/project:coarse%20grained%20model/model:seriationct/experiment:experiment-seriation-classification/2016/02/22/equifinality-model-variants-seriation-classification</id><content type="html" xml:base="http://notebook.madsenlab.org/project:coarse%20grained%20model/model:seriationct/experiment:experiment-seriation-classification/2016/02/22/equifinality-model-variants-seriation-classification.html">&lt;h3 id=&quot;model-resolution-and-equifinality&quot;&gt;Model Resolution and Equifinality&lt;/h3&gt;
+&lt;p&gt;Experiment &lt;code&gt;sc-2&lt;/code&gt; was designed to examine the opposite question as &lt;code&gt;sc-1&lt;/code&gt;; that is, when do we lose the ability to distinguish between regional interaction models by examining the structure of seriations from cultural traits transmitted through those interaction networks? This is a question of equifinality of models: do different models have empirical consequences which are indistinguishable given a particular observation technique?&lt;/p&gt;
+&lt;p&gt;To test this, I set up four models which I believe to be very “close” to each other:&lt;/p&gt;
+&lt;ol type=&quot;1&quot;&gt;
+&lt;li&gt;Lineage splitting where 1 lineage turns into 2 lineages, the split occurring 30% of the way through the time sequence (“early split”)&lt;/li&gt;
+&lt;li&gt;Lineage splitting where 1 &lt;span class=&quot;math&quot;&gt;\(\rarrow\)&lt;/span&gt; 2 lineages, split occurring 70% of the way through the time sequence (“late split”)&lt;/li&gt;
+&lt;li&gt;Lineage coalescence where 2 lineages turn into a single linage, the event occurring 30% of the way through the sequence (“early coalescence”)&lt;/li&gt;
+&lt;li&gt;Lineage coalescence where 2 &lt;span class=&quot;math&quot;&gt;\(\rarrow\)&lt;/span&gt; 1 lineages, split occuring 70% of the way through the time sequence (“late coalescence”)&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;In all other respects, simulation of cultural transmission across these regional networks was identical, using the same prior distributions for innovation and migration rates, population sizes, and so on.&lt;/p&gt;
+&lt;p&gt;My expectation going in was that the lineage splitting and coalescence models should generate seriations which are almost indistinguishable from one another, except for their temporal orientation, and with the paired early/late comparisons, it may be difficult to tell any of these models from one another without additional feature information. In particular, I expected roughly chance performance on classification unless we could provide temporal orientation, and even then, we may only be able to tell coalescence from splitting models.&lt;/p&gt;
+&lt;h3 id=&quot;initial-sc-2-analysis&quot;&gt;Initial SC-2 Analysis&lt;/h3&gt;
+&lt;p&gt;The analysis of &lt;code&gt;sc-2&lt;/code&gt; followed the method used in the &lt;a href=&quot;http://notebook.madsenlab.org/project:coarse%20grained%20model/model:seriationct/experiment:experiment-seriation-classification/2016/02/16/feature-engineering-seriation-classification.html&quot;&gt;second trial of &lt;code&gt;sc-1&lt;/code&gt;&lt;/a&gt;, calculating the Laplacian eigenvalue spectrum of the final seriation solution graphs (specifically, the &lt;code&gt;minmax-by-weight&lt;/code&gt; solutions for continuity seriation), and using the sorted eigenvalues as features for a gradient boosted classifier.&lt;/p&gt;
+&lt;p&gt;The initial results seem indicative of real trouble telling these models apart. For guidance, class labels are as follows:&lt;/p&gt;
+&lt;ol start=&quot;0&quot; type=&quot;1&quot;&gt;
+&lt;li&gt;Early splitting&lt;/li&gt;
+&lt;li&gt;Early coalescence&lt;/li&gt;
+&lt;li&gt;Late split&lt;/li&gt;
+&lt;li&gt;Late coalescence&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Given a hold-out test set, we see the following performance:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;
+          predicted 0  predicted 1  predicted 2  predicted 3
+actual 0            3            2            0            0
+actual 1            1            1            0            0
+actual 2            0            0            2            2
+actual 3            0            0            4            5
+             precision    recall  f1-score   support
+
+          0       0.75      0.60      0.67         5
+          1       0.33      0.50      0.40         2
+          2       0.33      0.50      0.40         4
+          3       0.71      0.56      0.63         9
+
+avg / total       0.61      0.55      0.57        20
+
+Accuracy on test: 0.550&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;The overall accuracy is low, but the pattern of misclassifications is key here. We never see “early” models misclassified as “late” models, but we do see splitting misclassified as coalescence (possibly because we have no orienting information). So while overall accuracy is low, we actually have perfect discrimination along one dimension of the models: when events that alter lineage structure occur, in relative terms. Not bad, considering how “close” in structure these regional interaction models are.&lt;/p&gt;
+&lt;h3 id=&quot;optimizing-classification-performance&quot;&gt;Optimizing Classification Performance&lt;/h3&gt;
+&lt;p&gt;The above was conducted with “reasonable” hyperparameters for the gradient boosted classifier, but I want to understand our best performance in separating these models. This is accomplished by setting the hyperparameters through cross-validation. In this case, I used a grid search of the following variables and parameters for the learning rate penalty, and the number of boosting rounds (number of estimators):&lt;/p&gt;
+&lt;pre class=&quot;sourceCode python&quot;&gt;&lt;code class=&quot;sourceCode python&quot;&gt;     &lt;span class=&quot;co&quot;&gt;&amp;#39;clf__learning_rate&amp;#39;&lt;/span&gt;: [&lt;span class=&quot;fl&quot;&gt;5.0&lt;/span&gt;,&lt;span class=&quot;fl&quot;&gt;2.0&lt;/span&gt;,&lt;span class=&quot;fl&quot;&gt;1.0&lt;/span&gt;, &lt;span class=&quot;fl&quot;&gt;0.75&lt;/span&gt;, &lt;span class=&quot;fl&quot;&gt;0.5&lt;/span&gt;, &lt;span class=&quot;fl&quot;&gt;0.25&lt;/span&gt;, &lt;span class=&quot;fl&quot;&gt;0.1&lt;/span&gt;, &lt;span class=&quot;fl&quot;&gt;0.05&lt;/span&gt;, &lt;span class=&quot;fl&quot;&gt;0.01&lt;/span&gt;, &lt;span class=&quot;fl&quot;&gt;0.005&lt;/span&gt;],
+     &lt;span class=&quot;co&quot;&gt;&amp;#39;clf__n_estimators&amp;#39;&lt;/span&gt;: [&lt;span class=&quot;dv&quot;&gt;10&lt;/span&gt;,&lt;span class=&quot;dv&quot;&gt;25&lt;/span&gt;,&lt;span class=&quot;dv&quot;&gt;50&lt;/span&gt;,&lt;span class=&quot;dv&quot;&gt;100&lt;/span&gt;,&lt;span class=&quot;dv&quot;&gt;250&lt;/span&gt;,&lt;span class=&quot;dv&quot;&gt;500&lt;/span&gt;,&lt;span class=&quot;dv&quot;&gt;1000&lt;/span&gt;]&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Using 5-fold cross validation, this produced 350 different fits of the classifer, with the following results:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;Best score: 0.593
+Best parameters:
+param: clf__learning_rate: 1.0
+param: clf__n_estimators: 50&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Some improvement is seen on overall training set accuracy, but the real surprise is test performance on the hold-out data, using the optimal hyperparameters:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;          predicted 0  predicted 1  predicted 2  predicted 3
+actual 0            3            2            0            0
+actual 1            1            1            0            0
+actual 2            0            0            3            1
+actual 3            0            0            3            6
+             precision    recall  f1-score   support
+
+          0       0.75      0.60      0.67         5
+          1       0.33      0.50      0.40         2
+          2       0.50      0.75      0.60         4
+          3       0.86      0.67      0.75         9
+
+avg / total       0.71      0.65      0.66        20
+
+Accuracy on test: 0.650&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Overall accuracy is greatly improved, which is unusual (normally I would expect test accuracy to be less than training accuracy, but the test set is small). But we can see that we improved mainly because of our ability to predict classes 2 and 3, although the overall pattern is still the same: we have misclassification within early and within late, but perfect discrimination between the two.&lt;/p&gt;
+&lt;h3 id=&quot;summary&quot;&gt;Summary&lt;/h3&gt;
+&lt;p&gt;Given how close these models were, I expected to have great trouble in identifying them from seriations. What I found is that I can identify part of the model class with great accuracy, and that the other modeling dimension (coalescence/splitting) with much less accuracy. This leads me to suspect that I could predict both dimensions with very high accuracy if I were to find a way to encode temporal orientation as a feature.&lt;/p&gt;
+&lt;p&gt;I will pursue this, since we often have at least &lt;strong&gt;some&lt;/strong&gt; information on temporal orientation, perhaps by knowing that one assemblage in a set is much earlier or later than the rest. The challenge is finding a way to provide this kind of hint for the synthetic seriation graphs. More soon on this.&lt;/p&gt;
+&lt;h3 id=&quot;resources&quot;&gt;Resources&lt;/h3&gt;
+&lt;p&gt;&lt;a href=&quot;http://nbviewer.jupyter.org/gist/anonymous/f6a18712ee1077d1a329&quot;&gt;Full analysis notebook&lt;/a&gt; on NBViewer, from the Github repository.&lt;/p&gt;
+&lt;p&gt;Github Repository: &lt;a href=&quot;https://github.com/mmadsen/experiment-seriation-classification&quot;&gt;experiment-seriation-classification&lt;/a&gt;&lt;/p&gt;
+&lt;div class=&quot;references&quot;&gt;
+&lt;h3&gt;References Cited&lt;/h3&gt;
+&lt;/div&gt;</content><category term="cultural transmission" /><category term="coarse graining" /><category term="simulation" /><category term="dissertation" /><category term="seriation" /><category term="algorithms" /><category term="ML" /><summary>Model Resolution and Equifinality</summary></entry><entry><title>Feature Engineering for Seriation Classification</title><link href="http://notebook.madsenlab.org/project:coarse%20grained%20model/model:seriationct/experiment:experiment-seriation-classification/2016/02/16/feature-engineering-seriation-classification.html" rel="alternate" type="text/html" title="Feature Engineering for Seriation Classification" /><published>2016-02-16T00:00:00-08:00</published><updated>2016-02-16T00:00:00-08:00</updated><id>http://notebook.madsenlab.org/project:coarse%20grained%20model/model:seriationct/experiment:experiment-seriation-classification/2016/02/16/feature-engineering-seriation-classification</id><content type="html" xml:base="http://notebook.madsenlab.org/project:coarse%20grained%20model/model:seriationct/experiment:experiment-seriation-classification/2016/02/16/feature-engineering-seriation-classification.html">&lt;h3 id=&quot;feature-engineering&quot;&gt;Feature Engineering&lt;/h3&gt;
 &lt;p&gt;In my &lt;a href=&quot;http://notebook.madsenlab.org/project:coarse%20grained%20model/model:seriationct/experiment:experiment-seriation-classification/2016/02/14/seriation-classification-experiment.html&quot;&gt;previous note&lt;/a&gt;, I used the graph spectral distance (i.e., the euclidean distance between Laplacian eigenvalue spectra from two seriation solutions) in a kNN classifer to predict which regional network model generated a seriation graph. This achieved accuracy around 80% with 3 nearest neighbors.&lt;/p&gt;
 &lt;p&gt;Doing better meant changing approaches, and giving the classifier a larger space within which to draw decision boundaries. My first thought was to not reduce the Laplacian spectrum to distances, but instead of use the spectra themselves as numeric features. This would require that, say, column 1 represented the largest eigenvalue in each graph’s spectrum, column 2 the second largest, etc, which is easily accomplished.&lt;/p&gt;
 &lt;p&gt;The resulting feature matrix is then suitable for any classifier algorithm. I chose gradient boosted trees because of their high accuracy (essentially equivalent to random forests or better in most applications), and without any hyperparameter tuning at all, achieve anywhere from 85% to 100% accuracy depending upon the train/test split (it’s a small sample size). Optimizing hyperparameters improves this and I can get 100% pretty often with different train test splits.&lt;/p&gt;
@@ -436,29 +508,4 @@ Vec and Parallelism  - 1m36.847s&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;I’ll report back when I have some code up and running.&lt;/p&gt;
 &lt;div class=&quot;references&quot;&gt;
 
-&lt;/div&gt;</content><category term="cultural transmission" /><category term="simulation" /><category term="computing" /><category term="HPC" /><category term="seriation" /><category term="ML" /><category term="computational science" /><summary>Background</summary></entry><entry><title>SeriationCT Sample Size Series experiments</title><link href="http://notebook.madsenlab.org/project:coarse%20grained%20model/model:seriationct/experiment:experiment-seriationct/2015/05/14/seriationct-sample-size-experiments.html" rel="alternate" type="text/html" title="SeriationCT Sample Size Series experiments" /><published>2015-05-14T00:00:00-07:00</published><updated>2015-05-14T00:00:00-07:00</updated><id>http://notebook.madsenlab.org/project:coarse%20grained%20model/model:seriationct/experiment:experiment-seriationct/2015/05/14/seriationct-sample-size-experiments</id><content type="html" xml:base="http://notebook.madsenlab.org/project:coarse%20grained%20model/model:seriationct/experiment:experiment-seriationct/2015/05/14/seriationct-sample-size-experiments.html">&lt;h3 id=&quot;effect-of-varying-sample-size&quot;&gt;Effect of Varying Sample Size&lt;/h3&gt;
-&lt;p&gt;After SAA’s, I used some existing simulations (seriationct-27 from the &lt;a href=&quot;http://github.com/mmadsen/experiment-seriationct-2&quot;&gt;experiment-seriationct-2&lt;/a&gt; repository) to prototype examining the effects of sample size on:&lt;/p&gt;
-&lt;ol type=&quot;1&quot;&gt;
-&lt;li&gt;The gross structure of the seriation solutions: how much branching when small? do we get isolates?&lt;br /&gt;&lt;/li&gt;
-&lt;li&gt;Lineage structure recovery&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;Working with the existing simulation results and post-processed samples, I wrote a quick modification of the assemblage sampler called &lt;code&gt;seriationct-sample-assemblages-for-samplesize-sequence-seriation.py&lt;/code&gt;. The script takes the output from the &lt;code&gt;seriationct-export-data.py&lt;/code&gt; script and performs subsampling as follows:&lt;/p&gt;
-&lt;ol type=&quot;1&quot;&gt;
-&lt;li&gt;Uses a &lt;code&gt;samplefraction&lt;/code&gt; parameter to select an initial sample of assemblages, just like the normal &lt;code&gt;seriationct-sample-assemblages-for-seriation.py&lt;/code&gt;.&lt;br /&gt;&lt;/li&gt;
-&lt;li&gt;Selects these samples given the &lt;code&gt;sampletype&lt;/code&gt; parameter, as a pure random sample of assemblages, a spatially stratified sample given NxN quadrats, temporally stratified given N even periods of time, and spatiotemporal sampling which stratifies by quadrats and periods.&lt;/li&gt;
-&lt;li&gt;Subsamples the &lt;code&gt;samplefraction&lt;/code&gt; assemblages in a sequence decreasing by 2, so for example, if &lt;code&gt;samplefraction&lt;/code&gt; is 30, the largest set of assemblages will be 30 randomly sampled, and then 28 sampled from the 30, 26 sampled from the original 30, and so on.&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;The net result is a nested series of samples (rather than independent random samples of different sizes).&lt;/p&gt;
-&lt;h3 id=&quot;statistics-brainstorm&quot;&gt;Statistics Brainstorm&lt;/h3&gt;
-&lt;p&gt;Some of the things I want to know are:&lt;/p&gt;
-&lt;ol type=&quot;1&quot;&gt;
-&lt;li&gt;How consistent is the lineage structure of each seriation solution, at each sample size? (i.e., along a branch, how mixed are lineage identifiers?)&lt;/li&gt;
-&lt;li&gt;How consistent is the temporal sequence of the solution?&lt;br /&gt;&lt;/li&gt;
-&lt;li&gt;How “branchy” is the solution?&lt;br /&gt;&lt;/li&gt;
-&lt;li&gt;Furthermore, what is the average and variance of these measures, across the sequence of sample sizes? Or perhaps the quantiles and order statistics?&lt;/li&gt;
-&lt;li&gt;At what sample size does lineage structure and chronology become visible and semi-stable?&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;I’m just starting to build measures for these items, since they involve traversal and parsing of the annotated minmax graphs.&lt;/p&gt;
-&lt;div class=&quot;references&quot;&gt;
-&lt;h3&gt;References Cited&lt;/h3&gt;
-&lt;/div&gt;</content><category term="cultural transmission" /><category term="coarse graining" /><category term="simulation" /><category term="dissertation" /><category term="seriation" /><summary>Effect of Varying Sample Size</summary></entry></feed>
+&lt;/div&gt;</content><category term="cultural transmission" /><category term="simulation" /><category term="computing" /><category term="HPC" /><category term="seriation" /><category term="ML" /><category term="computational science" /><summary>Background</summary></entry></feed>
