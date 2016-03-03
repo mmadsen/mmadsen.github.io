@@ -186,7 +186,7 @@
 		<table class="table table-condensed">
 			<tr class="info">
 				<td><small><i class="icon-calendar"></i>&nbsp;Created: 13 Jul 2013</small></td>
-				<td><small><i class="icon-calendar"></i>&nbsp;Modified: 23 Feb 2016</small></td>
+				<td><small><i class="icon-calendar"></i>&nbsp;Modified: 03 Mar 2016</small></td>
 				<td><small><i class="icon-book">&nbsp;</i>&nbsp;<a href=http://greycite.knowledgeblog.org/bib/?uri=http://notebook.madsenlab.org/project:coarse%20grained%20model/model:ctpy/experiment:experiment-classification/2013/07/13/ctpy-classification-designs.html target='_blank'>BibTeX Entry</a>
 </small></td>
 				<td><small><i class="icon-book">&nbsp;</i>&nbsp;<a href=http://greycite.knowledgeblog.org/ris/?uri=http://notebook.madsenlab.org/project:coarse%20grained%20model/model:ctpy/experiment:experiment-classification/2013/07/13/ctpy-classification-designs.html target='_blank'>RIS Citation</a>
@@ -207,16 +207,19 @@
 <h3 id="requirements">Requirements</h3>
 <p>The design goal is to overlay arbitrary paradigmatic classifications on top of the variation being evolved in a simuPOP simulation, and then produce class counts and richness values as we do for the raw variation itself. General requirements:</p>
 <ul>
-<li>Many different classifications need to be overlaid on each set of simulation results. These classifications will usually have the same dimensionality as the number of loci held by individuals, but will differ in how modes map to allelic partitions for each dimension.<br /></li>
-<li>The ability to generate random partitions of a dimension is critical, by specifying the number of modes desired, but having the “boundaries” of the allelic partitions differ. There is code in TF which worked well for this, and could be translated, given a solution to problems described below.<br /></li>
-<li>Classification does not replace the original allelic data. I envision that there is a data collection which carries the same simulation metadata, but reclassifies individual samples to a given classification. More than one classification would be present for each simulation run ID.<br /></li>
+<li>Many different classifications need to be overlaid on each set of simulation results. These classifications will usually have the same dimensionality as the number of loci held by individuals, but will differ in how modes map to allelic partitions for each dimension.<br />
+</li>
+<li>The ability to generate random partitions of a dimension is critical, by specifying the number of modes desired, but having the “boundaries” of the allelic partitions differ. There is code in TF which worked well for this, and could be translated, given a solution to problems described below.<br />
+</li>
+<li>Classification does not replace the original allelic data. I envision that there is a data collection which carries the same simulation metadata, but reclassifies individual samples to a given classification. More than one classification would be present for each simulation run ID.<br />
+</li>
 <li>Calculation of the class identity for individuals, given a classification, should not occur during simulation runtime. This will allow classification to occur in parallel, reading data from the database, and writing new database entries.</li>
 </ul>
 <h3 id="design-notes">Design Notes</h3>
-<p>The main issue is mapping the allele space to modes. In TF and my dissertation proposal <span class="citation" data-cites="madsen2012proposal">(Madsen 2012)</span>, I modeled trait dimensions as the unit interval <span class="math">\([0,1]\)</span>, with traits taking real-valued locations on the interval. This offered an infinite-alleles model of mutation (it’s always possible to distinguish two values, at least for a very large number of values given 64 bits), but a constrained method of doing allelic partitions for modes. An example of chopping a dimension into three modes might be:</p>
-<p><span class="math">\([0, 0.4) [0.4, 0.7) [0.7, 1.0]\)</span></p>
-<p>Obviously, a trait with value <span class="math">\(0.3576\)</span> would be identified to Mode 1 in this dimension. Simple. Generating random partitions was also easy, or doing a hierarchy of classification levels.</p>
-<p>In simuPOP, the KAllelesMutator I’m using operates with LONG integer values, so it’s not truly infinite alleles, just many more than you’ll need unless you have a giant population and a very long simulation run. So we set the maximum allelic value (MAXVAL) when we construct the mutator, and then it seems to choose new alleles uniformly from <span class="math">\([0, MAXVAL]\)</span>.</p>
+<p>The main issue is mapping the allele space to modes. In TF and my dissertation proposal <span class="citation" data-cites="madsen2012proposal">(Madsen 2012)</span>, I modeled trait dimensions as the unit interval <span class="math inline">\([0,1]\)</span>, with traits taking real-valued locations on the interval. This offered an infinite-alleles model of mutation (it’s always possible to distinguish two values, at least for a very large number of values given 64 bits), but a constrained method of doing allelic partitions for modes. An example of chopping a dimension into three modes might be:</p>
+<p><span class="math inline">\([0, 0.4) [0.4, 0.7) [0.7, 1.0]\)</span></p>
+<p>Obviously, a trait with value <span class="math inline">\(0.3576\)</span> would be identified to Mode 1 in this dimension. Simple. Generating random partitions was also easy, or doing a hierarchy of classification levels.</p>
+<p>In simuPOP, the KAllelesMutator I’m using operates with LONG integer values, so it’s not truly infinite alleles, just many more than you’ll need unless you have a giant population and a very long simulation run. So we set the maximum allelic value (MAXVAL) when we construct the mutator, and then it seems to choose new alleles uniformly from <span class="math inline">\([0, MAXVAL]\)</span>.</p>
 <p>What we don’t have is a good allelic distribution of initial variants – variants appear to be sequential and taken from zero. Either we ought to have initial alleles chosen randomly from the permissible space, or we simply have to wait until all the initial alleles are gone before we start recording data.</p>
 <p>Then, we can specify random partitions as fractions of MAXVAL. Classifications could also be specified manually in the same way I did it in TF, and simply interpreted as fractions of MAXVAL. MAXVAL itself could be calculated somehow, based on popsize and length of simulation run and mutation rate. Or it could be set to a very large number. Either way, it simply needs to be recorded as part of the simulation run info.</p>
 <h3 id="tasks">Tasks</h3>
@@ -227,9 +230,11 @@
 <li>Need a data collection for storing the classifications and their modes</li>
 <li>Need a data collection for storing individual samples post classification, with a field for the classification ID used.</li>
 </ol>
-<div class="references">
-<h3>References Cited</h3>
+<h3 id="references-cited" class="unnumbered">References Cited</h3>
+<div id="refs" class="references">
+<div id="ref-madsen2012proposal">
 <p>Madsen, Mark. 2012. “Dissertation Proposal: Empirical Sufficiency and Neutral Theory: Building Seriation and Classification into Archaeological Models of Cultural Transmission.” <a href="http://dx.doi.org/10.6084/m9.figshare.745321" class="uri">http://dx.doi.org/10.6084/m9.figshare.745321</a>.</p>
+</div>
 </div>
 <section class="footnotes">
 <hr />

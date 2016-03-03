@@ -186,7 +186,7 @@
 		<table class="table table-condensed">
 			<tr class="info">
 				<td><small><i class="icon-calendar"></i>&nbsp;Created: 14 May 2015</small></td>
-				<td><small><i class="icon-calendar"></i>&nbsp;Modified: 23 Feb 2016</small></td>
+				<td><small><i class="icon-calendar"></i>&nbsp;Modified: 03 Mar 2016</small></td>
 				<td><small><i class="icon-book">&nbsp;</i>&nbsp;<a href=http://greycite.knowledgeblog.org/bib/?uri=http://notebook.madsenlab.org/project:coarse%20grained%20model/model:seriationct/experiment:experiment-seriationct/2015/05/14/seriationct-sample-size-experiments.html target='_blank'>BibTeX Entry</a>
 </small></td>
 				<td><small><i class="icon-book">&nbsp;</i>&nbsp;<a href=http://greycite.knowledgeblog.org/ris/?uri=http://notebook.madsenlab.org/project:coarse%20grained%20model/model:seriationct/experiment:experiment-seriationct/2015/05/14/seriationct-sample-size-experiments.html target='_blank'>RIS Citation</a>
@@ -203,12 +203,14 @@
   <h3 id="effect-of-varying-sample-size">Effect of Varying Sample Size</h3>
 <p>After SAA’s, I used some existing simulations (seriationct-27 from the <a href="http://github.com/mmadsen/experiment-seriationct-2">experiment-seriationct-2</a> repository) to prototype examining the effects of sample size on:</p>
 <ol type="1">
-<li>The gross structure of the seriation solutions: how much branching when small? do we get isolates?<br /></li>
+<li>The gross structure of the seriation solutions: how much branching when small? do we get isolates?<br />
+</li>
 <li>Lineage structure recovery</li>
 </ol>
 <p>Working with the existing simulation results and post-processed samples, I wrote a quick modification of the assemblage sampler called <code>seriationct-sample-assemblages-for-samplesize-sequence-seriation.py</code>. The script takes the output from the <code>seriationct-export-data.py</code> script and performs subsampling as follows:</p>
 <ol type="1">
-<li>Uses a <code>samplefraction</code> parameter to select an initial sample of assemblages, just like the normal <code>seriationct-sample-assemblages-for-seriation.py</code>.<br /></li>
+<li>Uses a <code>samplefraction</code> parameter to select an initial sample of assemblages, just like the normal <code>seriationct-sample-assemblages-for-seriation.py</code>.<br />
+</li>
 <li>Selects these samples given the <code>sampletype</code> parameter, as a pure random sample of assemblages, a spatially stratified sample given NxN quadrats, temporally stratified given N even periods of time, and spatiotemporal sampling which stratifies by quadrats and periods.</li>
 <li>Subsamples the <code>samplefraction</code> assemblages in a sequence decreasing by 2, so for example, if <code>samplefraction</code> is 30, the largest set of assemblages will be 30 randomly sampled, and then 28 sampled from the 30, 26 sampled from the original 30, and so on.</li>
 </ol>
@@ -217,14 +219,17 @@
 <p>Some of the things I want to know are:</p>
 <ol type="1">
 <li>How consistent is the lineage structure of each seriation solution, at each sample size? (i.e., along a branch, how mixed are lineage identifiers?)</li>
-<li>How consistent is the temporal sequence of the solution?<br /></li>
-<li>How “branchy” is the solution?<br /></li>
+<li>How consistent is the temporal sequence of the solution?<br />
+</li>
+<li>How “branchy” is the solution?<br />
+</li>
 <li>Furthermore, what is the average and variance of these measures, across the sequence of sample sizes? Or perhaps the quantiles and order statistics?</li>
 <li>At what sample size does lineage structure and chronology become visible and semi-stable?</li>
 </ol>
 <p>I’m just starting to build measures for these items, since they involve traversal and parsing of the annotated minmax graphs.</p>
-<div class="references">
-<h3>References Cited</h3>
+<h3 id="references-cited" class="unnumbered">References Cited</h3>
+<div id="refs" class="references">
+
 </div>
   
 

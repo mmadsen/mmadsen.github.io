@@ -186,7 +186,7 @@
 		<table class="table table-condensed">
 			<tr class="info">
 				<td><small><i class="icon-calendar"></i>&nbsp;Created: 18 Nov 2013</small></td>
-				<td><small><i class="icon-calendar"></i>&nbsp;Modified: 23 Feb 2016</small></td>
+				<td><small><i class="icon-calendar"></i>&nbsp;Modified: 03 Mar 2016</small></td>
 				<td><small><i class="icon-book">&nbsp;</i>&nbsp;<a href=http://greycite.knowledgeblog.org/bib/?uri=http://notebook.madsenlab.org/project:structured%20information/model:axelrod-ct/experiment:experiment-semanticaxelrod/2013/11/18/axelrod-to-semantic-model-notes.html target='_blank'>BibTeX Entry</a>
 </small></td>
 				<td><small><i class="icon-book">&nbsp;</i>&nbsp;<a href=http://greycite.knowledgeblog.org/ris/?uri=http://notebook.madsenlab.org/project:structured%20information/model:axelrod-ct/experiment:experiment-semanticaxelrod/2013/11/18/axelrod-to-semantic-model-notes.html target='_blank'>RIS Citation</a>
@@ -205,8 +205,10 @@
 <h3 id="adding-semantic-models">Adding Semantic Models</h3>
 <p>The next tasks revolve around the “trait model” we use, giving traits relational structure, and any modifications to the Axelrod rules themselves to accomodate these structural changes. Specifically, I think the steps involve:</p>
 <ol type="1">
-<li>Allow the definition of the features to be “extensible” for individuals. In other words, <code>F</code> features might be present, but the initial configuration of individuals will be random and possibly less than <code>F</code>. Individuals might gain new features by copying, but overlap will still initially calculated in a “traditional” manner.<br /></li>
-<li>Add statistics for the “size” of an individual’s feature list. The resulting model will be a useful “neutral” bridge where copying is unbiased+homophily but no structure to the traits themselves.<br /></li>
+<li>Allow the definition of the features to be “extensible” for individuals. In other words, <code>F</code> features might be present, but the initial configuration of individuals will be random and possibly less than <code>F</code>. Individuals might gain new features by copying, but overlap will still initially calculated in a “traditional” manner.<br />
+</li>
+<li>Add statistics for the “size” of an individual’s feature list. The resulting model will be a useful “neutral” bridge where copying is unbiased+homophily but no structure to the traits themselves.<br />
+</li>
 <li>Add structure to the traits themselves, in the form of a directed graph, and rules by which copying is possible given the presence of upstream prerequisites.</li>
 </ol>
 <h3 id="extensible-trait-lists">Extensible Trait Lists</h3>
@@ -220,38 +222,38 @@
 <ol type="1">
 <li>replace a trait or set of traits with new ones</li>
 </ol>
-<pre class="sourceCode python"><code class="sourceCode python"><span class="ch">import</span> random
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="im">import</span> random
 
 <span class="co"># assume &quot;agent_traits&quot; is an object of type set()</span>
 <span class="co"># this case comes up in drift, for example</span>
-t_new = select_random_trait()
-t_old = random.choice(agent_traits)
+t_new <span class="op">=</span> select_random_trait()
+t_old <span class="op">=</span> random.choice(agent_traits)
 agent_traits.remove(t_old)
-agent_traits.add(t_new)</code></pre>
+agent_traits.add(t_new)</code></pre></div>
 <ol start="2" type="1">
 <li>initiatize an agent with a random set of traits, perhaps with a random number of traits</li>
 <li>generate a unique representation of a set of traits, for stats, and coloring diagrams</li>
 <li>calculation of overlap between trait sets</li>
 </ol>
-<pre class="sourceCode python"><code class="sourceCode python"><span class="co"># since the sets can vary in size, the overlap is simply the Jaccard coefficient</span>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="co"># since the sets can vary in size, the overlap is simply the Jaccard coefficient</span>
 <span class="co"># while the probability of interaction is the Jaccard distance</span>
 
-overlap = <span class="dt">len</span>(focal.intersection(neighbor)) / <span class="dt">len</span>(focal.union(neighbor))
-prob = <span class="dt">len</span>(focal.symmetric_difference(neighbor)) / <span class="dt">len</span>(focal.union(neighbor))</code></pre>
+overlap <span class="op">=</span> <span class="bu">len</span>(focal.intersection(neighbor)) <span class="op">/</span> <span class="bu">len</span>(focal.union(neighbor))
+prob <span class="op">=</span> <span class="bu">len</span>(focal.symmetric_difference(neighbor)) <span class="op">/</span> <span class="bu">len</span>(focal.union(neighbor))</code></pre></div>
 <ol start="5" type="1">
 <li>find list of traits which differ between two agents</li>
 </ol>
-<pre class="sourceCode python"><code class="sourceCode python"><span class="co"># trick here is that we need two things:  first, the traits in the focal agent which </span>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="co"># trick here is that we need two things:  first, the traits in the focal agent which </span>
 <span class="co"># differ with the target agent (set difference), and then we need the target&#39;s traits which </span>
 <span class="co"># differ from the focal agent.  We choose a random differing trait in the focal, to replace</span>
 <span class="co"># with a random differing trait from the target.  This is true to the spirit of the Axelrod </span>
 <span class="co"># model without requiring a specific set of loci/alleles (features/traits)</span>
 
-focal_uniq = focal.difference(neighbor)
-neighbor_uniq = neighbor.difference(focal)
-focal_to_replace = random.choice(focal_uniq)
-neighbor_to_adopt = random.choice(neighbor_uniq)</code></pre>
-<div class="references">
+focal_uniq <span class="op">=</span> focal.difference(neighbor)
+neighbor_uniq <span class="op">=</span> neighbor.difference(focal)
+focal_to_replace <span class="op">=</span> random.choice(focal_uniq)
+neighbor_to_adopt <span class="op">=</span> random.choice(neighbor_uniq)</code></pre></div>
+<div id="refs" class="references">
 
 </div>
   

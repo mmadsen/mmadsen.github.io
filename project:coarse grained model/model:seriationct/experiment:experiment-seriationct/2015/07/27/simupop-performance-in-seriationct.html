@@ -186,7 +186,7 @@
 		<table class="table table-condensed">
 			<tr class="info">
 				<td><small><i class="icon-calendar"></i>&nbsp;Created: 27 Jul 2015</small></td>
-				<td><small><i class="icon-calendar"></i>&nbsp;Modified: 23 Feb 2016</small></td>
+				<td><small><i class="icon-calendar"></i>&nbsp;Modified: 03 Mar 2016</small></td>
 				<td><small><i class="icon-book">&nbsp;</i>&nbsp;<a href=http://greycite.knowledgeblog.org/bib/?uri=http://notebook.madsenlab.org/project:coarse%20grained%20model/model:seriationct/experiment:experiment-seriationct/2015/07/27/simupop-performance-in-seriationct.html target='_blank'>BibTeX Entry</a>
 </small></td>
 				<td><small><i class="icon-book">&nbsp;</i>&nbsp;<a href=http://greycite.knowledgeblog.org/ris/?uri=http://notebook.madsenlab.org/project:coarse%20grained%20model/model:seriationct/experiment:experiment-seriationct/2015/07/27/simupop-performance-in-seriationct.html target='_blank'>RIS Citation</a>
@@ -222,7 +222,7 @@
 <p>The pattern is the same, and the execution times are basically 5x the single replication time.</p>
 <h3 id="parallelism-in-simupop">Parallelism in simuPOP</h3>
 <p>Looking at the version 1.1.6 source code, it appears that multiple threads are used in very specific situations. The simulator and its evolve function are single-threaded, with no OpenMP sections. Instead, parallelism is employed in specific loops, such as initializing a population or processing the individuals in a subpopulation, as in this example:</p>
-<pre class="sourceCode cpp"><code class="sourceCode cpp">        <span class="kw">for</span> (; sp != sp_end; ++sp) {
+<div class="sourceCode"><pre class="sourceCode cpp"><code class="sourceCode cpp">        <span class="kw">for</span> (; sp != sp_end; ++sp) {
                 pop.activateVirtualSubPop(*sp);
                 size_t numValues = m_values.size();
                 <span class="kw">if</span> (numThreads() &gt; <span class="dv">1</span> &amp;&amp; !values.empty()) {
@@ -238,7 +238,7 @@
                                         }
                         }
                         idx = idx + pop.subPopSize(sp-&gt;subPop());
-<span class="ot">#endif</span></code></pre>
+<span class="ot">#endif</span></code></pre></div>
 <p>where tiles of individuals are processed by each of the N threads configured.</p>
 <p>Examining the simulator itself, I can see why parallelism isn’t expressed at the replicate or subpopulation level. Applications built in simuPOP are capable of using pure-Python operators mixed with built-in C++ operations, and if replicates are threaded rather than being distributed across Unix processes, we run immediately into the GIL issue. So Bo has used OpenMP to parallelize things only <strong>within</strong> a single operator or function, which makes it safe.</p>
 <p>What does this mean?</p>
@@ -247,8 +247,9 @@
 <li><p>Since simuPOP never parallelizes over replicates, it’s better to keep single replicates in their own Unix processes and use Grid Engine or a job scheduler to parallelize a <strong>set of simulations</strong> across the available cores.</p></li>
 </ol>
 <p>The latter is what I’ve been doing on StarCluster in previous projects, so it’s a familiar and easily scriptable protocol. And, if I work with large population sizes at some point, the native threading in simuPOP could pay off, but otherwise, it’s best ignored for most of the work I’m doing.</p>
-<div class="references">
-<h3>References Cited</h3>
+<h3 id="references-cited" class="unnumbered">References Cited</h3>
+<div id="refs" class="references">
+
 </div>
   
 

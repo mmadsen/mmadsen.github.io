@@ -186,7 +186,7 @@
 		<table class="table table-condensed">
 			<tr class="info">
 				<td><small><i class="icon-calendar"></i>&nbsp;Created: 11 Dec 2013</small></td>
-				<td><small><i class="icon-calendar"></i>&nbsp;Modified: 23 Feb 2016</small></td>
+				<td><small><i class="icon-calendar"></i>&nbsp;Modified: 03 Mar 2016</small></td>
 				<td><small><i class="icon-book">&nbsp;</i>&nbsp;<a href=http://greycite.knowledgeblog.org/bib/?uri=http://notebook.madsenlab.org/project:structured%20information/model:axelrod-ct/experiment:experiment-semanticaxelrod/2013/12/11/semantic-trees-and-graphs.html target='_blank'>BibTeX Entry</a>
 </small></td>
 				<td><small><i class="icon-book">&nbsp;</i>&nbsp;<a href=http://greycite.knowledgeblog.org/ris/?uri=http://notebook.madsenlab.org/project:structured%20information/model:axelrod-ct/experiment:experiment-semanticaxelrod/2013/12/11/semantic-trees-and-graphs.html target='_blank'>RIS Citation</a>
@@ -204,17 +204,17 @@
 <p>An “extensible traits” version of the Axelrod model is complete,<a href="#fn1" class="footnoteRef" id="fnref1"><sup>1</sup></a> in which there are no loci or features, but individuals hold any number of traits. If differs slightly from loci/allele models in that none of the traits are mutually exclusive alternatives, so we can also think of it as a single locus model with multiplicity and no exclusion.</p>
 <p>The model also initializes agents with a variable sized set of traits, which can grow via a stochastic, “mutation” like process; each model run is parameterized with an addition probability which determines how often a copied trait replaces an existing trait, or is simply added to the agent’s trait set, growing its size.</p>
 <p>The copying rule is a modification of the basic Axelrod rule, and assumes that agents hold traits in a <code>Set</code> class (rather than list, etc). Agents interact with a probability determined by the overlap in trait sets, which in sets of variable size is simply the Jaccard coefficient. Interaction also does not occur if the neighbor’s trait set is a strict subset of the focal agent’s traits, since there are no “new” traits to adopt. In pseudocode:</p>
-<pre class="sourceCode python"><code class="sourceCode python"><span class="kw">if</span> agent == neighbor or agent.isdisjoint(neighbor) or neighbor.issubset(agent):
-    <span class="kw">return</span>
-<span class="kw">else</span>:
-    prob = <span class="dt">len</span>(focal.symmetric_difference(neighbor)) / <span class="dt">len</span>(focal.union(neighbor))
-    <span class="kw">if</span> draw(prob) == <span class="ot">True</span>:
-        traits = neighbor.get_differing_traits(agent)
-        neighbor_trait = random.choice(traits)
-        <span class="kw">if</span> draw(addition_rate) == <span class="ot">True</span>:
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="cf">if</span> agent <span class="op">==</span> neighbor <span class="op">or</span> agent.isdisjoint(neighbor) <span class="op">or</span> neighbor.issubset(agent):
+    <span class="cf">return</span>
+<span class="cf">else</span>:
+    prob <span class="op">=</span> <span class="bu">len</span>(focal.symmetric_difference(neighbor)) <span class="op">/</span> <span class="bu">len</span>(focal.union(neighbor))
+    <span class="cf">if</span> draw(prob) <span class="op">==</span> <span class="va">True</span>:
+        traits <span class="op">=</span> neighbor.get_differing_traits(agent)
+        neighbor_trait <span class="op">=</span> random.choice(traits)
+        <span class="cf">if</span> draw(addition_rate) <span class="op">==</span> <span class="va">True</span>:
             agent.add(neighbor_trait)
-        <span class="kw">else</span>:
-            agent.replace_random_trait_with(neighbor_trait)</code></pre>
+        <span class="cf">else</span>:
+            agent.replace_random_trait_with(neighbor_trait)</code></pre></div>
 <p>Otherwise, the model remains the same. Each run proceeds until convergence, measured as the lack of “active” links.</p>
 <p>The point of this model is twofold. First, it serves as essential infrastructure for later semantic models, allowing a variety of trait structures that do not employ the locus/allele formalism. Second, since copying is still random with respect to individuals and traits, the extensible model serves as a neutral “null model” for comparison to later models.</p>
 <p>Informally, the extensible model displays the same gross behavior as an Axelrod model with a small number of features and small to moderate number of traits, i.e., typically it converges to the monocultural state but occasionally to a multicultural state with a small number of distinct cultures (usually represented by single nodes).</p>
@@ -227,7 +227,7 @@
 </figure>
 <h4 id="initialization">Initialization</h4>
 <p>As an example of initializing a population, imagine initializing 8 trait trees, with branching factor 3 and depth 3. This yields roots at <code>[0,41,82,123,164,205,246,287]</code>. If we then take random paths through trees chosen at random, we get something like the following:</p>
-<pre class="sourceCode python"><code class="sourceCode python">[<span class="dv">123</span>, <span class="dv">125</span>, <span class="dv">132</span>, <span class="dv">152</span>]
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">[<span class="dv">123</span>, <span class="dv">125</span>, <span class="dv">132</span>, <span class="dv">152</span>]
 [<span class="dv">82</span>, <span class="dv">84</span>, <span class="dv">89</span>]
 [<span class="dv">164</span>, <span class="dv">167</span>, <span class="dv">176</span>, <span class="dv">202</span>]
 [<span class="dv">287</span>, <span class="dv">289</span>, <span class="dv">296</span>, <span class="dv">315</span>]
@@ -235,13 +235,13 @@
 [<span class="dv">0</span>, <span class="dv">3</span>, <span class="dv">10</span>]
 [<span class="dv">205</span>, <span class="dv">207</span>]
 [<span class="dv">82</span>, <span class="dv">83</span>, <span class="dv">86</span>, <span class="dv">95</span>]
-[<span class="dv">82</span>, <span class="dv">85</span>, <span class="dv">93</span>, <span class="dv">117</span>]</code></pre>
+[<span class="dv">82</span>, <span class="dv">85</span>, <span class="dv">93</span>, <span class="dv">117</span>]</code></pre></div>
 <h4 id="interaction-with-prerequisites">Interaction with Prerequisites</h4>
 <p>Given trait sets which are structured as “chains of concepts,” the extensible Axelrod interaction rule can be generalized such that individuals may only “adopt” traits (and thus come to possess the relevant knowledge or information), when they already have appropriate prerequisites skills or knowledge. In this example, we deal only with terminal or “leaf” traits, although copying rules which are more complex are possible, see below.</p>
 <p>As an example, at a given step in the simulation, Agent A is selected as the “focal” individual, and Agent B as a random neighbor of A. Let us imagine that we calculate the overlap between their trait sets, and a random draw shows that they interact this time step.</p>
 <p>In Case 1, when we look at any of the trait chains, the focal agent cannot “learn” trait <code>157</code>from the neighbor. Even though they share <code>[123, 125]</code> as basic knowledge, they differ between <code>132</code> and <code>134</code>.</p>
 <p><strong>Case 1: Lacking Prerequisite</strong></p>
-<pre class="sourceCode python"><code class="sourceCode python"><span class="co"># Agent A</span>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="co"># Agent A</span>
 ([<span class="dv">123</span>, <span class="dv">125</span>, <span class="dv">132</span>, <span class="dv">152</span>],
 [<span class="dv">82</span>, <span class="dv">84</span>, <span class="dv">89</span>],
 [<span class="dv">164</span>, <span class="dv">167</span>, <span class="dv">176</span>, <span class="dv">202</span>])
@@ -249,10 +249,10 @@
 <span class="co"># Agent B</span>
 ([<span class="dv">287</span>, <span class="dv">289</span>, <span class="dv">296</span>, <span class="dv">315</span>],
 [<span class="dv">123</span>, <span class="dv">125</span>, <span class="dv">134</span>, <span class="dv">157</span>],
-[<span class="dv">0</span>, <span class="dv">3</span>, <span class="dv">10</span>])</code></pre>
+[<span class="dv">0</span>, <span class="dv">3</span>, <span class="dv">10</span>])</code></pre></div>
 <p>In contrast, in Case 2, the focal agent can “learn” trait <code>157</code> from its neighbor. The focal agent and the neighbor share the prerequisites needed for both <code>152</code> and <code>157</code>, namely the chain <code>[123, 125, 132]</code>. In the simplest rule, the focal agent replaces its leaf trait with the neighbor’s.</p>
 <p><strong>Case 2: Has Prerequisite, Replaces Trait</strong></p>
-<pre class="sourceCode python"><code class="sourceCode python"><span class="co"># Agent A</span>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="co"># Agent A</span>
 ([<span class="dv">123</span>, <span class="dv">125</span>, <span class="dv">132</span>, <span class="dv">152</span>],
 [<span class="dv">82</span>, <span class="dv">84</span>, <span class="dv">89</span>],
 [<span class="dv">164</span>, <span class="dv">167</span>, <span class="dv">176</span>, <span class="dv">202</span>])
@@ -260,10 +260,10 @@
 <span class="co"># Agent B</span>
 ([<span class="dv">287</span>, <span class="dv">289</span>, <span class="dv">296</span>, <span class="dv">315</span>],
 [<span class="dv">123</span>, <span class="dv">125</span>, <span class="dv">132</span>, <span class="dv">157</span>],
-[<span class="dv">0</span>, <span class="dv">3</span>, <span class="dv">10</span>])</code></pre>
+[<span class="dv">0</span>, <span class="dv">3</span>, <span class="dv">10</span>])</code></pre></div>
 <p><strong>Case 3: Has Prerequisites, Adds Knowledge</strong></p>
 <p>In Case 3, we implement the “addition rate” from the “extensible trait” model above, and allow the focal agent to add the neighbor’s trait to their own if prerequisites occur. Given such an event, <strong>after</strong> interaction, we now have:</p>
-<pre class="sourceCode python"><code class="sourceCode python"><span class="co"># Agent A</span>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="co"># Agent A</span>
 ([<span class="dv">123</span>, <span class="dv">125</span>, <span class="dv">132</span>, <span class="dv">152</span>],
 [<span class="dv">123</span>, <span class="dv">125</span>, <span class="dv">132</span>, <span class="dv">157</span>],
 [<span class="dv">82</span>, <span class="dv">84</span>, <span class="dv">89</span>],
@@ -272,14 +272,15 @@
 <span class="co"># Agent B</span>
 ([<span class="dv">287</span>, <span class="dv">289</span>, <span class="dv">296</span>, <span class="dv">315</span>],
 [<span class="dv">123</span>, <span class="dv">125</span>, <span class="dv">132</span>, <span class="dv">157</span>],
-[<span class="dv">0</span>, <span class="dv">3</span>, <span class="dv">10</span>])</code></pre>
+[<span class="dv">0</span>, <span class="dv">3</span>, <span class="dv">10</span>])</code></pre></div>
 <p>This is a simple way of representing the trait set, but <code>132</code> is also just a branch point in the tree, and we have <code>[123, 125, 132, [152, 157]]</code>. The representations are equivalent, so the choice is about computational efficiency.</p>
 <h4 id="random-trees-and-graphs">Random Trees and Graphs</h4>
 <p>Balanced trees are an excellent way to build out the simulation infrastructure, but they clearly represent one highly ordered endpoint to modeling knowledge relations (and a very unrealistic one).</p>
 <p>Real knowledge and skills are going to vary in their depth and branching factors, and thus we should expect non-regular tree topologies, which might be best modeled by appropriate collections of power-law trees. This is an experiment TBD.</p>
 <p>Other types of relations beyond prerequisites exist, and we may wish to simply use random graphs to model combinations of prerequisites, related information, background knowledge, and so on. This again is an experiment TBD.</p>
-<div class="references">
-<h3>References Cited</h3>
+<h3 id="references-cited" class="unnumbered">References Cited</h3>
+<div id="refs" class="references">
+
 </div>
 <section class="footnotes">
 <hr />

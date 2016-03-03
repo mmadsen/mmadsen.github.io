@@ -186,7 +186,7 @@
 		<table class="table table-condensed">
 			<tr class="info">
 				<td><small><i class="icon-calendar"></i>&nbsp;Created: 18 Sep 2014</small></td>
-				<td><small><i class="icon-calendar"></i>&nbsp;Modified: 23 Feb 2016</small></td>
+				<td><small><i class="icon-calendar"></i>&nbsp;Modified: 03 Mar 2016</small></td>
 				<td><small><i class="icon-book">&nbsp;</i>&nbsp;<a href=http://greycite.knowledgeblog.org/bib/?uri=http://notebook.madsenlab.org/project:coarse%20grained%20model/model:ctmixtures/experiment:experiment-ctmixtures/2014/09/18/equifinality-initial-analysis.html target='_blank'>BibTeX Entry</a>
 </small></td>
 				<td><small><i class="icon-book">&nbsp;</i>&nbsp;<a href=http://greycite.knowledgeblog.org/ris/?uri=http://notebook.madsenlab.org/project:coarse%20grained%20model/model:ctmixtures/experiment:experiment-ctmixtures/2014/09/18/equifinality-initial-analysis.html target='_blank'>RIS Citation</a>
@@ -231,7 +231,8 @@ mixconfequal       1665      10860       9526         9984   0.6883409</code></p
 <h3 id="rough-test-2-more-variables-and">Rough Test 2: More Variables and</h3>
 <p>I recoded the export script, and stopped exploding each locus into a data row. Instead, for each primary predictor, I calculate min and max (e.g., min richness and max richness) across the number of loci present. For a single locus simulation, obviously these will be the same value and we’d only use one of the two predictors and relabel them, but in <code>equifinality-1</code> we have 4 loci.</p>
 <p>The random forest improves a little bit, but the overall pattern still looks the same.</p>
-<p>But, the neutral data are worrying me. In <code>equifinality-1</code> I used the “all loci” copying rule, and I’m also turning the single scaled innovation rate into a per-locus innovation rate. I think there’s an issue here somewhere. Granted, with the Moran dynamics, I can’t expect that the expected number of alleles will exactly match the Wright Fisher dynamics, but the observed numbers seem high. Also, the distribution of Slatkin rest results seems skewed.<br /><img src="/images/ctmixtures-equifinality-neutral.png" alt="equifinality-1 slatkin configuration distribution" /></p>
+<p>But, the neutral data are worrying me. In <code>equifinality-1</code> I used the “all loci” copying rule, and I’m also turning the single scaled innovation rate into a per-locus innovation rate. I think there’s an issue here somewhere. Granted, with the Moran dynamics, I can’t expect that the expected number of alleles will exactly match the Wright Fisher dynamics, but the observed numbers seem high. Also, the distribution of Slatkin rest results seems skewed.<br />
+<img src="/images/ctmixtures-equifinality-neutral.png" alt="equifinality-1 slatkin configuration distribution" /></p>
 <p>We have many different innovation rates represented here, but still, there should be many more values towards the center.</p>
 <p>I’m wondering about several possible sources of issues before I go any further:</p>
 <ol type="1">
@@ -241,7 +242,7 @@ mixconfequal       1665      10860       9526         9984   0.6883409</code></p
 <p>The distribution of theta values looks good, when I did a histogram.</p>
 <h3 id="analysis-code">Analysis Code</h3>
 <p>The short script I used for the explorations here:</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(randomForest)
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(randomForest)
 <span class="kw">library</span>(miscTools)
 
 df &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;~/local-research/diss/experiments/experiment-ctmixtures/equifinality-population-data.csv&quot;</span>, <span class="dt">header=</span>T)
@@ -264,8 +265,8 @@ fit &lt;-<span class="st"> </span><span class="kw">randomForest</span>(<span cla
 <span class="kw">table</span>(test$model_class_label, <span class="kw">predict</span>(fit, test[<span class="kw">names</span>(shuffled_df)]))
 
 <span class="co"># test error</span>
-<span class="kw">sum</span>(test$model_class_label==<span class="kw">predict</span>(fit, test[<span class="kw">names</span>(shuffled_df)])) /<span class="st"> </span><span class="kw">nrow</span>(test)</code></pre>
-<div class="references">
+<span class="kw">sum</span>(test$model_class_label==<span class="kw">predict</span>(fit, test[<span class="kw">names</span>(shuffled_df)])) /<span class="st"> </span><span class="kw">nrow</span>(test)</code></pre></div>
+<div id="refs" class="references">
 
 </div>
   

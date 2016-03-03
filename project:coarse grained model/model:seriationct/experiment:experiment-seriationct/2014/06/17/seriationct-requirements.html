@@ -186,7 +186,7 @@
 		<table class="table table-condensed">
 			<tr class="info">
 				<td><small><i class="icon-calendar"></i>&nbsp;Created: 17 Jun 2014</small></td>
-				<td><small><i class="icon-calendar"></i>&nbsp;Modified: 23 Feb 2016</small></td>
+				<td><small><i class="icon-calendar"></i>&nbsp;Modified: 03 Mar 2016</small></td>
 				<td><small><i class="icon-book">&nbsp;</i>&nbsp;<a href=http://greycite.knowledgeblog.org/bib/?uri=http://notebook.madsenlab.org/project:coarse%20grained%20model/model:seriationct/experiment:experiment-seriationct/2014/06/17/seriationct-requirements.html target='_blank'>BibTeX Entry</a>
 </small></td>
 				<td><small><i class="icon-book">&nbsp;</i>&nbsp;<a href=http://greycite.knowledgeblog.org/ris/?uri=http://notebook.madsenlab.org/project:coarse%20grained%20model/model:seriationct/experiment:experiment-seriationct/2014/06/17/seriationct-requirements.html target='_blank'>RIS Citation</a>
@@ -215,7 +215,7 @@
 <li>Which demes are connected, and which lack connections</li>
 <li>The normalized strength of the connection, or weight</li>
 </ol>
-<p>This model can be represented by a time-indexed set of weighted adjacency matrices, and is a “temporal network” in the sense studied by <span class="citation" data-cites="holme2012temporal">(Holme and Saram<span>ä</span>ki 2012)</span>. During interactions, individuals are given neighbors in connected demes in proportion to the weights, to allow a normal “choose a random neighbor” algorithm to represent both intra- and inter-deme copying. This is an implementation detail, and is not crucial to the semantics of the model.</p>
+<p>This model can be represented by a time-indexed set of weighted adjacency matrices, and is a “temporal network” in the sense studied by <span class="citation" data-cites="holme2012temporal">(Holme and Saramäki 2012)</span>. During interactions, individuals are given neighbors in connected demes in proportion to the weights, to allow a normal “choose a random neighbor” algorithm to represent both intra- and inter-deme copying. This is an implementation detail, and is not crucial to the semantics of the model.</p>
 <p>In addition to change in the edges of the network, the temporal network can add and delete vertices, representing the origin and abandonment of new communities. When a new deme is formed, it is seeded by a sample of individuals from surrounding demes, and connected according to the connectivity model.</p>
 <p>To make specification of the model and research problem easier, here is a depiction of three points in time in a temporal network of communities, with time increasing from left to right.</p>
 <figure>
@@ -235,9 +235,11 @@
 <p>The resulting samples are then available for seriation and other statistical analyses, to measure the ability to infer the history of demes, and elements of the diachronic connectivity model.</p>
 <h3 id="analysis">Analysis</h3>
 <p>TBD.</p>
-<div class="references">
-<h3>References Cited</h3>
-<p>Holme, Petter, and Jari Saram<span>ä</span>ki. 2012. “Temporal Networks.” <em>Physics Reports</em> 519 (3). Elsevier: 97–125.</p>
+<h3 id="references-cited" class="unnumbered">References Cited</h3>
+<div id="refs" class="references">
+<div id="ref-holme2012temporal">
+<p>Holme, Petter, and Jari Saramäki. 2012. “Temporal Networks.” <em>Physics Reports</em> 519 (3). Elsevier: 97–125.</p>
+</div>
 </div>
   
 

@@ -186,7 +186,7 @@
 		<table class="table table-condensed">
 			<tr class="info">
 				<td><small><i class="icon-backward"></i>&nbsp;<a href="/blog.html">Back to Essay List</a></small></td>
-				<td><small><i class="icon-calendar"></i>&nbsp;Modified: 23 Feb 2016</small></td>
+				<td><small><i class="icon-calendar"></i>&nbsp;Modified: 03 Mar 2016</small></td>
 				<td><small><i class="icon-book">&nbsp;</i>&nbsp;<a href=http://greycite.knowledgeblog.org/bib/?uri=http://notebook.madsenlab.org/essays/simulation/reproducible%20science/2014/06/14/ci-travis.html target='_blank'>BibTeX Entry</a>
 </small></td>
 				<td><small><i class="icon-book">&nbsp;</i>&nbsp;<a href=http://greycite.knowledgeblog.org/ris/?uri=http://notebook.madsenlab.org/essays/simulation/reproducible%20science/2014/06/14/ci-travis.html target='_blank'>RIS Citation</a>
@@ -221,7 +221,7 @@
 <p>I found a good solution by simulating the Travis build environment with an EC2 instance running Ubuntu 12.04 LTS, with <code>build-essentials</code> and a host of other basics installed (a subset of packages described in the Travis docs themselves, including mongodb and git). The resulting AMI is useful for running your code through various build processes, to make sure that you’re not missing something in the Travis environment that (say) your desktop environment has by default, etc.</p>
 <p>I’ve made the AMI public on EC2: <code>ami-1edd2176</code>, image name is <code>Travis Tests - Everything Installed</code>. You should be able to boot this image (and choose an instance size as appropriate, I used a relatively large instance for compiling scipy, otherwise it would have taken hours on a free <code>t1.micro</code> instance. But the free tier should be adequate for many, many projects especially pure R or python projects.)<a href="#fn1" class="footnoteRef" id="fnref1"><sup>1</sup></a></p>
 <p>This is a decent solution, but it would be <strong>terrific</strong> if the Travis CI team released their own official AMIs and perhaps a VMware image, so that folks have an official, clean environment to work against, to prevent slow iteration against the full system. This is particularly important when your code or a dependency might have a very long build – a good example is a dependency on a particular version of the Boost C++ libraries. If a binary version isn’t available for Ubuntu 12.04 LTS, it’s a looong compile on the Travis environment. Heck, it’s a long build even when you throw all of the cores on a quad i7 at it…</p>
-<div class="references">
+<div id="refs" class="references">
 
 </div>
 <section class="footnotes">
@@ -238,7 +238,7 @@
 <table class="table table-condensed">
 			<tr>
 				<td><small><i class="icon-backward"></i>&nbsp;<a href="/blog.html">Back to Essay List</a></small></td>
-				<td><small><i class="icon-calendar"></i>&nbsp;Modified: 23 Feb 2016</small></td>
+				<td><small><i class="icon-calendar"></i>&nbsp;Modified: 03 Mar 2016</small></td>
 				<td><small><i class="icon-book">&nbsp;</i>&nbsp;<a href=http://greycite.knowledgeblog.org/bib/?uri=http://notebook.madsenlab.org/essays/simulation/reproducible%20science/2014/06/14/ci-travis.html target='_blank'>BibTeX Entry</a>
 </small></td>
 				<td><small><i class="icon-book">&nbsp;</i>&nbsp;<a href=http://greycite.knowledgeblog.org/ris/?uri=http://notebook.madsenlab.org/essays/simulation/reproducible%20science/2014/06/14/ci-travis.html target='_blank'>RIS Citation</a>

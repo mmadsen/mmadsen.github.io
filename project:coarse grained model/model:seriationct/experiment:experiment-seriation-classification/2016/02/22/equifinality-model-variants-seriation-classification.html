@@ -186,7 +186,7 @@
 		<table class="table table-condensed">
 			<tr class="info">
 				<td><small><i class="icon-calendar"></i>&nbsp;Created: 22 Feb 2016</small></td>
-				<td><small><i class="icon-calendar"></i>&nbsp;Modified: 23 Feb 2016</small></td>
+				<td><small><i class="icon-calendar"></i>&nbsp;Modified: 03 Mar 2016</small></td>
 				<td><small><i class="icon-book">&nbsp;</i>&nbsp;<a href=http://greycite.knowledgeblog.org/bib/?uri=http://notebook.madsenlab.org/project:coarse%20grained%20model/model:seriationct/experiment:experiment-seriation-classification/2016/02/22/equifinality-model-variants-seriation-classification.html target='_blank'>BibTeX Entry</a>
 </small></td>
 				<td><small><i class="icon-book">&nbsp;</i>&nbsp;<a href=http://greycite.knowledgeblog.org/ris/?uri=http://notebook.madsenlab.org/project:coarse%20grained%20model/model:seriationct/experiment:experiment-seriation-classification/2016/02/22/equifinality-model-variants-seriation-classification.html target='_blank'>RIS Citation</a>
@@ -205,9 +205,9 @@
 <p>To test this, I set up four models which I believe to be very “close” to each other:</p>
 <ol type="1">
 <li>Lineage splitting where 1 lineage turns into 2 lineages, the split occurring 30% of the way through the time sequence (“early split”)</li>
-<li>Lineage splitting where 1 <span class="math">\(\rightarrow\)</span> 2 lineages, split occurring 70% of the way through the time sequence (“late split”)</li>
+<li>Lineage splitting where 1 <span class="math inline">\(\rightarrow\)</span> 2 lineages, split occurring 70% of the way through the time sequence (“late split”)</li>
 <li>Lineage coalescence where 2 lineages turn into a single linage, the event occurring 30% of the way through the sequence (“early coalescence”)</li>
-<li>Lineage coalescence where 2 <span class="math">\(\rightarrow\)</span> 1 lineages, split occuring 70% of the way through the time sequence (“late coalescence”)</li>
+<li>Lineage coalescence where 2 <span class="math inline">\(\rightarrow\)</span> 1 lineages, split occuring 70% of the way through the time sequence (“late coalescence”)</li>
 </ol>
 <p>In all other respects, simulation of cultural transmission across these regional networks was identical, using the same prior distributions for innovation and migration rates, population sizes, and so on.</p>
 <p>My expectation going in was that the lineage splitting and coalescence models should generate seriations which are almost indistinguishable from one another, except for their temporal orientation, and with the paired early/late comparisons, it may be difficult to tell any of these models from one another without additional feature information. In particular, I expected roughly chance performance on classification unless we could provide temporal orientation, and even then, we may only be able to tell coalescence from splitting models.</p>
@@ -240,8 +240,8 @@ Accuracy on test: 0.550</code></pre>
 <p>The overall accuracy is low, but the pattern of misclassifications is key here. We never see “early” models misclassified as “late” models, but we do see splitting misclassified as coalescence (possibly because we have no orienting information). So while overall accuracy is low, we actually have perfect discrimination along one dimension of the models: when events that alter lineage structure occur, in relative terms. Not bad, considering how “close” in structure these regional interaction models are.</p>
 <h3 id="optimizing-classification-performance">Optimizing Classification Performance</h3>
 <p>The above was conducted with “reasonable” hyperparameters for the gradient boosted classifier, but I want to understand our best performance in separating these models. This is accomplished by setting the hyperparameters through cross-validation. In this case, I used a grid search of the following variables and parameters for the learning rate penalty, and the number of boosting rounds (number of estimators):</p>
-<pre class="sourceCode python"><code class="sourceCode python">     <span class="co">&#39;clf__learning_rate&#39;</span>: [<span class="fl">5.0</span>,<span class="fl">2.0</span>,<span class="fl">1.0</span>, <span class="fl">0.75</span>, <span class="fl">0.5</span>, <span class="fl">0.25</span>, <span class="fl">0.1</span>, <span class="fl">0.05</span>, <span class="fl">0.01</span>, <span class="fl">0.005</span>],
-     <span class="co">&#39;clf__n_estimators&#39;</span>: [<span class="dv">10</span>,<span class="dv">25</span>,<span class="dv">50</span>,<span class="dv">100</span>,<span class="dv">250</span>,<span class="dv">500</span>,<span class="dv">1000</span>]</code></pre>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">     <span class="co">&#39;clf__learning_rate&#39;</span>: [<span class="fl">5.0</span>,<span class="fl">2.0</span>,<span class="fl">1.0</span>, <span class="fl">0.75</span>, <span class="fl">0.5</span>, <span class="fl">0.25</span>, <span class="fl">0.1</span>, <span class="fl">0.05</span>, <span class="fl">0.01</span>, <span class="fl">0.005</span>],
+     <span class="co">&#39;clf__n_estimators&#39;</span>: [<span class="dv">10</span>,<span class="dv">25</span>,<span class="dv">50</span>,<span class="dv">100</span>,<span class="dv">250</span>,<span class="dv">500</span>,<span class="dv">1000</span>]</code></pre></div>
 <p>Using 5-fold cross validation, this produced 350 different fits of the classifer, with the following results:</p>
 <pre><code>Best score: 0.593
 Best parameters:
@@ -270,8 +270,9 @@ Accuracy on test: 0.650</code></pre>
 <h3 id="resources">Resources</h3>
 <p><a href="http://nbviewer.jupyter.org/gist/anonymous/f6a18712ee1077d1a329">Full analysis notebook</a> on NBViewer, from the Github repository.</p>
 <p>Github Repository: <a href="https://github.com/mmadsen/experiment-seriation-classification">experiment-seriation-classification</a></p>
-<div class="references">
-<h3>References Cited</h3>
+<h3 id="references-cited" class="unnumbered">References Cited</h3>
+<div id="refs" class="references">
+
 </div>
   
 

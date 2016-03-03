@@ -186,7 +186,7 @@
 		<table class="table table-condensed">
 			<tr class="info">
 				<td><small><i class="icon-backward"></i>&nbsp;<a href="/blog.html">Back to Essay List</a></small></td>
-				<td><small><i class="icon-calendar"></i>&nbsp;Modified: 23 Feb 2016</small></td>
+				<td><small><i class="icon-calendar"></i>&nbsp;Modified: 03 Mar 2016</small></td>
 				<td><small><i class="icon-book">&nbsp;</i>&nbsp;<a href=http://greycite.knowledgeblog.org/bib/?uri=http://notebook.madsenlab.org/essays/2015/07/07/new-directions-ct-computing.html target='_blank'>BibTeX Entry</a>
 </small></td>
 				<td><small><i class="icon-book">&nbsp;</i>&nbsp;<a href=http://greycite.knowledgeblog.org/ris/?uri=http://notebook.madsenlab.org/essays/2015/07/07/new-directions-ct-computing.html target='_blank'>RIS Citation</a>
@@ -202,14 +202,16 @@
   <h3 id="background">Background</h3>
 <p>For the last two or three years, my computing strategy for simulations (and post-simulation analysis) of cultural transmission models has been as follows:</p>
 <ol type="1">
-<li>Develop simulation code in Python, sometimes with a framework which has C++ extensions for speed.<br /></li>
+<li>Develop simulation code in Python, sometimes with a framework which has C++ extensions for speed.<br />
+</li>
 <li>Test code on my laptop (quad-core, OS X), and occasionally make performance changes.</li>
 <li>Run production analyses and large parameter sweeps on clusters of Amazon EC2 instances, gathering results in a database.</li>
 <li>Do final analyses locally on my laptop unless they, too, needed a very large machine or a cluster.</li>
 </ol>
 <p>This isn’t a bad strategy:</p>
 <ol type="1">
-<li>Python is usually fast enough.<br /></li>
+<li>Python is usually fast enough.<br />
+</li>
 <li>Using EC2 means that I don’t have to manage extra hardware, and I’m not worried about investing in hardware that goes obsolete quickly.</li>
 <li>Using EC2 also means that I can select the right <strong>amount</strong> of hardware for problem, and only pay for what I use.</li>
 <li>Using straight Python has meant that development velocity is fast, given the forgiving nature of a dynamically typed scripting language and the huge library support.</li>
@@ -229,7 +231,8 @@
 <p>How to use it?</p>
 <h3 id="improving-parallelism-and-code-performance">Improving Parallelism and Code Performance</h3>
 <p>The Phi can augment the host processor in several ways, since it runs a full (but basic) Linux distribution. In “native” mode, you can compile code for the coprocessor, for example using OpenMP to parallelize tasks across the cores, and run code against 61 cores as long as the memory present on the Phi itself (8 or 12GB) is adequate. Which it might very well be, for code which deals with small data (common in agent-based simulation models), but has complex branching structure or algorithms which run on each core.</p>
-<p>The second mode is “offload” mode, in which your code runs on the host processor, but certain operations can be parallelized onto the coprocessor for a boost. Here’s where it gets interesting. It might be possible to offload directly from Python code, and to offload NumPy expressions directly to the Phi with the main program running on the host processor (or across many of the host cores). NumbaPro and OpenCL are paths to this type of offloading, and even if not done explicitly, if your copy of NumPy is linked against the Intel MKL math libraries on Linux, offloading can be done at the library level even if Python is unaware of it.<br />The latter offers the possibility of offloading work from libraries like scikit-learn for machine learning and statistical algorithms, even if the ML library itself is coprocessor-unaware.</p>
+<p>The second mode is “offload” mode, in which your code runs on the host processor, but certain operations can be parallelized onto the coprocessor for a boost. Here’s where it gets interesting. It might be possible to offload directly from Python code, and to offload NumPy expressions directly to the Phi with the main program running on the host processor (or across many of the host cores). NumbaPro and OpenCL are paths to this type of offloading, and even if not done explicitly, if your copy of NumPy is linked against the Intel MKL math libraries on Linux, offloading can be done at the library level even if Python is unaware of it.<br />
+The latter offers the possibility of offloading work from libraries like scikit-learn for machine learning and statistical algorithms, even if the ML library itself is coprocessor-unaware.</p>
 <p>And if you use R, switch to the RevolutionR Open version of the runtime, which is linked against the Intel MKL math libraries. Again, it may be possible to have R use the Xeon Phi coprocessor for algoritms which involve larger NumPy calculations without modifications to your R code.</p>
 <p>See, it’s getting very interesting, isn’t it?</p>
 <p>I’m not sure how much of this automatic offloading will work “off the shelf” from Python, but given NumbaPro from the Anaconda folks, I don’t imagine it’ll be long before all of it will. And <em>anything</em> you write in C++ can be made to use the coprocessor immediately, so compute-critical sections in your Python code can always be linked via Cython or SWIG.</p>
@@ -238,7 +241,7 @@
 <p>So I’m bullish on the opportunity to drastically speed up cultural transmission simulations, seriation analyses, the use of “Approximate Bayesian Computation” for statistical inference on these complex models, and even phylogenetic analysis codes, in fairly short order.</p>
 <p>Which is good, because the social sciences are getting more and more computationally complex, and we have less and less funding for buying time on large clusters or renting time from major cloud services.</p>
 <p>I’ll report back when I have some code up and running.</p>
-<div class="references">
+<div id="refs" class="references">
 
 </div>
   
@@ -249,7 +252,7 @@
 <table class="table table-condensed">
 			<tr>
 				<td><small><i class="icon-backward"></i>&nbsp;<a href="/blog.html">Back to Essay List</a></small></td>
-				<td><small><i class="icon-calendar"></i>&nbsp;Modified: 23 Feb 2016</small></td>
+				<td><small><i class="icon-calendar"></i>&nbsp;Modified: 03 Mar 2016</small></td>
 				<td><small><i class="icon-book">&nbsp;</i>&nbsp;<a href=http://greycite.knowledgeblog.org/bib/?uri=http://notebook.madsenlab.org/essays/2015/07/07/new-directions-ct-computing.html target='_blank'>BibTeX Entry</a>
 </small></td>
 				<td><small><i class="icon-book">&nbsp;</i>&nbsp;<a href=http://greycite.knowledgeblog.org/ris/?uri=http://notebook.madsenlab.org/essays/2015/07/07/new-directions-ct-computing.html target='_blank'>RIS Citation</a>

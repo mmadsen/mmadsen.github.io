@@ -186,7 +186,7 @@
 		<table class="table table-condensed">
 			<tr class="info">
 				<td><small><i class="icon-backward"></i>&nbsp;<a href="/blog.html">Back to Essay List</a></small></td>
-				<td><small><i class="icon-calendar"></i>&nbsp;Modified: 23 Feb 2016</small></td>
+				<td><small><i class="icon-calendar"></i>&nbsp;Modified: 03 Mar 2016</small></td>
 				<td><small><i class="icon-book">&nbsp;</i>&nbsp;<a href=http://greycite.knowledgeblog.org/bib/?uri=http://notebook.madsenlab.org/essays/simulation/reproducible%20science/2014/07/16/experiment-template-openscience.html target='_blank'>BibTeX Entry</a>
 </small></td>
 				<td><small><i class="icon-book">&nbsp;</i>&nbsp;<a href=http://greycite.knowledgeblog.org/ris/?uri=http://notebook.madsenlab.org/essays/simulation/reproducible%20science/2014/07/16/experiment-template-openscience.html target='_blank'>RIS Citation</a>
@@ -222,8 +222,10 @@
 <ol type="1">
 <li>Build configurations for the simulation runs I want to do, putting these in the <code>simulations</code> directory. In this directory are also an evolving set of scripts for starting EC2 instances, and checking the progress of simulation runs running on these instances.</li>
 <li>Perform simulation runs</li>
-<li>Export raw data from all the simulation runs. Copy the raw data to suitable file formats (e.g., CSV) in the <code>analysis/data</code> directory, if you can.<a href="#fn1" class="footnoteRef" id="fnref1"><sup>1</sup></a> If not, copy the raw data to another local directory, outside the experiment, and then archive it somewhere accessible, like an S3 bucket, in order to provide open access.<br /></li>
-<li>Perform data cleaning and preparation, putting all of these steps into scripts stored in <code>analysis</code>. If you do these steps in R, there is already a script in this directory you can extend or change. I often do some steps in Python, some in Apache Pig (particularly if I’m summarizing and merging many large raw data files), and then I do the last preparation steps in R to produce a “clean” data set for analysis.<br /></li>
+<li>Export raw data from all the simulation runs. Copy the raw data to suitable file formats (e.g., CSV) in the <code>analysis/data</code> directory, if you can.<a href="#fn1" class="footnoteRef" id="fnref1"><sup>1</sup></a> If not, copy the raw data to another local directory, outside the experiment, and then archive it somewhere accessible, like an S3 bucket, in order to provide open access.<br />
+</li>
+<li>Perform data cleaning and preparation, putting all of these steps into scripts stored in <code>analysis</code>. If you do these steps in R, there is already a script in this directory you can extend or change. I often do some steps in Python, some in Apache Pig (particularly if I’m summarizing and merging many large raw data files), and then I do the last preparation steps in R to produce a “clean” data set for analysis.<br />
+</li>
 <li>Perform data analysis. I tend to do all of my analyses as RMarkdown documents, so that I have analysis and explanation of the analysis in a single file. Graphics are saved to PDF files in the <code>analysis/figure</code> directory.</li>
 </ol>
 <p>I should note that the <code>analysis.Rmd</code> file that contains R analyses is <strong>not</strong> a paper. The text portions of this file are notes about the analysis and my thinking.</p>
@@ -231,8 +233,9 @@
 <p>Once I’m ready to write up the experiment, I start working on an outline for the paper in the <code>outline</code> directory, and the paper itself in the <code>paper</code> directory.</p>
 <h3 id="making-it-your-own">Making It Your Own</h3>
 <p>In the <code>paper</code> directory, my name and contact information exists in the <code>xelatex-template.tex</code> file. If you’re going to use the existing paper system, turning RMarkdown into a PDF, you should edit that file and change the title, author, and contact information. Otherwise you don’t need to touch that file. There is also my name and information in the <code>outline</code> directory in <code>outline.tex</code>.</p>
-<div class="references">
-<h3>References Cited</h3>
+<h3 id="references-cited" class="unnumbered">References Cited</h3>
+<div id="refs" class="references">
+
 </div>
 <section class="footnotes">
 <hr />
@@ -248,7 +251,7 @@
 <table class="table table-condensed">
 			<tr>
 				<td><small><i class="icon-backward"></i>&nbsp;<a href="/blog.html">Back to Essay List</a></small></td>
-				<td><small><i class="icon-calendar"></i>&nbsp;Modified: 23 Feb 2016</small></td>
+				<td><small><i class="icon-calendar"></i>&nbsp;Modified: 03 Mar 2016</small></td>
 				<td><small><i class="icon-book">&nbsp;</i>&nbsp;<a href=http://greycite.knowledgeblog.org/bib/?uri=http://notebook.madsenlab.org/essays/simulation/reproducible%20science/2014/07/16/experiment-template-openscience.html target='_blank'>BibTeX Entry</a>
 </small></td>
 				<td><small><i class="icon-book">&nbsp;</i>&nbsp;<a href=http://greycite.knowledgeblog.org/ris/?uri=http://notebook.madsenlab.org/essays/simulation/reproducible%20science/2014/07/16/experiment-template-openscience.html target='_blank'>RIS Citation</a>

@@ -186,7 +186,7 @@
 		<table class="table table-condensed">
 			<tr class="info">
 				<td><small><i class="icon-calendar"></i>&nbsp;Created: 09 Jul 2014</small></td>
-				<td><small><i class="icon-calendar"></i>&nbsp;Modified: 23 Feb 2016</small></td>
+				<td><small><i class="icon-calendar"></i>&nbsp;Modified: 03 Mar 2016</small></td>
 				<td><small><i class="icon-book">&nbsp;</i>&nbsp;<a href=http://greycite.knowledgeblog.org/bib/?uri=http://notebook.madsenlab.org/project:coarse%20grained%20model/model:ctmixtures/experiment:experiment-ctmixtures/2014/07/09/ctmixtures-timeaveraging.html target='_blank'>BibTeX Entry</a>
 </small></td>
 				<td><small><i class="icon-book">&nbsp;</i>&nbsp;<a href=http://greycite.knowledgeblog.org/ris/?uri=http://notebook.madsenlab.org/project:coarse%20grained%20model/model:ctmixtures/experiment:experiment-ctmixtures/2014/07/09/ctmixtures-timeaveraging.html target='_blank'>RIS Citation</a>
@@ -203,14 +203,14 @@
   <h3 id="adding-time-averaging-to-the-ct-mixtures-model">Adding Time Averaging to the CT Mixtures Model</h3>
 <p>At present (v1.0, May 2014), the <a href="https://github.com/mmadsen/ctmixtures"><code>ctmixtures</code></a> model performs the following sampling of the evolving population:</p>
 <ol type="1">
-<li>Counts and frequencies of traits for <span class="math">\(M\)</span> features/loci across the population.</li>
-<li>Counts and frequencies of traits for <span class="math">\(M\)</span> features/loci at a list of sample sizes (e.g., 20, 50, 100)</li>
-<li>Trait survival analysis for an interval <span class="math">\(T\)</span>, calculated for the last <span class="math">\(T * N\)</span> ticks of the simulation, given population size of <span class="math">\(N\)</span>.</li>
+<li>Counts and frequencies of traits for <span class="math inline">\(M\)</span> features/loci across the population.</li>
+<li>Counts and frequencies of traits for <span class="math inline">\(M\)</span> features/loci at a list of sample sizes (e.g., 20, 50, 100)</li>
+<li>Trait survival analysis for an interval <span class="math inline">\(T\)</span>, calculated for the last <span class="math inline">\(T * N\)</span> ticks of the simulation, given population size of <span class="math inline">\(N\)</span>.</li>
 </ol>
 <p>What version 1.0 did not include is:</p>
 <ol type="1">
 <li>Time averaged observations of trait counts and frequencies over a list of durations</li>
-<li>Calculation of trait survival for an interval <span class="math">\(T\)</span>, where the starting and finishing samples are both time averaged.</li>
+<li>Calculation of trait survival for an interval <span class="math inline">\(T\)</span>, where the starting and finishing samples are both time averaged.</li>
 </ol>
 <h3 id="simulation-event-timing">Simulation Event Timing</h3>
 <p>The following diagram shows how time averaging is integrated into the simulation event stream. Time runs from top (start of simulation) to bottom (end of simulation). Between simulation start time and the start of sampling, the population is evolving from its initial condition to quasi-stationarity. Sampling start time is calculated to occur at a multiple of the expected mixing time, to ensure that the population is at quasi-equilibrium.</p>
@@ -221,9 +221,11 @@
 <figure>
 <img src="/images/time-averaging-with-kandler-sampling.png" alt="simulation event timing" /><figcaption>simulation event timing</figcaption>
 </figure>
-<div class="references">
-<h3>References Cited</h3>
+<h3 id="references-cited" class="unnumbered">References Cited</h3>
+<div id="refs" class="references">
+<div id="ref-kandler2013non">
 <p>Kandler, Anne, and Stephen Shennan. 2013. “A Non-Equilibrium Neutral Model for Analysing Cultural Change.” <em>Journal of Theoretical Biology</em> 330. Elsevier: 18–25.</p>
+</div>
 </div>
   
 

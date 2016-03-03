@@ -186,7 +186,7 @@
 		<table class="table table-condensed">
 			<tr class="info">
 				<td><small><i class="icon-calendar"></i>&nbsp;Created: 14 Sep 2014</small></td>
-				<td><small><i class="icon-calendar"></i>&nbsp;Modified: 23 Feb 2016</small></td>
+				<td><small><i class="icon-calendar"></i>&nbsp;Modified: 03 Mar 2016</small></td>
 				<td><small><i class="icon-book">&nbsp;</i>&nbsp;<a href=http://greycite.knowledgeblog.org/bib/?uri=http://notebook.madsenlab.org/project:coarse%20grained%20model/model:ctmixtures/experiment:experiment-ctmixtures/2014/09/14/ctmixtures-job-execution.html target='_blank'>BibTeX Entry</a>
 </small></td>
 				<td><small><i class="icon-book">&nbsp;</i>&nbsp;<a href=http://greycite.knowledgeblog.org/ris/?uri=http://notebook.madsenlab.org/project:coarse%20grained%20model/model:ctmixtures/experiment:experiment-ctmixtures/2014/09/14/ctmixtures-job-execution.html target='_blank'>RIS Citation</a>
@@ -205,9 +205,9 @@
 <p>There are two main approaches to running the simulation jobs:</p>
 <ol type="1">
 <li>Granular - submit each simulation as a separate job</li>
-<li>Coarse - for N instances x M vCPU, submit <span class="math">\(N * M\)</span> jobs</li>
+<li>Coarse - for N instances x M vCPU, submit <span class="math inline">\(N * M\)</span> jobs</li>
 </ol>
-<p>In theory, there should be no difference in the final result, but if we want to plan for eventualities like crashes, or the need to restart jobs which throw errors (unlikely, but it’s possible), a granular approach might be best. But for very large numbers of jobs, it’s unclear to me how SGE handles job queues in the <span class="math">\(10^5\)</span> or <span class="math">\(10^6\)</span> range. So for my first experiment, which employs 100K simulation runs, I’m going to try something in the middle.</p>
+<p>In theory, there should be no difference in the final result, but if we want to plan for eventualities like crashes, or the need to restart jobs which throw errors (unlikely, but it’s possible), a granular approach might be best. But for very large numbers of jobs, it’s unclear to me how SGE handles job queues in the <span class="math inline">\(10^5\)</span> or <span class="math inline">\(10^6\)</span> range. So for my first experiment, which employs 100K simulation runs, I’m going to try something in the middle.</p>
 <ol start="3" type="1">
 <li>Semi-granular – each “job” is a batch of 100 simulation runs</li>
 </ol>
@@ -215,8 +215,8 @@
 <h3 id="experiment-construction">Experiment Construction</h3>
 <p>This is constructed in <code>ctmixtures</code> using the <code>ctmixtures-priorsampler-runbuilder.py</code> program, as follows:</p>
 <pre class="shell"><code>$ ctmixtures-priorsampler-runbuilder.py --experiment clustertest --simprefix /usr/local/anaconda/bin --expconfig neutral-priors.json --confprefix /home/sgeadmin --configuration /sim/src/an-al-wm.json --debug 0 --parallelism 1000 --numsims 100000 --model neutral</code></pre>
-<p>This program produces 100,000 shell commands, each of which executes one simulation run, with parameters either specified in the <code>expconfig</code> configuration for the experiment as a whole, or sampled from prior distributions given in the <code>expconfig</code>. The example given is simulating a pure neutral model, for which there is one prior distribution, the scaled population level innovation rate (given in standard units of <span class="math">\(2N\mu\)</span> following standard practice in population genetic theory). The contents of <code>neutral-priors.json</code> are as follows:</p>
-<pre class="sourceCode json"><code class="sourceCode json"><span class="fu">{</span>
+<p>This program produces 100,000 shell commands, each of which executes one simulation run, with parameters either specified in the <code>expconfig</code> configuration for the experiment as a whole, or sampled from prior distributions given in the <code>expconfig</code>. The example given is simulating a pure neutral model, for which there is one prior distribution, the scaled population level innovation rate (given in standard units of <span class="math inline">\(2N\mu\)</span> following standard practice in population genetic theory). The contents of <code>neutral-priors.json</code> are as follows:</p>
+<div class="sourceCode"><pre class="sourceCode json"><code class="sourceCode json"><span class="fu">{</span>
     <span class="dt">&quot;theta_low&quot;</span><span class="fu">:</span> <span class="fl">0.1</span><span class="fu">,</span>
     <span class="dt">&quot;theta_high&quot;</span><span class="fu">:</span> <span class="fl">5.0</span><span class="fu">,</span>
     <span class="dt">&quot;kandler_interval&quot;</span><span class="fu">:</span> <span class="dv">50</span><span class="fu">,</span>
@@ -224,11 +224,11 @@
     <span class="dt">&quot;numloci&quot;</span><span class="fu">:</span> <span class="dv">4</span><span class="fu">,</span>
     <span class="dt">&quot;popsize&quot;</span><span class="fu">:</span> <span class="dv">100</span><span class="fu">,</span>
     <span class="dt">&quot;endtime&quot;</span><span class="fu">:</span> <span class="dv">1000000</span>
-<span class="fu">}</span><span class="er">%</span></code></pre>
+<span class="fu">}</span><span class="er">%</span></code></pre></div>
 <p>Variables with suffixes “low” and “high” represent uniform priors over the given range. Other single-valued variables are point parameters, or general simulation configuration (e.g., endtime).</p>
-<p>For any prior distributions, the runbuilder will sample the given number of simulations (e.g., 100,000) over joint draws from all of the priors, and give each simulation run a unique random seed in the range <span class="math">\([1, 2^{62}]\)</span>.</p>
+<p>For any prior distributions, the runbuilder will sample the given number of simulations (e.g., 100,000) over joint draws from all of the priors, and give each simulation run a unique random seed in the range <span class="math inline">\([1, 2^{62}]\)</span>.</p>
 <p>The simulation configuration itself specifies several other parameters common aross the set of simulations, and the names of Python code classes which are used to construct the desired simulation model (the code is a modular framework). An example of a pure neutral model is:</p>
-<pre class="sourceCode json"><code class="sourceCode json"><span class="fu">{</span>
+<div class="sourceCode"><pre class="sourceCode json"><code class="sourceCode json"><span class="fu">{</span>
     <span class="dt">&quot;TIME_AVERAGING_DURATIONS&quot;</span> <span class="fu">:</span> <span class="ot">[</span><span class="dv">50</span><span class="ot">,</span><span class="dv">100</span><span class="ot">,</span><span class="dv">200</span><span class="ot">]</span><span class="fu">,</span>
     <span class="dt">&quot;SAMPLE_SIZES_STUDIED&quot;</span> <span class="fu">:</span> <span class="ot">[</span><span class="dv">25</span><span class="ot">,</span><span class="dv">50</span><span class="ot">,</span><span class="dv">100</span><span class="ot">]</span><span class="fu">,</span>
     <span class="dt">&quot;INTERACTION_RULE_CLASS&quot;</span> <span class="fu">:</span> <span class="fu">{</span><span class="dt">&quot;ctmixtures.rules.NeutralAllLociCopyingRule&quot;</span><span class="fu">:</span> <span class="fl">1.0</span><span class="fu">},</span>
@@ -239,7 +239,7 @@
     <span class="dt">&quot;TIME_AVERAGING_CLASS&quot;</span> <span class="fu">:</span> <span class="st">&quot;pytransmission.aggregation.MoranCumulativeTimeAverager&quot;</span><span class="fu">,</span>
     <span class="dt">&quot;DYNAMICS_CLASS&quot;</span> <span class="fu">:</span> <span class="st">&quot;ctmixtures.dynamics.MoranDynamics&quot;</span><span class="fu">,</span>
     <span class="dt">&quot;MODEL_CLASS_LABEL&quot;</span> <span class="fu">:</span> <span class="st">&quot;pureneutral&quot;</span>
-<span class="fu">}</span></code></pre>
+<span class="fu">}</span></code></pre></div>
 <p>The “INTERACTION_RULE_CLASS” is used to create mixture models, where a specified proportion of the population is represented by a Python class giving a social learning rule. The other class specifications here yield a population with locus/allele trait structure, infinite-alleles innovation (i.e., no back-mutation to existing alleles), well-mixed interaction (i.e., agents sit on a complete graph), and the simulation runs according to the Moran approximation to a continuous time Markov process.</p>
 <p>This model is given a label, <code>pureneutral</code>, which is usable by logistic regression, support vector machines, or ABC methods to perform a classification of the resulting data and cross validation, which is the cornerstone of the <code>ctmixtures</code> equifinality analysis.</p>
 <p>Executing the runbuilder as above yields 1000 shell scripts in the current working directory, named as <code>simrunner-exp-clustertest-neutral-392.sh</code>.</p>
@@ -265,7 +265,7 @@ $ tar cvf clustertest-job.tar *.sh *.json</code></pre>
 <li>Stop and terminate the cluster</li>
 </ol>
 <p><strong>More detail on data export is forthcoming, after I do some tests on batch export and copying, which will help a great deal with large clusters</strong></p>
-<div class="references">
+<div id="refs" class="references">
 
 </div>
   

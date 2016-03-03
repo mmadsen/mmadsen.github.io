@@ -186,7 +186,7 @@
 		<table class="table table-condensed">
 			<tr class="info">
 				<td><small><i class="icon-calendar"></i>&nbsp;Created: 27 Aug 2013</small></td>
-				<td><small><i class="icon-calendar"></i>&nbsp;Modified: 23 Feb 2016</small></td>
+				<td><small><i class="icon-calendar"></i>&nbsp;Modified: 03 Mar 2016</small></td>
 				<td><small><i class="icon-book">&nbsp;</i>&nbsp;<a href=http://greycite.knowledgeblog.org/bib/?uri=http://notebook.madsenlab.org/project:coarse%20grained%20model/model:ctpy/experiment:experiment-classification/2013/08/27/classification-research-questions.html target='_blank'>BibTeX Entry</a>
 </small></td>
 				<td><small><i class="icon-book">&nbsp;</i>&nbsp;<a href=http://greycite.knowledgeblog.org/ris/?uri=http://notebook.madsenlab.org/project:coarse%20grained%20model/model:ctpy/experiment:experiment-classification/2013/08/27/classification-research-questions.html target='_blank'>RIS Citation</a>
@@ -209,24 +209,28 @@
 <p>One limitation with the current study is that I do not represent classifications with arbitrary dimensions, with respect to the loci that evolve under transmission. It would be desirable in a future study to form the “classification space” as oriented arbitrarily with respect to the transmitted trait space, so that we can study classifications which are wholly arbitrary with respect to the underlying information transmission – but representing this is a hard problem.</p>
 <p>For the moment, loci correspond to classification dimensions, and what can vary about a classification is the way we “slice” those dimensions of variation into modes or classes for observation. Again, this is a coarse-graining process, so we might have a continuous dimension of variation, which is sliced into three or four categories for observation. Or we might lump together discrete variants (e.g., mode of application of surface treatments) which are difficult to distinguish observationally from the resulting sherds but were learned as distinctly different modes of construction by the creators of the ceramic vessels we study.</p>
 <p>All classifications in this experiment are strictly <em>paradigmatic</em> <span class="citation" data-cites="Dunnell1971">(Dunnell 1971)</span>. Future experiments may focus upon hybrids or hierarchical classifications, since these are common when using previously collected data from published sources.</p>
-<p>In the simulation models, classifications are represented as sets of dimensions, having the same dimensionality as a given simulation uses for the number of loci. Each dimension is then cut into <span class="math">\(n\)</span> modes – this number is the <em>coarseness</em> of the dimension. Furthermore, dimensions can be partitioned into <span class="math">\(n\)</span> modes in two ways: <em>even</em> partitions, and <em>random</em> partitions.</p>
+<p>In the simulation models, classifications are represented as sets of dimensions, having the same dimensionality as a given simulation uses for the number of loci. Each dimension is then cut into <span class="math inline">\(n\)</span> modes – this number is the <em>coarseness</em> of the dimension. Furthermore, dimensions can be partitioned into <span class="math inline">\(n\)</span> modes in two ways: <em>even</em> partitions, and <em>random</em> partitions.</p>
 <p>Random partitions allow us to examine situations where archaeologists create discrete modes which may cover the underlying variation unevenly, with respect to how it was learned, or with respect to how new variants or copying errors were constructed during transmission.</p>
 <p>Even partitions, on the other hand, should be a pure “rescaling” of the quantitative relationships at the underlying “trait” level into the classification.</p>
 <h3 id="regressions">Regressions</h3>
 <p>In this simulation experiment, I want to establish the nature of the following scaling relationships. The ideal result would be an equation for each mapping, or at least a statistical model which describes how to predict each side from the other.</p>
 <ol type="1">
-<li><code>Mean Trait richness per dimension</code> <span class="math">\(\leftrightarrow\)</span> <code>Mean mode richness per dimension</code></li>
+<li><code>Mean Trait richness per dimension</code> <span class="math inline">\(\leftrightarrow\)</span> <code>Mean mode richness per dimension</code></li>
 <li>Fraction of filled classification space, as coarseness is altered<a href="#fn1" class="footnoteRef" id="fnref1"><sup>1</sup></a></li>
-<li><code>Mean Trait evenness per dimension</code> <span class="math">\(\leftrightarrow\)</span> <code>Mean mode evenness per dimension</code></li>
-<li><code>Mean Trait evenness across dimensions</code> <span class="math">\(\leftrightarrow\)</span> <code>Mean class evenness</code><a href="#fn2" class="footnoteRef" id="fnref2"><sup>2</sup></a></li>
-<li><code>Mean Trait innovation rate</code> <span class="math">\(\leftrightarrow\)</span> <code>Mean mode or class innovation rate</code><a href="#fn3" class="footnoteRef" id="fnref3"><sup>3</sup></a></li>
+<li><code>Mean Trait evenness per dimension</code> <span class="math inline">\(\leftrightarrow\)</span> <code>Mean mode evenness per dimension</code></li>
+<li><code>Mean Trait evenness across dimensions</code> <span class="math inline">\(\leftrightarrow\)</span> <code>Mean class evenness</code><a href="#fn2" class="footnoteRef" id="fnref2"><sup>2</sup></a></li>
+<li><code>Mean Trait innovation rate</code> <span class="math inline">\(\leftrightarrow\)</span> <code>Mean mode or class innovation rate</code><a href="#fn3" class="footnoteRef" id="fnref3"><sup>3</sup></a></li>
 </ol>
-<p>These relationships are conditioned by variables such as <span class="math">\(\theta\)</span>, the combination of innovation rate and population size (<span class="math">\(2N\mu\)</span>).</p>
+<p>These relationships are conditioned by variables such as <span class="math inline">\(\theta\)</span>, the combination of innovation rate and population size (<span class="math inline">\(2N\mu\)</span>).</p>
 <p>I also want to know how the method of breaking a dimension into classification modes (<code>EVEN</code> or <code>RANDOM</code>) affects the distribution of observable richness and evenness metrics. The basic analysis here should be to do a curve fit for each observable, at specific mutation rates. In particular, it’ll be interesting to see how wide the confidence envelope around the <code>RANDOM</code> classifications is….</p>
-<div class="references">
-<h3>References Cited</h3>
+<h3 id="references-cited" class="unnumbered">References Cited</h3>
+<div id="refs" class="references">
+<div id="ref-Dunnell1971">
 <p>Dunnell, Robert C. 1971. <em>Systematics in Prehistory</em>. New York: Free Press.</p>
+</div>
+<div id="ref-wilcox1973indices">
 <p>Wilcox, A.R. 1973. “Indices of Qualitative Variation and Political Measurement.” <em>The Western Political Quarterly</em> 26 (2). JSTOR: 325–43.</p>
+</div>
 </div>
 <section class="footnotes">
 <hr />

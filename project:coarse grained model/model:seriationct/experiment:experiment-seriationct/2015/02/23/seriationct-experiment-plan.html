@@ -186,7 +186,7 @@
 		<table class="table table-condensed">
 			<tr class="info">
 				<td><small><i class="icon-calendar"></i>&nbsp;Created: 23 Feb 2015</small></td>
-				<td><small><i class="icon-calendar"></i>&nbsp;Modified: 23 Feb 2016</small></td>
+				<td><small><i class="icon-calendar"></i>&nbsp;Modified: 03 Mar 2016</small></td>
 				<td><small><i class="icon-book">&nbsp;</i>&nbsp;<a href=http://greycite.knowledgeblog.org/bib/?uri=http://notebook.madsenlab.org/project:coarse%20grained%20model/model:seriationct/experiment:experiment-seriationct/2015/02/23/seriationct-experiment-plan.html target='_blank'>BibTeX Entry</a>
 </small></td>
 				<td><small><i class="icon-book">&nbsp;</i>&nbsp;<a href=http://greycite.knowledgeblog.org/ris/?uri=http://notebook.madsenlab.org/project:coarse%20grained%20model/model:seriationct/experiment:experiment-seriationct/2015/02/23/seriationct-experiment-plan.html target='_blank'>RIS Citation</a>
@@ -221,11 +221,13 @@
 </ul>
 <p>The source code for the model is available in the <a href="https://github.com/mmadsen/seriationct">seriationct</a> repository, and is written in Python on top of the superb <a href="http://simupop.sourceforge.net/">simuPOP</a> population genetics simulation framework by Bo Peng. Data are stored in a standard <a href="http://www.mongodb.org/">MongoDB</a> database, for ease of evolving the data schema as the experiment proceeds.</p>
 <h3 id="temporal-network">Temporal Network</h3>
-<p>The CT model takes a interval-style “temporal network” model <span class="citation" data-cites="holme2012temporal">(Holme and Saram<span>ä</span>ki 2012)</span>, which describes an evolving contact network as a series of network “slices” that are valid for a duration of time. Vertices represent local populations, edges represent movement of individuals between populations, and edge weights represent the intensity of that movement and thus the potential for cultural traits to flow between subpopulations.</p>
+<p>The CT model takes a interval-style “temporal network” model <span class="citation" data-cites="holme2012temporal">(Holme and Saramäki 2012)</span>, which describes an evolving contact network as a series of network “slices” that are valid for a duration of time. Vertices represent local populations, edges represent movement of individuals between populations, and edge weights represent the intensity of that movement and thus the potential for cultural traits to flow between subpopulations.</p>
 <p>The overall model is composed of a series of GML files which describe weighted graphs, with textual labels uniquely identifying subpopulations that carry over (potentially) between slices. The GML files become a sequence of <code>NetworkX</code> graph objects, assigned to time indices after the CT model has achieved a quasi-stationary equilibrium (“burn-in”) and before the end of the simulation run. At the time index that each slice is assigned:</p>
 <ol type="1">
-<li>Demes that are not listed in the new slice are removed from the metapopulation; this models a community being abandoned or going extinct.<br /></li>
-<li>Demes that are newly listed in the slice are added to the metapopulation by fission from one of the neighboring demes connected by an edge; individuals are seeded from that subpopulation’s trait population by sampling with replacement.<br /></li>
+<li>Demes that are not listed in the new slice are removed from the metapopulation; this models a community being abandoned or going extinct.<br />
+</li>
+<li>Demes that are newly listed in the slice are added to the metapopulation by fission from one of the neighboring demes connected by an edge; individuals are seeded from that subpopulation’s trait population by sampling with replacement.<br />
+</li>
 <li>The edge weights are converted into a “migration matrix” which gives the probability that an individual from subpopulation A will migrate to subpopulation B in any given simulation step (there is a configurable probability that individuals stay put, typically large).</li>
 </ol>
 <h3 id="experimental-setup">Experimental Setup</h3>
@@ -243,9 +245,11 @@
 <p>For each simulation run, we gather class counts from each subpopulation existing at each simulation step after burn-in. For analysis, we aggregate all of the counts over time from each subpopulation, and then calculate the time-averaged frequency of classes. These form the “assemblages” which are input to the IDSS seriation algorithm.</p>
 <p>The resulting output is an IDSS frequency seriation graph for each replication of each simulation run on each temporal network model.</p>
 <p>The analysis then involves studying the graph properties of these seriation solutions, and determining whether a classifier model can accurately predict which regional interaction model generated a given seriation solution. The data set will be split 80/20 into a training and test set, balanced across the temporal network models and simulation parameters, and the ability to predict the interaction model assessed only on the test set.</p>
-<div class="references">
-<h3>References Cited</h3>
-<p>Holme, Petter, and Jari Saram<span>ä</span>ki. 2012. “Temporal Networks.” <em>Physics Reports</em> 519 (3). Elsevier: 97–125.</p>
+<h3 id="references-cited" class="unnumbered">References Cited</h3>
+<div id="refs" class="references">
+<div id="ref-holme2012temporal">
+<p>Holme, Petter, and Jari Saramäki. 2012. “Temporal Networks.” <em>Physics Reports</em> 519 (3). Elsevier: 97–125.</p>
+</div>
 </div>
   
 

@@ -186,7 +186,7 @@
 		<table class="table table-condensed">
 			<tr class="info">
 				<td><small><i class="icon-calendar"></i>&nbsp;Created: 02 Apr 2014</small></td>
-				<td><small><i class="icon-calendar"></i>&nbsp;Modified: 23 Feb 2016</small></td>
+				<td><small><i class="icon-calendar"></i>&nbsp;Modified: 03 Mar 2016</small></td>
 				<td><small><i class="icon-book">&nbsp;</i>&nbsp;<a href=http://greycite.knowledgeblog.org/bib/?uri=http://notebook.madsenlab.org/project:coarse%20grained%20model/model:axelrod-ct/experiment:experiment-semanticaxelrod/2014/04/02/simulation-runs-april.html target='_blank'>BibTeX Entry</a>
 </small></td>
 				<td><small><i class="icon-book">&nbsp;</i>&nbsp;<a href=http://greycite.knowledgeblog.org/ris/?uri=http://notebook.madsenlab.org/project:coarse%20grained%20model/model:axelrod-ct/experiment:experiment-semanticaxelrod/2014/04/02/simulation-runs-april.html target='_blank'>RIS Citation</a>
@@ -201,14 +201,14 @@
   	
 	
   <h3 id="update">Update</h3>
-<p>A bug in the innovation code was causing innovations not to happen unless a copying event also happened. I am scrapping previous data because even though the case <span class="math">\(\mu = 0.0\)</span> might be alright, I also think that we need to be comparing time slices, and the new data seem to have different mean values for some of the key measurables. So I’m going to blast a new set of runs.</p>
+<p>A bug in the innovation code was causing innovations not to happen unless a copying event also happened. I am scrapping previous data because even though the case <span class="math inline">\(\mu = 0.0\)</span> might be alright, I also think that we need to be comparing time slices, and the new data seem to have different mean values for some of the key measurables. So I’m going to blast a new set of runs.</p>
 <p>Changes:</p>
 <ol type="1">
 <li><p>Simulations run to 10 million ticks, regardless. We sample from 6MM to 10MM ticks, every 1MM ticks taking a sample, giving us 5 samples per simulation run (to detect non-stationarity).</p></li>
 <li><p>I record the timing of runs. Currently, on my laptop and EC2 instances of type <code>C3.xlarge</code>, a run with 100 individuals takes 227 seconds, 225 individuals takes 293 seconds, and 400 individuals takes 372 seconds. This will allow some predictability in completion times. There is very little variation since we are doing 10MM ticks, regardless of the copying and innovation events involved.</p></li>
 </ol>
 <p>A small test run with learning rates of <code>0.1</code> and <code>0.8</code> was encouraging, things look different for some observables and not others. I think we’re ready to go.</p>
-<p>I also learned that the <span class="math">\(r=6, h=6\)</span> case for trait trees is simply too large to do automorphism group calculations upon.</p>
+<p>I also learned that the <span class="math inline">\(r=6, h=6\)</span> case for trait trees is simply too large to do automorphism group calculations upon.</p>
 <h3 id="production-experiments">Production Experiments</h3>
 <p>The following will be divided into 6 different machines, 2 each for population sizes 100, 225, 400. Each population size will finish at different times, and their server instances deactivated. The anticipated range is between 4 (size 100) and 6.5 days (size 400)</p>
 <ul>
@@ -221,8 +221,9 @@
 <li>Max init traits: 4</li>
 <li>Innovation rate: 0.0000, 0.00005, 0.0001</li>
 </ul>
-<div class="references">
-<h3>Experiment Log</h3>
+<h3 id="experiment-log" class="unnumbered">Experiment Log</h3>
+<div id="refs" class="references">
+
 </div>
   
 

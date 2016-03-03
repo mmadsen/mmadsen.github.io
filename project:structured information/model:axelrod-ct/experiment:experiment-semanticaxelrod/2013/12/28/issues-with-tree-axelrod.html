@@ -186,7 +186,7 @@
 		<table class="table table-condensed">
 			<tr class="info">
 				<td><small><i class="icon-calendar"></i>&nbsp;Created: 28 Dec 2013</small></td>
-				<td><small><i class="icon-calendar"></i>&nbsp;Modified: 23 Feb 2016</small></td>
+				<td><small><i class="icon-calendar"></i>&nbsp;Modified: 03 Mar 2016</small></td>
 				<td><small><i class="icon-book">&nbsp;</i>&nbsp;<a href=http://greycite.knowledgeblog.org/bib/?uri=http://notebook.madsenlab.org/project:structured%20information/model:axelrod-ct/experiment:experiment-semanticaxelrod/2013/12/28/issues-with-tree-axelrod.html target='_blank'>BibTeX Entry</a>
 </small></td>
 				<td><small><i class="icon-book">&nbsp;</i>&nbsp;<a href=http://greycite.knowledgeblog.org/ris/?uri=http://notebook.madsenlab.org/project:structured%20information/model:axelrod-ct/experiment:experiment-semanticaxelrod/2013/12/28/issues-with-tree-axelrod.html target='_blank'>RIS Citation</a>
@@ -210,44 +210,44 @@
 <li>Individuals are initialized with random traits and their prereqs in the tree</li>
 </ol>
 <p>Given this infrastructure, the copying rule is a modification of the extensible model:</p>
-<pre class="sourceCode python"><code class="sourceCode python">f = getRandomAgent()
-n = getRandomNeighborForAgent(f)
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">f <span class="op">=</span> getRandomAgent()
+n <span class="op">=</span> getRandomNeighborForAgent(f)
 
-<span class="kw">if</span> n = f or n.isdisjoint(f) or n.issubset(f):
+<span class="cf">if</span> n <span class="op">=</span> f <span class="op">or</span> n.isdisjoint(f) <span class="op">or</span> n.issubset(f):
     exit  <span class="co"># no interaction possible</span>
 
-prob = jaccardIndex(n,f)
-<span class="kw">if</span> RandomUniform() &lt; prob:
-    traits = neighbor.get_differing_traits(agent)
-    neighbor_trait = random.choice(traits)
+prob <span class="op">=</span> jaccardIndex(n,f)
+<span class="cf">if</span> RandomUniform() <span class="op">&lt;</span> prob:
+    traits <span class="op">=</span> neighbor.get_differing_traits(agent)
+    neighbor_trait <span class="op">=</span> random.choice(traits)
 
-    <span class="kw">if</span> f.hasPrerequisitesForTrait(neighbor_trait) == <span class="ot">False</span>:
+    <span class="cf">if</span> f.hasPrerequisitesForTrait(neighbor_trait) <span class="op">==</span> <span class="va">False</span>:
         exit <span class="co"># cannot copy the trait, does not have prereqs</span>
 
-    f.add_or_replace(neighbor_trait)</code></pre>
+    f.add_or_replace(neighbor_trait)</code></pre></div>
 <p>The behavior of the model is problematic, although I’m reasonably sure it’s structural and not simply a bug. The active link density will initially decline, and then stick at a high level for as long as I’ll watch it (i.e., a million or so cycles). Watching the cumulative number of copying events reveals that quickly, the rate of successful interactions goes to zero.</p>
 <p>This probably occurs because the convergence algorithm sees plenty of active links (indeed, almost all links are “active”) but after a few passes, no agents have the prerequisites for each other’s differing traits. Clearly, the copying rule needs work.</p>
 <h3 id="revised-prerequisite-rule">Revised Prerequisite Rule</h3>
 <p>To work, there needs to be a probability of learning a missing prereq. Perhaps this substitute for the “addition rate,” which was pretty artificial.</p>
 <p>One possibility:</p>
-<pre class="sourceCode python"><code class="sourceCode python">f = getRandomAgent()
-n = getRandomNeighborForAgent(f)
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">f <span class="op">=</span> getRandomAgent()
+n <span class="op">=</span> getRandomNeighborForAgent(f)
 
-<span class="kw">if</span> n = f or n.isdisjoint(f) or n.issubset(f):
+<span class="cf">if</span> n <span class="op">=</span> f <span class="op">or</span> n.isdisjoint(f) <span class="op">or</span> n.issubset(f):
     exit  <span class="co"># no interaction possible</span>
 
-prob = jaccardIndex(n,f)
-<span class="kw">if</span> RandomUniform() &lt; prob:
-    traits = neighbor.get_differing_traits(agent)
-    neighbor_trait = random.choice(traits)
+prob <span class="op">=</span> jaccardIndex(n,f)
+<span class="cf">if</span> RandomUniform() <span class="op">&lt;</span> prob:
+    traits <span class="op">=</span> neighbor.get_differing_traits(agent)
+    neighbor_trait <span class="op">=</span> random.choice(traits)
 
-    <span class="kw">if</span> f.hasPrerequisitesForTrait(neighbor_trait) == <span class="ot">False</span>:
-        <span class="kw">if</span> RandomUniform() &lt; learning_rate:
-            needed_prereq = DeepestRequiredPrerequisiteOf(neighbor_trait)
+    <span class="cf">if</span> f.hasPrerequisitesForTrait(neighbor_trait) <span class="op">==</span> <span class="va">False</span>:
+        <span class="cf">if</span> RandomUniform() <span class="op">&lt;</span> learning_rate:
+            needed_prereq <span class="op">=</span> DeepestRequiredPrerequisiteOf(neighbor_trait)
             f.add(needed_prereq)
-    <span class="kw">else</span>:  <span class="co"># has prereqs</span>
-        f.add_or_replace(neighbor_trait)</code></pre>
-<div class="references">
+    <span class="cf">else</span>:  <span class="co"># has prereqs</span>
+        f.add_or_replace(neighbor_trait)</code></pre></div>
+<div id="refs" class="references">
 
 </div>
   

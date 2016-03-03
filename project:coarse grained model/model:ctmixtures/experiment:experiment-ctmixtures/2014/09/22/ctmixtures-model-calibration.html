@@ -186,7 +186,7 @@
 		<table class="table table-condensed">
 			<tr class="info">
 				<td><small><i class="icon-calendar"></i>&nbsp;Created: 22 Sep 2014</small></td>
-				<td><small><i class="icon-calendar"></i>&nbsp;Modified: 23 Feb 2016</small></td>
+				<td><small><i class="icon-calendar"></i>&nbsp;Modified: 03 Mar 2016</small></td>
 				<td><small><i class="icon-book">&nbsp;</i>&nbsp;<a href=http://greycite.knowledgeblog.org/bib/?uri=http://notebook.madsenlab.org/project:coarse%20grained%20model/model:ctmixtures/experiment:experiment-ctmixtures/2014/09/22/ctmixtures-model-calibration.html target='_blank'>BibTeX Entry</a>
 </small></td>
 				<td><small><i class="icon-book">&nbsp;</i>&nbsp;<a href=http://greycite.knowledgeblog.org/ris/?uri=http://notebook.madsenlab.org/project:coarse%20grained%20model/model:ctmixtures/experiment:experiment-ctmixtures/2014/09/22/ctmixtures-model-calibration.html target='_blank'>RIS Citation</a>
@@ -205,7 +205,8 @@
 <p>I looked at Ewens <span class="citation" data-cites="Ewens2004">(2004)</span> again, and added a method to the <code>pytransmission</code> library to calculate the expected number of alleles in a sample, and its variance, given Equations 3.83 - 3.86.</p>
 <p>I also:</p>
 <ol type="1">
-<li>Changed the formula for turning the scaled innovation rate (<span class="math">\(\theta\)</span>) into a per-individual/locus rate (<span class="math">\(\mu\)</span>), choosing a simpler formula rather than solving the formula 3.98 in which a factor <span class="math">\(\mu / (1 - \mu)\)</span> occurs. Instead, <span class="math">\(\mu\)</span> is calculated simply as $/ N $.<br /></li>
+<li>Changed the formula for turning the scaled innovation rate (<span class="math inline">\(\theta\)</span>) into a per-individual/locus rate (<span class="math inline">\(\mu\)</span>), choosing a simpler formula rather than solving the formula 3.98 in which a factor <span class="math inline">\(\mu / (1 - \mu)\)</span> occurs. Instead, <span class="math inline">\(\mu\)</span> is calculated simply as $/ N $.<br />
+</li>
 <li>Stopped using the “random locus” copying rule for neutral traits, since the Moran model is defined to have a whole individual drop out and be replaced by a clone of another individual.</li>
 </ol>
 <p>These changes are split across the <code>ctmixtures</code> and <code>pytransmission</code> codebases, involving at most single lines of code in several places.</p>
@@ -220,16 +221,20 @@
 <p>In the cultural case with many traits, it is distinctly a <em>modeling choice</em>. We might postulate, for example, that “all-trait” copying is likely prevalent only in early childhood development and social learning, when children are exposed to their parent’s cultural repertoire at high frequency and intensity. In contrast, we might expect that single trait copying would be the typical mode for adult individuals, as they engage in social learning within a specific task or context, with consequently smaller changes in their overall repertoire. This kind of developmental change, incidentally, may help account for why some aspects of cultural repertoires exhibit slow change empirically, despite the rapidity with which traits turn over in our simple models. By narrowing the “volume” of a repertoire that is changed at any given time as an adult, cultural evolution becomes “conservative” without necessarily employing frequency-dependent bias or homophilic preferences.</p>
 <p>So, in a sense, we could consider equifinality issues between both “all-locus” and “single-locus” neutral models, and bias models with both types of copying. Currently, the design of the FD bias algorithm makes it difficult to perform an “all-locus copy”, and it’s not entirely clear what it means to perform a biased copy of “most common” or “least common” traits. Do we:</p>
 <ol type="1">
-<li>Copy all of the traits of the individual who possesses the highest number of “most common” traits at the various loci?<br /></li>
-<li>Copy the most common traits from each locus, regardless of whether they come from the same individual?<br /></li>
+<li>Copy all of the traits of the individual who possesses the highest number of “most common” traits at the various loci?<br />
+</li>
+<li>Copy the most common traits from each locus, regardless of whether they come from the same individual?<br />
+</li>
 <li>Copy all of the traits of the individual who has the single most popular trait, regardless of locus?</li>
 </ol>
 <p>One way to resolve this issue is to restrict the current study to copying models which are most realistic for adult learners: single trait copying models. Employing the <code>NeutralRandomLocusCopyingRule</code> in direct comparison to the <code>BaseNeighborConformismRule</code> in <code>ctmixtures</code> creates an apples-to-apples contrast.</p>
 <p>The downside is that the neutral single-locus copying rule does not directly calibrate with the analytic expectations of the Moran infinite-alleles process, as described by Ewens, but today’s multiple calibration runs sheds light on why this is the case.</p>
 <p>I feel comfortable configuring simulation runs for <code>equifinality-2</code>, using the revised code, which will be released as Version 2.4.</p>
-<div class="references">
-<h3>References Cited</h3>
+<h3 id="references-cited" class="unnumbered">References Cited</h3>
+<div id="refs" class="references">
+<div id="ref-Ewens2004">
 <p>Ewens, Warren J. 2004. <em>Mathematical Population Genetics, Volume 1: Theoretical Introduction</em>. 2nd ed. New York, Springer.</p>
+</div>
 </div>
   
 

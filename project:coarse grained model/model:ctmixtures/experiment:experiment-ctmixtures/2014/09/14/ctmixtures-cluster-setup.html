@@ -186,7 +186,7 @@
 		<table class="table table-condensed">
 			<tr class="info">
 				<td><small><i class="icon-calendar"></i>&nbsp;Created: 14 Sep 2014</small></td>
-				<td><small><i class="icon-calendar"></i>&nbsp;Modified: 23 Feb 2016</small></td>
+				<td><small><i class="icon-calendar"></i>&nbsp;Modified: 03 Mar 2016</small></td>
 				<td><small><i class="icon-book">&nbsp;</i>&nbsp;<a href=http://greycite.knowledgeblog.org/bib/?uri=http://notebook.madsenlab.org/project:coarse%20grained%20model/model:ctmixtures/experiment:experiment-ctmixtures/2014/09/14/ctmixtures-cluster-setup.html target='_blank'>BibTeX Entry</a>
 </small></td>
 				<td><small><i class="icon-book">&nbsp;</i>&nbsp;<a href=http://greycite.knowledgeblog.org/ris/?uri=http://notebook.madsenlab.org/project:coarse%20grained%20model/model:ctmixtures/experiment:experiment-ctmixtures/2014/09/14/ctmixtures-cluster-setup.html target='_blank'>RIS Citation</a>
@@ -213,7 +213,8 @@
 <p>The first task is to configure an AMI or machine image for your cluster nodes. StarCluster provides a number of AMIs which are preconfigured with all of the StarCluster runtimes, Sun Open Grid Engine, and other components which StarCluster relies upon. It is strongly recommended that you start with one of these AMIs.</p>
 <p><strong>In fact, of the currently supported StarCluster AMI’s, you should start with the Ubuntu 12.04 64 bit image, because EC2 has disabled APT repositories for ubuntu versions which are end-of-life. You will not be able to install most software on the 13.04 or recent AMI’s. StarCluster is aware of this and planning another AMI set based on the next Ubuntu LTS release. By the time you read this, there may be a 14.04 AMI to use</strong></p>
 <ol type="1">
-<li>Follow the StarCluster user’s manual and edit <code>~/.starcluster/config</code> to contain paths to apporpriate EC2 RSA and SSH keys. You can use an IAM account for this, which is now recommended rather than your base AWS administration account. You don’t need to edit much else here at the moment.<br /></li>
+<li>Follow the StarCluster user’s manual and edit <code>~/.starcluster/config</code> to contain paths to apporpriate EC2 RSA and SSH keys. You can use an IAM account for this, which is now recommended rather than your base AWS administration account. You don’t need to edit much else here at the moment.<br />
+</li>
 <li>Set up a single cluster host, which we’ll then configure and turn into a custom AMI for all nodes in our cluster. You can use a small instance type here because we’re not processing, just installing and configuring.</li>
 </ol>
 <pre class="shell"><code>$ starcluster start -o -s 1 -I m1.small -m ami-765b3e1f imagehost</code></pre>
@@ -230,7 +231,8 @@
 $ bash anaconda2-installer.sh</code></pre>
 <ol start="7" type="1">
 <li>Follow the prompts in the text-based installer, accepting the license agreement, and then put Anaconda somewhere accessible, like <code>/usr/local/anaconda</code>. I also allowed the installer to prepend the Anaconda <code>bin</code> directory to root’s path. <strong>I also should ensure that this is prepended to user <code>sgeadmin</code>’s path since you execute jobs as this user</strong></li>
-<li>I then created an EBS volume of sufficient size (200GB) to hold the MongoDB database on each simulation node, since they can grow quite large during a long simulation run. I did this in the AWS web console, and attached it to <code>/dev/xvdf</code> (the default choice) to my running <code>imagehost-master</code> instance.<br /></li>
+<li>I then created an EBS volume of sufficient size (200GB) to hold the MongoDB database on each simulation node, since they can grow quite large during a long simulation run. I did this in the AWS web console, and attached it to <code>/dev/xvdf</code> (the default choice) to my running <code>imagehost-master</code> instance.<br />
+</li>
 <li>Back on the command line in the <code>imagehost-master</code> itself, I then formatted the new volume, created a mount point, added it to <code>/etc/fstab</code> and mounted it before creating two working directories:</li>
 </ol>
 <pre class="shell"><code>$ /sbin/mkfs.ext4 /dev/xvdf
@@ -240,7 +242,8 @@ $ mount -a
 $ mkdir /sim/src
 $ mkdir /sim/data</code></pre>
 <ol start="10" type="1">
-<li>I then stopped MongoDB, and edited <code>/etc/mongodb.conf</code> to put its <code>datadir</code> in <code>simdata</code> before restarting, and verifying that I could connect to the database via the command line client.<br /></li>
+<li>I then stopped MongoDB, and edited <code>/etc/mongodb.conf</code> to put its <code>datadir</code> in <code>simdata</code> before restarting, and verifying that I could connect to the database via the command line client.<br />
+</li>
 <li>At this point, inside <code>/sim/src</code>, I cloned the <code>ctmixtures</code> repository at Version 2.1 of the release software, and verified that I could run the various scripts and a simulation on the command line, and that data was inserted into the database at the conclusion of the simulation. This involved installing necessary python dependencies and compiling my module <code>slatkin-exact-tools</code>, which are taken care of by the following:</li>
 </ol>
 <pre class="shell"><code>$ apt-get install swig
@@ -267,7 +270,7 @@ $ sh install-slatkin-tools.sh</code></pre>
 <p>Terminating the cluster removes the instances from your instance list, but in the current configuration it <strong>DOES NOT remove the 200 GB EBS volumes you created</strong>. Do this manually after you terminate the instances if you do not want to be charged for the EBS storage. I’m sure there’s an instance and volume setting to have the volumes auto-delete, but I haven’t set that up yet.</p>
 <p>When you have NO running instances, you should have no volumes associated with this cluster and image, but there should be a 10GB and 200GB snapshot which form part of the AMI itself. These will be stored long-term but the cost is minimal.</p>
 <p><strong>FOR PART 2, SEE <a href="/project:coarse%20grained%20model/model:ctmixtures/experiment:experiment-ctmixtures/2014/09/14/ctmixtures-job-execution.html">CTMixtures Experiment Configuration and Execution</a></strong></p>
-<div class="references">
+<div id="refs" class="references">
 
 </div>
   

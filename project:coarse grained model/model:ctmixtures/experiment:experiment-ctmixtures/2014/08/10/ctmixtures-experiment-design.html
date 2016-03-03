@@ -186,7 +186,7 @@
 		<table class="table table-condensed">
 			<tr class="info">
 				<td><small><i class="icon-calendar"></i>&nbsp;Created: 10 Aug 2014</small></td>
-				<td><small><i class="icon-calendar"></i>&nbsp;Modified: 23 Feb 2016</small></td>
+				<td><small><i class="icon-calendar"></i>&nbsp;Modified: 03 Mar 2016</small></td>
 				<td><small><i class="icon-book">&nbsp;</i>&nbsp;<a href=http://greycite.knowledgeblog.org/bib/?uri=http://notebook.madsenlab.org/project:coarse%20grained%20model/model:ctmixtures/experiment:experiment-ctmixtures/2014/08/10/ctmixtures-experiment-design.html target='_blank'>BibTeX Entry</a>
 </small></td>
 				<td><small><i class="icon-book">&nbsp;</i>&nbsp;<a href=http://greycite.knowledgeblog.org/ris/?uri=http://notebook.madsenlab.org/project:coarse%20grained%20model/model:ctmixtures/experiment:experiment-ctmixtures/2014/08/10/ctmixtures-experiment-design.html target='_blank'>RIS Citation</a>
@@ -211,25 +211,32 @@
 <h3 id="generating-test-data">Generating Test Data</h3>
 <p>Instead of generating specific combinations of parameter values, I believe I’m going to switch to the same framework as an ABC analysis. The following is a batch mode algorithm for generating the test and training data sets.</p>
 <ol type="1">
-<li>Identify the model set (in this case, a pure neutral versus a conformist/anticonformist mixture).<br /></li>
-<li>Determine the parallelism with which you’ll run the simulations (<span class="math">\(P\)</span>).</li>
+<li>Identify the model set (in this case, a pure neutral versus a conformist/anticonformist mixture).<br />
+</li>
+<li>Determine the parallelism with which you’ll run the simulations (<span class="math inline">\(P\)</span>).</li>
 <li>Establish prior distributions for each parameter in each model (basically, uniform distributions over the range of values that formerly were drawn from the configuration files)</li>
-<li>Establish a total number of samples desired for the training data set, and a total number for test data (<span class="math">\(N_{train}\)</span> and <span class="math">\(N_{test}\)</span>).</li>
-<li>Foreach <span class="math">\(N_{train,test}\)</span>, draw a model at random from the model set.</li>
+<li>Establish a total number of samples desired for the training data set, and a total number for test data (<span class="math inline">\(N_{train}\)</span> and <span class="math inline">\(N_{test}\)</span>).</li>
+<li>Foreach <span class="math inline">\(N_{train,test}\)</span>, draw a model at random from the model set.</li>
 <li>For that model, draw random parameters from the prior distributions for that model</li>
-<li>Record the configuration parameters for that simulation run (or the actual command used to run that simulation) in a rotating set of files of <span class="math">\(P\)</span>.</li>
+<li>Record the configuration parameters for that simulation run (or the actual command used to run that simulation) in a rotating set of files of <span class="math inline">\(P\)</span>.</li>
 </ol>
-<p>Since each simulation run records the model under which it was run, we end up having <span class="math">\(N_{train} + N_{test}\)</span> simulations from the total set.</p>
+<p>Since each simulation run records the model under which it was run, we end up having <span class="math inline">\(N_{train} + N_{test}\)</span> simulations from the total set.</p>
 <p>Run those simulations, and then split the resulting data into training and test data, before moving onto the SVN or logistic regression analysis.</p>
 <p>This will improve coverage of the parameter space.</p>
 <h3 id="is-identifiability-improved-if-we-know-some-parameters">Is Identifiability Improved If We Know (Some) Parameters?</h3>
 <p>In general, the goal is to determine equifinality without reference to any unobservable parameters. We rarely, in samples from real populations, have measurements (or even estimates) of population size, or innovation rates, or the prevalence of different modes of transmission in the population.</p>
 <p>But there may be certain situations where one or more parameters (but not, perhaps, all), are known for the population of interest. For example, Jon Scholnick’s data on New England gravestones has a fairly good enumeration of gravestone carvers during the period of interest. In such a situation, we have at least an estimate of N for certain models (we may not know the population buying the gravestones, however). In this situation, is identifiability improved if we can include population size as a predictor in our multi-logistic regression or classification procedure?</p>
-<div class="references">
-<h3>References Cited</h3>
+<h3 id="references-cited" class="unnumbered">References Cited</h3>
+<div id="refs" class="references">
+<div id="ref-madsen2012ta">
 <p>Madsen, Mark E. 2012. “Unbiased Cultural Transmission in Time-Averaged Archaeological Assemblages.” <em>ArXiv E-Prints</em> 1204.2043 (April). <a href="http://arxiv.org/abs/1204.2043" class="uri">http://arxiv.org/abs/1204.2043</a>.</p>
-<p>Porcic, Marko. 2014. “Exploring the Effects of Assemblage Accumulation on Diversity and Innovation Rate Estimates in Neutral, Conformist, and Anti-Conformist Models of Cultural Transmission.” <em>Journal of Archaeological Method and Theory</em>. Springer US, 1–22. doi:<a href="http://dx.doi.org/10.1007/s10816-014-9217-8">10.1007/s10816-014-9217-8</a>.</p>
+</div>
+<div id="ref-Porcic2014-ta">
+<p>Porcic, Marko. 2014. “Exploring the Effects of Assemblage Accumulation on Diversity and Innovation Rate Estimates in Neutral, Conformist, and Anti-Conformist Models of Cultural Transmission.” <em>Journal of Archaeological Method and Theory</em>. Springer US, 1–22. doi:<a href="https://doi.org/10.1007/s10816-014-9217-8">10.1007/s10816-014-9217-8</a>.</p>
+</div>
+<div id="ref-premo2014cultural">
 <p>Premo, LS. 2014. “Cultural Transmission and Diversity in Time-Averaged Assemblages.” <em>Current Anthropology</em> 55 (1). JSTOR: 105–14.</p>
+</div>
 </div>
   
 

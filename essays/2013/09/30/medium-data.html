@@ -186,7 +186,7 @@
 		<table class="table table-condensed">
 			<tr class="info">
 				<td><small><i class="icon-backward"></i>&nbsp;<a href="/blog.html">Back to Essay List</a></small></td>
-				<td><small><i class="icon-calendar"></i>&nbsp;Modified: 23 Feb 2016</small></td>
+				<td><small><i class="icon-calendar"></i>&nbsp;Modified: 03 Mar 2016</small></td>
 				<td><small><i class="icon-book">&nbsp;</i>&nbsp;<a href=http://greycite.knowledgeblog.org/bib/?uri=http://notebook.madsenlab.org/essays/2013/09/30/medium-data.html target='_blank'>BibTeX Entry</a>
 </small></td>
 				<td><small><i class="icon-book">&nbsp;</i>&nbsp;<a href=http://greycite.knowledgeblog.org/ris/?uri=http://notebook.madsenlab.org/essays/2013/09/30/medium-data.html target='_blank'>RIS Citation</a>
@@ -219,7 +219,8 @@
 <p>The data set I’m describing here has 9.504 million rows, with 24 columns aross the two files. The “big” file has many replicates at the same “parameters,” and requires aggregation (by calculating mean and standard deviation). The small file is a set of measurements which apply to specific parameter combinations in the big file, and thus can be combined with an “inner join.” The end product of pre-processing and data cleaning, therefore, is a single file, with the 9.504 million rows aggregated to form 95,040 rows, with duplicate columns removed after joining.</p>
 <p>There are really two approaches to preprocessing these data:</p>
 <ol type="1">
-<li>Load the files into R data frames, and use <code>plyr</code> and associated packages to join and aggregate the data.<br /></li>
+<li>Load the files into R data frames, and use <code>plyr</code> and associated packages to join and aggregate the data.<br />
+</li>
 <li>Write a script or scripts to perform the join, aggregation, and de-duplication.</li>
 </ol>
 <p>At this scale, both choices are workable. I’ve done it both ways. But there are circumstances where the second approach is superior for this sort of cleaning/preprocessing (you’re still going to do your actual analysis in R, or at least a combination of R and Python):</p>
@@ -245,9 +246,11 @@
 <h4 id="script-the-scripts">Script the Scripts</h4>
 <p>Breaking your processing chain into small scripts, each performing a task and capable of verification, raises the danger that you’ll execute them in the wrong order. This may or may not lead to overt errors, but if not, a variety of subtle errors can creep into your data. Thus, I always “script the scripts” – keep a simple shell script which executes each processing step in order.</p>
 <p>While I’m writing the scripts and testing, I usually execute each one manually (often many times). But when I actually produce the data set for analysis, I <em>always</em> use the overall “driver” script to ensure that all of the processing steps happen in the right order.</p>
-<div class="references">
-<h3>References Cited</h3>
-<p>McCullough, BD, and David A Heiser. 2008. “On the Accuracy of Statistical Procedures in Microsoft Excel 2007.” <em>Computational Statistics &amp; Data Analysis</em> 52 (10). Elsevier: 4570–78.</p>
+<h3 id="references-cited" class="unnumbered">References Cited</h3>
+<div id="refs" class="references">
+<div id="ref-mccullough2008accuracy">
+<p>McCullough, BD, and David A Heiser. 2008. “On the Accuracy of Statistical Procedures in Microsoft Excel 2007.” <em>Computational Statistics &amp; Data Analysis</em> 52 (10). Elsevier: 4570–8.</p>
+</div>
 </div>
 <section class="footnotes">
 <hr />
@@ -264,7 +267,7 @@
 <table class="table table-condensed">
 			<tr>
 				<td><small><i class="icon-backward"></i>&nbsp;<a href="/blog.html">Back to Essay List</a></small></td>
-				<td><small><i class="icon-calendar"></i>&nbsp;Modified: 23 Feb 2016</small></td>
+				<td><small><i class="icon-calendar"></i>&nbsp;Modified: 03 Mar 2016</small></td>
 				<td><small><i class="icon-book">&nbsp;</i>&nbsp;<a href=http://greycite.knowledgeblog.org/bib/?uri=http://notebook.madsenlab.org/essays/2013/09/30/medium-data.html target='_blank'>BibTeX Entry</a>
 </small></td>
 				<td><small><i class="icon-book">&nbsp;</i>&nbsp;<a href=http://greycite.knowledgeblog.org/ris/?uri=http://notebook.madsenlab.org/essays/2013/09/30/medium-data.html target='_blank'>RIS Citation</a>

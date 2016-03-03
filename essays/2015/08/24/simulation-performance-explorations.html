@@ -186,7 +186,7 @@
 		<table class="table table-condensed">
 			<tr class="info">
 				<td><small><i class="icon-backward"></i>&nbsp;<a href="/blog.html">Back to Essay List</a></small></td>
-				<td><small><i class="icon-calendar"></i>&nbsp;Modified: 23 Feb 2016</small></td>
+				<td><small><i class="icon-calendar"></i>&nbsp;Modified: 03 Mar 2016</small></td>
 				<td><small><i class="icon-book">&nbsp;</i>&nbsp;<a href=http://greycite.knowledgeblog.org/bib/?uri=http://notebook.madsenlab.org/essays/2015/08/24/simulation-performance-explorations.html target='_blank'>BibTeX Entry</a>
 </small></td>
 				<td><small><i class="icon-book">&nbsp;</i>&nbsp;<a href=http://greycite.knowledgeblog.org/ris/?uri=http://notebook.madsenlab.org/essays/2015/08/24/simulation-performance-explorations.html target='_blank'>RIS Citation</a>
@@ -254,7 +254,7 @@ Vec and Parallelism  - 1m36.847s</code></pre>
 <h3 id="parallelized-random-number-generation">Parallelized Random Number Generation</h3>
 <p>Creating 100K random variates is still a fairly time-consuming step, and this may be an area where using a GPU (if available) is a good idea, since at least CUDA (if present) has a high performance random number library. I hate to have hardware-specific code, though, especially if Apple moves away from NVIDIA cards in the Macbook Pros, which makes it hard to develop while mobile or away from home.</p>
 <p>There’s no good reason why I shouldn’t be able to parallelize random number generation using OpenMP, however, as long as each thread has its own private engine variable, which is accomplished by initializing the engine and distributions inside the parallel region, instead of during object construction:</p>
-<pre class="sourceCode cpp"><code class="sourceCode cpp"><span class="ot">#pragma omp parallel shared(test_par)</span>
+<div class="sourceCode"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span class="ot">#pragma omp parallel shared(test_par)</span>
 {
         std::random_device rd;
         std::mt19937_64 eng(rd());
@@ -265,11 +265,11 @@ Vec and Parallelism  - 1m36.847s</code></pre>
         <span class="kw">for</span>(i = <span class="dv">0</span>; i &lt; test; i++) {
                 test_par[i] = uniform_int(eng);
         }
-}</code></pre>
+}</code></pre></div>
 <p>The result with 100K individuals and 25K generations (comparable to the above timing experiments) is:</p>
 <pre><code>31.24 real       119.92 user         3.02 sys</code></pre>
 <p>which is a 12.76x speedup over the serial unvectorized code. I’m not likely to push the performance experiments too much further, since I have a lot of other code to write, but it was a good experiment and now I have code modules to use in future simulations where I need the performance. And, others are encouraged to start with it and adapt it to your own transmission simulations, since it’s known to work and work quickly.</p>
-<div class="references">
+<div id="refs" class="references">
 
 </div>
   
@@ -280,7 +280,7 @@ Vec and Parallelism  - 1m36.847s</code></pre>
 <table class="table table-condensed">
 			<tr>
 				<td><small><i class="icon-backward"></i>&nbsp;<a href="/blog.html">Back to Essay List</a></small></td>
-				<td><small><i class="icon-calendar"></i>&nbsp;Modified: 23 Feb 2016</small></td>
+				<td><small><i class="icon-calendar"></i>&nbsp;Modified: 03 Mar 2016</small></td>
 				<td><small><i class="icon-book">&nbsp;</i>&nbsp;<a href=http://greycite.knowledgeblog.org/bib/?uri=http://notebook.madsenlab.org/essays/2015/08/24/simulation-performance-explorations.html target='_blank'>BibTeX Entry</a>
 </small></td>
 				<td><small><i class="icon-book">&nbsp;</i>&nbsp;<a href=http://greycite.knowledgeblog.org/ris/?uri=http://notebook.madsenlab.org/essays/2015/08/24/simulation-performance-explorations.html target='_blank'>RIS Citation</a>

@@ -186,7 +186,7 @@
 		<table class="table table-condensed">
 			<tr class="info">
 				<td><small><i class="icon-calendar"></i>&nbsp;Created: 20 Nov 2014</small></td>
-				<td><small><i class="icon-calendar"></i>&nbsp;Modified: 23 Feb 2016</small></td>
+				<td><small><i class="icon-calendar"></i>&nbsp;Modified: 03 Mar 2016</small></td>
 				<td><small><i class="icon-book">&nbsp;</i>&nbsp;<a href=http://greycite.knowledgeblog.org/bib/?uri=http://notebook.madsenlab.org/project:coarse%20grained%20model/model:ctmixtures/experiment:experiment-ctmixtures/2014/11/20/ctmixtures-analysis-gbm-next-steps.html target='_blank'>BibTeX Entry</a>
 </small></td>
 				<td><small><i class="icon-book">&nbsp;</i>&nbsp;<a href=http://greycite.knowledgeblog.org/ris/?uri=http://notebook.madsenlab.org/project:coarse%20grained%20model/model:ctmixtures/experiment:experiment-ctmixtures/2014/11/20/ctmixtures-analysis-gbm-next-steps.html target='_blank'>RIS Citation</a>
@@ -210,18 +210,22 @@
 </ol>
 <p>Using the superb <code>caret</code> package from Max Kuhn allows an easy switch between classifiers without changing most of the analysis code, so the change was simple. By default, the <code>gbm</code> package through <code>caret</code> uses bootstrap resampling with a small number of boosting iterations, which is sufficient for seeing how the package works, but not a real analysis. Currently, I am using the following tuning parameters:</p>
 <ul>
-<li>interaction depth: <span class="math">\([2, 4, 6, 8, 10, 12]\)</span></li>
-<li>number of trees: <span class="math">\([25, 50, 75, 100, 125, 150, 175, 200, 225, 250]\)</span></li>
+<li>interaction depth: <span class="math inline">\([2, 4, 6, 8, 10, 12]\)</span></li>
+<li>number of trees: <span class="math inline">\([25, 50, 75, 100, 125, 150, 175, 200, 225, 250]\)</span></li>
 <li>shrinkage: 0.05</li>
 <li>tuning method: repeated 10-fold cross validation, 5 repeats</li>
 </ul>
 <p>In my initial tests, plots of CV accuracy tend to plateau after 100 iterations, with larger interaction depth, so technically I don’t really need to include smaller values in the tuning parameters. But the <code>gbm + caret</code> package optimizes by fitting the largest models, can derive the smaller ones from the full model without recalculation, so the execution time is largely controlled by the largest values of the tuning parameters and the number of repeated CV folds and repeats.</p>
 <p>In most cases, a model fit to 100K data points, with 20% held out as a strict test set, takes between 80 and 90 minutes, with 4 cores on a Retina MBP. That’s acceptable, although I’ve put some effort into ensuring that all of my analyses can be run on the command line via a Makefile, automatically storing their results in <code>.Rdata</code> files for later interpretation and use. That way, I can do final runs on a server instance.</p>
 <p>The quality of the classifications is comparable to, and even slightly higher than, the random forest classifications of these data. The difference is very small and likely not significant, so for present purposes, I would consider GBM and RF to be equivalent and acceptable methods for attacking equifinality issues between cultural transmission models.</p>
-<div class="references">
-<h3>References Cited</h3>
-<p>Alexey Natekin, Alois Knoll. 2013. “Gradient boosting machines, a tutorial.” <em>Frontiers in Neurorobotics</em> 7. Frontiers Media SA: 21. doi:<a href="http://dx.doi.org/10.3389/fnbot.2013.00021">10.3389/fnbot.2013.00021</a>.</p>
+<h3 id="references-cited" class="unnumbered">References Cited</h3>
+<div id="refs" class="references">
+<div id="ref-AlexeyNatekin:2013ew">
+<p>Alexey Natekin, Alois Knoll. 2013. “Gradient boosting machines, a tutorial.” <em>Frontiers in Neurorobotics</em> 7. Frontiers Media SA: 21. doi:<a href="https://doi.org/10.3389/fnbot.2013.00021">10.3389/fnbot.2013.00021</a>.</p>
+</div>
+<div id="ref-hastie2009elements">
 <p>Hastie, Trevor, Robert Tibshirani, Jerome Friedman, T Hastie, J Friedman, and R Tibshirani. 2009. <em>The Elements of Statistical Learning</em>. Vol. 2. 1. Springer.</p>
+</div>
 </div>
   
 

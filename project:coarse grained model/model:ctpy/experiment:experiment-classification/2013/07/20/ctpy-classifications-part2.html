@@ -186,7 +186,7 @@
 		<table class="table table-condensed">
 			<tr class="info">
 				<td><small><i class="icon-calendar"></i>&nbsp;Created: 20 Jul 2013</small></td>
-				<td><small><i class="icon-calendar"></i>&nbsp;Modified: 23 Feb 2016</small></td>
+				<td><small><i class="icon-calendar"></i>&nbsp;Modified: 03 Mar 2016</small></td>
 				<td><small><i class="icon-book">&nbsp;</i>&nbsp;<a href=http://greycite.knowledgeblog.org/bib/?uri=http://notebook.madsenlab.org/project:coarse%20grained%20model/model:ctpy/experiment:experiment-classification/2013/07/20/ctpy-classifications-part2.html target='_blank'>BibTeX Entry</a>
 </small></td>
 				<td><small><i class="icon-book">&nbsp;</i>&nbsp;<a href=http://greycite.knowledgeblog.org/ris/?uri=http://notebook.madsenlab.org/project:coarse%20grained%20model/model:ctpy/experiment:experiment-classification/2013/07/20/ctpy-classifications-part2.html target='_blank'>RIS Citation</a>
@@ -219,20 +219,22 @@
 <h4 id="number-of-dimensions">Number of Dimensions</h4>
 <p>Dynamical systems, particularly those with interaction between agents/elements, are understood to have collective behavior which differs depending upon the dimensionality of the state space. Thus, I’ll study transmission in systems with 2, 3, 4, 6, and 8 dimensions of trait transmission, coarse-grained through classifications of identical dimensionality.</p>
 <h4 id="number-of-analyses-required">Number of Analyses Required</h4>
-<p>This creates a fairly large analytic burden. If we do 3 different models (e.g., unbiased, conformist, mixture), for a variety of different mutation rates, conformism rates, and population sizes, we should capture different sample sizes from each run of these models, and then also do those combinations for different dimensionalities. For each of these combinations, there are obviously some number of replicates while we hold everything else constant. This defines some number, <span class="math">\(N_r\)</span> of unique “simulation run sample sets.”</p>
-<p>We would then analyze each of the <span class="math">\(N_r\)</span> against <span class="math">\(N_d\)</span> classifications, where <span class="math">\(d\)</span> denotes the trait dimensionality of each “SRSS.” We might also apply <span class="math">\(N_{ta}\)</span> levels of time averaging to all of this.</p>
+<p>This creates a fairly large analytic burden. If we do 3 different models (e.g., unbiased, conformist, mixture), for a variety of different mutation rates, conformism rates, and population sizes, we should capture different sample sizes from each run of these models, and then also do those combinations for different dimensionalities. For each of these combinations, there are obviously some number of replicates while we hold everything else constant. This defines some number, <span class="math inline">\(N_r\)</span> of unique “simulation run sample sets.”</p>
+<p>We would then analyze each of the <span class="math inline">\(N_r\)</span> against <span class="math inline">\(N_d\)</span> classifications, where <span class="math inline">\(d\)</span> denotes the trait dimensionality of each “SRSS.” We might also apply <span class="math inline">\(N_{ta}\)</span> levels of time averaging to all of this.</p>
 <p>I should develop a Rmarkdown analysis of this, on the analogy of the seriation combinatorics note, to give me a good estimate of how many analytic data samples I’ll end up with.</p>
 <h4 id="uniformeven-modes">Uniform/Even Modes</h4>
 <p>The first requirement is to aggregate variants into even-sized clusters. An example of this in real analyses might be edge angles on stone tools, where a continuous variable is discretized, and archaeologists tend to discrete-ize fairly evenly. Many variables are represented by cutting a continuum into pieces relatively evenly.</p>
 <p>At an abstract level, we represent this by chopping the available trait space into even-sized chunks, in this case by cutting MAXALLELES into 2,3,4,6,8,12,16,32 modes per dimension. These are standardized across many simulation runs and classifications, so we need only construct and store these for a given MAXALLELES value, and can re-use them.</p>
 <h4 id="random-modes">Random Modes</h4>
 <p>Tje second requirement is to aggregate variants into uneven, random sized clusters. The analog here is any set of artifact variants which belong to “nominal” scale classes. Pottery decorative elements are an excellent example: there is no “metric” on the space of variation, and little reason to suppose that our analytic categories “cut” a dimension of variation in pieces that reflect anything about past social learning.</p>
-<p>A random dimension with <span class="math">\(k\)</span> modes is constructed by generating <span class="math">\(k-1\)</span> random values between 0 and 1, and using these variates as the “internal” boundaries between modes. This generates <span class="math">\(k\)</span> partitions of the unit interval. These partitions are then multiplied by MAXALLELES to generate partitions of the trait space.</p>
-<p>In order to understand the behavior of classifications with random dimensions, we need to look at the same trait configuration through the lens of many instances of a random dimension. So, for a dimension with <span class="math">\(k\)</span> modes, we generate NUM_REPLICATES_FOR_RANDOM_DIMENSION_MODES (typically, 20) different random mode partitions, and we apply ALL of them to each simulation run.</p>
+<p>A random dimension with <span class="math inline">\(k\)</span> modes is constructed by generating <span class="math inline">\(k-1\)</span> random values between 0 and 1, and using these variates as the “internal” boundaries between modes. This generates <span class="math inline">\(k\)</span> partitions of the unit interval. These partitions are then multiplied by MAXALLELES to generate partitions of the trait space.</p>
+<p>In order to understand the behavior of classifications with random dimensions, we need to look at the same trait configuration through the lens of many instances of a random dimension. So, for a dimension with <span class="math inline">\(k\)</span> modes, we generate NUM_REPLICATES_FOR_RANDOM_DIMENSION_MODES (typically, 20) different random mode partitions, and we apply ALL of them to each simulation run.</p>
 <p>Class identification is fast, but this still implies identifying the same data to 20 different versions of each classification, in addition to the classifications with even/uniform modes. Luckily, class identification is done on each sample or observation independently, so it’s a good candidate for partitioning the raw simulation data and doing identification in parallel.</p>
-<div class="references">
-<h3>References Cited</h3>
+<h3 id="references-cited" class="unnumbered">References Cited</h3>
+<div id="refs" class="references">
+<div id="ref-Dunnell1971">
 <p>Dunnell, Robert C. 1971. <em>Systematics in Prehistory</em>. New York: Free Press.</p>
+</div>
 </div>
   
 

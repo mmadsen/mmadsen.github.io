@@ -186,7 +186,7 @@
 		<table class="table table-condensed">
 			<tr class="info">
 				<td><small><i class="icon-calendar"></i>&nbsp;Created: 16 Feb 2016</small></td>
-				<td><small><i class="icon-calendar"></i>&nbsp;Modified: 23 Feb 2016</small></td>
+				<td><small><i class="icon-calendar"></i>&nbsp;Modified: 03 Mar 2016</small></td>
 				<td><small><i class="icon-book">&nbsp;</i>&nbsp;<a href=http://greycite.knowledgeblog.org/bib/?uri=http://notebook.madsenlab.org/project:coarse%20grained%20model/model:seriationct/experiment:experiment-seriation-classification/2016/02/16/feature-engineering-seriation-classification.html target='_blank'>BibTeX Entry</a>
 </small></td>
 				<td><small><i class="icon-book">&nbsp;</i>&nbsp;<a href=http://greycite.knowledgeblog.org/ris/?uri=http://notebook.madsenlab.org/project:coarse%20grained%20model/model:seriationct/experiment:experiment-seriation-classification/2016/02/16/feature-engineering-seriation-classification.html target='_blank'>RIS Citation</a>
@@ -207,7 +207,7 @@
 <p>So this might be the standard method for seriation classification for the moment. The good thing is that it lends itself to direct interpretation as an ABC (approximate Bayesian computation) estimator, as described in <span class="citation" data-cites="pudlo2014abc">(Pudlo et al. 2014)</span>, especially if I actually use random forests (although I’m not sure the random forest bit is terribly important).</p>
 <h3 id="implementation-details">Implementation Details</h3>
 <p>The following code snippet takes a list of NetworkX graph objects, and returns a Numpy matrix with a chosen number of eigenvalues (it isn’t clear how many are relevant):</p>
-<pre class="sourceCode python"><code class="sourceCode python"><span class="kw">def</span> graphs_to_eigenvalue_matrix(graph_list, num_eigenvalues = <span class="ot">None</span>):
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="kw">def</span> graphs_to_eigenvalue_matrix(graph_list, num_eigenvalues <span class="op">=</span> <span class="va">None</span>):
     <span class="co">&quot;&quot;&quot;</span>
 <span class="co">    Given a list of NetworkX graphs, returns a numeric matrix where rows represent graphs, </span>
 <span class="co">    and columns represent the reverse sorted eigenvalues of the Laplacian matrix for each graph,</span>
@@ -215,32 +215,34 @@
 <span class="co">    unspecified, all eigenvalues are used.</span>
 <span class="co">    &quot;&quot;&quot;</span>
     <span class="co"># peek at the first graph and see how many eigenvalues there are</span>
-    tg = graph_list[<span class="dv">0</span>]
-    n = <span class="dt">len</span>(nx.spectrum.laplacian_spectrum(tg, weight=<span class="ot">None</span>))
+    tg <span class="op">=</span> graph_list[<span class="dv">0</span>]
+    n <span class="op">=</span> <span class="bu">len</span>(nx.spectrum.laplacian_spectrum(tg, weight<span class="op">=</span><span class="va">None</span>))
     
     <span class="co"># we either use all of the eigenvalues, or we use the smaller of</span>
     <span class="co"># the requested number or the actual number (if it is smaller than requested)</span>
-    <span class="kw">if</span> num_eigenvalues is <span class="ot">None</span>:
-        ev_used = n
-    <span class="kw">else</span>:
-        ev_used = <span class="dt">min</span>(n, num_eigenvalues)
+    <span class="cf">if</span> num_eigenvalues <span class="op">is</span> <span class="va">None</span>:
+        ev_used <span class="op">=</span> n
+    <span class="cf">else</span>:
+        ev_used <span class="op">=</span> <span class="bu">min</span>(n, num_eigenvalues)
 
-    <span class="dt">print</span> <span class="st">&quot;(debug) eigenvalues - test graph: </span><span class="ot">%s</span><span class="st"> num_eigenvalues: </span><span class="ot">%s</span><span class="st"> ev_used: </span><span class="ot">%s</span><span class="st">&quot;</span> % (n, num_eigenvalues, ev_used)
+    <span class="bu">print</span> <span class="st">&quot;(debug) eigenvalues - test graph: </span><span class="sc">%s</span><span class="st"> num_eigenvalues: </span><span class="sc">%s</span><span class="st"> ev_used: </span><span class="sc">%s</span><span class="st">&quot;</span> <span class="op">%</span> (n, num_eigenvalues, ev_used)
     
-    data_mat = np.zeros((<span class="dt">len</span>(graph_list),ev_used))
+    data_mat <span class="op">=</span> np.zeros((<span class="bu">len</span>(graph_list),ev_used))
     <span class="co">#print &quot;data matrix shape: &quot;, data_mat.shape</span>
     
-    <span class="kw">for</span> ix in <span class="dt">range</span>(<span class="dv">0</span>, <span class="dt">len</span>(graph_list)):
-        spectrum = <span class="dt">sorted</span>(nx.spectrum.laplacian_spectrum(graph_list[ix], weight=<span class="ot">None</span>), reverse=<span class="ot">True</span>)
-        data_mat[ix,:] = spectrum[<span class="dv">0</span>:ev_used]
+    <span class="cf">for</span> ix <span class="op">in</span> <span class="bu">range</span>(<span class="dv">0</span>, <span class="bu">len</span>(graph_list)):
+        spectrum <span class="op">=</span> <span class="bu">sorted</span>(nx.spectrum.laplacian_spectrum(graph_list[ix], weight<span class="op">=</span><span class="va">None</span>), reverse<span class="op">=</span><span class="va">True</span>)
+        data_mat[ix,:] <span class="op">=</span> spectrum[<span class="dv">0</span>:ev_used]
         
-    <span class="kw">return</span> data_mat</code></pre>
+    <span class="cf">return</span> data_mat</code></pre></div>
 <h3 id="resources">Resources</h3>
-<p><a href="http://nbviewer.jupyter.org/github/mmadsen/experiment-seriation-classification/blob/master/analysis/sc-1/sc-1-seriation-feature-engineering.ipynb">Full analysis notebook</a> on NBViewer, from the Github repository.</p>
+<p><a href="http://nbviewer.jupyter.org/github/mmadsen/experiment-seriation-classification/blob/master/analysis/sc-1-3/sc-1-seriation-feature-engineering.ipynb">Full analysis notebook</a> on NBViewer, from the Github repository.</p>
 <p>Github Repository: <a href="https://github.com/mmadsen/experiment-seriation-classification">experiment-seriation-classification</a></p>
-<div class="references">
-<h3>References Cited</h3>
+<h3 id="references-cited" class="unnumbered">References Cited</h3>
+<div id="refs" class="references">
+<div id="ref-pudlo2014abc">
 <p>Pudlo, Pierre, Jean-Michel Marin, Arnaud Estoup, Jean-Marie Cornuet, Mathieu Gautier, and Christian P Robert. 2014. “ABC Model Choice via Random Forests.” <em>ArXiv Preprint ArXiv:1406.6288</em>.</p>
+</div>
 </div>
   
 

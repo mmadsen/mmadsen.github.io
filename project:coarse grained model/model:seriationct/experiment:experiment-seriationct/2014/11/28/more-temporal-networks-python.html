@@ -186,7 +186,7 @@
 		<table class="table table-condensed">
 			<tr class="info">
 				<td><small><i class="icon-calendar"></i>&nbsp;Created: 28 Nov 2014</small></td>
-				<td><small><i class="icon-calendar"></i>&nbsp;Modified: 23 Feb 2016</small></td>
+				<td><small><i class="icon-calendar"></i>&nbsp;Modified: 03 Mar 2016</small></td>
 				<td><small><i class="icon-book">&nbsp;</i>&nbsp;<a href=http://greycite.knowledgeblog.org/bib/?uri=http://notebook.madsenlab.org/project:coarse%20grained%20model/model:seriationct/experiment:experiment-seriationct/2014/11/28/more-temporal-networks-python.html target='_blank'>BibTeX Entry</a>
 </small></td>
 				<td><small><i class="icon-book">&nbsp;</i>&nbsp;<a href=http://greycite.knowledgeblog.org/ris/?uri=http://notebook.madsenlab.org/project:coarse%20grained%20model/model:seriationct/experiment:experiment-seriationct/2014/11/28/more-temporal-networks-python.html target='_blank'>RIS Citation</a>
@@ -205,37 +205,40 @@
 <p>The goal is to use interval temporal networks (“ITN”) as a representation for the history of cultural transmission intensity (or “regional transmission model” or “RTM”) between a shifting set of nucleated communities in a region, where:</p>
 <ol type="1">
 <li>Vertices represent a nucleated community</li>
-<li>Vertices have origin times, and may go away during the time interval being modeled.<br /></li>
-<li>Edges between vertices represent a measurable degree of interaction between two communities, whether by trade, simple communication, or residential movement and marriage patterns.<br /></li>
+<li>Vertices have origin times, and may go away during the time interval being modeled.<br />
+</li>
+<li>Edges between vertices represent a measurable degree of interaction between two communities, whether by trade, simple communication, or residential movement and marriage patterns.<br />
+</li>
 <li>Edge weights represent a measure of the intensity of that interaction, and can be binary, ordinal, or real valued rates.</li>
 </ol>
 <p>In Part 1, I proposed using NumPy matrices to perform all the comparisons between the graphs representing each subinterval. This is a sound strategy, both because all the operations are fast given NumPy’s matrix code, but because I can rely upon well coded algorithms instead of risk errors in trying to write my own versions directly on top of NetworkX.</p>
 <p>There is a “gotcha” that we have to keep in mind in using the matrix representation: vertices don’t have a unique identifier other than their column and row position. So deleting a vertex, to represent a community which has exited our model, has to be done carefully. We cannot, in fact, delete it from the NetworkX object, because that would delete it from the underlying matrix, shifting all the columns and rows <strong>after</strong> that index by one:</p>
-<pre class="sourceCode python"><code class="sourceCode python"><span class="ch">import</span> networkx <span class="ch">as</span> nx
-<span class="ch">import</span> numpy <span class="ch">as</span> np
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="im">import</span> networkx <span class="im">as</span> nx
+<span class="im">import</span> numpy <span class="im">as</span> np
 
 
-t1 = np.array([[<span class="dv">1</span>,<span class="dv">3</span>,<span class="dv">1</span>,<span class="dv">1</span>],[<span class="dv">3</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>],[<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>],[<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>]])
-g = nx.to_networkx_graph(t1)
+t1 <span class="op">=</span> np.array([[<span class="dv">1</span>,<span class="dv">3</span>,<span class="dv">1</span>,<span class="dv">1</span>],[<span class="dv">3</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>],[<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>],[<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>]])
+g <span class="op">=</span> nx.to_networkx_graph(t1)
 g.add_node(<span class="dv">4</span>)
 g.add_edge(<span class="dv">1</span>,<span class="dv">4</span>)
-m1 = nx.to_numpy_matrix(g)
+m1 <span class="op">=</span> nx.to_numpy_matrix(g)
 g.remove_node(<span class="dv">3</span>)
-m2 = nx.to_numpy_matrix(g)</code></pre>
+m2 <span class="op">=</span> nx.to_numpy_matrix(g)</code></pre></div>
 <p>When we look at <code>m1</code>, with 5 vertices, we see the following matrix:</p>
-<pre class="sourceCode python"><code class="sourceCode python">[[ <span class="dv">1</span>.  <span class="dv">3</span>.  <span class="dv">1</span>.  <span class="dv">1</span>.  <span class="dv">0</span>.]
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">[[ <span class="dv">1</span>.  <span class="dv">3</span>.  <span class="dv">1</span>.  <span class="dv">1</span>.  <span class="dv">0</span>.]
  [ <span class="dv">3</span>.  <span class="dv">1</span>.  <span class="dv">1</span>.  <span class="dv">1</span>.  <span class="dv">1</span>.]
  [ <span class="dv">1</span>.  <span class="dv">1</span>.  <span class="dv">1</span>.  <span class="dv">1</span>.  <span class="dv">0</span>.]
  [ <span class="dv">1</span>.  <span class="dv">1</span>.  <span class="dv">1</span>.  <span class="dv">1</span>.  <span class="dv">0</span>.]
- [ <span class="dv">0</span>.  <span class="dv">1</span>.  <span class="dv">0</span>.  <span class="dv">0</span>.  <span class="dv">0</span>.]]</code></pre>
+ [ <span class="dv">0</span>.  <span class="dv">1</span>.  <span class="dv">0</span>.  <span class="dv">0</span>.  <span class="dv">0</span>.]]</code></pre></div>
 <p>While <code>m2</code>, after we delete node 3, is the following:</p>
-<pre class="sourceCode python"><code class="sourceCode python">[[ <span class="dv">1</span>.  <span class="dv">3</span>.  <span class="dv">1</span>.  <span class="dv">0</span>.]
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">[[ <span class="dv">1</span>.  <span class="dv">3</span>.  <span class="dv">1</span>.  <span class="dv">0</span>.]
  [ <span class="dv">3</span>.  <span class="dv">1</span>.  <span class="dv">1</span>.  <span class="dv">1</span>.]
  [ <span class="dv">1</span>.  <span class="dv">1</span>.  <span class="dv">1</span>.  <span class="dv">0</span>.]
- [ <span class="dv">0</span>.  <span class="dv">1</span>.  <span class="dv">0</span>.  <span class="dv">0</span>.]]</code></pre>
+ [ <span class="dv">0</span>.  <span class="dv">1</span>.  <span class="dv">0</span>.  <span class="dv">0</span>.]]</code></pre></div>
 <p>It is always alright to add a vertex to the graph; in the NumPy matrix representation this always results in a new row and column with the index equal to the integer ID of the vertex itself. It is never alright, however, to actually remove a vertex from the graph. When we “delete” a community from the regional transmission model, we have to leave the vertex in the graph object, but flip an attribute that we use to track “active” vertices. Of course, at that point, the vertex participates in no edges, so its column and row in the matrix is all zeros. We do not simply use this fact to represent “inactive” vertices, however, because an isolated community with no interactions would also show up the same way, should we need to model one in a RTM.</p>
-<div class="references">
-<h3>References Cited</h3>
+<h3 id="references-cited" class="unnumbered">References Cited</h3>
+<div id="refs" class="references">
+
 </div>
   
 
