@@ -3,7 +3,7 @@
 <html lang="en">
   <head prefix="dc: http://purl.org/dc/terms/ og: http://ogp.me/ns#">
     <meta charset="utf-8"/>
-    <title>model:seriationct</title>
+    <title>Paper for SAA 2016 - Measuring Cultural Relatedness Using Multiple Seriation Ordering Algorithms</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta name="description" content="Lab Notebook for Mark E. Madsen"/>
     <meta name="author" content="Mark E. Madsen"/>
@@ -13,9 +13,9 @@
 
 
 	<!-- For posts, page.date is the date they are published under, which we use as their 'canonical' dc:date -->
-	 <!-- If we don't have a page.date, then use modified time (pages) -->
-	   
-	
+	 
+	  
+	  
 
 	<!-- Posts declare modified timestamps in the sidebar, so would be redundant to put here. But then 
 	     pages don't have a dc:modified... unless we give them their own (modified) sidebar?  
@@ -23,26 +23,26 @@
 	<!-- Ideally we would want date originally created from the _oldest_ git commit too...-->
 
 	<!-- RDFa Metadata (in DublinCore) -->
-	<meta property="dc:title" content="model:seriationct" />
+	<meta property="dc:title" content="Paper for SAA 2016 - Measuring Cultural Relatedness Using Multiple Seriation Ordering Algorithms" />
 	<meta property="dc:creator" content="Mark E. Madsen" />
-	<meta property="dc:date" content="2016-03-20T11:35:12-04:00" />
+	<meta property="dc:date" content="2016-03-20T00:00:00-04:00" />
 	<meta property="dc:format" content="text/html" />
 	<meta property="dc:language" content="en" />
-	<meta property="dc:identifier" content="/category/model-seriationct/" />
+	<meta property="dc:identifier" content="/essays/2016/03/20/saa2016-paper-draft.html" />
 	<meta property="dc:rights" content="CC BY-NC-SA 3.0" />
 	<meta property="dc:source" content="Lab Notebook for Mark E. Madsen" />
 	<meta property="dc:subject" content="Anthropology" /> 
 	<meta property="dc:type" content="website" /> 
 	<!-- RDFa Metadata (in OpenGraph) -->
-	<meta property="og:title" content="model:seriationct" />
+	<meta property="og:title" content="Paper for SAA 2016 - Measuring Cultural Relatedness Using Multiple Seriation Ordering Algorithms" />
 	<meta property="og:author" content="http://notebook.madsenlab.org/bio.html" />  <!-- Should be Liquid? URI? -->
 	<meta property="og:site_name" content="Lab Notebook for Mark E. Madsen" /> <!-- Same as dc:source? -->
-	<meta property="og:url" content="http://notebook.madsenlab.org/category/model-seriationct/" />
+	<meta property="og:url" content="http://notebook.madsenlab.org/essays/2016/03/20/saa2016-paper-draft.html" />
 	<meta property="og:type" content="website" /> 
 	<!-- Google Scholar Metadata -->
 	<meta name="citation_author" content="Mark E. Madsen"/>
-	<meta name="citation_date" content="2016-03-20T11:35:12-04:00"/>
-	<meta name="citation_title" content="model:seriationct"/>
+	<meta name="citation_date" content="2016-03-20T00:00:00-04:00"/>
+	<meta name="citation_title" content="Paper for SAA 2016 - Measuring Cultural Relatedness Using Multiple Seriation Ordering Algorithms"/>
 	<meta name="citation_journal_title" content="Lab Notebook for Mark E. Madsen"/>
 
     <!-- Le styles -->
@@ -178,198 +178,72 @@
           </div><!--/.well -->
         </div><!--/span3-->
 
-            <div  class="span9">
-<!--
-<h2>Posts Tagged: ""</h2>
+            <div class="span8">
+  	<h2>Paper for SAA 2016 - Measuring Cultural Relatedness Using Multiple Seriation Ordering Algorithms</h2>
+	
 
+		<p class="text-info">
+		<table class="table table-condensed">
+			<tr class="info">
+				<td><small><i class="icon-backward"></i>&nbsp;<a href="/blog.html">Back to Essay List</a></small></td>
+				<td><small><i class="icon-calendar"></i>&nbsp;Modified: 20 Mar 2016</small></td>
+				<td><small><i class="icon-book">&nbsp;</i>&nbsp;<a href=http://greycite.knowledgeblog.org/bib/?uri=http://notebook.madsenlab.org/essays/2016/03/20/saa2016-paper-draft.html target='_blank'>BibTeX Entry</a>
+</small></td>
+				<td><small><i class="icon-book">&nbsp;</i>&nbsp;<a href=http://greycite.knowledgeblog.org/ris/?uri=http://notebook.madsenlab.org/essays/2016/03/20/saa2016-paper-draft.html target='_blank'>RIS Citation</a>
+</small></td>
+				<td><small><a href="javascript:window.print()"><i class="icon-print"></i>&nbsp;Print</a></small></td>
+			</tr>
+		</table>
+		</p>
+
+
+  	
+	
+  <p>The Society for American Archaeology meetings are coming up in Orlando, and I’ll be participating in a session called:</p>
+<blockquote>
+<p>Evolutionary Archaeologies: New Approaches, Methods, and Empirical Sufficiency</p>
+</blockquote>
+<p>along with a number of colleagues. We opted for the “electronic symposium” option this year, which is a slightly confusing description. Instead of presenting or reading a full paper, we submit papers in advance, which are posted online (the “electronic” part). At the conference, we each get a few minutes to re-summarize our work for the audience to ensure that everyone is up to speed, and then we have Q&amp;A and discussion for most of the time.</p>
+<p>I argued for this format because with standard symposia, there are rarely many questions giving the time constraints, and never any discussion. And by the time you’re standing around afterwards in the hotel bar with the other participants, the discussion is all about jobs and teaching and the terrible state of science funding, etc. So we’re doing this as an experiment to see what happens when we get more time to talk, both amongst ourselves as researchers, and to folks who might be interested but not yet active participants in evolutionary analysis.</p>
+<p>My paper, with Carl Lipo, is an outgrowth of our research on new seriation algorithms, and explores the central place the unimodality principle has, and alternatives which are easier to ground in theory and are applicable to a wider class of data. And, of course, when used on data that unimodality can handle, gives the same answer. We explore using an exact algorithm for distance minimization which creates graphs rather than linear orders, and thus incorporates the effects of space as well as time directly, rather than treating departures from linearity as “error” or “noise.” The algorithm is already embedded in our IDSS seriation software as the “continuity” seriation option. <a href="http://notebook.madsenlab.org/essays/2015/09/06/saa2016-abstract.html">Abstract here</a></p>
+<p>You can read the <a href="https://github.com/mmadsen/saa2016-multiple-seriation-algorithms/blob/master/pdf-drafts/saa2016-seriation-multiple-approaches.pdf">conference draft of our paper from the Github repository</a>. Comments welcome; this will be submitted for publication in the next few months so any suggested improvements are greatly appreciated. We will likely incorporate several other data examples in the final version after getting permission from the folks who collected the data sets.</p>
+<div id="refs" class="references">
+
+</div>
+  
+
+
+
+<div class="well well-small">
 <table class="table table-condensed">
+			<tr>
+				<td><small><i class="icon-backward"></i>&nbsp;<a href="/blog.html">Back to Essay List</a></small></td>
+				<td><small><i class="icon-calendar"></i>&nbsp;Modified: 20 Mar 2016</small></td>
+				<td><small><i class="icon-book">&nbsp;</i>&nbsp;<a href=http://greycite.knowledgeblog.org/bib/?uri=http://notebook.madsenlab.org/essays/2016/03/20/saa2016-paper-draft.html target='_blank'>BibTeX Entry</a>
+</small></td>
+				<td><small><i class="icon-book">&nbsp;</i>&nbsp;<a href=http://greycite.knowledgeblog.org/ris/?uri=http://notebook.madsenlab.org/essays/2016/03/20/saa2016-paper-draft.html target='_blank'>RIS Citation</a>
+</small></td>
+				<td><small><a href="javascript:window.print()"><i class="icon-print"></i>&nbsp;Print</a></small></td>
+			</tr>
+		</table>
+<p class="text-info"><i class="icon-tags"></i>&nbsp;Tags</p>
+<ul>
 
-	
+<li><a href='/tag/SAA2016.html'>SAA2016</a></li>
 
-		<tr>
-		<td>22 Feb 2016</td>
-		<td><a href="/project:coarse%20grained%20model/model:seriationct/experiment:experiment-seriation-classification/2016/02/22/equifinality-model-variants-seriation-classification.html">Limits of model resolution for seriation classification</a></td>
-		</tr>
+<li><a href='/tag/seriation.html'>seriation</a></li>
 
+<li><a href='/tag/cultural+transmission.html'>cultural transmission</a></li>
 
-	
+<li><a href='/tag/dissertation.html'>dissertation</a></li>
 
-		<tr>
-		<td>16 Feb 2016</td>
-		<td><a href="/project:coarse%20grained%20model/model:seriationct/experiment:experiment-seriation-classification/2016/02/16/feature-engineering-seriation-classification.html">Feature Engineering for Seriation Classification</a></td>
-		</tr>
-
-
-	
-
-		<tr>
-		<td>14 Feb 2016</td>
-		<td><a href="/project:coarse%20grained%20model/model:seriationct/experiment:experiment-seriation-classification/2016/02/14/seriation-classification-experiment.html">Identifying Metapopulation Models from Simulated CT and Seriations</a></td>
-		</tr>
-
-
-	
-
-		<tr>
-		<td>26 Jan 2016</td>
-		<td><a href="/project:coarse%20grained%20model/model:seriationct/experiment:experiment-seriation-classification/2016/01/26/quantifying-similarity-seriations.html">Loss Functions for ABC Model Selection with Seriation Graphs as Data</a></td>
-		</tr>
-
-
-	
-
-		<tr>
-		<td>27 Jul 2015</td>
-		<td><a href="/project:coarse%20grained%20model/model:seriationct/experiment:experiment-seriationct/2015/07/27/simupop-performance-in-seriationct.html">Performance of simuPOP in SeriationCT Across Platforms</a></td>
-		</tr>
-
-
-	
-
-		<tr>
-		<td>14 May 2015</td>
-		<td><a href="/project:coarse%20grained%20model/model:seriationct/experiment:experiment-seriationct/2015/05/14/seriationct-sample-size-experiments.html">SeriationCT Sample Size Series experiments</a></td>
-		</tr>
-
-
-	
-
-		<tr>
-		<td>27 Apr 2015</td>
-		<td><a href="/project:coarse%20grained%20model/model:seriationct/experiment:experiment-seriationct/2015/04/27/seriationct-next-steps.html">SeriationCT Next Steps</a></td>
-		</tr>
-
-
-	
-
-		<tr>
-		<td>23 Feb 2015</td>
-		<td><a href="/project:coarse%20grained%20model/model:seriationct/experiment:experiment-seriationct/2015/02/23/seriationct-experiment-plan.html">Experiment Plan for seriationct-1</a></td>
-		</tr>
-
-
-	
-
-		<tr>
-		<td>28 Nov 2014</td>
-		<td><a href="/project:coarse%20grained%20model/model:seriationct/experiment:experiment-seriationct/2014/11/28/more-temporal-networks-python.html">Implementing temporal networks in Python, Part 2</a></td>
-		</tr>
-
-
-	
-
-		<tr>
-		<td>31 Aug 2014</td>
-		<td><a href="/project:coarse%20grained%20model/model:seriationct/experiment:experiment-seriationct/2014/08/31/seriationct-experiment-outline.html">SeriationCT Experiment Outline</a></td>
-		</tr>
-
-
-	
-
-		<tr>
-		<td>28 Jul 2014</td>
-		<td><a href="/project:coarse%20grained%20model/model:seriationct/experiment:experiment-seriationct/2014/07/28/implementing-temporal-networks-in-python.html">Implementing temporal networks in Python</a></td>
-		</tr>
-
-
-	
-
-		<tr>
-		<td>13 Jul 2014</td>
-		<td><a href="/project:coarse%20grained%20model/model:seriationct/experiment:experiment-seriationct/2014/07/13/seriationct-temporal-model.html">Temporal Networks in SeriationCT</a></td>
-		</tr>
-
-
-	
-
-		<tr>
-		<td>17 Jun 2014</td>
-		<td><a href="/project:coarse%20grained%20model/model:seriationct/experiment:experiment-seriationct/2014/06/17/seriationct-requirements.html">Description of the SeriationCT Model</a></td>
-		</tr>
-
-
-	
-</table>
--->
-	
-<h2>Posts and Essays Tagged: </h2>
-
-<table class="table table-condensed">
-  
-    <tr>
-    <td><span class="post-date">Feb 22, 2016</td>
-    <td><a class="post-link" href="/project:coarse%20grained%20model/model:seriationct/experiment:experiment-seriation-classification/2016/02/22/equifinality-model-variants-seriation-classification.html">Limits of model resolution for seriation classification</a></td>
-    </tr>
-  
-    <tr>
-    <td><span class="post-date">Feb 16, 2016</td>
-    <td><a class="post-link" href="/project:coarse%20grained%20model/model:seriationct/experiment:experiment-seriation-classification/2016/02/16/feature-engineering-seriation-classification.html">Feature Engineering for Seriation Classification</a></td>
-    </tr>
-  
-    <tr>
-    <td><span class="post-date">Feb 14, 2016</td>
-    <td><a class="post-link" href="/project:coarse%20grained%20model/model:seriationct/experiment:experiment-seriation-classification/2016/02/14/seriation-classification-experiment.html">Identifying Metapopulation Models from Simulated CT and Seriations</a></td>
-    </tr>
-  
-    <tr>
-    <td><span class="post-date">Jan 26, 2016</td>
-    <td><a class="post-link" href="/project:coarse%20grained%20model/model:seriationct/experiment:experiment-seriation-classification/2016/01/26/quantifying-similarity-seriations.html">Loss Functions for ABC Model Selection with Seriation Graphs as Data</a></td>
-    </tr>
-  
-    <tr>
-    <td><span class="post-date">Jul 27, 2015</td>
-    <td><a class="post-link" href="/project:coarse%20grained%20model/model:seriationct/experiment:experiment-seriationct/2015/07/27/simupop-performance-in-seriationct.html">Performance of simuPOP in SeriationCT Across Platforms</a></td>
-    </tr>
-  
-    <tr>
-    <td><span class="post-date">May 14, 2015</td>
-    <td><a class="post-link" href="/project:coarse%20grained%20model/model:seriationct/experiment:experiment-seriationct/2015/05/14/seriationct-sample-size-experiments.html">SeriationCT Sample Size Series experiments</a></td>
-    </tr>
-  
-    <tr>
-    <td><span class="post-date">Apr 27, 2015</td>
-    <td><a class="post-link" href="/project:coarse%20grained%20model/model:seriationct/experiment:experiment-seriationct/2015/04/27/seriationct-next-steps.html">SeriationCT Next Steps</a></td>
-    </tr>
-  
-    <tr>
-    <td><span class="post-date">Feb 23, 2015</td>
-    <td><a class="post-link" href="/project:coarse%20grained%20model/model:seriationct/experiment:experiment-seriationct/2015/02/23/seriationct-experiment-plan.html">Experiment Plan for seriationct-1</a></td>
-    </tr>
-  
-    <tr>
-    <td><span class="post-date">Nov 28, 2014</td>
-    <td><a class="post-link" href="/project:coarse%20grained%20model/model:seriationct/experiment:experiment-seriationct/2014/11/28/more-temporal-networks-python.html">Implementing temporal networks in Python, Part 2</a></td>
-    </tr>
-  
-    <tr>
-    <td><span class="post-date">Aug 31, 2014</td>
-    <td><a class="post-link" href="/project:coarse%20grained%20model/model:seriationct/experiment:experiment-seriationct/2014/08/31/seriationct-experiment-outline.html">SeriationCT Experiment Outline</a></td>
-    </tr>
-  
-    <tr>
-    <td><span class="post-date">Jul 28, 2014</td>
-    <td><a class="post-link" href="/project:coarse%20grained%20model/model:seriationct/experiment:experiment-seriationct/2014/07/28/implementing-temporal-networks-in-python.html">Implementing temporal networks in Python</a></td>
-    </tr>
-  
-    <tr>
-    <td><span class="post-date">Jul 13, 2014</td>
-    <td><a class="post-link" href="/project:coarse%20grained%20model/model:seriationct/experiment:experiment-seriationct/2014/07/13/seriationct-temporal-model.html">Temporal Networks in SeriationCT</a></td>
-    </tr>
-  
-    <tr>
-    <td><span class="post-date">Jun 17, 2014</td>
-    <td><a class="post-link" href="/project:coarse%20grained%20model/model:seriationct/experiment:experiment-seriationct/2014/06/17/seriationct-requirements.html">Description of the SeriationCT Model</a></td>
-    </tr>
-  
-</table>
-
-
-	
+</ul>
 </div>
 
-<!-- | prepend: site.baseurl  -->
 
 
+
+</div>
 
 
         
