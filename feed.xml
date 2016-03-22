@@ -1,4 +1,34 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.1.2">Jekyll</generator><link href="http://notebook.madsenlab.org/feed.xml" rel="self" type="application/atom+xml" /><link href="http://notebook.madsenlab.org/" rel="alternate" type="text/html" /><updated>2016-03-20T11:35:14-04:00</updated><id>http://notebook.madsenlab.org/</id><title>Lab Notebook for Mark E. Madsen</title><author><name>Mark E. Madsen</name></author><entry><title>Paper for SAA 2016 - Measuring Cultural Relatedness Using Multiple Seriation Ordering Algorithms</title><link href="http://notebook.madsenlab.org/essays/2016/03/20/saa2016-paper-draft.html" rel="alternate" type="text/html" title="Paper for SAA 2016 - Measuring Cultural Relatedness Using Multiple Seriation Ordering Algorithms" /><published>2016-03-20T00:00:00-04:00</published><updated>2016-03-20T00:00:00-04:00</updated><id>http://notebook.madsenlab.org/essays/2016/03/20/saa2016-paper-draft</id><content type="html" xml:base="http://notebook.madsenlab.org/essays/2016/03/20/saa2016-paper-draft.html">&lt;p&gt;The Society for American Archaeology meetings are coming up in Orlando, and I’ll be participating in a session called:&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.1.2">Jekyll</generator><link href="http://notebook.madsenlab.org/feed.xml" rel="self" type="application/atom+xml" /><link href="http://notebook.madsenlab.org/" rel="alternate" type="text/html" /><updated>2016-03-22T12:56:16-04:00</updated><id>http://notebook.madsenlab.org/</id><title>Lab Notebook for Mark E. Madsen</title><author><name>Mark E. Madsen</name></author><entry><title>Next Steps for Classifying Seriations to Temporal Network Models</title><link href="http://notebook.madsenlab.org/project:coarse%20grained%20model/model:seriationct/experiment:experiment-seriation-classification/2016/03/22/seriation-classification-next-steps.html" rel="alternate" type="text/html" title="Next Steps for Classifying Seriations to Temporal Network Models" /><published>2016-03-22T00:00:00-04:00</published><updated>2016-03-22T00:00:00-04:00</updated><id>http://notebook.madsenlab.org/project:coarse%20grained%20model/model:seriationct/experiment:experiment-seriation-classification/2016/03/22/seriation-classification-next-steps</id><content type="html" xml:base="http://notebook.madsenlab.org/project:coarse%20grained%20model/model:seriationct/experiment:experiment-seriation-classification/2016/03/22/seriation-classification-next-steps.html">&lt;h3 id=&quot;where-things-stand&quot;&gt;Where Things Stand&lt;/h3&gt;
+&lt;p&gt;Initial experiments are promising, when using the sorted Laplacian spectrum as the features for building a classifier model. Even with small samples, it seems to show the following:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;We can tell lineage splitting from a complete network from a probabilistic nearest neighbor model&lt;/li&gt;
+&lt;li&gt;We can’t tell PNN models from each other given different shapes (aspect ratio) to the region&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;This comes from building a multi-class GB tree model from &lt;code&gt;sc-1&lt;/code&gt;, &lt;code&gt;sc-3&lt;/code&gt;, &lt;code&gt;sc-4-nn&lt;/code&gt;, and &lt;code&gt;sc-4-nn&lt;/code&gt;, and predicting the data generating model from a 10% holdout set.&lt;/p&gt;
+&lt;p&gt;The classifier results hold pretty steady in a qualitative sets regardless of the random train/test split.&lt;/p&gt;
+&lt;p&gt;What doesn’t hold steady is the prediction and class probabilities for the PFG continuity graph. I get different answers depending upon the train/test split, which is probably a function of:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Insufficient diversity in the network models used in simulation – I need many examples of each network model&lt;/li&gt;
+&lt;li&gt;Sample size overall&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Given that there isn’t much overlap in the overall classification itself, my guess is that if we could look at this in the 10 dimensional space of the eigenvalues used, we would see that:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;The PFG seriation is actually not deeply embeeded in the convex hull of points for any of the classes, but is near the edge of several or even all&lt;/li&gt;
+&lt;li&gt;That the decision boundaries shift a lot with respect to the area where the PFG seriation is located&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Given this, a different train/test split could shift a decision boundary very slightly, without having a major impact on the overall confusion matrix among models, and thus change the predicted assignment for the PFG sample.&lt;/p&gt;
+&lt;p&gt;We might be able to visualize something like the above by using a dimensionality reduction technique and mapping the models against say the first 3 principal components, and then putting PFG on the map. Worth a try.&lt;/p&gt;
+&lt;h3 id=&quot;computational-next-steps&quot;&gt;Computational Next Steps&lt;/h3&gt;
+&lt;p&gt;But removing this issue and getting stable predictions for PFG is going to be a function of:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;More classes of network models, since PFG might not really be well described by any of the existing ones&lt;/li&gt;
+&lt;li&gt;More network models per class&lt;/li&gt;
+&lt;li&gt;More samples of simulations per network model (or model class)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;While I develop more network models, I will probably start doing the second and third for the existing four models, but with PNN models collapsed down to a single model. I don’t have the formal infrastructure yet for doing multiple realizations of a single network model, so that’s the first step.&lt;/p&gt;
+&lt;div id=&quot;refs&quot; class=&quot;references&quot;&gt;
+
+&lt;/div&gt;</content><category term="cultural transmission" /><category term="coarse graining" /><category term="simulation" /><category term="dissertation" /><category term="seriation" /><category term="algorithms" /><category term="ML" /><summary>Where Things Stand</summary></entry><entry><title>Paper for SAA 2016 - Measuring Cultural Relatedness Using Multiple Seriation Ordering Algorithms</title><link href="http://notebook.madsenlab.org/essays/2016/03/20/saa2016-paper-draft.html" rel="alternate" type="text/html" title="Paper for SAA 2016 - Measuring Cultural Relatedness Using Multiple Seriation Ordering Algorithms" /><published>2016-03-20T00:00:00-04:00</published><updated>2016-03-20T00:00:00-04:00</updated><id>http://notebook.madsenlab.org/essays/2016/03/20/saa2016-paper-draft</id><content type="html" xml:base="http://notebook.madsenlab.org/essays/2016/03/20/saa2016-paper-draft.html">&lt;p&gt;The Society for American Archaeology meetings are coming up in Orlando, and I’ll be participating in a session called:&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;Evolutionary Archaeologies: New Approaches, Methods, and Empirical Sufficiency&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -457,76 +487,4 @@ Time elapsed for completion of program: 83 seconds&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Please contact me or Carl Lipo if you have questions about IDSS and this release!&lt;/p&gt;
 &lt;div id=&quot;refs&quot; class=&quot;references&quot;&gt;
 
-&lt;/div&gt;</content><category term="cultural transmission" /><category term="coarse graining" /><category term="seriation" /><summary>Today, Carl Lipo and I released Version 2.3 of our IDSS seriation software, described in our recent PLoS One article.</summary></entry><entry><title>Improving Simulation Performance for CT Models with C++ and OpenMP</title><link href="http://notebook.madsenlab.org/essays/2015/08/24/simulation-performance-explorations.html" rel="alternate" type="text/html" title="Improving Simulation Performance for CT Models with C++ and OpenMP" /><published>2015-08-24T00:00:00-04:00</published><updated>2015-08-24T00:00:00-04:00</updated><id>http://notebook.madsenlab.org/essays/2015/08/24/simulation-performance-explorations</id><content type="html" xml:base="http://notebook.madsenlab.org/essays/2015/08/24/simulation-performance-explorations.html">&lt;h3 id=&quot;background&quot;&gt;Background&lt;/h3&gt;
-&lt;p&gt;A side project this summer has been to improve the performance of my basic simulation model codes, so I can increase my experiment “velocity” and do more analyses with larger sample and/or population sizes. Since getting a Xeon/Phi workstation (the machine I &lt;a href=&quot;/essays/2015/07/07/new-directions-ct-computing.html&quot;&gt;described a few months ago&lt;/a&gt;), I’ve been retraining on C++11 for situations which call for mixed Python/C++ performance, or for all C++ simulations when I can’t figure out a good offload or parallelism model for Python code. At the moment I’m using a pure C++ simulation of the Wright-Fisher neutral model, with infinite-alleles mutation on several loci for my testing. The &lt;a href=&quot;https://github.com/mmadsen/neutral-model-cpp&quot;&gt;simulation code is available here&lt;/a&gt; with Makefiles for several compilers, including clang (i.e., modern OS X), GCC 5.2 (which has first-gen support for compiling offload for the Xeon Phi coprocessors), and the Intel C/C++ compiler. (Mental note, I should include a plain vanilla Makefile which would use which ever “GCC” is present…).&lt;/p&gt;
-&lt;p&gt;These notes describe what I’ve found so far about improving performance in this code.&lt;/p&gt;
-&lt;h3 id=&quot;implementation-notes&quot;&gt;Implementation Notes&lt;/h3&gt;
-&lt;p&gt;The simulation model is (hopefully) designed to allow for both parallelism across cores/threads, and for use of the Intel Xeon’s native (and considerable) vectorization infrastructure.&lt;/p&gt;
-&lt;ol type=&quot;1&quot;&gt;
-&lt;li&gt;&lt;p&gt;The “population” is represented by an array of size numloci columns by popsize rows, with integers representing trait ID’s. This block is allocated a single linear block, and at least on the Intel compiler is 64-byte aligned to maximize use of the wide vectorization units (and the even wider ones on the Phi).&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;This creates “unit stride” access for many common operations, like calculating trait counts.&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Complex operations like calling the C++11 random number library are extracted from nested loops and done separately, to allow the results of random number generation to be used in loops which are then parallelized AND vectorized.&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;OpenMP is used to parallelize nested loops for actual trait transmission.&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Explicit vectorization via &lt;code&gt;#pragma SIMD&lt;/code&gt; is forced in a couple of places where the compiler cannot necessarily figure out the loop count easily.&lt;/p&gt;&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h3 id=&quot;test-setup&quot;&gt;Test Setup&lt;/h3&gt;
-&lt;p&gt;The resulting program, &lt;code&gt;neutral-test&lt;/code&gt;, is called as follows to generate timing and performance information:&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;export OMP_NUM_THREADS=4; time ./neutral-test --popsize 10000 --numloci 5 --inittraits 6 --innovrate 0.0001 --simlength 25000 --debug 1 --ruletype wfia&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;The population size is large enough to generate opportunities both for vectorization and effective use of OpenMP parallel for loops, and the simulation length is long enough to create stable timing.&lt;/p&gt;
-&lt;h3 id=&quot;no-optimizations&quot;&gt;No Optimizations&lt;/h3&gt;
-&lt;p&gt;If we turn off all optimizations (using &lt;code&gt;-O0 -no-vec&lt;/code&gt; and not passing &lt;code&gt;-openmp&lt;/code&gt; to the Intel compiler), we get the straight line, single core, un-vectorized performance:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;real    0m42.556s
-user    0m42.176s
-sys     0m0.178s&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;We can see that the vast majority of time is spent in user code, mostly in tight loops, or in the C++11 library (which isn’t kernel code), and that kernel code occupies a tiny fraction of execution time (mostly some I/O at the beginning and end since I have logging turned way down). Real time and user time is basically the same, showing that we are totally single-threaded.&lt;/p&gt;
-&lt;h3 id=&quot;vectorization-without-parallelism&quot;&gt;Vectorization Without Parallelism&lt;/h3&gt;
-&lt;p&gt;If we turn off OpenMP parallelism, but enable vectorization and aggressive compiler optimization (&lt;code&gt;-O3&lt;/code&gt;), we see dramatic improvement:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;real    0m11.765s
-user    0m11.666s
-sys     0m0.045s&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;This is a speedup of 3.62x, simply by allowing the compiler to vectorize code in a situation where memory access has been designed for easy vectorization (i.e., unit stride access).&lt;/p&gt;
-&lt;h3 id=&quot;parallelism-without-vectorization&quot;&gt;Parallelism Without Vectorization&lt;/h3&gt;
-&lt;p&gt;If we enable OpenMP parallelism but turn off vectorization, we allow the use of multiple cores for copying tasks, although by the nature of this code base not all loops should be handled in parallel. The code is compiled with &lt;code&gt;-O3 -openmp -no-vec&lt;/code&gt;.&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;real    0m10.370s
-user    0m39.686s
-sys     0m0.918s&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Here we get 4.1x speedup, and we can see the effect of parallelism, where the user portion of code executes for 3.9x the wall clock time. So there is real benefit from parallelism here, and I’m exploring whether more of the loops can be parallelized.&lt;/p&gt;
-&lt;h3 id=&quot;parallelism-and-vectorization&quot;&gt;Parallelism and Vectorization&lt;/h3&gt;
-&lt;p&gt;Finally, I enable everything (&lt;code&gt;-O3 -openmp&lt;/code&gt;):&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;real    0m10.211s
-user    0m39.313s
-sys     0m0.811s&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;The improvement with both is tiny over either approach alone. But this may be due to the small problem size.&lt;/p&gt;
-&lt;h3 id=&quot;population-size-100000&quot;&gt;Population Size 100,000&lt;/h3&gt;
-&lt;p&gt;If we switch to a larger population size, here are the results:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;No optimization - 6m38.924s
-
-Vec w/o Parallelism  - 2m4.405s
-
-Parallel w/o Vec   -   1m54.437s
-
-Vec and Parallelism  - 1m36.847s&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Here we see the separate contributions of vectorization and parallelism. The overall speedup is constant at 4.1x for both parallelism and vectorization, but this speedup is only achieved by having both. With the larger problem size, vectorization alone achieves a 3.2x speedup, and parallelism alone about 3.5x. As problem size grows, the importance of combining both approaches only grows (an intermediate problem size of 50K population size has intermediate results, for example).&lt;/p&gt;
-&lt;p&gt;The biggest challenge in optimizing this kind of simulation code, it seems, is handling random number generation, which now seems to be the major hotspot. It is also complex enough that including a random generator call in a loop is sufficient to disqualify the loop from vectorization. It is also not clear whether it is safe to use the C++11 random library from multiple threads without locking, and introducing explicit thread-local generators obviates some of the benefit of having OpenMP automatically do thread management and decide the optimal threading strategy.&lt;/p&gt;
-&lt;p&gt;The obvious way around this is to generate pools of random variates before going into a loop nest, so that the random variates are simply an array access like any other and thus can be used in vectorized, OpenMP parallelized loops. The current code reflects this strategy for determining the individuals who will be cultural models (targets of copying) in each generation.&lt;/p&gt;
-&lt;h3 id=&quot;parallelized-random-number-generation&quot;&gt;Parallelized Random Number Generation&lt;/h3&gt;
-&lt;p&gt;Creating 100K random variates is still a fairly time-consuming step, and this may be an area where using a GPU (if available) is a good idea, since at least CUDA (if present) has a high performance random number library. I hate to have hardware-specific code, though, especially if Apple moves away from NVIDIA cards in the Macbook Pros, which makes it hard to develop while mobile or away from home.&lt;/p&gt;
-&lt;p&gt;There’s no good reason why I shouldn’t be able to parallelize random number generation using OpenMP, however, as long as each thread has its own private engine variable, which is accomplished by initializing the engine and distributions inside the parallel region, instead of during object construction:&lt;/p&gt;
-&lt;div class=&quot;sourceCode&quot;&gt;&lt;pre class=&quot;sourceCode cpp&quot;&gt;&lt;code class=&quot;sourceCode cpp&quot;&gt;&lt;span class=&quot;ot&quot;&gt;#pragma omp parallel shared(test_par)&lt;/span&gt;
-{
-        std::random_device rd;
-        std::mt19937_64 eng(rd());
-        std::uniform_int_distribution&amp;lt;&lt;span class=&quot;dt&quot;&gt;int&lt;/span&gt;&amp;gt; uniform_int{&lt;span class=&quot;dv&quot;&gt;0&lt;/span&gt;, test - &lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt;};
-        num_threads = omp_get_num_threads();
-
-        &lt;span class=&quot;ot&quot;&gt;#pragma omp for&lt;/span&gt;
-        &lt;span class=&quot;kw&quot;&gt;for&lt;/span&gt;(i = &lt;span class=&quot;dv&quot;&gt;0&lt;/span&gt;; i &amp;lt; test; i++) {
-                test_par[i] = uniform_int(eng);
-        }
-}&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;The result with 100K individuals and 25K generations (comparable to the above timing experiments) is:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;31.24 real       119.92 user         3.02 sys&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;which is a 12.76x speedup over the serial unvectorized code. I’m not likely to push the performance experiments too much further, since I have a lot of other code to write, but it was a good experiment and now I have code modules to use in future simulations where I need the performance. And, others are encouraged to start with it and adapt it to your own transmission simulations, since it’s known to work and work quickly.&lt;/p&gt;
-&lt;div id=&quot;refs&quot; class=&quot;references&quot;&gt;
-
-&lt;/div&gt;</content><category term="cultural transmission" /><category term="simulation" /><category term="computing" /><category term="HPC" /><category term="computational science" /><summary>Background</summary></entry></feed>
+&lt;/div&gt;</content><category term="cultural transmission" /><category term="coarse graining" /><category term="seriation" /><summary>Today, Carl Lipo and I released Version 2.3 of our IDSS seriation software, described in our recent PLoS One article.</summary></entry></feed>
