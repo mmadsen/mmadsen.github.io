@@ -1,0 +1,376 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head prefix="dc: http://purl.org/dc/terms/ og: http://ogp.me/ns#">
+    <meta charset="utf-8"/>
+    <title>Classification Experiment - Data Reduction and Cleaning</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="description" content="Lab Notebook for Mark E. Madsen"/>
+    <meta name="author" content="Mark E. Madsen"/>
+
+	<!-- Get date last modified from git log. (Uses current time if file entry not found, e.g. projects/)  -->
+	
+
+
+	<!-- For posts, page.date is the date they are published under, which we use as their 'canonical' dc:date -->
+	 
+	  
+	  
+
+	<!-- Posts declare modified timestamps in the sidebar, so would be redundant to put here. But then 
+	     pages don't have a dc:modified... unless we give them their own (modified) sidebar?  
+	-->
+	<!-- Ideally we would want date originally created from the _oldest_ git commit too...-->
+
+	<!-- RDFa Metadata (in DublinCore) -->
+	<meta property="dc:title" content="Classification Experiment - Data Reduction and Cleaning" />
+	<meta property="dc:creator" content="Mark E. Madsen" />
+	<meta property="dc:date" content="2013-09-26T00:00:00-07:00" />
+	<meta property="dc:format" content="text/html" />
+	<meta property="dc:language" content="en" />
+	<meta property="dc:identifier" content="/project-coarse%20grained%20model/model-ctpy/experiment-experiment-classification/2013/09/26/classification-experiment-data-cleaning.html" />
+	<meta property="dc:rights" content="CC BY-NC-SA 3.0" />
+	<meta property="dc:source" content="Lab Notebook for Mark E. Madsen" />
+	<meta property="dc:subject" content="Anthropology" /> 
+	<meta property="dc:type" content="website" /> 
+	<!-- RDFa Metadata (in OpenGraph) -->
+	<meta property="og:title" content="Classification Experiment - Data Reduction and Cleaning" />
+	<meta property="og:author" content="http://notebook.madsenlab.org/bio.html" />  <!-- Should be Liquid? URI? -->
+	<meta property="og:site_name" content="Lab Notebook for Mark E. Madsen" /> <!-- Same as dc:source? -->
+	<meta property="og:url" content="http://notebook.madsenlab.org/project-coarse%20grained%20model/model-ctpy/experiment-experiment-classification/2013/09/26/classification-experiment-data-cleaning.html" />
+	<meta property="og:type" content="website" /> 
+	<!-- Google Scholar Metadata -->
+	<meta name="citation_author" content="Mark E. Madsen"/>
+	<meta name="citation_date" content="2013-09-26T00:00:00-07:00"/>
+	<meta name="citation_title" content="Classification Experiment - Data Reduction and Cleaning"/>
+	<meta name="citation_journal_title" content="Lab Notebook for Mark E. Madsen"/>
+
+    <!-- Le styles -->
+    <link href="/assets/css/bootstrap.css" rel="stylesheet">
+    <link href="/assets/css/octicons.css" rel="stylesheet">
+    <style type="text/css">
+      body {
+        padding-top: 60px;
+        padding-bottom: 40px;
+      }
+      .sidebar-nav {
+        padding: 9px 0;
+      }
+
+      @media (max-width: 980px) {
+        /* Enable use of floated navbar text */
+        .navbar-text.pull-right {
+          float: none;
+          padding-left: 5px;
+          padding-right: 5px;
+        }
+      }
+    </style>
+    <link href="/assets/css/bootstrap-responsive.css" rel="stylesheet">
+    <link href="/css/syntax.css" rel="stylesheet">
+    
+  <script type="text/javascript" src="//use.typekit.net/xtg2arw.js"></script>
+  <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+  <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  <script>
+  MathJax.Hub.Config({
+    showProcessingMessages: false,
+    jax: ["input/TeX", "output/HTML-CSS"],
+    tex2jax: {
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+    }
+  });
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+  </script>
+<!-- Google Analytics -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-11944342-4', 'madsenlab.org');
+  ga('send', 'pageview');
+
+</script>
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="../assets/js/html5shiv.js"></script>
+    <![endif]-->
+
+    <!-- Fav and touch icons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../assets/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../assets/ico/apple-touch-icon-114-precomposed.png">
+      <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../assets/ico/apple-touch-icon-72-precomposed.png">
+                    <link rel="apple-touch-icon-precomposed" href="../assets/ico/apple-touch-icon-57-precomposed.png">
+                                   <link rel="shortcut icon" href="../assets/ico/favicon.png">
+  </head>
+
+  <body>
+
+    <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container-fluid">
+          <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="brand" href="/">MadsenLabNotebook</a>
+          <div class="nav-collapse collapse">
+                  <!-- Search site using Google's index -->
+      <form class="navbar-search pull-right" method="get" action="http://google.com/search">
+        <p>
+          <input type="hidden" name="q" value="site:notebook.madsenlab.org" />
+          <input type="text" class="search-query" name="q" />
+          <button class="btn btn-mini" type="submit"><i class="icon-search"></i></button> 
+        </p>
+      </form>
+            <ul class="nav">
+              <li class="active"><a href="/">Home</a></li>
+              <li><a href="/bio.html">About Me</a></li>
+              <li><a href="http://about.me/mark.e.madsen">Contact</a></li>
+              <li><a href="/blog.html">Essays</a></li>
+              <li><a href="/feed.xml">Atom/RSS Feed</a></li>
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+    </div>
+
+    <div class="container-fluid">
+      <div class="row-fluid">
+        <div class="span3">
+          <div class="well sidebar-nav">
+            <ul class="nav nav-list">
+              <li><img src="/images/madsenlabnotebook-350px.png" class="img-responsive" alt="MadsenLab Notebook"/></li>
+              <li class="nav-header">General</li>
+              <li><a href="/tags.html">Notes by Tag</a></li>
+              <li><a href="/allposts.html">All Notes by Date</a></li>
+              <li><a href="/blog.html">Essays and General Writings</a></li>
+              <li class="nav-header">Projects</li>
+              <li><a href="/projects/coarsegraining/">Coarse Grained Models of CT</a></li>
+              <li><a href="/projects/nicheconstruction/">Niche Construction and CT Modeling</a></li>
+              <li><a href="/projects/structuredinfo/">CT of Structured Information</a></li>
+              <li class="nav-header">Simulations and Experiments</li>
+              <li><a href="/byexperiment.html">Notes by Experiment</a></li>
+              <li><a href="/bymodel.html">Notes by Simulation Model</a></li>
+              <li class="nav-header">Topics</li>
+              <li><a href="/tag/cultural-transmission.html">Cultural transmission theory</a></li>
+              <li><a href="/tag/evolutionary-theory.html">Darwinian evolutionary theory</a></li>
+			        <li><a href="/tag/dissertation.html">Dissertation Research</a></li>
+              <li><a href="/tag/reading-notes.html">Reading notes</a></li>
+              <li><a href="/openproblems.html">Open Research Problems</a></li>
+
+              <li class="nav-header">Meta</li>
+              <li><a href="/bio.html">Bio</a></li>
+              <li><a href="/software.html">Software</a></li>
+              <li><a href="/tools.html">Tools I Use</a></li>
+              <li><a href="/publications.html">Publications</a></li>
+              <li><a href="/openscience.html">About Open Science</a></li>
+			<li><a href="/labnotebook.html">About this Notebook</a></li>
+            </ul>
+          </div><!--/.well -->
+        </div><!--/span3-->
+
+            <div class="span8">
+  	<h2>Classification Experiment - Data Reduction and Cleaning</h2>
+	
+
+		<p class="text-info">
+		<table class="table table-condensed">
+			<tr class="info">
+				<td><small><i class="icon-calendar"></i>&nbsp;Created: 26 Sep 2013</small></td>
+				<td><small><i class="icon-calendar"></i>&nbsp;Modified: 12 Feb 2017</small></td>
+				<td><small><i class="icon-book">&nbsp;</i>&nbsp;<a href=http://greycite.knowledgeblog.org/bib/?uri=http://notebook.madsenlab.org/project-coarse%20grained%20model/model-ctpy/experiment-experiment-classification/2013/09/26/classification-experiment-data-cleaning.html target='_blank'>BibTeX Entry</a>
+</small></td>
+				<td><small><i class="icon-book">&nbsp;</i>&nbsp;<a href=http://greycite.knowledgeblog.org/ris/?uri=http://notebook.madsenlab.org/project-coarse%20grained%20model/model-ctpy/experiment-experiment-classification/2013/09/26/classification-experiment-data-cleaning.html target='_blank'>RIS Citation</a>
+</small></td>
+				<td><small><a href="javascript:window.print()"><i class="icon-print"></i>&nbsp;Print</a></small></td>
+				<!--<td><small><a href="/project-coarse%20grained%20model/model-ctpy/experiment-experiment-classification/2013/09/26/classification-experiment-data-cleaning.html"></i>Permalink</a></small></td> -->
+			</tr>
+		</table>
+		</p>
+
+
+  	
+	
+  <h3 id="data-description">Data Description</h3>
+<p>The classification experiment simulation runs encompassed 48 combinations of innovation rates and population sizes, which were performed in 10 replicates per combination, for the Wright-Fisher infinite-alleles (WFIA) model of cultural transmission without bias or natural selection.</p>
+<p>Each combination was additionally run at a variety of trait-space dimensionalities, and sampled at a variety of sample sizes. Once each simulation run had achieved stationarity, 10 samples were taken from each replicate at 100 generation intervals.</p>
+<p>The full parameter space used to run the experiment is as follows:</p>
+<table>
+<colgroup>
+<col style="width: 44%" />
+<col style="width: 55%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Simulation Parameter</th>
+<th style="text-align: left;">Value or Values</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Trait and classification dimensionalities</td>
+<td style="text-align: left;">2, 3, 4, 6, 8</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Classification coarseness levels (modes per dimension)</td>
+<td style="text-align: left;">2, 3, 4, 8, 16, 32</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Number of traits per dimension for initializing population</td>
+<td style="text-align: left;">10</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Innovation rates</td>
+<td style="text-align: left;">0.0001, 0.00025, 0.0005, 0.001, 0.0025, 0.005, 0.01, 0.025</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Replicate random classifications per coarseness level</td>
+<td style="text-align: left;">10</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Num samples taken after stationarity, per run</td>
+<td style="text-align: left;">10000</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Population sizes</td>
+<td style="text-align: left;">500, 1000, 2500, 5000</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Replicate simulation runs at each parameter combination</td>
+<td style="text-align: left;">1000</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Sample sizes taken at each sampling interval</td>
+<td style="text-align: left;">25, 50, 100, 200</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Interval in generations for samples after stationarity</td>
+<td style="text-align: left;">1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Length of simulation run after stationarity</td>
+<td style="text-align: left;">10000</td>
+</tr>
+</tbody>
+</table>
+<p>These primary data comprise 144,000 samples of the following metrics, calculated upon the raw trait counts:</p>
+<ul>
+<li>Trait richness per dimension</li>
+<li>Shannon entropy per dimension</li>
+<li>IQV per dimension</li>
+<li>Mean trait richness over all dimensions</li>
+<li>Shannon entropy over dimensions</li>
+<li>IQV over dimensions</li>
+<li>Slatkin-Ewens-Watterson test of neutrality over all dimensions</li>
+</ul>
+<p>The 144K samples were then “observed” through 66 classifications, with the classification dimensionality equal to the trait space dimensionality (there were, in total, 330 classifications, 66 for each of the dimensionality levels). The classifications were of two types: EVEN partitions of dimensions into modes (with six levels of coarseness), and RANDOM partitions of dimensions into modes (with the same six levels of coarseness). For random partitions, 10 different random partitions were made for each level of coarseness. This yields 66 classifications for each level of dimensionality. Neutrality tests were also performed for class counts as a whole.</p>
+<p>Observing the 144,000 samples of the raw trait space through 66 classifications yielded 9,504,000 samples of class statistics in the “postclassification” sample.</p>
+<h3 id="data-projection">Data Projection</h3>
+<p>Prior to analysis in R, the data samples went through several cleaning and reduction steps, outlined here.</p>
+<p>Raw simulation samples are stored in MongoDB by the CTPy/simuPOP simulation code, and the initial post-processing is also done in Python by projecting MongoDB tables into new data collections. These steps include:</p>
+<ol type="1">
+<li>Projecting the raw simulation runs to encompass the full set of dimensionalities and sample sizes.</li>
+<li>Calculating trait-space statistics from the samples of individual agents, given the cartesian product of dimensionalities and sample sizes.</li>
+<li>Identifying raw samples of individuals to each of the 66 classifications, and recording classification level statistics for each time slice (per-generation statistics).</li>
+<li>Calculating any statistics that require looking at temporal spans or sample paths (planned but not currently implements).</li>
+</ol>
+<p>The output of these sampling and classification operations are stored in a single MongoDB collection for the experiment. A Python script is then used to export CSV data for further processing. This script selects a subset of fields from each table, and uses the <code>mongoexport</code> program to produce the CSV files, for speed.</p>
+<p>These exports are copied to the <code>rawdata</code> directory of the <a href="https://github.com/mmadsen/experiment-classification">experiment and analysis</a> repository, for data cleaning and reduction.</p>
+<h3 id="data-reduction">Data Reduction</h3>
+<p>Once exported from MongoDB, I use a set of Apache Pig scripts to merge data files together, remove duplicate columns, and perform aggregation across replicates in the dataset. The end result of these processing steps is a single CSV file with columns for each key value in the data set, and mean/sd statistics for each observable value (e.g., class or trait entropy, richness).</p>
+<p>The processing steps and scripts are all contained in the Github repository for the <a href="https://github.com/mmadsen/experiment-classification">experiment and analysis</a>. The <code>README.md</code> file in that repository contains detailed instructions on how to replicate the data cleaning and reduction steps using the supplied scripts.</p>
+<p>The basic replication factor in this experiment is 100 replicates per classified sample – 10 simuPOP replicate populations, and 10 samples per sample path. So the final dataset for analysis should contain 95,040 samples. For each metric, the <code>average-replicates.pig</code> script returns a data set with 95,040 rows, with mean and standard deviations for each of the classified and raw trait metrics gathered above.</p>
+<p>The unaveraged data are retained for analyses where we may want them. This data set is the aggregated output of the script <code>clean-numerics.pig</code>.</p>
+<p>Once completed, the CSV files resulting from the Pig scripts are copied to the <code>data</code> directory of the experiment repository, as the files:</p>
+<ul>
+<li><code>classification-experiment-neutral-dataset-fullrows.csv</code></li>
+<li><code>classification-experiment-neutral-dataset-grouped.csv</code></li>
+</ul>
+<p>Once imported to R via the <code>R/load-datasets.r</code> script, the CSV files will not be imported unless the binary data objects (for speed) are deleted. Thus, hereafter we operate upon the objects:</p>
+<ul>
+<li><code>classification-full.rda</code></li>
+<li><code>classification-grouped.rda</code></li>
+</ul>
+<p><strong>IMPORTANT</strong> The full dataset, either in CSV or RDA format, is too big to include in the Github repository, and too large to upload to Figshare. As the <code>README.md</code> in the experiment repository notes, if you do not want to regenerate these files by running the simulations yourself (which can take awhile, especially for the post-simulation classification step), contact me and we can arrange something for getting you copies of the raw data files (approx. 2GB file download).</p>
+  
+
+
+<div class="well well-small">
+<p class="text-info"><i class="icon-tags"></i>&nbsp;Tags</p>
+<ul>
+
+<li><a href='/tag/cultural+transmission.html'>cultural transmission</a></li>
+
+<li><a href='/tag/classification.html'>classification</a></li>
+
+<li><a href='/tag/coarse+graining.html'>coarse graining</a></li>
+
+<li><a href='/tag/ML.html'>ML</a></li>
+
+<li><a href='/tag/simulation.html'>simulation</a></li>
+
+<li><a href='/tag/ctpy.html'>ctpy</a></li>
+
+<li><a href='/tag/dissertation.html'>dissertation</a></li>
+
+<li><a href='/tag/experiments.html'>experiments</a></li>
+
+<li><a href='/tag/experiment-classification.html'>experiment-classification</a></li>
+
+</ul>
+</div>
+
+
+</div>
+
+
+        
+      </div><!--/row-->
+
+
+    
+
+
+ 
+      <hr>
+
+      <footer>
+		        <p>&copy; Mark E. Madsen 2011-2015    <a href="mailto:mark@madsenlab.org">Email</a>&nbsp;||
+		  <a href="http://orcid.org/0000-0001-9320-8377">ORCId</a>&nbsp;||
+		  <a href="http://figshare.com/authors/Mark%20Madsen/279062">Figshare</a>&nbsp;||
+		    <a href="http://www.linkedin.com/profile/view?id=8751">LinkedIn</a>&nbsp;|| 	    <a href="http://github.com/mmadsen">GitHub</a>&nbsp;||
+        <a href="http://www.researchgate.net/profile/Mark_Madsen3/">ResearchGate</a>&nbsp;||
+        <a href="https://washington.academia.edu/MarkMadsen">Academia.edu</a>&nbsp;||
+        <a href="https://zenodo.org/search?ln=en&cc=software&p=Mark+Madsen&action_search=">Zenodo</a></p>
+      </footer>
+
+    </div><!--/.fluid-container-->
+
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="/assets/js/jquery.js"></script>
+    <script src="/assets/js/bootstrap-transition.js"></script>
+    <script src="/assets/js/bootstrap-alert.js"></script>
+    <script src="/assets/js/bootstrap-modal.js"></script>
+    <script src="/assets/js/bootstrap-dropdown.js"></script>
+    <script src="/assets/js/bootstrap-scrollspy.js"></script>
+    <script src="/assets/js/bootstrap-tab.js"></script>
+    <script src="/assets/js/bootstrap-tooltip.js"></script>
+    <script src="/assets/js/bootstrap-popover.js"></script>
+    <script src="/assets/js/bootstrap-button.js"></script>
+    <script src="/assets/js/bootstrap-collapse.js"></script>
+    <script src="/assets/js/bootstrap-carousel.js"></script>
+    <script src="/assets/js/bootstrap-typeahead.js"></script>
+
+  </body>
+</html>

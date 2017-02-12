@@ -1,0 +1,315 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head prefix="dc: http://purl.org/dc/terms/ og: http://ogp.me/ns#">
+    <meta charset="utf-8"/>
+    <title>Performance of simuPOP in SeriationCT Across Platforms</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="description" content="Lab Notebook for Mark E. Madsen"/>
+    <meta name="author" content="Mark E. Madsen"/>
+
+	<!-- Get date last modified from git log. (Uses current time if file entry not found, e.g. projects/)  -->
+	
+
+
+	<!-- For posts, page.date is the date they are published under, which we use as their 'canonical' dc:date -->
+	 
+	  
+	  
+
+	<!-- Posts declare modified timestamps in the sidebar, so would be redundant to put here. But then 
+	     pages don't have a dc:modified... unless we give them their own (modified) sidebar?  
+	-->
+	<!-- Ideally we would want date originally created from the _oldest_ git commit too...-->
+
+	<!-- RDFa Metadata (in DublinCore) -->
+	<meta property="dc:title" content="Performance of simuPOP in SeriationCT Across Platforms" />
+	<meta property="dc:creator" content="Mark E. Madsen" />
+	<meta property="dc:date" content="2015-07-27T00:00:00-07:00" />
+	<meta property="dc:format" content="text/html" />
+	<meta property="dc:language" content="en" />
+	<meta property="dc:identifier" content="/project-coarse%20grained%20model/model-seriationct/experiment-experiment-seriationct/2015/07/27/simupop-performance-in-seriationct.html" />
+	<meta property="dc:rights" content="CC BY-NC-SA 3.0" />
+	<meta property="dc:source" content="Lab Notebook for Mark E. Madsen" />
+	<meta property="dc:subject" content="Anthropology" /> 
+	<meta property="dc:type" content="website" /> 
+	<!-- RDFa Metadata (in OpenGraph) -->
+	<meta property="og:title" content="Performance of simuPOP in SeriationCT Across Platforms" />
+	<meta property="og:author" content="http://notebook.madsenlab.org/bio.html" />  <!-- Should be Liquid? URI? -->
+	<meta property="og:site_name" content="Lab Notebook for Mark E. Madsen" /> <!-- Same as dc:source? -->
+	<meta property="og:url" content="http://notebook.madsenlab.org/project-coarse%20grained%20model/model-seriationct/experiment-experiment-seriationct/2015/07/27/simupop-performance-in-seriationct.html" />
+	<meta property="og:type" content="website" /> 
+	<!-- Google Scholar Metadata -->
+	<meta name="citation_author" content="Mark E. Madsen"/>
+	<meta name="citation_date" content="2015-07-27T00:00:00-07:00"/>
+	<meta name="citation_title" content="Performance of simuPOP in SeriationCT Across Platforms"/>
+	<meta name="citation_journal_title" content="Lab Notebook for Mark E. Madsen"/>
+
+    <!-- Le styles -->
+    <link href="/assets/css/bootstrap.css" rel="stylesheet">
+    <link href="/assets/css/octicons.css" rel="stylesheet">
+    <style type="text/css">
+      body {
+        padding-top: 60px;
+        padding-bottom: 40px;
+      }
+      .sidebar-nav {
+        padding: 9px 0;
+      }
+
+      @media (max-width: 980px) {
+        /* Enable use of floated navbar text */
+        .navbar-text.pull-right {
+          float: none;
+          padding-left: 5px;
+          padding-right: 5px;
+        }
+      }
+    </style>
+    <link href="/assets/css/bootstrap-responsive.css" rel="stylesheet">
+    <link href="/css/syntax.css" rel="stylesheet">
+    
+  <script type="text/javascript" src="//use.typekit.net/xtg2arw.js"></script>
+  <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+  <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  <script>
+  MathJax.Hub.Config({
+    showProcessingMessages: false,
+    jax: ["input/TeX", "output/HTML-CSS"],
+    tex2jax: {
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+    }
+  });
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+  </script>
+<!-- Google Analytics -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-11944342-4', 'madsenlab.org');
+  ga('send', 'pageview');
+
+</script>
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="../assets/js/html5shiv.js"></script>
+    <![endif]-->
+
+    <!-- Fav and touch icons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../assets/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../assets/ico/apple-touch-icon-114-precomposed.png">
+      <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../assets/ico/apple-touch-icon-72-precomposed.png">
+                    <link rel="apple-touch-icon-precomposed" href="../assets/ico/apple-touch-icon-57-precomposed.png">
+                                   <link rel="shortcut icon" href="../assets/ico/favicon.png">
+  </head>
+
+  <body>
+
+    <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container-fluid">
+          <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="brand" href="/">MadsenLabNotebook</a>
+          <div class="nav-collapse collapse">
+                  <!-- Search site using Google's index -->
+      <form class="navbar-search pull-right" method="get" action="http://google.com/search">
+        <p>
+          <input type="hidden" name="q" value="site:notebook.madsenlab.org" />
+          <input type="text" class="search-query" name="q" />
+          <button class="btn btn-mini" type="submit"><i class="icon-search"></i></button> 
+        </p>
+      </form>
+            <ul class="nav">
+              <li class="active"><a href="/">Home</a></li>
+              <li><a href="/bio.html">About Me</a></li>
+              <li><a href="http://about.me/mark.e.madsen">Contact</a></li>
+              <li><a href="/blog.html">Essays</a></li>
+              <li><a href="/feed.xml">Atom/RSS Feed</a></li>
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+    </div>
+
+    <div class="container-fluid">
+      <div class="row-fluid">
+        <div class="span3">
+          <div class="well sidebar-nav">
+            <ul class="nav nav-list">
+              <li><img src="/images/madsenlabnotebook-350px.png" class="img-responsive" alt="MadsenLab Notebook"/></li>
+              <li class="nav-header">General</li>
+              <li><a href="/tags.html">Notes by Tag</a></li>
+              <li><a href="/allposts.html">All Notes by Date</a></li>
+              <li><a href="/blog.html">Essays and General Writings</a></li>
+              <li class="nav-header">Projects</li>
+              <li><a href="/projects/coarsegraining/">Coarse Grained Models of CT</a></li>
+              <li><a href="/projects/nicheconstruction/">Niche Construction and CT Modeling</a></li>
+              <li><a href="/projects/structuredinfo/">CT of Structured Information</a></li>
+              <li class="nav-header">Simulations and Experiments</li>
+              <li><a href="/byexperiment.html">Notes by Experiment</a></li>
+              <li><a href="/bymodel.html">Notes by Simulation Model</a></li>
+              <li class="nav-header">Topics</li>
+              <li><a href="/tag/cultural-transmission.html">Cultural transmission theory</a></li>
+              <li><a href="/tag/evolutionary-theory.html">Darwinian evolutionary theory</a></li>
+			        <li><a href="/tag/dissertation.html">Dissertation Research</a></li>
+              <li><a href="/tag/reading-notes.html">Reading notes</a></li>
+              <li><a href="/openproblems.html">Open Research Problems</a></li>
+
+              <li class="nav-header">Meta</li>
+              <li><a href="/bio.html">Bio</a></li>
+              <li><a href="/software.html">Software</a></li>
+              <li><a href="/tools.html">Tools I Use</a></li>
+              <li><a href="/publications.html">Publications</a></li>
+              <li><a href="/openscience.html">About Open Science</a></li>
+			<li><a href="/labnotebook.html">About this Notebook</a></li>
+            </ul>
+          </div><!--/.well -->
+        </div><!--/span3-->
+
+            <div class="span8">
+  	<h2>Performance of simuPOP in SeriationCT Across Platforms</h2>
+	
+
+		<p class="text-info">
+		<table class="table table-condensed">
+			<tr class="info">
+				<td><small><i class="icon-calendar"></i>&nbsp;Created: 27 Jul 2015</small></td>
+				<td><small><i class="icon-calendar"></i>&nbsp;Modified: 12 Feb 2017</small></td>
+				<td><small><i class="icon-book">&nbsp;</i>&nbsp;<a href=http://greycite.knowledgeblog.org/bib/?uri=http://notebook.madsenlab.org/project-coarse%20grained%20model/model-seriationct/experiment-experiment-seriationct/2015/07/27/simupop-performance-in-seriationct.html target='_blank'>BibTeX Entry</a>
+</small></td>
+				<td><small><i class="icon-book">&nbsp;</i>&nbsp;<a href=http://greycite.knowledgeblog.org/ris/?uri=http://notebook.madsenlab.org/project-coarse%20grained%20model/model-seriationct/experiment-experiment-seriationct/2015/07/27/simupop-performance-in-seriationct.html target='_blank'>RIS Citation</a>
+</small></td>
+				<td><small><a href="javascript:window.print()"><i class="icon-print"></i>&nbsp;Print</a></small></td>
+				<!--<td><small><a href="/project-coarse%20grained%20model/model-seriationct/experiment-experiment-seriationct/2015/07/27/simupop-performance-in-seriationct.html"></i>Permalink</a></small></td> -->
+			</tr>
+		</table>
+		</p>
+
+
+  	
+	
+  <h3 id="background">Background</h3>
+<p><a href="https://github.com/mmadsen/seriationct">SeriationCT</a> uses the <a href="http://http://simupop.sourceforge.net/">simuPOP</a> framework, building custom actions on top of it but leveraging the excellent support Bo Peng has created for transmission modeling. simuPOP has support for running across multiple threads or cores, but this support has been disabled lately on Mac OS X given problems with OpenMP and GCC 4.2.1 (according to Bo).</p>
+<p>Along with Bo, I’ve noted that OS X has excellent performance even without it, exceeding performance on Linux by a reasonable factor (sometimes even 2x).</p>
+<p>Now that I’m running on my <a href="http://notebook.madsenlab.org/essays/2015/07/07/new-directions-ct-computing.html">new simulation system</a>, a 10-core Xeon E5-2650 V3 system equipped with a Xeon Phi 5110P coprocessor, I wanted to see what level of thread use in simuPOP provided the best performance.</p>
+<p>The test setup runs the following simulation as the only active code on the system, apart from the MongoDB database which is serving as data repository. I ran this exact simulation with the same seed across thread count from 1 to 20, and then repeated this loop several times with different seeds, to generate multiple timing values for each thread count. The whole process was duplicated for 5 replicates and 10 replicates.</p>
+<pre class="shell"><code>[mark@ewens sctcal-1]$ sim-seriationct-networkmodel.py  --dbhost localhost --dbport 27017 --experiment sctcal-1 --popsize 250 --maxinittraits 5 --numloci 3 --innovrate 8.86017736123e-05 --simlength 12000 --debug 0 --seed 166602270 --reps 1 --samplefraction 0.5 --migrationfraction 0.0517857031302 --devel 0 --networkmodel networks/two-node-three-slice.zip --cores 10</code></pre>
+<h3 id="single-replication">Single Replication</h3>
+<p>The results are shown below, with a loess smoothed trend line for each half of the graph. On the left, thread count is less than the number of physical cores, and it appears that threads are distributed among cores with scatter affinity (confirmed by observation in htop). On the right, hyperthreading is used to assign up to 2 threads per physical core, which is within the design spec of the E5-2650V3 processor. Some quick tests using 25 and 30 threads show that execution time shoots up precipitously given that execution is largely CPU-bound, and those data points are excluded in order to focus on the fine detail.</p>
+<figure>
+<img src="/images/simupop-perf-by-core-web.png" alt="Figure 1: Execution Time Given Threads Used" /><figcaption>Figure 1: Execution Time Given Threads Used</figcaption>
+</figure>
+<p>Immediately apparent is that the process really is CPU-bound, and that the code performs best with no hyperthreading, and a single thread per core. The strong increase around 18-20 threads is indicative of contention between the simulation threads and the MongoDB database which serves as the data repository, it looks like.</p>
+<p>On the left, it is interesting that the absolute best performance is obtained by configuring simuPOP with a single thread, even with 10 physical cores present. Performance immediately worsens with 2 or more threads, before improving slightly between 8 and 10 threads. I have no explanation for why performance should improve, but clearly a single replication runs fastest when given a single execution thread, and the attempt to parallelize a single replication actually worsens the situation. I need to look at the simuPOP source and see why this occurs.</p>
+<h3 id="performance-with-multiple-replicates">Performance with Multiple Replicates</h3>
+<p>I also ran tests with the same simulation command line, but with 5 replicates. Sometimes I use replicates with simuPOP, usually when I have a fixed grid of parameters and want to understand variability given the parameter space. Replicates are independent copies of a population, each evolving separately according to the same evolution schedule and operators, so this would seem to be a logical point at which parallelism would be leveraged.</p>
+<p>This experiment I ran only a single series, given the longer execution times. The results are shown in Figure 2.</p>
+<figure>
+<img src="/images/simupop-perf-by-core-5rep-web.png" alt="Figure 2: Execution Time for 5 Replicates Given Threads Used" /><figcaption>Figure 2: Execution Time for 5 Replicates Given Threads Used</figcaption>
+</figure>
+<p>The pattern is the same, and the execution times are basically 5x the single replication time.</p>
+<h3 id="parallelism-in-simupop">Parallelism in simuPOP</h3>
+<p>Looking at the version 1.1.6 source code, it appears that multiple threads are used in very specific situations. The simulator and its evolve function are single-threaded, with no OpenMP sections. Instead, parallelism is employed in specific loops, such as initializing a population or processing the individuals in a subpopulation, as in this example:</p>
+<div class="sourceCode"><pre class="sourceCode cpp"><code class="sourceCode cpp">        <span class="kw">for</span> (; sp != sp_end; ++sp) {
+                pop.activateVirtualSubPop(*sp);
+                size_t numValues = m_values.size();
+                <span class="kw">if</span> (numThreads() &gt; <span class="dv">1</span> &amp;&amp; !values.empty()) {
+<span class="ot">#ifdef _OPENMP</span>
+<span class="ot">#  pragma omp parallel firstprivate (idx)</span>
+                        {
+                                size_t id = omp_get_thread_num();
+                                IndIterator ind = pop.indIterator(sp-&gt;subPop(), id);
+                                idx = idx + id * (pop.subPopSize(sp-&gt;subPop()) / numThreads());
+                                <span class="kw">for</span> (; ind.valid(); ++ind, ++idx)
+                                        <span class="kw">for</span> (size_t i = <span class="dv">0</span>; i &lt; infoIdx.size(); ++i) {
+                                                ind-&gt;setInfo(values[idx % numValues], infoIdx[i]);
+                                        }
+                        }
+                        idx = idx + pop.subPopSize(sp-&gt;subPop());
+<span class="ot">#endif</span></code></pre></div>
+<p>where tiles of individuals are processed by each of the N threads configured.</p>
+<p>Examining the simulator itself, I can see why parallelism isn’t expressed at the replicate or subpopulation level. Applications built in simuPOP are capable of using pure-Python operators mixed with built-in C++ operations, and if replicates are threaded rather than being distributed across Unix processes, we run immediately into the GIL issue. So Bo has used OpenMP to parallelize things only <strong>within</strong> a single operator or function, which makes it safe.</p>
+<p>What does this mean?</p>
+<ol type="1">
+<li><p>I’m probably not getting any speedup because the population size in my current simulation is small – 250 individuals – rather than the thousands to millions that one typically sees in genetics work. This means that the OpenMP and thread management overhead is dominating, and the more threads I use, the worse this gets. So, with small population sizes, the guideline here is <strong>always use a single thread</strong>.</p></li>
+<li><p>Since simuPOP never parallelizes over replicates, it’s better to keep single replicates in their own Unix processes and use Grid Engine or a job scheduler to parallelize a <strong>set of simulations</strong> across the available cores.</p></li>
+</ol>
+<p>The latter is what I’ve been doing on StarCluster in previous projects, so it’s a familiar and easily scriptable protocol. And, if I work with large population sizes at some point, the native threading in simuPOP could pay off, but otherwise, it’s best ignored for most of the work I’m doing.</p>
+<h3 id="references-cited">References Cited</h3>
+  
+
+
+<div class="well well-small">
+<p class="text-info"><i class="icon-tags"></i>&nbsp;Tags</p>
+<ul>
+
+<li><a href='/tag/cultural+transmission.html'>cultural transmission</a></li>
+
+<li><a href='/tag/coarse+graining.html'>coarse graining</a></li>
+
+<li><a href='/tag/simulation.html'>simulation</a></li>
+
+<li><a href='/tag/dissertation.html'>dissertation</a></li>
+
+<li><a href='/tag/seriation.html'>seriation</a></li>
+
+</ul>
+</div>
+
+
+</div>
+
+
+        
+      </div><!--/row-->
+
+
+    
+
+
+ 
+      <hr>
+
+      <footer>
+		        <p>&copy; Mark E. Madsen 2011-2015    <a href="mailto:mark@madsenlab.org">Email</a>&nbsp;||
+		  <a href="http://orcid.org/0000-0001-9320-8377">ORCId</a>&nbsp;||
+		  <a href="http://figshare.com/authors/Mark%20Madsen/279062">Figshare</a>&nbsp;||
+		    <a href="http://www.linkedin.com/profile/view?id=8751">LinkedIn</a>&nbsp;|| 	    <a href="http://github.com/mmadsen">GitHub</a>&nbsp;||
+        <a href="http://www.researchgate.net/profile/Mark_Madsen3/">ResearchGate</a>&nbsp;||
+        <a href="https://washington.academia.edu/MarkMadsen">Academia.edu</a>&nbsp;||
+        <a href="https://zenodo.org/search?ln=en&cc=software&p=Mark+Madsen&action_search=">Zenodo</a></p>
+      </footer>
+
+    </div><!--/.fluid-container-->
+
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="/assets/js/jquery.js"></script>
+    <script src="/assets/js/bootstrap-transition.js"></script>
+    <script src="/assets/js/bootstrap-alert.js"></script>
+    <script src="/assets/js/bootstrap-modal.js"></script>
+    <script src="/assets/js/bootstrap-dropdown.js"></script>
+    <script src="/assets/js/bootstrap-scrollspy.js"></script>
+    <script src="/assets/js/bootstrap-tab.js"></script>
+    <script src="/assets/js/bootstrap-tooltip.js"></script>
+    <script src="/assets/js/bootstrap-popover.js"></script>
+    <script src="/assets/js/bootstrap-button.js"></script>
+    <script src="/assets/js/bootstrap-collapse.js"></script>
+    <script src="/assets/js/bootstrap-carousel.js"></script>
+    <script src="/assets/js/bootstrap-typeahead.js"></script>
+
+  </body>
+</html>

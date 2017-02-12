@@ -1,0 +1,311 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head prefix="dc: http://purl.org/dc/terms/ og: http://ogp.me/ns#">
+    <meta charset="utf-8"/>
+    <title>CTMixtures Equifinality - Calibration Issues and Solutions</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="description" content="Lab Notebook for Mark E. Madsen"/>
+    <meta name="author" content="Mark E. Madsen"/>
+
+	<!-- Get date last modified from git log. (Uses current time if file entry not found, e.g. projects/)  -->
+	
+
+
+	<!-- For posts, page.date is the date they are published under, which we use as their 'canonical' dc:date -->
+	 
+	  
+	  
+
+	<!-- Posts declare modified timestamps in the sidebar, so would be redundant to put here. But then 
+	     pages don't have a dc:modified... unless we give them their own (modified) sidebar?  
+	-->
+	<!-- Ideally we would want date originally created from the _oldest_ git commit too...-->
+
+	<!-- RDFa Metadata (in DublinCore) -->
+	<meta property="dc:title" content="CTMixtures Equifinality - Calibration Issues and Solutions" />
+	<meta property="dc:creator" content="Mark E. Madsen" />
+	<meta property="dc:date" content="2014-09-22T00:00:00-07:00" />
+	<meta property="dc:format" content="text/html" />
+	<meta property="dc:language" content="en" />
+	<meta property="dc:identifier" content="/project-coarse%20grained%20model/model-ctmixtures/experiment-experiment-ctmixtures/2014/09/22/ctmixtures-model-calibration.html" />
+	<meta property="dc:rights" content="CC BY-NC-SA 3.0" />
+	<meta property="dc:source" content="Lab Notebook for Mark E. Madsen" />
+	<meta property="dc:subject" content="Anthropology" /> 
+	<meta property="dc:type" content="website" /> 
+	<!-- RDFa Metadata (in OpenGraph) -->
+	<meta property="og:title" content="CTMixtures Equifinality - Calibration Issues and Solutions" />
+	<meta property="og:author" content="http://notebook.madsenlab.org/bio.html" />  <!-- Should be Liquid? URI? -->
+	<meta property="og:site_name" content="Lab Notebook for Mark E. Madsen" /> <!-- Same as dc:source? -->
+	<meta property="og:url" content="http://notebook.madsenlab.org/project-coarse%20grained%20model/model-ctmixtures/experiment-experiment-ctmixtures/2014/09/22/ctmixtures-model-calibration.html" />
+	<meta property="og:type" content="website" /> 
+	<!-- Google Scholar Metadata -->
+	<meta name="citation_author" content="Mark E. Madsen"/>
+	<meta name="citation_date" content="2014-09-22T00:00:00-07:00"/>
+	<meta name="citation_title" content="CTMixtures Equifinality - Calibration Issues and Solutions"/>
+	<meta name="citation_journal_title" content="Lab Notebook for Mark E. Madsen"/>
+
+    <!-- Le styles -->
+    <link href="/assets/css/bootstrap.css" rel="stylesheet">
+    <link href="/assets/css/octicons.css" rel="stylesheet">
+    <style type="text/css">
+      body {
+        padding-top: 60px;
+        padding-bottom: 40px;
+      }
+      .sidebar-nav {
+        padding: 9px 0;
+      }
+
+      @media (max-width: 980px) {
+        /* Enable use of floated navbar text */
+        .navbar-text.pull-right {
+          float: none;
+          padding-left: 5px;
+          padding-right: 5px;
+        }
+      }
+    </style>
+    <link href="/assets/css/bootstrap-responsive.css" rel="stylesheet">
+    <link href="/css/syntax.css" rel="stylesheet">
+    
+  <script type="text/javascript" src="//use.typekit.net/xtg2arw.js"></script>
+  <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+  <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  <script>
+  MathJax.Hub.Config({
+    showProcessingMessages: false,
+    jax: ["input/TeX", "output/HTML-CSS"],
+    tex2jax: {
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+    }
+  });
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+  </script>
+<!-- Google Analytics -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-11944342-4', 'madsenlab.org');
+  ga('send', 'pageview');
+
+</script>
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="../assets/js/html5shiv.js"></script>
+    <![endif]-->
+
+    <!-- Fav and touch icons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../assets/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../assets/ico/apple-touch-icon-114-precomposed.png">
+      <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../assets/ico/apple-touch-icon-72-precomposed.png">
+                    <link rel="apple-touch-icon-precomposed" href="../assets/ico/apple-touch-icon-57-precomposed.png">
+                                   <link rel="shortcut icon" href="../assets/ico/favicon.png">
+  </head>
+
+  <body>
+
+    <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container-fluid">
+          <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="brand" href="/">MadsenLabNotebook</a>
+          <div class="nav-collapse collapse">
+                  <!-- Search site using Google's index -->
+      <form class="navbar-search pull-right" method="get" action="http://google.com/search">
+        <p>
+          <input type="hidden" name="q" value="site:notebook.madsenlab.org" />
+          <input type="text" class="search-query" name="q" />
+          <button class="btn btn-mini" type="submit"><i class="icon-search"></i></button> 
+        </p>
+      </form>
+            <ul class="nav">
+              <li class="active"><a href="/">Home</a></li>
+              <li><a href="/bio.html">About Me</a></li>
+              <li><a href="http://about.me/mark.e.madsen">Contact</a></li>
+              <li><a href="/blog.html">Essays</a></li>
+              <li><a href="/feed.xml">Atom/RSS Feed</a></li>
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+    </div>
+
+    <div class="container-fluid">
+      <div class="row-fluid">
+        <div class="span3">
+          <div class="well sidebar-nav">
+            <ul class="nav nav-list">
+              <li><img src="/images/madsenlabnotebook-350px.png" class="img-responsive" alt="MadsenLab Notebook"/></li>
+              <li class="nav-header">General</li>
+              <li><a href="/tags.html">Notes by Tag</a></li>
+              <li><a href="/allposts.html">All Notes by Date</a></li>
+              <li><a href="/blog.html">Essays and General Writings</a></li>
+              <li class="nav-header">Projects</li>
+              <li><a href="/projects/coarsegraining/">Coarse Grained Models of CT</a></li>
+              <li><a href="/projects/nicheconstruction/">Niche Construction and CT Modeling</a></li>
+              <li><a href="/projects/structuredinfo/">CT of Structured Information</a></li>
+              <li class="nav-header">Simulations and Experiments</li>
+              <li><a href="/byexperiment.html">Notes by Experiment</a></li>
+              <li><a href="/bymodel.html">Notes by Simulation Model</a></li>
+              <li class="nav-header">Topics</li>
+              <li><a href="/tag/cultural-transmission.html">Cultural transmission theory</a></li>
+              <li><a href="/tag/evolutionary-theory.html">Darwinian evolutionary theory</a></li>
+			        <li><a href="/tag/dissertation.html">Dissertation Research</a></li>
+              <li><a href="/tag/reading-notes.html">Reading notes</a></li>
+              <li><a href="/openproblems.html">Open Research Problems</a></li>
+
+              <li class="nav-header">Meta</li>
+              <li><a href="/bio.html">Bio</a></li>
+              <li><a href="/software.html">Software</a></li>
+              <li><a href="/tools.html">Tools I Use</a></li>
+              <li><a href="/publications.html">Publications</a></li>
+              <li><a href="/openscience.html">About Open Science</a></li>
+			<li><a href="/labnotebook.html">About this Notebook</a></li>
+            </ul>
+          </div><!--/.well -->
+        </div><!--/span3-->
+
+            <div class="span8">
+  	<h2>CTMixtures Equifinality - Calibration Issues and Solutions</h2>
+	
+
+		<p class="text-info">
+		<table class="table table-condensed">
+			<tr class="info">
+				<td><small><i class="icon-calendar"></i>&nbsp;Created: 22 Sep 2014</small></td>
+				<td><small><i class="icon-calendar"></i>&nbsp;Modified: 12 Feb 2017</small></td>
+				<td><small><i class="icon-book">&nbsp;</i>&nbsp;<a href=http://greycite.knowledgeblog.org/bib/?uri=http://notebook.madsenlab.org/project-coarse%20grained%20model/model-ctmixtures/experiment-experiment-ctmixtures/2014/09/22/ctmixtures-model-calibration.html target='_blank'>BibTeX Entry</a>
+</small></td>
+				<td><small><i class="icon-book">&nbsp;</i>&nbsp;<a href=http://greycite.knowledgeblog.org/ris/?uri=http://notebook.madsenlab.org/project-coarse%20grained%20model/model-ctmixtures/experiment-experiment-ctmixtures/2014/09/22/ctmixtures-model-calibration.html target='_blank'>RIS Citation</a>
+</small></td>
+				<td><small><a href="javascript:window.print()"><i class="icon-print"></i>&nbsp;Print</a></small></td>
+				<!--<td><small><a href="/project-coarse%20grained%20model/model-ctmixtures/experiment-experiment-ctmixtures/2014/09/22/ctmixtures-model-calibration.html"></i>Permalink</a></small></td> -->
+			</tr>
+		</table>
+		</p>
+
+
+  	
+	
+  <h3 id="calibration-issue">Calibration Issue</h3>
+<p>I’m throwing out the data from <code>equifinality-1</code> because I believe the innovation rates were off in the simulation code. The observed number of variants in the population were much higher than I’d expect given the Wright-Fisher estimates from the frequency spectrum, so I checked deeper with both population and sampled data. It wasn’t simply a factor of two, either, which is the usual difference between WF and Moran dynamics for some quantities.</p>
+<p>I looked at Ewens <span class="citation" data-cites="Ewens2004">(2004)</span> again, and added a method to the <code>pytransmission</code> library to calculate the expected number of alleles in a sample, and its variance, given Equations 3.83 - 3.86.</p>
+<p>I also:</p>
+<ol type="1">
+<li>Changed the formula for turning the scaled innovation rate (<span class="math inline">\(\theta\)</span>) into a per-individual/locus rate (<span class="math inline">\(\mu\)</span>), choosing a simpler formula rather than solving the formula 3.98 in which a factor <span class="math inline">\(\mu / (1 - \mu)\)</span> occurs. Instead, <span class="math inline">\(\mu\)</span> is calculated simply as $/ N $.<br />
+</li>
+<li>Stopped using the “random locus” copying rule for neutral traits, since the Moran model is defined to have a whole individual drop out and be replaced by a clone of another individual.</li>
+</ol>
+<p>These changes are split across the <code>ctmixtures</code> and <code>pytransmission</code> codebases, involving at most single lines of code in several places.</p>
+<h3 id="difference-in-copying-algorithm-and-calibration">Difference in Copying Algorithm and Calibration</h3>
+<p>One potential issue is that I have two possible implementations of a neutral copying model, and one for frequency-dependent bias.</p>
+<ol type="1">
+<li>Neutral - copying events copy the whole individual (all loci)</li>
+<li>Neutral - copying events copy a single locus at a time</li>
+<li>FD Bias - copying events copy a single locus at a time</li>
+</ol>
+<p>There is, in a sense, no “right” way to write a copying algorithm. Most cultural evolutionary models of bias in the anthropological literature employ a single locus, and thus there is no difference. In the genetic case, “all-locus” copying is overwhelmingly more common than single locus copying, due to the nature of genetic replication.</p>
+<p>In the cultural case with many traits, it is distinctly a <em>modeling choice</em>. We might postulate, for example, that “all-trait” copying is likely prevalent only in early childhood development and social learning, when children are exposed to their parent’s cultural repertoire at high frequency and intensity. In contrast, we might expect that single trait copying would be the typical mode for adult individuals, as they engage in social learning within a specific task or context, with consequently smaller changes in their overall repertoire. This kind of developmental change, incidentally, may help account for why some aspects of cultural repertoires exhibit slow change empirically, despite the rapidity with which traits turn over in our simple models. By narrowing the “volume” of a repertoire that is changed at any given time as an adult, cultural evolution becomes “conservative” without necessarily employing frequency-dependent bias or homophilic preferences.</p>
+<p>So, in a sense, we could consider equifinality issues between both “all-locus” and “single-locus” neutral models, and bias models with both types of copying. Currently, the design of the FD bias algorithm makes it difficult to perform an “all-locus copy”, and it’s not entirely clear what it means to perform a biased copy of “most common” or “least common” traits. Do we:</p>
+<ol type="1">
+<li>Copy all of the traits of the individual who possesses the highest number of “most common” traits at the various loci?<br />
+</li>
+<li>Copy the most common traits from each locus, regardless of whether they come from the same individual?<br />
+</li>
+<li>Copy all of the traits of the individual who has the single most popular trait, regardless of locus?</li>
+</ol>
+<p>One way to resolve this issue is to restrict the current study to copying models which are most realistic for adult learners: single trait copying models. Employing the <code>NeutralRandomLocusCopyingRule</code> in direct comparison to the <code>BaseNeighborConformismRule</code> in <code>ctmixtures</code> creates an apples-to-apples contrast.</p>
+<p>The downside is that the neutral single-locus copying rule does not directly calibrate with the analytic expectations of the Moran infinite-alleles process, as described by Ewens, but today’s multiple calibration runs sheds light on why this is the case.</p>
+<p>I feel comfortable configuring simulation runs for <code>equifinality-2</code>, using the revised code, which will be released as Version 2.4.</p>
+<h3 id="references-cited" class="unnumbered">References Cited</h3>
+<div id="refs" class="references">
+<div id="ref-Ewens2004">
+<p>Ewens, Warren J. 2004. <em>Mathematical Population Genetics, Volume 1: Theoretical Introduction</em>. 2nd ed. New York, Springer.</p>
+</div>
+</div>
+  
+
+
+<div class="well well-small">
+<p class="text-info"><i class="icon-tags"></i>&nbsp;Tags</p>
+<ul>
+
+<li><a href='/tag/cultural+transmission.html'>cultural transmission</a></li>
+
+<li><a href='/tag/time+averaging.html'>time averaging</a></li>
+
+<li><a href='/tag/coarse+graining.html'>coarse graining</a></li>
+
+<li><a href='/tag/simulation.html'>simulation</a></li>
+
+<li><a href='/tag/dissertation.html'>dissertation</a></li>
+
+<li><a href='/tag/open+science.html'>open science</a></li>
+
+<li><a href='/tag/reproducible+science.html'>reproducible science</a></li>
+
+<li><a href='/tag/experiments.html'>experiments</a></li>
+
+<li><a href='/tag/experiment-ctmixture.html'>experiment-ctmixture</a></li>
+
+</ul>
+</div>
+
+
+</div>
+
+
+        
+      </div><!--/row-->
+
+
+    
+
+
+ 
+      <hr>
+
+      <footer>
+		        <p>&copy; Mark E. Madsen 2011-2015    <a href="mailto:mark@madsenlab.org">Email</a>&nbsp;||
+		  <a href="http://orcid.org/0000-0001-9320-8377">ORCId</a>&nbsp;||
+		  <a href="http://figshare.com/authors/Mark%20Madsen/279062">Figshare</a>&nbsp;||
+		    <a href="http://www.linkedin.com/profile/view?id=8751">LinkedIn</a>&nbsp;|| 	    <a href="http://github.com/mmadsen">GitHub</a>&nbsp;||
+        <a href="http://www.researchgate.net/profile/Mark_Madsen3/">ResearchGate</a>&nbsp;||
+        <a href="https://washington.academia.edu/MarkMadsen">Academia.edu</a>&nbsp;||
+        <a href="https://zenodo.org/search?ln=en&cc=software&p=Mark+Madsen&action_search=">Zenodo</a></p>
+      </footer>
+
+    </div><!--/.fluid-container-->
+
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="/assets/js/jquery.js"></script>
+    <script src="/assets/js/bootstrap-transition.js"></script>
+    <script src="/assets/js/bootstrap-alert.js"></script>
+    <script src="/assets/js/bootstrap-modal.js"></script>
+    <script src="/assets/js/bootstrap-dropdown.js"></script>
+    <script src="/assets/js/bootstrap-scrollspy.js"></script>
+    <script src="/assets/js/bootstrap-tab.js"></script>
+    <script src="/assets/js/bootstrap-tooltip.js"></script>
+    <script src="/assets/js/bootstrap-popover.js"></script>
+    <script src="/assets/js/bootstrap-button.js"></script>
+    <script src="/assets/js/bootstrap-collapse.js"></script>
+    <script src="/assets/js/bootstrap-carousel.js"></script>
+    <script src="/assets/js/bootstrap-typeahead.js"></script>
+
+  </body>
+</html>

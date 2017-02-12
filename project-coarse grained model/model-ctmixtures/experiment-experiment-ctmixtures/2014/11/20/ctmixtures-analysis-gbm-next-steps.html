@@ -1,0 +1,304 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head prefix="dc: http://purl.org/dc/terms/ og: http://ogp.me/ns#">
+    <meta charset="utf-8"/>
+    <title>CTMixtures Analysis -- RF to GBM and Next Steps</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="description" content="Lab Notebook for Mark E. Madsen"/>
+    <meta name="author" content="Mark E. Madsen"/>
+
+	<!-- Get date last modified from git log. (Uses current time if file entry not found, e.g. projects/)  -->
+	
+
+
+	<!-- For posts, page.date is the date they are published under, which we use as their 'canonical' dc:date -->
+	 
+	  
+	  
+
+	<!-- Posts declare modified timestamps in the sidebar, so would be redundant to put here. But then 
+	     pages don't have a dc:modified... unless we give them their own (modified) sidebar?  
+	-->
+	<!-- Ideally we would want date originally created from the _oldest_ git commit too...-->
+
+	<!-- RDFa Metadata (in DublinCore) -->
+	<meta property="dc:title" content="CTMixtures Analysis -- RF to GBM and Next Steps" />
+	<meta property="dc:creator" content="Mark E. Madsen" />
+	<meta property="dc:date" content="2014-11-20T00:00:00-08:00" />
+	<meta property="dc:format" content="text/html" />
+	<meta property="dc:language" content="en" />
+	<meta property="dc:identifier" content="/project-coarse%20grained%20model/model-ctmixtures/experiment-experiment-ctmixtures/2014/11/20/ctmixtures-analysis-gbm-next-steps.html" />
+	<meta property="dc:rights" content="CC BY-NC-SA 3.0" />
+	<meta property="dc:source" content="Lab Notebook for Mark E. Madsen" />
+	<meta property="dc:subject" content="Anthropology" /> 
+	<meta property="dc:type" content="website" /> 
+	<!-- RDFa Metadata (in OpenGraph) -->
+	<meta property="og:title" content="CTMixtures Analysis -- RF to GBM and Next Steps" />
+	<meta property="og:author" content="http://notebook.madsenlab.org/bio.html" />  <!-- Should be Liquid? URI? -->
+	<meta property="og:site_name" content="Lab Notebook for Mark E. Madsen" /> <!-- Same as dc:source? -->
+	<meta property="og:url" content="http://notebook.madsenlab.org/project-coarse%20grained%20model/model-ctmixtures/experiment-experiment-ctmixtures/2014/11/20/ctmixtures-analysis-gbm-next-steps.html" />
+	<meta property="og:type" content="website" /> 
+	<!-- Google Scholar Metadata -->
+	<meta name="citation_author" content="Mark E. Madsen"/>
+	<meta name="citation_date" content="2014-11-20T00:00:00-08:00"/>
+	<meta name="citation_title" content="CTMixtures Analysis -- RF to GBM and Next Steps"/>
+	<meta name="citation_journal_title" content="Lab Notebook for Mark E. Madsen"/>
+
+    <!-- Le styles -->
+    <link href="/assets/css/bootstrap.css" rel="stylesheet">
+    <link href="/assets/css/octicons.css" rel="stylesheet">
+    <style type="text/css">
+      body {
+        padding-top: 60px;
+        padding-bottom: 40px;
+      }
+      .sidebar-nav {
+        padding: 9px 0;
+      }
+
+      @media (max-width: 980px) {
+        /* Enable use of floated navbar text */
+        .navbar-text.pull-right {
+          float: none;
+          padding-left: 5px;
+          padding-right: 5px;
+        }
+      }
+    </style>
+    <link href="/assets/css/bootstrap-responsive.css" rel="stylesheet">
+    <link href="/css/syntax.css" rel="stylesheet">
+    
+  <script type="text/javascript" src="//use.typekit.net/xtg2arw.js"></script>
+  <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+  <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  <script>
+  MathJax.Hub.Config({
+    showProcessingMessages: false,
+    jax: ["input/TeX", "output/HTML-CSS"],
+    tex2jax: {
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+    }
+  });
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+  </script>
+<!-- Google Analytics -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-11944342-4', 'madsenlab.org');
+  ga('send', 'pageview');
+
+</script>
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="../assets/js/html5shiv.js"></script>
+    <![endif]-->
+
+    <!-- Fav and touch icons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../assets/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../assets/ico/apple-touch-icon-114-precomposed.png">
+      <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../assets/ico/apple-touch-icon-72-precomposed.png">
+                    <link rel="apple-touch-icon-precomposed" href="../assets/ico/apple-touch-icon-57-precomposed.png">
+                                   <link rel="shortcut icon" href="../assets/ico/favicon.png">
+  </head>
+
+  <body>
+
+    <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container-fluid">
+          <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="brand" href="/">MadsenLabNotebook</a>
+          <div class="nav-collapse collapse">
+                  <!-- Search site using Google's index -->
+      <form class="navbar-search pull-right" method="get" action="http://google.com/search">
+        <p>
+          <input type="hidden" name="q" value="site:notebook.madsenlab.org" />
+          <input type="text" class="search-query" name="q" />
+          <button class="btn btn-mini" type="submit"><i class="icon-search"></i></button> 
+        </p>
+      </form>
+            <ul class="nav">
+              <li class="active"><a href="/">Home</a></li>
+              <li><a href="/bio.html">About Me</a></li>
+              <li><a href="http://about.me/mark.e.madsen">Contact</a></li>
+              <li><a href="/blog.html">Essays</a></li>
+              <li><a href="/feed.xml">Atom/RSS Feed</a></li>
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+    </div>
+
+    <div class="container-fluid">
+      <div class="row-fluid">
+        <div class="span3">
+          <div class="well sidebar-nav">
+            <ul class="nav nav-list">
+              <li><img src="/images/madsenlabnotebook-350px.png" class="img-responsive" alt="MadsenLab Notebook"/></li>
+              <li class="nav-header">General</li>
+              <li><a href="/tags.html">Notes by Tag</a></li>
+              <li><a href="/allposts.html">All Notes by Date</a></li>
+              <li><a href="/blog.html">Essays and General Writings</a></li>
+              <li class="nav-header">Projects</li>
+              <li><a href="/projects/coarsegraining/">Coarse Grained Models of CT</a></li>
+              <li><a href="/projects/nicheconstruction/">Niche Construction and CT Modeling</a></li>
+              <li><a href="/projects/structuredinfo/">CT of Structured Information</a></li>
+              <li class="nav-header">Simulations and Experiments</li>
+              <li><a href="/byexperiment.html">Notes by Experiment</a></li>
+              <li><a href="/bymodel.html">Notes by Simulation Model</a></li>
+              <li class="nav-header">Topics</li>
+              <li><a href="/tag/cultural-transmission.html">Cultural transmission theory</a></li>
+              <li><a href="/tag/evolutionary-theory.html">Darwinian evolutionary theory</a></li>
+			        <li><a href="/tag/dissertation.html">Dissertation Research</a></li>
+              <li><a href="/tag/reading-notes.html">Reading notes</a></li>
+              <li><a href="/openproblems.html">Open Research Problems</a></li>
+
+              <li class="nav-header">Meta</li>
+              <li><a href="/bio.html">Bio</a></li>
+              <li><a href="/software.html">Software</a></li>
+              <li><a href="/tools.html">Tools I Use</a></li>
+              <li><a href="/publications.html">Publications</a></li>
+              <li><a href="/openscience.html">About Open Science</a></li>
+			<li><a href="/labnotebook.html">About this Notebook</a></li>
+            </ul>
+          </div><!--/.well -->
+        </div><!--/span3-->
+
+            <div class="span8">
+  	<h2>CTMixtures Analysis -- RF to GBM and Next Steps</h2>
+	
+
+		<p class="text-info">
+		<table class="table table-condensed">
+			<tr class="info">
+				<td><small><i class="icon-calendar"></i>&nbsp;Created: 20 Nov 2014</small></td>
+				<td><small><i class="icon-calendar"></i>&nbsp;Modified: 12 Feb 2017</small></td>
+				<td><small><i class="icon-book">&nbsp;</i>&nbsp;<a href=http://greycite.knowledgeblog.org/bib/?uri=http://notebook.madsenlab.org/project-coarse%20grained%20model/model-ctmixtures/experiment-experiment-ctmixtures/2014/11/20/ctmixtures-analysis-gbm-next-steps.html target='_blank'>BibTeX Entry</a>
+</small></td>
+				<td><small><i class="icon-book">&nbsp;</i>&nbsp;<a href=http://greycite.knowledgeblog.org/ris/?uri=http://notebook.madsenlab.org/project-coarse%20grained%20model/model-ctmixtures/experiment-experiment-ctmixtures/2014/11/20/ctmixtures-analysis-gbm-next-steps.html target='_blank'>RIS Citation</a>
+</small></td>
+				<td><small><a href="javascript:window.print()"><i class="icon-print"></i>&nbsp;Print</a></small></td>
+				<!--<td><small><a href="/project-coarse%20grained%20model/model-ctmixtures/experiment-experiment-ctmixtures/2014/11/20/ctmixtures-analysis-gbm-next-steps.html"></i>Permalink</a></small></td> -->
+			</tr>
+		</table>
+		</p>
+
+
+  	
+	
+  <h3 id="from-random-forests-to-gradient-boosted-machines">From Random Forests to Gradient Boosted Machines</h3>
+<p>I didn’t find any problems with random forests, but the time needed to do a properly tuned model fit using <code>caret</code> and a reasonable grid of <code>mtry</code> values, on 100K, 200K, or 800K data points pretty prohibitive, especially if you’re doing repeated CV to find the best tuned model fit on the training set. A model fit and tuning was taking 24 to 36 hours, even when parallelized on 4 cores. Since I’m doing many analyses, the options seemed to boil down to (1) run every analysis on large EC2 instances with 16 or 32 cores, hoping to shave down the analytic time to something reasonable, or (2) find a classifier with high accuracy but a shorter runtime.</p>
+<p>Boosted classification trees are always among the top classifier algorithms, and in Friedman’s gradient boosting version, achieve extremely high accuracy while mostly avoiding overfitting, and providing measures of predictor importance. Gradient boosted machines, like random forests, break the classic tradeoff between bias and variance, allowing us (within limits) to optimize both <span class="citation" data-cites="AlexeyNatekin:2013ew hastie2009elements">(Alexey Natekin 2013; T. Hastie et al. 2009)</span>. They do so by combining several approaches to randomization and aggregation:</p>
+<ol type="1">
+<li>Applying “shrinkage” to each boosting iteration to dampen the effect of each gradient step, forcing slow convergence of the model to an averaged estimate of the class for each data point.</li>
+<li>Out-of-bag testing internal to the algorithm.</li>
+<li>Sequential reweighting of data points in determining classification trees, giving misclassified points greater weight in determining the tree splits.</li>
+</ol>
+<p>Using the superb <code>caret</code> package from Max Kuhn allows an easy switch between classifiers without changing most of the analysis code, so the change was simple. By default, the <code>gbm</code> package through <code>caret</code> uses bootstrap resampling with a small number of boosting iterations, which is sufficient for seeing how the package works, but not a real analysis. Currently, I am using the following tuning parameters:</p>
+<ul>
+<li>interaction depth: <span class="math inline">\([2, 4, 6, 8, 10, 12]\)</span></li>
+<li>number of trees: <span class="math inline">\([25, 50, 75, 100, 125, 150, 175, 200, 225, 250]\)</span></li>
+<li>shrinkage: 0.05</li>
+<li>tuning method: repeated 10-fold cross validation, 5 repeats</li>
+</ul>
+<p>In my initial tests, plots of CV accuracy tend to plateau after 100 iterations, with larger interaction depth, so technically I don’t really need to include smaller values in the tuning parameters. But the <code>gbm + caret</code> package optimizes by fitting the largest models, can derive the smaller ones from the full model without recalculation, so the execution time is largely controlled by the largest values of the tuning parameters and the number of repeated CV folds and repeats.</p>
+<p>In most cases, a model fit to 100K data points, with 20% held out as a strict test set, takes between 80 and 90 minutes, with 4 cores on a Retina MBP. That’s acceptable, although I’ve put some effort into ensuring that all of my analyses can be run on the command line via a Makefile, automatically storing their results in <code>.Rdata</code> files for later interpretation and use. That way, I can do final runs on a server instance.</p>
+<p>The quality of the classifications is comparable to, and even slightly higher than, the random forest classifications of these data. The difference is very small and likely not significant, so for present purposes, I would consider GBM and RF to be equivalent and acceptable methods for attacking equifinality issues between cultural transmission models.</p>
+<h3 id="references-cited" class="unnumbered">References Cited</h3>
+<div id="refs" class="references">
+<div id="ref-AlexeyNatekin:2013ew">
+<p>Alexey Natekin, Alois Knoll. 2013. “Gradient boosting machines, a tutorial.” <em>Frontiers in Neurorobotics</em> 7. Frontiers Media SA: 21. doi:<a href="https://doi.org/10.3389/fnbot.2013.00021">10.3389/fnbot.2013.00021</a>.</p>
+</div>
+<div id="ref-hastie2009elements">
+<p>Hastie, Trevor, Robert Tibshirani, Jerome Friedman, T Hastie, J Friedman, and R Tibshirani. 2009. <em>The Elements of Statistical Learning</em>. Vol. 2. 1. Springer.</p>
+</div>
+</div>
+  
+
+
+<div class="well well-small">
+<p class="text-info"><i class="icon-tags"></i>&nbsp;Tags</p>
+<ul>
+
+<li><a href='/tag/cultural+transmission.html'>cultural transmission</a></li>
+
+<li><a href='/tag/time+averaging.html'>time averaging</a></li>
+
+<li><a href='/tag/coarse+graining.html'>coarse graining</a></li>
+
+<li><a href='/tag/ML.html'>ML</a></li>
+
+<li><a href='/tag/simulation.html'>simulation</a></li>
+
+<li><a href='/tag/dissertation.html'>dissertation</a></li>
+
+<li><a href='/tag/open+science.html'>open science</a></li>
+
+<li><a href='/tag/reproducible+science.html'>reproducible science</a></li>
+
+<li><a href='/tag/experiments.html'>experiments</a></li>
+
+<li><a href='/tag/experiment-ctmixture.html'>experiment-ctmixture</a></li>
+
+</ul>
+</div>
+
+
+</div>
+
+
+        
+      </div><!--/row-->
+
+
+    
+
+
+ 
+      <hr>
+
+      <footer>
+		        <p>&copy; Mark E. Madsen 2011-2015    <a href="mailto:mark@madsenlab.org">Email</a>&nbsp;||
+		  <a href="http://orcid.org/0000-0001-9320-8377">ORCId</a>&nbsp;||
+		  <a href="http://figshare.com/authors/Mark%20Madsen/279062">Figshare</a>&nbsp;||
+		    <a href="http://www.linkedin.com/profile/view?id=8751">LinkedIn</a>&nbsp;|| 	    <a href="http://github.com/mmadsen">GitHub</a>&nbsp;||
+        <a href="http://www.researchgate.net/profile/Mark_Madsen3/">ResearchGate</a>&nbsp;||
+        <a href="https://washington.academia.edu/MarkMadsen">Academia.edu</a>&nbsp;||
+        <a href="https://zenodo.org/search?ln=en&cc=software&p=Mark+Madsen&action_search=">Zenodo</a></p>
+      </footer>
+
+    </div><!--/.fluid-container-->
+
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="/assets/js/jquery.js"></script>
+    <script src="/assets/js/bootstrap-transition.js"></script>
+    <script src="/assets/js/bootstrap-alert.js"></script>
+    <script src="/assets/js/bootstrap-modal.js"></script>
+    <script src="/assets/js/bootstrap-dropdown.js"></script>
+    <script src="/assets/js/bootstrap-scrollspy.js"></script>
+    <script src="/assets/js/bootstrap-tab.js"></script>
+    <script src="/assets/js/bootstrap-tooltip.js"></script>
+    <script src="/assets/js/bootstrap-popover.js"></script>
+    <script src="/assets/js/bootstrap-button.js"></script>
+    <script src="/assets/js/bootstrap-collapse.js"></script>
+    <script src="/assets/js/bootstrap-carousel.js"></script>
+    <script src="/assets/js/bootstrap-typeahead.js"></script>
+
+  </body>
+</html>

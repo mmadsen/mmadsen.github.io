@@ -1,0 +1,381 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head prefix="dc: http://purl.org/dc/terms/ og: http://ogp.me/ns#">
+    <meta charset="utf-8"/>
+    <title>Loss Functions for ABC Model Selection with Seriation Graphs as Data</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="description" content="Lab Notebook for Mark E. Madsen"/>
+    <meta name="author" content="Mark E. Madsen"/>
+
+	<!-- Get date last modified from git log. (Uses current time if file entry not found, e.g. projects/)  -->
+	
+
+
+	<!-- For posts, page.date is the date they are published under, which we use as their 'canonical' dc:date -->
+	 
+	  
+	  
+
+	<!-- Posts declare modified timestamps in the sidebar, so would be redundant to put here. But then 
+	     pages don't have a dc:modified... unless we give them their own (modified) sidebar?  
+	-->
+	<!-- Ideally we would want date originally created from the _oldest_ git commit too...-->
+
+	<!-- RDFa Metadata (in DublinCore) -->
+	<meta property="dc:title" content="Loss Functions for ABC Model Selection with Seriation Graphs as Data" />
+	<meta property="dc:creator" content="Mark E. Madsen" />
+	<meta property="dc:date" content="2016-01-26T00:00:00-08:00" />
+	<meta property="dc:format" content="text/html" />
+	<meta property="dc:language" content="en" />
+	<meta property="dc:identifier" content="/project-coarse%20grained%20model/model-seriationct/experiment-experiment-seriation-classification/2016/01/26/quantifying-similarity-seriations.html" />
+	<meta property="dc:rights" content="CC BY-NC-SA 3.0" />
+	<meta property="dc:source" content="Lab Notebook for Mark E. Madsen" />
+	<meta property="dc:subject" content="Anthropology" /> 
+	<meta property="dc:type" content="website" /> 
+	<!-- RDFa Metadata (in OpenGraph) -->
+	<meta property="og:title" content="Loss Functions for ABC Model Selection with Seriation Graphs as Data" />
+	<meta property="og:author" content="http://notebook.madsenlab.org/bio.html" />  <!-- Should be Liquid? URI? -->
+	<meta property="og:site_name" content="Lab Notebook for Mark E. Madsen" /> <!-- Same as dc:source? -->
+	<meta property="og:url" content="http://notebook.madsenlab.org/project-coarse%20grained%20model/model-seriationct/experiment-experiment-seriation-classification/2016/01/26/quantifying-similarity-seriations.html" />
+	<meta property="og:type" content="website" /> 
+	<!-- Google Scholar Metadata -->
+	<meta name="citation_author" content="Mark E. Madsen"/>
+	<meta name="citation_date" content="2016-01-26T00:00:00-08:00"/>
+	<meta name="citation_title" content="Loss Functions for ABC Model Selection with Seriation Graphs as Data"/>
+	<meta name="citation_journal_title" content="Lab Notebook for Mark E. Madsen"/>
+
+    <!-- Le styles -->
+    <link href="/assets/css/bootstrap.css" rel="stylesheet">
+    <link href="/assets/css/octicons.css" rel="stylesheet">
+    <style type="text/css">
+      body {
+        padding-top: 60px;
+        padding-bottom: 40px;
+      }
+      .sidebar-nav {
+        padding: 9px 0;
+      }
+
+      @media (max-width: 980px) {
+        /* Enable use of floated navbar text */
+        .navbar-text.pull-right {
+          float: none;
+          padding-left: 5px;
+          padding-right: 5px;
+        }
+      }
+    </style>
+    <link href="/assets/css/bootstrap-responsive.css" rel="stylesheet">
+    <link href="/css/syntax.css" rel="stylesheet">
+    
+  <script type="text/javascript" src="//use.typekit.net/xtg2arw.js"></script>
+  <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+  <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  <script>
+  MathJax.Hub.Config({
+    showProcessingMessages: false,
+    jax: ["input/TeX", "output/HTML-CSS"],
+    tex2jax: {
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+    }
+  });
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+  </script>
+<!-- Google Analytics -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-11944342-4', 'madsenlab.org');
+  ga('send', 'pageview');
+
+</script>
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="../assets/js/html5shiv.js"></script>
+    <![endif]-->
+
+    <!-- Fav and touch icons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../assets/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../assets/ico/apple-touch-icon-114-precomposed.png">
+      <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../assets/ico/apple-touch-icon-72-precomposed.png">
+                    <link rel="apple-touch-icon-precomposed" href="../assets/ico/apple-touch-icon-57-precomposed.png">
+                                   <link rel="shortcut icon" href="../assets/ico/favicon.png">
+  </head>
+
+  <body>
+
+    <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container-fluid">
+          <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="brand" href="/">MadsenLabNotebook</a>
+          <div class="nav-collapse collapse">
+                  <!-- Search site using Google's index -->
+      <form class="navbar-search pull-right" method="get" action="http://google.com/search">
+        <p>
+          <input type="hidden" name="q" value="site:notebook.madsenlab.org" />
+          <input type="text" class="search-query" name="q" />
+          <button class="btn btn-mini" type="submit"><i class="icon-search"></i></button> 
+        </p>
+      </form>
+            <ul class="nav">
+              <li class="active"><a href="/">Home</a></li>
+              <li><a href="/bio.html">About Me</a></li>
+              <li><a href="http://about.me/mark.e.madsen">Contact</a></li>
+              <li><a href="/blog.html">Essays</a></li>
+              <li><a href="/feed.xml">Atom/RSS Feed</a></li>
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+    </div>
+
+    <div class="container-fluid">
+      <div class="row-fluid">
+        <div class="span3">
+          <div class="well sidebar-nav">
+            <ul class="nav nav-list">
+              <li><img src="/images/madsenlabnotebook-350px.png" class="img-responsive" alt="MadsenLab Notebook"/></li>
+              <li class="nav-header">General</li>
+              <li><a href="/tags.html">Notes by Tag</a></li>
+              <li><a href="/allposts.html">All Notes by Date</a></li>
+              <li><a href="/blog.html">Essays and General Writings</a></li>
+              <li class="nav-header">Projects</li>
+              <li><a href="/projects/coarsegraining/">Coarse Grained Models of CT</a></li>
+              <li><a href="/projects/nicheconstruction/">Niche Construction and CT Modeling</a></li>
+              <li><a href="/projects/structuredinfo/">CT of Structured Information</a></li>
+              <li class="nav-header">Simulations and Experiments</li>
+              <li><a href="/byexperiment.html">Notes by Experiment</a></li>
+              <li><a href="/bymodel.html">Notes by Simulation Model</a></li>
+              <li class="nav-header">Topics</li>
+              <li><a href="/tag/cultural-transmission.html">Cultural transmission theory</a></li>
+              <li><a href="/tag/evolutionary-theory.html">Darwinian evolutionary theory</a></li>
+			        <li><a href="/tag/dissertation.html">Dissertation Research</a></li>
+              <li><a href="/tag/reading-notes.html">Reading notes</a></li>
+              <li><a href="/openproblems.html">Open Research Problems</a></li>
+
+              <li class="nav-header">Meta</li>
+              <li><a href="/bio.html">Bio</a></li>
+              <li><a href="/software.html">Software</a></li>
+              <li><a href="/tools.html">Tools I Use</a></li>
+              <li><a href="/publications.html">Publications</a></li>
+              <li><a href="/openscience.html">About Open Science</a></li>
+			<li><a href="/labnotebook.html">About this Notebook</a></li>
+            </ul>
+          </div><!--/.well -->
+        </div><!--/span3-->
+
+            <div class="span8">
+  	<h2>Loss Functions for ABC Model Selection with Seriation Graphs as Data</h2>
+	
+
+		<p class="text-info">
+		<table class="table table-condensed">
+			<tr class="info">
+				<td><small><i class="icon-calendar"></i>&nbsp;Created: 26 Jan 2016</small></td>
+				<td><small><i class="icon-calendar"></i>&nbsp;Modified: 12 Feb 2017</small></td>
+				<td><small><i class="icon-book">&nbsp;</i>&nbsp;<a href=http://greycite.knowledgeblog.org/bib/?uri=http://notebook.madsenlab.org/project-coarse%20grained%20model/model-seriationct/experiment-experiment-seriation-classification/2016/01/26/quantifying-similarity-seriations.html target='_blank'>BibTeX Entry</a>
+</small></td>
+				<td><small><i class="icon-book">&nbsp;</i>&nbsp;<a href=http://greycite.knowledgeblog.org/ris/?uri=http://notebook.madsenlab.org/project-coarse%20grained%20model/model-seriationct/experiment-experiment-seriation-classification/2016/01/26/quantifying-similarity-seriations.html target='_blank'>RIS Citation</a>
+</small></td>
+				<td><small><a href="javascript:window.print()"><i class="icon-print"></i>&nbsp;Print</a></small></td>
+				<!--<td><small><a href="/project-coarse%20grained%20model/model-seriationct/experiment-experiment-seriation-classification/2016/01/26/quantifying-similarity-seriations.html"></i>Permalink</a></small></td> -->
+			</tr>
+		</table>
+		</p>
+
+
+  	
+	
+  <h3 id="background">Background</h3>
+<p>Traditional archaeological seriation generated solutions that always had a static linear order, either by use of a multidimensional scaling algorithm or via Fordian manual shuffling of assemblages. In such context, departures from a “correct” solution can be measured by the number of “out of order” assemblages (or via a more opaque “stress” statistic in some cases).</p>
+<p>Last year Carl Lipo and I <a href="http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0124942">introduced a method</a> for finding sets of classical Fordian seriations from a set of assemblages via an agglomerative iterative procedure <span class="citation" data-cites="Lipo2015">(Lipo 2015)</span>. We called the resulting seriations “iterative deterministic seriation solutions” or IDSS. IDSS is capable of using any metric for joining assemblages, including classic unimodality, or various distance measures (something we’ll be <a href="http://notebook.madsenlab.org/essays/2015/09/06/saa2016-abstract.html">talking about at the SAA meetings this year</a>).</p>
+<p>When IDSS finds groups of data points that seriate together, but do not seriate (within thresholds) with other groups of points, several solutions are created rather than forcing all of the data points into a single scaling or solution (as has been typical practice with statistical seriation by archaeologists in the past). Instead, IDSS outputs all valid solution sets, since the discontinuities between solution sets may indicate lack of cultural interaction, poor recovery sampling of the archaeological record, or other real-world factors.</p>
+<p>Frequently, one assemblage or data point will occur in multiple solutions, and when this occurs IDSS overlays the solutions and forms a tree. From our paper, Figure 1 shows an IDSS frequency seriation solution for archaeological sites in the Central Mississippi River Valley. Each assemblage is represented by decorated ceramic class frequencies, and we can see that there are at least three major solutions which share assemblage 13-O-7, and a number of minor branches.</p>
+<figure>
+<img src="/images/idss-fig12-pfg-solution.png" alt="Figure 1: IDSS seriation solution for PFG sites in Cental Mississippi River Valley" /><figcaption>Figure 1: IDSS seriation solution for PFG sites in Cental Mississippi River Valley</figcaption>
+</figure>
+<h3 id="the-problem">The Problem</h3>
+<p>My current research is aimed at developing ways of treating IDSS seriation solution graphs as data points in machine learning algorithms, with the goal of fitting coarse grained, regional models of cultural transmission and information diffusion to our data. Seriations are the perfect tool for capturing regional-scale social influences that are time-transgressive.</p>
+<p>There are several challenges in this work. The first, which is described in a <a href="http://localhost:4000/project-coarse%20grained%20model/model-seriationct/experiment-experiment-seriationct/2014/06/17/seriationct-requirements.html">previous post</a> is to create regional metapopulation models with cultural transmission that yield seriations, rather than just type or variant frequencies, as their observable output.</p>
+<p>The second challenge is then to find an inferential framework for model selection which allows one to measure the goodness-of-fit between the theoretical model’s output, and specific empirical seriations like Figure 1.</p>
+<p>This second challenge is perfectly suited to an Approximate Bayesian Computation approach <span class="citation" data-cites="Beaumont2002 Csillery2010 Marin2012 Toni2009">(Beaumont, Zhang, and Balding 2002; Csilléry et al. 2010; Marin et al. 2012; Toni et al. 2009)</span>, since while we can simulate data from each social learning model, writing down the likelihood function for each model is generally an intractable problem.</p>
+<p>In brief, ABC model selection involves simulating a large number of synthetic data points from each model, calculating summary statistics from those data points, measuring the distance (losses) between summary statistics and observed data, and choosing the model whose losses are the smallest.</p>
+<p>In my current work, the “models” are actually a combination of:</p>
+<ol type="1">
+<li>A social learning model (e.g., unbiased cultural transmission or conformist transmission)</li>
+<li>Parameters for that social learning model (e.g., innovation rates)</li>
+<li>A spatiotemporal population model that describes how communities evolved in a region and what the pattern of community interaction was over time</li>
+</ol>
+<p>This is a fairly complex “model” to fit, but we can easily simulate samples of cultural variant frequencies across subpopulations from each model (using the <a href="https://github.com/mmadsen/seriationct"><code>SeriationCT</code> software suite</a>, and then use IDSS to seriate those variant frequencies, yielding simulated versions of Figure 1.</p>
+<p>What we need, then, is a way to measure the distance or loss between Figure 1 and various simulated seriation graphs. Once we have a good loss function, we should be able to perform ABC model selection on seriation graphs.</p>
+<h3 id="distanceloss-for-unlabelled-unordered-graphs">Distance/Loss for Unlabelled, Unordered Graphs</h3>
+<p>In general, we want a function which measures the structural similarity of two graphs. There are many approaches to the problem (see <span class="citation" data-cites="zager2008graph">(Zager and Verghese 2008)</span> for a review). Graph edit distance would be a fairly natural metric, but most algorithms for edit distance rely on matching node identities, and many algorithms also rely upon graphs being ordered as well as labelled.</p>
+<p>The simulated seriations which come out of the <code>SeriationCT</code> package are unlabelled, and we can’t label them with the identities of the assemblages in our empirical data. So our loss function has to measure structural similarity without reference to node identity, or any notion of ordering or orientation for the graphs.</p>
+<p>This leads fairly directly to using purely algebraic properties of the seriation graphs, and in particular the spectral properties of various matrices associated with the graphs. We know that the eigenvalues of the (possibly binarized) adjacency matrix are related to the edge structure of a graph, and that the eigenvalues of the Laplacian of the adjacency matrix are an even more sensitive indicator of structure <span class="citation" data-cites="godsil2001algebraic">(Godsil and Royle 2001)</span>.</p>
+<p>In a technical report, Koutra et al. <span class="citation" data-cites="koutra2011algorithms">(Koutra et al. 2011)</span> suggest using the sum of squared differences between the Laplacian spectra of two graphs, trimming the spectra to use only 90% of the total eigenvalue weight. This is attractive from a statistical perspective, essentially giving us the L2 loss between Laplacian spectra for two graphs.</p>
+<p>Given adjacency matrices <span class="math inline">\(A_1\)</span> and <span class="math inline">\(A_2\)</span> for graphs <span class="math inline">\(G_1\)</span> and <span class="math inline">\(G_2\)</span>, the Laplacian matrix is simply <span class="math inline">\(L_1 = D_1 - A_1\)</span> and <span class="math inline">\(L_2 = D_2 - A_2\)</span>, where <span class="math inline">\(D_i\)</span> are the corresponding diagonal matrix of vertex degrees. The spectrum is then the set of eigenvalues <span class="math inline">\((\lambda_1 \ldots \lambda_n)\)</span>. Since the Laplacian is positive semi-definite, all of the eigenvalues in the spectrum are positive real numbers. It is possible to put some bounds on the eigenvalues, and thus predetermine the range of possible loss function values for graphs with a given number of vertices, but I leave that to a future post.</p>
+<p>If we use the full spectrum of values, our L2 spectral loss function is then:</p>
+<p><span class="math inline">\(\mathcal{L}_{sp} = \sum_{i=1}^{n} (\lambda_{1i} - \lambda_{2i})^2\)</span></p>
+<p>and if we only use a trimmed set of eigenvalues (say, those which contribute to the top 90% of the total sum of the spectrum), we sort the list of those <span class="math inline">\(k\)</span> eigenvalues and replace <span class="math inline">\(n\)</span> with <span class="math inline">\(k\)</span> in the previous equation.</p>
+<h3 id="implementation">Implementation</h3>
+<p>In Python, we can implement this loss function for NetworkX graph objects as follows (now part of the <code>seriationct.analytics</code> module):</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">
+<span class="im">import</span> networkx <span class="im">as</span> nx
+<span class="im">import</span> numpy <span class="im">as</span> np
+
+<span class="kw">def</span> graph_spectral_similarity(g1, g2, threshold <span class="op">=</span> <span class="fl">0.9</span>):
+    <span class="co">&quot;&quot;&quot;</span>
+<span class="co">    Returns the eigenvector similarity, between [0, 1], for two NetworkX graph objects, as</span>
+<span class="co">    the sum of squared differences between the sets of Laplacian matrix eigenvalues that account</span>
+<span class="co">    for a given fraction of the total sum of the eigenvalues (default = 90%).</span>
+
+<span class="co">    Similarity scores of 0.0 indicate identical graphs (given the adjacency matrix, not necessarily</span>
+<span class="co">    node identity or annotations), and large scores indicate strong dissimilarity.  The statistic is</span>
+<span class="co">    unbounded above.</span>
+<span class="co">    &quot;&quot;&quot;</span>
+    l1 <span class="op">=</span> nx.spectrum.laplacian_spectrum(g1, weight<span class="op">=</span><span class="va">None</span>)
+    l2 <span class="op">=</span> nx.spectrum.laplacian_spectrum(g2, weight<span class="op">=</span><span class="va">None</span>)
+    k1 <span class="op">=</span> _get_num_eigenvalues_sum_to_threshold(l1, threshold<span class="op">=</span>threshold)
+    k2 <span class="op">=</span> _get_num_eigenvalues_sum_to_threshold(l2, threshold<span class="op">=</span>threshold)
+    k <span class="op">=</span> <span class="bu">min</span>(k1,k2)
+    sim <span class="op">=</span> <span class="bu">sum</span>((l1[:k] <span class="op">-</span> l2[:k]) <span class="op">**</span> <span class="dv">2</span>)
+    <span class="cf">return</span> sim
+
+
+<span class="kw">def</span> _get_num_eigenvalues_sum_to_threshold(spectrum, threshold <span class="op">=</span> <span class="fl">0.9</span>):
+    <span class="co">&quot;&quot;&quot;</span>
+<span class="co">    Given a spectrum of eigenvalues, find the smallest number of eigenvalues (k)</span>
+<span class="co">    such that the sum of the k largest eigenvalues of the spectrum</span>
+<span class="co">    constitutes at least a fraction (threshold, default = 0.9) of the sum of all the eigenvalues.</span>
+<span class="co">    &quot;&quot;&quot;</span>
+    <span class="cf">if</span> threshold <span class="op">is</span> <span class="va">None</span>:
+        <span class="cf">return</span> <span class="bu">len</span>(spectrum)
+
+    total <span class="op">=</span> <span class="bu">sum</span>(spectrum)
+    <span class="cf">if</span> total <span class="op">==</span> <span class="fl">0.0</span>:
+        <span class="cf">return</span> <span class="bu">len</span>(spectrum)
+
+    spectrum <span class="op">=</span> <span class="bu">sorted</span>(spectrum, reverse<span class="op">=</span><span class="va">True</span>)
+    running_total <span class="op">=</span> <span class="fl">0.0</span>
+
+    <span class="cf">for</span> i <span class="op">in</span> <span class="bu">range</span>(<span class="bu">len</span>(spectrum)):
+        running_total <span class="op">+=</span> spectrum[i]
+        <span class="cf">if</span> running_total <span class="op">/</span> total <span class="op">&gt;=</span> threshold:
+            <span class="cf">return</span> i <span class="op">+</span> <span class="dv">1</span>
+    <span class="co"># guard</span>
+    <span class="cf">return</span> <span class="bu">len</span>(spectrum)
+
+
+</code></pre></div>
+<h3 id="references-cited" class="unnumbered">References Cited</h3>
+<div id="refs" class="references">
+<div id="ref-Beaumont2002">
+<p>Beaumont, Mark A, W Zhang, and D J Balding. 2002. “Approximate Bayesian computation in population genetics.” <em>Genetics</em>. <a href="http://www.genetics.org/content/162/4/2025.short" class="uri">http://www.genetics.org/content/162/4/2025.short</a>.</p>
+</div>
+<div id="ref-Csillery2010">
+<p>Csilléry, Katalin, Michael G B Blum, Oscar E Gaggiotti, and Olivier François. 2010. “Approximate Bayesian Computation (ABC) in practice.” <em>Trends in Ecology &amp; Evolution</em> 25 (7): 410–18. doi:<a href="https://doi.org/10.1016/j.tree.2010.04.001">10.1016/j.tree.2010.04.001</a>.</p>
+</div>
+<div id="ref-godsil2001algebraic">
+<p>Godsil, Christopher David, and Gordon Royle. 2001. <em>Algebraic Graph Theory</em>. Vol. 8. Springer New York.</p>
+</div>
+<div id="ref-koutra2011algorithms">
+<p>Koutra, Danai, Ankur Parikh, Aaditya Ramdas, and Jing Xiang. 2011. “Algorithms for Graph Similarity and Subgraph Matching.” Technical Report of Carnegie-Mellon-University.</p>
+</div>
+<div id="ref-Lipo2015">
+<p>Lipo, Mark E. AND Dunnell, Carl P. AND Madsen. 2015. “A Theoretically-Sufficient and Computationally-Practical Technique for Deterministic Frequency Seriation.” <em>PLoS ONE</em> 10 (4). Public Library of Science: e0124942. doi:<a href="https://doi.org/10.1371/journal.pone.0124942">10.1371/journal.pone.0124942</a>.</p>
+</div>
+<div id="ref-Marin2012">
+<p>Marin, Jean-Michel, Pierre Pudlo, Christian P Robert, and Robin J Ryder. 2012. “Approximate Bayesian Computational Methods.” <em>Statistics and Computing</em> 22 (6). Springer: 1167–80.</p>
+</div>
+<div id="ref-Toni2009">
+<p>Toni, Tina, David Welch, Natalja Strelkowa, Andreas Ipsen, and Michael P H Stumpf. 2009. “Approximate Bayesian computation scheme for parameter inference and model selection in dynamical systems.” <em>Journal of Royal Society Interface</em> 6 (31). The Royal Society: 187–202. doi:<a href="https://doi.org/10.1098/rsif.2008.0172">10.1098/rsif.2008.0172</a>.</p>
+</div>
+<div id="ref-zager2008graph">
+<p>Zager, Laura A, and George C Verghese. 2008. “Graph Similarity Scoring and Matching.” <em>Applied Mathematics Letters</em> 21 (1). Elsevier: 86–94.</p>
+</div>
+</div>
+  
+
+
+<div class="well well-small">
+<p class="text-info"><i class="icon-tags"></i>&nbsp;Tags</p>
+<ul>
+
+<li><a href='/tag/cultural+transmission.html'>cultural transmission</a></li>
+
+<li><a href='/tag/coarse+graining.html'>coarse graining</a></li>
+
+<li><a href='/tag/simulation.html'>simulation</a></li>
+
+<li><a href='/tag/dissertation.html'>dissertation</a></li>
+
+<li><a href='/tag/seriation.html'>seriation</a></li>
+
+<li><a href='/tag/algorithms.html'>algorithms</a></li>
+
+<li><a href='/tag/ML.html'>ML</a></li>
+
+<li><a href='/tag/ABC.html'>ABC</a></li>
+
+</ul>
+</div>
+
+
+</div>
+
+
+        
+      </div><!--/row-->
+
+
+    
+
+
+ 
+      <hr>
+
+      <footer>
+		        <p>&copy; Mark E. Madsen 2011-2015    <a href="mailto:mark@madsenlab.org">Email</a>&nbsp;||
+		  <a href="http://orcid.org/0000-0001-9320-8377">ORCId</a>&nbsp;||
+		  <a href="http://figshare.com/authors/Mark%20Madsen/279062">Figshare</a>&nbsp;||
+		    <a href="http://www.linkedin.com/profile/view?id=8751">LinkedIn</a>&nbsp;|| 	    <a href="http://github.com/mmadsen">GitHub</a>&nbsp;||
+        <a href="http://www.researchgate.net/profile/Mark_Madsen3/">ResearchGate</a>&nbsp;||
+        <a href="https://washington.academia.edu/MarkMadsen">Academia.edu</a>&nbsp;||
+        <a href="https://zenodo.org/search?ln=en&cc=software&p=Mark+Madsen&action_search=">Zenodo</a></p>
+      </footer>
+
+    </div><!--/.fluid-container-->
+
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="/assets/js/jquery.js"></script>
+    <script src="/assets/js/bootstrap-transition.js"></script>
+    <script src="/assets/js/bootstrap-alert.js"></script>
+    <script src="/assets/js/bootstrap-modal.js"></script>
+    <script src="/assets/js/bootstrap-dropdown.js"></script>
+    <script src="/assets/js/bootstrap-scrollspy.js"></script>
+    <script src="/assets/js/bootstrap-tab.js"></script>
+    <script src="/assets/js/bootstrap-tooltip.js"></script>
+    <script src="/assets/js/bootstrap-popover.js"></script>
+    <script src="/assets/js/bootstrap-button.js"></script>
+    <script src="/assets/js/bootstrap-collapse.js"></script>
+    <script src="/assets/js/bootstrap-carousel.js"></script>
+    <script src="/assets/js/bootstrap-typeahead.js"></script>
+
+  </body>
+</html>
