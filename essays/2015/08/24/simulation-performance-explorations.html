@@ -254,18 +254,18 @@ Vec and Parallelism  - 1m36.847s</code></pre>
 <h3 id="parallelized-random-number-generation">Parallelized Random Number Generation</h3>
 <p>Creating 100K random variates is still a fairly time-consuming step, and this may be an area where using a GPU (if available) is a good idea, since at least CUDA (if present) has a high performance random number library. I hate to have hardware-specific code, though, especially if Apple moves away from NVIDIA cards in the Macbook Pros, which makes it hard to develop while mobile or away from home.</p>
 <p>There’s no good reason why I shouldn’t be able to parallelize random number generation using OpenMP, however, as long as each thread has its own private engine variable, which is accomplished by initializing the engine and distributions inside the parallel region, instead of during object construction:</p>
-<div class="sourceCode"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span class="ot">#pragma omp parallel shared(test_par)</span>
-{
-        std::random_device rd;
-        std::mt19937_64 eng(rd());
-        std::uniform_int_distribution&lt;<span class="dt">int</span>&gt; uniform_int{<span class="dv">0</span>, test - <span class="dv">1</span>};
-        num_threads = omp_get_num_threads();
-
-        <span class="ot">#pragma omp for</span>
-        <span class="kw">for</span>(i = <span class="dv">0</span>; i &lt; test; i++) {
-                test_par[i] = uniform_int(eng);
-        }
-}</code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb6-1" title="1"><span class="pp">#pragma omp parallel shared(test_par)</span></a>
+<a class="sourceLine" id="cb6-2" title="2">{</a>
+<a class="sourceLine" id="cb6-3" title="3">        <span class="bu">std::</span>random_device rd;</a>
+<a class="sourceLine" id="cb6-4" title="4">        <span class="bu">std::</span>mt19937_64 eng(rd());</a>
+<a class="sourceLine" id="cb6-5" title="5">        <span class="bu">std::</span>uniform_int_distribution&lt;<span class="dt">int</span>&gt; uniform_int{<span class="dv">0</span>, test - <span class="dv">1</span>};</a>
+<a class="sourceLine" id="cb6-6" title="6">        num_threads = omp_get_num_threads();</a>
+<a class="sourceLine" id="cb6-7" title="7"></a>
+<a class="sourceLine" id="cb6-8" title="8">        <span class="pp">#pragma omp for</span></a>
+<a class="sourceLine" id="cb6-9" title="9">        <span class="cf">for</span>(i = <span class="dv">0</span>; i &lt; test; i++) {</a>
+<a class="sourceLine" id="cb6-10" title="10">                test_par[i] = uniform_int(eng);</a>
+<a class="sourceLine" id="cb6-11" title="11">        }</a>
+<a class="sourceLine" id="cb6-12" title="12">}</a></code></pre></div>
 <p>The result with 100K individuals and 25K generations (comparable to the above timing experiments) is:</p>
 <pre><code>31.24 real       119.92 user         3.02 sys</code></pre>
 <p>which is a 12.76x speedup over the serial unvectorized code. I’m not likely to push the performance experiments too much further, since I have a lot of other code to write, but it was a good experiment and now I have code modules to use in future simulations where I need the performance. And, others are encouraged to start with it and adapt it to your own transmission simulations, since it’s known to work and work quickly.</p>

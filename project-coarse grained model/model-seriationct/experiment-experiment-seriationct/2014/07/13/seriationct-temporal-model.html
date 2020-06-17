@@ -219,67 +219,39 @@
 <li><p>In order to determine connectivity changes (as opposed to new or lost vertices), we have to compare the new and old <code>numpy</code> arrays. This is easily done using <code>numpy.equal()</code>, which produces an array of the same dimension filled with booleans that indicate positions which are equal. In this case, we would find any instances of <code>False</code> in the upper diagonal portion of the array, and modify their weight.</p></li>
 </ol>
 <p>Modification of the “weight” between two vertices means changing the number of individuals who have edges between the two vertices. This could be chosen at random.</p>
-<div class="sourceCode"><table class="sourceCode python numberLines"><tr class="sourceCode"><td class="lineNumbers"><pre>1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-</pre></td><td class="sourceCode"><pre><code class="sourceCode python">
-<span class="im">import</span> numpy <span class="im">as</span> np
-t1 <span class="op">=</span> np.array([[<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">0</span>],[<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">0</span>],[<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>],[<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">1</span>]])
-t2 <span class="op">=</span> np.array([[<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">0</span>],[<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">3</span>,<span class="dv">0</span>],[<span class="dv">1</span>,<span class="dv">3</span>,<span class="dv">1</span>,<span class="dv">1</span>],[<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">1</span>]])
-np.equal(t1,t2)
-
-ud <span class="op">=</span> np.triu_indices(<span class="dv">4</span>)
-
-difference_t1_t2 <span class="op">=</span> np.equal(t1,t2)
-difference_t1_t2[ud]</code></pre></td></tr></table></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource python numberLines"><code class="sourceCode python"><a class="sourceLine" id="cb1-1" title="1"></a>
+<a class="sourceLine" id="cb1-2" title="2"><span class="im">import</span> numpy <span class="im">as</span> np</a>
+<a class="sourceLine" id="cb1-3" title="3">t1 <span class="op">=</span> np.array([[<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">0</span>],[<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">0</span>],[<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>],[<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">1</span>]])</a>
+<a class="sourceLine" id="cb1-4" title="4">t2 <span class="op">=</span> np.array([[<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">0</span>],[<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">3</span>,<span class="dv">0</span>],[<span class="dv">1</span>,<span class="dv">3</span>,<span class="dv">1</span>,<span class="dv">1</span>],[<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">1</span>]])</a>
+<a class="sourceLine" id="cb1-5" title="5">np.equal(t1,t2)</a>
+<a class="sourceLine" id="cb1-6" title="6"></a>
+<a class="sourceLine" id="cb1-7" title="7">ud <span class="op">=</span> np.triu_indices(<span class="dv">4</span>)</a>
+<a class="sourceLine" id="cb1-8" title="8"></a>
+<a class="sourceLine" id="cb1-9" title="9">difference_t1_t2 <span class="op">=</span> np.equal(t1,t2)</a>
+<a class="sourceLine" id="cb1-10" title="10">difference_t1_t2[ud]</a></code></pre></div>
 <p>Changes to the upper-triangular portion of the matrix, <strong>above</strong> the diagonal are thus indicative of changes in weight between two nodes. We can find the indices of the demes for which this occurs easily:</p>
-<div class="sourceCode"><table class="sourceCode python numberLines"><tr class="sourceCode"><td class="lineNumbers"><pre>1
-2
-3
-4
-5
-</pre></td><td class="sourceCode"><pre><code class="sourceCode python">
-<span class="co"># t1 and t2 arrays as before</span>
-<span class="co"># returns tuple where element 0 is a list of row coordinates</span>
-<span class="co"># and element 1 is a list of column coordinates</span>
-changed_edges <span class="op">=</span> np.nonzero( np.triu( t2 <span class="op">-</span> t1 ))</code></pre></td></tr></table></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource python numberLines"><code class="sourceCode python"><a class="sourceLine" id="cb2-1" title="1"></a>
+<a class="sourceLine" id="cb2-2" title="2"><span class="co"># t1 and t2 arrays as before</span></a>
+<a class="sourceLine" id="cb2-3" title="3"><span class="co"># returns tuple where element 0 is a list of row coordinates</span></a>
+<a class="sourceLine" id="cb2-4" title="4"><span class="co"># and element 1 is a list of column coordinates</span></a>
+<a class="sourceLine" id="cb2-5" title="5">changed_edges <span class="op">=</span> np.nonzero( np.triu( t2 <span class="op">-</span> t1 ))</a></code></pre></div>
 <p>Changes to the existence of demes are modeled on the diagonal of the adjacency matrix. In the following, deme 0 goes away, thus yielding a zero in the <span class="math inline">\(0,0\)</span> position of the adjacency matrix, and corresponding off-diagonal entries go to zero because edges are lost when a deme is removed (of course). In contrast, between time steps 1 and 2, no demes enter or exit.</p>
-<div class="sourceCode"><table class="sourceCode python numberLines"><tr class="sourceCode"><td class="lineNumbers"><pre>1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-</pre></td><td class="sourceCode"><pre><code class="sourceCode python">t3 <span class="op">=</span> np.array([[<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>],[<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">0</span>],[<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">3</span>],[<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">3</span>,<span class="dv">1</span>]])
-
-np.nonzero(np.diagonal( t2 <span class="op">-</span> t1 ))
-<span class="co"># result is (array([], dtype=int64),)</span>
-
-np.nonzero(np.diagonal( t3 <span class="op">-</span> t2 ))
-<span class="co"># result is (array([0]),)</span>
-
-<span class="co"># subtracting the two arrays and accessing the diagonal element for index 0 </span>
-<span class="co"># gives us the DIRECTION</span>
-t3_t2 <span class="op">=</span> t3 <span class="op">-</span> t2
-t3_t2[<span class="dv">0</span>,<span class="dv">0</span>]  
-<span class="co"># answer is -1</span></code></pre></td></tr></table></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode numberSource python numberLines"><code class="sourceCode python"><a class="sourceLine" id="cb3-1" title="1">t3 <span class="op">=</span> np.array([[<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>],[<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">0</span>],[<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">3</span>],[<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">3</span>,<span class="dv">1</span>]])</a>
+<a class="sourceLine" id="cb3-2" title="2"></a>
+<a class="sourceLine" id="cb3-3" title="3">np.nonzero(np.diagonal( t2 <span class="op">-</span> t1 ))</a>
+<a class="sourceLine" id="cb3-4" title="4"><span class="co"># result is (array([], dtype=int64),)</span></a>
+<a class="sourceLine" id="cb3-5" title="5"></a>
+<a class="sourceLine" id="cb3-6" title="6">np.nonzero(np.diagonal( t3 <span class="op">-</span> t2 ))</a>
+<a class="sourceLine" id="cb3-7" title="7"><span class="co"># result is (array([0]),)</span></a>
+<a class="sourceLine" id="cb3-8" title="8"></a>
+<a class="sourceLine" id="cb3-9" title="9"><span class="co"># subtracting the two arrays and accessing the diagonal element for index 0 </span></a>
+<a class="sourceLine" id="cb3-10" title="10"><span class="co"># gives us the DIRECTION</span></a>
+<a class="sourceLine" id="cb3-11" title="11">t3_t2 <span class="op">=</span> t3 <span class="op">-</span> t2</a>
+<a class="sourceLine" id="cb3-12" title="12">t3_t2[<span class="dv">0</span>,<span class="dv">0</span>]  </a>
+<a class="sourceLine" id="cb3-13" title="13"><span class="co"># answer is -1</span></a></code></pre></div>
 <p>A negative element on the diagonal of the differenced array indicates that the deme at that index is exiting the model at that time step. A positive element on the diagonal thus indicates a new deme entering the model at that time step.</p>
 <h3 id="references-cited" class="unnumbered">References Cited</h3>
-<div id="refs" class="references">
+<div id="refs" class="references" role="doc-bibliography">
 <div id="ref-holme2012temporal">
 <p>Holme, Petter, and Jari Saramäki. 2012. “Temporal Networks.” <em>Physics Reports</em> 519 (3). Elsevier: 97–125.</p>
 </div>

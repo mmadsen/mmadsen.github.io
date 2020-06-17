@@ -210,43 +210,43 @@
 <li>Individuals are initialized with random traits and their prereqs in the tree</li>
 </ol>
 <p>Given this infrastructure, the copying rule is a modification of the extensible model-</p>
-<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">f <span class="op">=</span> getRandomAgent()
-n <span class="op">=</span> getRandomNeighborForAgent(f)
-
-<span class="cf">if</span> n <span class="op">=</span> f <span class="op">or</span> n.isdisjoint(f) <span class="op">or</span> n.issubset(f):
-    exit  <span class="co"># no interaction possible</span>
-
-prob <span class="op">=</span> jaccardIndex(n,f)
-<span class="cf">if</span> RandomUniform() <span class="op">&lt;</span> prob:
-    traits <span class="op">=</span> neighbor.get_differing_traits(agent)
-    neighbor_trait <span class="op">=</span> random.choice(traits)
-
-    <span class="cf">if</span> f.hasPrerequisitesForTrait(neighbor_trait) <span class="op">==</span> <span class="va">False</span>:
-        exit <span class="co"># cannot copy the trait, does not have prereqs</span>
-
-    f.add_or_replace(neighbor_trait)</code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1-1" title="1">f <span class="op">=</span> getRandomAgent()</a>
+<a class="sourceLine" id="cb1-2" title="2">n <span class="op">=</span> getRandomNeighborForAgent(f)</a>
+<a class="sourceLine" id="cb1-3" title="3"></a>
+<a class="sourceLine" id="cb1-4" title="4"><span class="cf">if</span> n <span class="op">=</span> f <span class="kw">or</span> n.isdisjoint(f) <span class="kw">or</span> n.issubset(f):</a>
+<a class="sourceLine" id="cb1-5" title="5">    exit  <span class="co"># no interaction possible</span></a>
+<a class="sourceLine" id="cb1-6" title="6"></a>
+<a class="sourceLine" id="cb1-7" title="7">prob <span class="op">=</span> jaccardIndex(n,f)</a>
+<a class="sourceLine" id="cb1-8" title="8"><span class="cf">if</span> RandomUniform() <span class="op">&lt;</span> prob:</a>
+<a class="sourceLine" id="cb1-9" title="9">    traits <span class="op">=</span> neighbor.get_differing_traits(agent)</a>
+<a class="sourceLine" id="cb1-10" title="10">    neighbor_trait <span class="op">=</span> random.choice(traits)</a>
+<a class="sourceLine" id="cb1-11" title="11"></a>
+<a class="sourceLine" id="cb1-12" title="12">    <span class="cf">if</span> f.hasPrerequisitesForTrait(neighbor_trait) <span class="op">==</span> <span class="va">False</span>:</a>
+<a class="sourceLine" id="cb1-13" title="13">        exit <span class="co"># cannot copy the trait, does not have prereqs</span></a>
+<a class="sourceLine" id="cb1-14" title="14"></a>
+<a class="sourceLine" id="cb1-15" title="15">    f.add_or_replace(neighbor_trait)</a></code></pre></div>
 <p>The behavior of the model is problematic, although I’m reasonably sure it’s structural and not simply a bug. The active link density will initially decline, and then stick at a high level for as long as I’ll watch it (i.e., a million or so cycles). Watching the cumulative number of copying events reveals that quickly, the rate of successful interactions goes to zero.</p>
 <p>This probably occurs because the convergence algorithm sees plenty of active links (indeed, almost all links are “active”) but after a few passes, no agents have the prerequisites for each other’s differing traits. Clearly, the copying rule needs work.</p>
 <h3 id="revised-prerequisite-rule">Revised Prerequisite Rule</h3>
 <p>To work, there needs to be a probability of learning a missing prereq. Perhaps this substitute for the “addition rate,” which was pretty artificial.</p>
 <p>One possibility:</p>
-<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">f <span class="op">=</span> getRandomAgent()
-n <span class="op">=</span> getRandomNeighborForAgent(f)
-
-<span class="cf">if</span> n <span class="op">=</span> f <span class="op">or</span> n.isdisjoint(f) <span class="op">or</span> n.issubset(f):
-    exit  <span class="co"># no interaction possible</span>
-
-prob <span class="op">=</span> jaccardIndex(n,f)
-<span class="cf">if</span> RandomUniform() <span class="op">&lt;</span> prob:
-    traits <span class="op">=</span> neighbor.get_differing_traits(agent)
-    neighbor_trait <span class="op">=</span> random.choice(traits)
-
-    <span class="cf">if</span> f.hasPrerequisitesForTrait(neighbor_trait) <span class="op">==</span> <span class="va">False</span>:
-        <span class="cf">if</span> RandomUniform() <span class="op">&lt;</span> learning_rate:
-            needed_prereq <span class="op">=</span> DeepestRequiredPrerequisiteOf(neighbor_trait)
-            f.add(needed_prereq)
-    <span class="cf">else</span>:  <span class="co"># has prereqs</span>
-        f.add_or_replace(neighbor_trait)</code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb2-1" title="1">f <span class="op">=</span> getRandomAgent()</a>
+<a class="sourceLine" id="cb2-2" title="2">n <span class="op">=</span> getRandomNeighborForAgent(f)</a>
+<a class="sourceLine" id="cb2-3" title="3"></a>
+<a class="sourceLine" id="cb2-4" title="4"><span class="cf">if</span> n <span class="op">=</span> f <span class="kw">or</span> n.isdisjoint(f) <span class="kw">or</span> n.issubset(f):</a>
+<a class="sourceLine" id="cb2-5" title="5">    exit  <span class="co"># no interaction possible</span></a>
+<a class="sourceLine" id="cb2-6" title="6"></a>
+<a class="sourceLine" id="cb2-7" title="7">prob <span class="op">=</span> jaccardIndex(n,f)</a>
+<a class="sourceLine" id="cb2-8" title="8"><span class="cf">if</span> RandomUniform() <span class="op">&lt;</span> prob:</a>
+<a class="sourceLine" id="cb2-9" title="9">    traits <span class="op">=</span> neighbor.get_differing_traits(agent)</a>
+<a class="sourceLine" id="cb2-10" title="10">    neighbor_trait <span class="op">=</span> random.choice(traits)</a>
+<a class="sourceLine" id="cb2-11" title="11"></a>
+<a class="sourceLine" id="cb2-12" title="12">    <span class="cf">if</span> f.hasPrerequisitesForTrait(neighbor_trait) <span class="op">==</span> <span class="va">False</span>:</a>
+<a class="sourceLine" id="cb2-13" title="13">        <span class="cf">if</span> RandomUniform() <span class="op">&lt;</span> learning_rate:</a>
+<a class="sourceLine" id="cb2-14" title="14">            needed_prereq <span class="op">=</span> DeepestRequiredPrerequisiteOf(neighbor_trait)</a>
+<a class="sourceLine" id="cb2-15" title="15">            f.add(needed_prereq)</a>
+<a class="sourceLine" id="cb2-16" title="16">    <span class="cf">else</span>:  <span class="co"># has prereqs</span></a>
+<a class="sourceLine" id="cb2-17" title="17">        f.add_or_replace(neighbor_trait)</a></code></pre></div>
   
 
 

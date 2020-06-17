@@ -222,23 +222,23 @@
 <p>The pattern is the same, and the execution times are basically 5x the single replication time.</p>
 <h3 id="parallelism-in-simupop">Parallelism in simuPOP</h3>
 <p>Looking at the version 1.1.6 source code, it appears that multiple threads are used in very specific situations. The simulator and its evolve function are single-threaded, with no OpenMP sections. Instead, parallelism is employed in specific loops, such as initializing a population or processing the individuals in a subpopulation, as in this example:</p>
-<div class="sourceCode"><pre class="sourceCode cpp"><code class="sourceCode cpp">        <span class="kw">for</span> (; sp != sp_end; ++sp) {
-                pop.activateVirtualSubPop(*sp);
-                size_t numValues = m_values.size();
-                <span class="kw">if</span> (numThreads() &gt; <span class="dv">1</span> &amp;&amp; !values.empty()) {
-<span class="ot">#ifdef _OPENMP</span>
-<span class="ot">#  pragma omp parallel firstprivate (idx)</span>
-                        {
-                                size_t id = omp_get_thread_num();
-                                IndIterator ind = pop.indIterator(sp-&gt;subPop(), id);
-                                idx = idx + id * (pop.subPopSize(sp-&gt;subPop()) / numThreads());
-                                <span class="kw">for</span> (; ind.valid(); ++ind, ++idx)
-                                        <span class="kw">for</span> (size_t i = <span class="dv">0</span>; i &lt; infoIdx.size(); ++i) {
-                                                ind-&gt;setInfo(values[idx % numValues], infoIdx[i]);
-                                        }
-                        }
-                        idx = idx + pop.subPopSize(sp-&gt;subPop());
-<span class="ot">#endif</span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb2-1" title="1">        <span class="cf">for</span> (; sp != sp_end; ++sp) {</a>
+<a class="sourceLine" id="cb2-2" title="2">                pop.activateVirtualSubPop(*sp);</a>
+<a class="sourceLine" id="cb2-3" title="3">                <span class="dt">size_t</span> numValues = <span class="va">m_values</span>.size();</a>
+<a class="sourceLine" id="cb2-4" title="4">                <span class="cf">if</span> (numThreads() &gt; <span class="dv">1</span> &amp;&amp; !values.empty()) {</a>
+<a class="sourceLine" id="cb2-5" title="5"><span class="pp">#ifdef _OPENMP</span></a>
+<a class="sourceLine" id="cb2-6" title="6"><span class="pp">#  pragma omp parallel firstprivate (idx)</span></a>
+<a class="sourceLine" id="cb2-7" title="7">                        {</a>
+<a class="sourceLine" id="cb2-8" title="8">                                <span class="dt">size_t</span> id = omp_get_thread_num();</a>
+<a class="sourceLine" id="cb2-9" title="9">                                IndIterator ind = pop.indIterator(sp-&gt;subPop(), id);</a>
+<a class="sourceLine" id="cb2-10" title="10">                                idx = idx + id * (pop.subPopSize(sp-&gt;subPop()) / numThreads());</a>
+<a class="sourceLine" id="cb2-11" title="11">                                <span class="cf">for</span> (; ind.valid(); ++ind, ++idx)</a>
+<a class="sourceLine" id="cb2-12" title="12">                                        <span class="cf">for</span> (<span class="dt">size_t</span> i = <span class="dv">0</span>; i &lt; infoIdx.size(); ++i) {</a>
+<a class="sourceLine" id="cb2-13" title="13">                                                ind-&gt;setInfo(values[idx % numValues], infoIdx[i]);</a>
+<a class="sourceLine" id="cb2-14" title="14">                                        }</a>
+<a class="sourceLine" id="cb2-15" title="15">                        }</a>
+<a class="sourceLine" id="cb2-16" title="16">                        idx = idx + pop.subPopSize(sp-&gt;subPop());</a>
+<a class="sourceLine" id="cb2-17" title="17"><span class="pp">#endif</span></a></code></pre></div>
 <p>where tiles of individuals are processed by each of the N threads configured.</p>
 <p>Examining the simulator itself, I can see why parallelism isn’t expressed at the replicate or subpopulation level. Applications built in simuPOP are capable of using pure-Python operators mixed with built-in C++ operations, and if replicates are threaded rather than being distributed across Unix processes, we run immediately into the GIL issue. So Bo has used OpenMP to parallelize things only <strong>within</strong> a single operator or function, which makes it safe.</p>
 <p>What does this mean?</p>

@@ -222,7 +222,7 @@
 <ol type="1">
 <li>Build configurations for the simulation runs I want to do, putting these in the <code>simulations</code> directory. In this directory are also an evolving set of scripts for starting EC2 instances, and checking the progress of simulation runs running on these instances.</li>
 <li>Perform simulation runs</li>
-<li>Export raw data from all the simulation runs. Copy the raw data to suitable file formats (e.g., CSV) in the <code>analysis/data</code> directory, if you can.<a href="#fn1" class="footnoteRef" id="fnref1"><sup>1</sup></a> If not, copy the raw data to another local directory, outside the experiment, and then archive it somewhere accessible, like an S3 bucket, in order to provide open access.<br />
+<li>Export raw data from all the simulation runs. Copy the raw data to suitable file formats (e.g., CSV) in the <code>analysis/data</code> directory, if you can.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> If not, copy the raw data to another local directory, outside the experiment, and then archive it somewhere accessible, like an S3 bucket, in order to provide open access.<br />
 </li>
 <li>Perform data cleaning and preparation, putting all of these steps into scripts stored in <code>analysis</code>. If you do these steps in R, there is already a script in this directory you can extend or change. I often do some steps in Python, some in Apache Pig (particularly if I’m summarizing and merging many large raw data files), and then I do the last preparation steps in R to produce a “clean” data set for analysis.<br />
 </li>
@@ -234,10 +234,10 @@
 <h3 id="making-it-your-own">Making It Your Own</h3>
 <p>In the <code>paper</code> directory, my name and contact information exists in the <code>xelatex-template.tex</code> file. If you’re going to use the existing paper system, turning RMarkdown into a PDF, you should edit that file and change the title, author, and contact information. Otherwise you don’t need to touch that file. There is also my name and information in the <code>outline</code> directory in <code>outline.tex</code>.</p>
 <h3 id="references-cited">References Cited</h3>
-<section class="footnotes">
+<section class="footnotes" role="doc-endnotes">
 <hr />
 <ol>
-<li id="fn1"><p>Github doesn’t allow files bigger than 100MB, or repositories larger than 1GB. Raw data from many simulation runs are often larger than this.<a href="#fnref1">↩</a></p></li>
+<li id="fn1" role="doc-endnote"><p>Github doesn’t allow files bigger than 100MB, or repositories larger than 1GB. Raw data from many simulation runs are often larger than this.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩</a></p></li>
 </ol>
 </section>
   

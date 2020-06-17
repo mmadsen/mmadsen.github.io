@@ -209,18 +209,18 @@
 <p>Model #1 is called “linear” in the experiment directory because it should ideally yield simple, linear seriation solutions because the only thing occurring is sampling through time. At any given time, the metapopulation is composed of 64 subpopulations each. Each subpopulation is fully connected, so that any subpopulation can exchange migrants with any other, and there are no differences in edge weights (and thus migration rates). Each subpopulation in slice <span class="math inline">\(N\)</span> is the child of a random subpopulation in slice <span class="math inline">\(N-1\)</span>.</p>
 <p>Model #2 is called “lineage” in the experiment directory because it features 4 clusters of subpopulations, with 8 subpopulations per cluster. Subpopulations are fully connected within a cluster, with edge weight 10. Subpopulations are connected between subpopulations at fraction 0.1, with edge weight 1. This yields a strong tendency to exchange migrants within clusters, and at a much lower rate between clusters. For the first 4 time slices, all four clusters of subpopulations are interconnected, but in slice 4, a “split” occurs, removing interconnections between two sets of clusters, leaving <span class="math inline">\({1,2}\)</span> interconnected and <span class="math inline">\({3,4}\)</span> interconnected, but no connections between these sets. The resulting clusters then evolve for 6 more time slices on separate trajectories, giving rise to a “lineage split.”</p>
 <p>Neutral cultural transmission is simulated across these two network models, with 50 simulation replicates on each model, and a common set of parameters:</p>
-<div class="sourceCode"><pre class="sourceCode json"><code class="sourceCode json"><span class="fu">{</span>
-    <span class="dt">&quot;theta_low&quot;</span><span class="fu">:</span> <span class="fl">0.00001</span><span class="fu">,</span>
-    <span class="dt">&quot;theta_high&quot;</span><span class="fu">:</span> <span class="fl">0.0001</span><span class="fu">,</span>
-    <span class="dt">&quot;maxinittraits&quot;</span><span class="fu">:</span> <span class="dv">5</span><span class="fu">,</span>
-    <span class="dt">&quot;numloci&quot;</span><span class="fu">:</span> <span class="dv">3</span><span class="fu">,</span>
-    <span class="dt">&quot;popsize&quot;</span><span class="fu">:</span> <span class="dv">250</span><span class="fu">,</span>
-    <span class="dt">&quot;simlength&quot;</span><span class="fu">:</span> <span class="dv">8000</span><span class="fu">,</span>
-    <span class="dt">&quot;samplefraction&quot;</span> <span class="fu">:</span> <span class="fl">0.5</span><span class="fu">,</span>
-    <span class="dt">&quot;migrationfraction_low&quot;</span> <span class="fu">:</span> <span class="fl">0.05</span><span class="fu">,</span>
-    <span class="dt">&quot;migrationfraction_high&quot;</span> <span class="fu">:</span> <span class="fl">0.1</span><span class="fu">,</span>
-    <span class="dt">&quot;replicates&quot;</span> <span class="fu">:</span> <span class="dv">1</span>
-<span class="fu">}</span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode json"><code class="sourceCode json"><a class="sourceLine" id="cb1-1" title="1"><span class="fu">{</span></a>
+<a class="sourceLine" id="cb1-2" title="2">    <span class="dt">&quot;theta_low&quot;</span><span class="fu">:</span> <span class="fl">0.00001</span><span class="fu">,</span></a>
+<a class="sourceLine" id="cb1-3" title="3">    <span class="dt">&quot;theta_high&quot;</span><span class="fu">:</span> <span class="fl">0.0001</span><span class="fu">,</span></a>
+<a class="sourceLine" id="cb1-4" title="4">    <span class="dt">&quot;maxinittraits&quot;</span><span class="fu">:</span> <span class="dv">5</span><span class="fu">,</span></a>
+<a class="sourceLine" id="cb1-5" title="5">    <span class="dt">&quot;numloci&quot;</span><span class="fu">:</span> <span class="dv">3</span><span class="fu">,</span></a>
+<a class="sourceLine" id="cb1-6" title="6">    <span class="dt">&quot;popsize&quot;</span><span class="fu">:</span> <span class="dv">250</span><span class="fu">,</span></a>
+<a class="sourceLine" id="cb1-7" title="7">    <span class="dt">&quot;simlength&quot;</span><span class="fu">:</span> <span class="dv">8000</span><span class="fu">,</span></a>
+<a class="sourceLine" id="cb1-8" title="8">    <span class="dt">&quot;samplefraction&quot;</span> <span class="fu">:</span> <span class="fl">0.5</span><span class="fu">,</span></a>
+<a class="sourceLine" id="cb1-9" title="9">    <span class="dt">&quot;migrationfraction_low&quot;</span> <span class="fu">:</span> <span class="fl">0.05</span><span class="fu">,</span></a>
+<a class="sourceLine" id="cb1-10" title="10">    <span class="dt">&quot;migrationfraction_high&quot;</span> <span class="fu">:</span> <span class="fl">0.1</span><span class="fu">,</span></a>
+<a class="sourceLine" id="cb1-11" title="11">    <span class="dt">&quot;replicates&quot;</span> <span class="fu">:</span> <span class="dv">1</span></a>
+<a class="sourceLine" id="cb1-12" title="12"><span class="fu">}</span></a></code></pre></div>
 <p>Innovation rates and migration fractions are chosen uniformly at random from the ranges given for each simulation run. Each locus evolves randomly, but we track combinations of loci as “classes” in the archaeological sense of the term as our observable variables. Populations evolve for 8000 generations, giving approximately 800 transmission events per individual during a time slice (i.e., step in the regional metapopulation evolution). We can think of that as approximately monthly opportunities for copying artifacts or behavioral traits, over a lifetime of approximately 65 years.</p>
 <p>The raw data from each community in a simulated network model are then aggregated over the duration that community persists, giving us a time averaged picture of the frequency of cultural traits.</p>
 <p>I then perform the following sampling steps:</p>
@@ -250,17 +250,17 @@ Accuracy on test: 0.768</code></pre>
 <p>In the next experiment, I intend to see if different values of the k-Nearest Neighbor parameter affect this accuracy, but I expect that achieving higher accuracy might require augmenting the approach. One possibility that bears exploration is to not simply use the spectral distance, but to instead use the Laplacian eigenvalues themselves (sorted in decreasing order) directly as features, in addition to other graph theoretic properties such as average degree and tree radius, and use a more traditional classifier like boosted decision trees. That will probably be my third experiment.</p>
 <h3 id="second-attempt">Second Attempt</h3>
 <p>In a second run, I examined the effect of the number of nearest neighbors which “vote” on the label of the target seriation, still with leave-one-out cross validation. The results seem to indicate that (at least for these models) that best performance is 3 nearest neighbors, with accuracy worsening for 5, 7, and 9 neighbors, and then plateauing a bit for 11 and 15 neighbors. But with 3 neighbors, we achieve almost 80% accuracy, which is encouraging.</p>
-<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">
-
-knn <span class="op">=</span> [<span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">5</span>, <span class="dv">7</span>, <span class="dv">9</span>, <span class="dv">11</span>, <span class="dv">15</span>]
-<span class="cf">for</span> nn <span class="op">in</span> knn:
-    gclf <span class="op">=</span> skm.GraphEigenvalueNearestNeighbors(n_neighbors<span class="op">=</span>nn)
-    test_pred <span class="op">=</span> []
-    <span class="cf">for</span> ix <span class="op">in</span> <span class="bu">range</span>(<span class="dv">0</span>, <span class="bu">len</span>(train_graphs)):
-        train_loo_graphs, train_loo_labels, test_graph, test_label <span class="op">=</span> leave_one_out_cv(ix, train_graphs, train_labels)
-        gclf.fit(train_loo_graphs, train_loo_labels)
-        test_pred.append(gclf.predict([test_graph])[<span class="dv">0</span>])
-    <span class="bu">print</span>(<span class="st">&quot;Accuracy on test for </span><span class="sc">%s</span><span class="st"> neighbors: </span><span class="sc">%0.3f</span><span class="st">&quot;</span> <span class="op">%</span> (nn, accuracy_score(train_labels, test_pred)))</code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb3-1" title="1"></a>
+<a class="sourceLine" id="cb3-2" title="2"></a>
+<a class="sourceLine" id="cb3-3" title="3">knn <span class="op">=</span> [<span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">5</span>, <span class="dv">7</span>, <span class="dv">9</span>, <span class="dv">11</span>, <span class="dv">15</span>]</a>
+<a class="sourceLine" id="cb3-4" title="4"><span class="cf">for</span> nn <span class="kw">in</span> knn:</a>
+<a class="sourceLine" id="cb3-5" title="5">    gclf <span class="op">=</span> skm.GraphEigenvalueNearestNeighbors(n_neighbors<span class="op">=</span>nn)</a>
+<a class="sourceLine" id="cb3-6" title="6">    test_pred <span class="op">=</span> []</a>
+<a class="sourceLine" id="cb3-7" title="7">    <span class="cf">for</span> ix <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">0</span>, <span class="bu">len</span>(train_graphs)):</a>
+<a class="sourceLine" id="cb3-8" title="8">        train_loo_graphs, train_loo_labels, test_graph, test_label <span class="op">=</span> leave_one_out_cv(ix, train_graphs, train_labels)</a>
+<a class="sourceLine" id="cb3-9" title="9">        gclf.fit(train_loo_graphs, train_loo_labels)</a>
+<a class="sourceLine" id="cb3-10" title="10">        test_pred.append(gclf.predict([test_graph])[<span class="dv">0</span>])</a>
+<a class="sourceLine" id="cb3-11" title="11">    <span class="bu">print</span>(<span class="st">&quot;Accuracy on test for </span><span class="sc">%s</span><span class="st"> neighbors: </span><span class="sc">%0.3f</span><span class="st">&quot;</span> <span class="op">%</span> (nn, accuracy_score(train_labels, test_pred)))</a></code></pre></div>
 <p>Results:</p>
 <pre><code>Accuracy on test for 1 neighbors: 0.788
 Accuracy on test for 3 neighbors: 0.798

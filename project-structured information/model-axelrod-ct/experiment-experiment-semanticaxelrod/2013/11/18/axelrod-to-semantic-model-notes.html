@@ -222,37 +222,37 @@
 <ol type="1">
 <li>replace a trait or set of traits with new ones</li>
 </ol>
-<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="im">import</span> random
-
-<span class="co"># assume &quot;agent_traits&quot; is an object of type set()</span>
-<span class="co"># this case comes up in drift, for example</span>
-t_new <span class="op">=</span> select_random_trait()
-t_old <span class="op">=</span> random.choice(agent_traits)
-agent_traits.remove(t_old)
-agent_traits.add(t_new)</code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1-1" title="1"><span class="im">import</span> random</a>
+<a class="sourceLine" id="cb1-2" title="2"></a>
+<a class="sourceLine" id="cb1-3" title="3"><span class="co"># assume &quot;agent_traits&quot; is an object of type set()</span></a>
+<a class="sourceLine" id="cb1-4" title="4"><span class="co"># this case comes up in drift, for example</span></a>
+<a class="sourceLine" id="cb1-5" title="5">t_new <span class="op">=</span> select_random_trait()</a>
+<a class="sourceLine" id="cb1-6" title="6">t_old <span class="op">=</span> random.choice(agent_traits)</a>
+<a class="sourceLine" id="cb1-7" title="7">agent_traits.remove(t_old)</a>
+<a class="sourceLine" id="cb1-8" title="8">agent_traits.add(t_new)</a></code></pre></div>
 <ol start="2" type="1">
 <li>initiatize an agent with a random set of traits, perhaps with a random number of traits</li>
 <li>generate a unique representation of a set of traits, for stats, and coloring diagrams</li>
 <li>calculation of overlap between trait sets</li>
 </ol>
-<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="co"># since the sets can vary in size, the overlap is simply the Jaccard coefficient</span>
-<span class="co"># while the probability of interaction is the Jaccard distance</span>
-
-overlap <span class="op">=</span> <span class="bu">len</span>(focal.intersection(neighbor)) <span class="op">/</span> <span class="bu">len</span>(focal.union(neighbor))
-prob <span class="op">=</span> <span class="bu">len</span>(focal.symmetric_difference(neighbor)) <span class="op">/</span> <span class="bu">len</span>(focal.union(neighbor))</code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb2-1" title="1"><span class="co"># since the sets can vary in size, the overlap is simply the Jaccard coefficient</span></a>
+<a class="sourceLine" id="cb2-2" title="2"><span class="co"># while the probability of interaction is the Jaccard distance</span></a>
+<a class="sourceLine" id="cb2-3" title="3"></a>
+<a class="sourceLine" id="cb2-4" title="4">overlap <span class="op">=</span> <span class="bu">len</span>(focal.intersection(neighbor)) <span class="op">/</span> <span class="bu">len</span>(focal.union(neighbor))</a>
+<a class="sourceLine" id="cb2-5" title="5">prob <span class="op">=</span> <span class="bu">len</span>(focal.symmetric_difference(neighbor)) <span class="op">/</span> <span class="bu">len</span>(focal.union(neighbor))</a></code></pre></div>
 <ol start="5" type="1">
 <li>find list of traits which differ between two agents</li>
 </ol>
-<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="co"># trick here is that we need two things:  first, the traits in the focal agent which </span>
-<span class="co"># differ with the target agent (set difference), and then we need the target&#39;s traits which </span>
-<span class="co"># differ from the focal agent.  We choose a random differing trait in the focal, to replace</span>
-<span class="co"># with a random differing trait from the target.  This is true to the spirit of the Axelrod </span>
-<span class="co"># model without requiring a specific set of loci/alleles (features/traits)</span>
-
-focal_uniq <span class="op">=</span> focal.difference(neighbor)
-neighbor_uniq <span class="op">=</span> neighbor.difference(focal)
-focal_to_replace <span class="op">=</span> random.choice(focal_uniq)
-neighbor_to_adopt <span class="op">=</span> random.choice(neighbor_uniq)</code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb3-1" title="1"><span class="co"># trick here is that we need two things:  first, the traits in the focal agent which </span></a>
+<a class="sourceLine" id="cb3-2" title="2"><span class="co"># differ with the target agent (set difference), and then we need the target&#39;s traits which </span></a>
+<a class="sourceLine" id="cb3-3" title="3"><span class="co"># differ from the focal agent.  We choose a random differing trait in the focal, to replace</span></a>
+<a class="sourceLine" id="cb3-4" title="4"><span class="co"># with a random differing trait from the target.  This is true to the spirit of the Axelrod </span></a>
+<a class="sourceLine" id="cb3-5" title="5"><span class="co"># model without requiring a specific set of loci/alleles (features/traits)</span></a>
+<a class="sourceLine" id="cb3-6" title="6"></a>
+<a class="sourceLine" id="cb3-7" title="7">focal_uniq <span class="op">=</span> focal.difference(neighbor)</a>
+<a class="sourceLine" id="cb3-8" title="8">neighbor_uniq <span class="op">=</span> neighbor.difference(focal)</a>
+<a class="sourceLine" id="cb3-9" title="9">focal_to_replace <span class="op">=</span> random.choice(focal_uniq)</a>
+<a class="sourceLine" id="cb3-10" title="10">neighbor_to_adopt <span class="op">=</span> random.choice(neighbor_uniq)</a></code></pre></div>
   
 
 

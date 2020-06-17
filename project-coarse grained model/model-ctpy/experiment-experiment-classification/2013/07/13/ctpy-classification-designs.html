@@ -202,7 +202,7 @@
 	
   <h3 id="background">Background</h3>
 <p>The research problem is to understand how the dynamics of cultural transmission processes are altered if we observe transmitted information through a classificatory filter rather than tabulating the actual copying events themselves.</p>
-<p>I did a first implementation of this in <a href="http://github.com/mmadsen/transmissionframework">TransmissionFramework</a>, but even with a single classification and a couple of dimensions of underlying variation, performance really sucked. Mainly because I was acting like a good Java programmer and writing to interfaces, using generic classes so that my framework was configurable and generic and….you get the idea. I tried some experiments with <a href="http://simupop.sourceforge.net">simuPOP</a> earlier this year, and the performance is excellent. And I’ve figured out how to do much of what I need for dissertation simulations, which is all I need.<a href="#fn1" class="footnoteRef" id="fnref1"><sup>1</sup></a></p>
+<p>I did a first implementation of this in <a href="http://github.com/mmadsen/transmissionframework">TransmissionFramework</a>, but even with a single classification and a couple of dimensions of underlying variation, performance really sucked. Mainly because I was acting like a good Java programmer and writing to interfaces, using generic classes so that my framework was configurable and generic and….you get the idea. I tried some experiments with <a href="http://simupop.sourceforge.net">simuPOP</a> earlier this year, and the performance is excellent. And I’ve figured out how to do much of what I need for dissertation simulations, which is all I need.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
 <p>But for the <a href="/projects/coarsegraining/">coarse graining project</a> it’ll work well. Hence, I’ve started coding <a href="http://github.com/mmadsen/ctpy">CTPy</a>, a library of Python functions and classes written to the simuPOP API for performing cultural transmission simulations.</p>
 <h3 id="requirements">Requirements</h3>
 <p>The design goal is to overlay arbitrary paradigmatic classifications on top of the variation being evolved in a simuPOP simulation, and then produce class counts and richness values as we do for the raw variation itself. General requirements:</p>
@@ -231,15 +231,15 @@
 <li>Need a data collection for storing individual samples post classification, with a field for the classification ID used.</li>
 </ol>
 <h3 id="references-cited" class="unnumbered">References Cited</h3>
-<div id="refs" class="references">
+<div id="refs" class="references" role="doc-bibliography">
 <div id="ref-madsen2012proposal">
-<p>Madsen, Mark. 2012. “Dissertation Proposal: Empirical Sufficiency and Neutral Theory: Building Seriation and Classification into Archaeological Models of Cultural Transmission.” <a href="http://dx.doi.org/10.6084/m9.figshare.745321" class="uri">http://dx.doi.org/10.6084/m9.figshare.745321</a>.</p>
+<p>Madsen, Mark. 2012. “Dissertation Proposal: Empirical Sufficiency and Neutral Theory: Building Seriation and Classification into Archaeological Models of Cultural Transmission.” <a href="http://dx.doi.org/10.6084/m9.figshare.745321">http://dx.doi.org/10.6084/m9.figshare.745321</a>.</p>
 </div>
 </div>
-<section class="footnotes">
+<section class="footnotes" role="doc-endnotes">
 <hr />
 <ol>
-<li id="fn1"><p>I doubt simuPOP is the appropriate tool for some of my other <a href="/research.html">projects</a>, in particular looking at structured information, so I may explore a lightweight discrete event simulator in Python before starting that project.<a href="#fnref1">↩</a></p></li>
+<li id="fn1" role="doc-endnote"><p>I doubt simuPOP is the appropriate tool for some of my other <a href="/research.html">projects</a>, in particular looking at structured information, so I may explore a lightweight discrete event simulator in Python before starting that project.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩</a></p></li>
 </ol>
 </section>
   

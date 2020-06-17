@@ -25,7 +25,7 @@
 	<!-- RDFa Metadata (in DublinCore) -->
 	<meta property="dc:title" content="How the Lab Notebook Works" />
 	<meta property="dc:creator" content="Mark E. Madsen" />
-	<meta property="dc:date" content="2017-06-23T09:47:14-07:00" />
+	<meta property="dc:date" content="2020-06-17T12:14:26-07:00" />
 	<meta property="dc:format" content="text/html" />
 	<meta property="dc:language" content="en" />
 	<meta property="dc:identifier" content="/labnotebook.html" />
@@ -41,7 +41,7 @@
 	<meta property="og:type" content="website" /> 
 	<!-- Google Scholar Metadata -->
 	<meta name="citation_author" content="Mark E. Madsen"/>
-	<meta name="citation_date" content="2017-06-23T09:47:14-07:00"/>
+	<meta name="citation_date" content="2020-06-17T12:14:26-07:00"/>
 	<meta name="citation_title" content="How the Lab Notebook Works"/>
 	<meta name="citation_journal_title" content="Lab Notebook for Mark E. Madsen"/>
 
@@ -194,7 +194,7 @@
 <p>Github Pages allows one to host straight HTML or Github-flavored Markdown, or Jekyll-based Markdown, which is then turned into HTML. For very good reasons, Github Pages disallows third-party Jekyll plugins, because that would be a massive trojan horse and performance disaster. Bad juju.</p>
 <p>So the solution is that I have <em>two</em> Github repositories for the lab notebook. One is the “source code” for the lab notebook, where I write posts and test formatting, and do everything “offline” – I compile it using a Rakefile and it runs on localhost. When I’m happy, I commit the changes to git, and run a script which pushes everything to the live site. More on this below under “Deployment”.</p>
 <h3 id="notes-essays-categories-and-tags">Notes, Essays, Categories, and Tags</h3>
-<p>Everything here is ultimately a “post,” meaning that apart from site structure itself (which are often HTML pages with Jekyll/Liquid) tags, Javascript, and logic, everything is a Markdown file located in the “_posts&quot; directory of the <code>lnraw</code> source repository.</p>
+<p>Everything here is ultimately a “post,” meaning that apart from site structure itself (which are often HTML pages with Jekyll/Liquid) tags, Javascript, and logic, everything is a Markdown file located in the "_posts" directory of the <code>lnraw</code> source repository.</p>
 <p>At a conceptual level, I distinguish between “essays” and “notes,” in the following way. A note is like a page in your lab notebook. It records something useful (e.g., the setup of an experiment, ideas about fixing a problem, some results) but a note is not expected to stand alone without other context. The context of a note is provided by the <code>project</code> it lives in, the <code>model</code> or simulation code it may relate to, perhaps an <code>experiment</code> within which the note is a step or result. Each of these bits of metadata are recorded as a <code>category</code>, which Jekyll provides to break websites into logical units. A note can (and almost always does) belong to more than one category. For example, a recent note on planning an experiment for <code>ctmixtures</code> had the following header:</p>
 <pre><code>---
 layout: post
@@ -232,7 +232,7 @@ categories:
 <ol type="1">
 <li>Changes to the local source tree are checked into Git, into the local repository.</li>
 <li>The local source repository is pushed to Github (into the source version of the website), so we have a record of each change.</li>
-<li>Jekyll then builds the new version of the static website, from the local source into a local “_site&quot; directory, which contains the entire website.<br />
+<li>Jekyll then builds the new version of the static website, from the local source into a local "_site" directory, which contains the entire website.<br />
 </li>
 <li>This built website is then copied to a directory which contains the “production” version of the website locally.</li>
 <li>That production version is then checked into the “production” repository in Github, and pushed to Github. This repository is my Github Pages repository, so anything I push there is served as a static website.</li>

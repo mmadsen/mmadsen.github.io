@@ -242,30 +242,30 @@ mixconfequal       1665      10860       9526         9984   0.6883409</code></p
 <p>The distribution of theta values looks good, when I did a histogram.</p>
 <h3 id="analysis-code">Analysis Code</h3>
 <p>The short script I used for the explorations here:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(randomForest)
-<span class="kw">library</span>(miscTools)
-
-df &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;~/local-research/diss/experiments/experiment-ctmixtures/equifinality-population-data.csv&quot;</span>, <span class="dt">header=</span>T)
-<span class="co"># we don&#39;t want to treat the sim run ID as one of the predictors...</span>
-drops &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&#39;simulation_run_id&#39;</span>)
-dataset &lt;-<span class="st"> </span>df[,!(<span class="kw">names</span>(df) %in%<span class="st"> </span>drops)]
-
-<span class="co"># shuffle the data frame row-wise so that we can randomly sample test and training data from it</span>
-shuffled_df &lt;-<span class="st"> </span>dataset[<span class="kw">sample</span>(<span class="kw">nrow</span>(dataset)),]
-indexes =<span class="st"> </span><span class="kw">sample</span>(<span class="dv">1</span>:<span class="kw">nrow</span>(shuffled_df), <span class="dt">size=</span><span class="fl">0.2</span>*<span class="kw">nrow</span>(shuffled_df))
-test =<span class="st"> </span>shuffled_df[indexes,]
-train =<span class="st"> </span>shuffled_df[-indexes,]
-
-
-fit &lt;-<span class="st"> </span><span class="kw">randomForest</span>(<span class="kw">factor</span>(model_class_label) ~<span class="st"> </span>., <span class="dt">data=</span>train, <span class="dt">ntree=</span><span class="dv">1000</span>, <span class="dt">nodesize =</span> <span class="dv">1</span>, <span class="dt">mtry=</span><span class="dv">3</span>)
-<span class="kw">print</span>(fit)
-<span class="co">#varImpPlot(fit)</span>
-
-<span class="co"># evaluate on test data</span>
-<span class="kw">table</span>(test$model_class_label, <span class="kw">predict</span>(fit, test[<span class="kw">names</span>(shuffled_df)]))
-
-<span class="co"># test error</span>
-<span class="kw">sum</span>(test$model_class_label==<span class="kw">predict</span>(fit, test[<span class="kw">names</span>(shuffled_df)])) /<span class="st"> </span><span class="kw">nrow</span>(test)</code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" title="1"><span class="kw">library</span>(randomForest)</a>
+<a class="sourceLine" id="cb2-2" title="2"><span class="kw">library</span>(miscTools)</a>
+<a class="sourceLine" id="cb2-3" title="3"></a>
+<a class="sourceLine" id="cb2-4" title="4">df &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;~/local-research/diss/experiments/experiment-ctmixtures/equifinality-population-data.csv&quot;</span>, <span class="dt">header=</span>T)</a>
+<a class="sourceLine" id="cb2-5" title="5"><span class="co"># we don&#39;t want to treat the sim run ID as one of the predictors...</span></a>
+<a class="sourceLine" id="cb2-6" title="6">drops &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&#39;simulation_run_id&#39;</span>)</a>
+<a class="sourceLine" id="cb2-7" title="7">dataset &lt;-<span class="st"> </span>df[,<span class="op">!</span>(<span class="kw">names</span>(df) <span class="op">%in%</span><span class="st"> </span>drops)]</a>
+<a class="sourceLine" id="cb2-8" title="8"></a>
+<a class="sourceLine" id="cb2-9" title="9"><span class="co"># shuffle the data frame row-wise so that we can randomly sample test and training data from it</span></a>
+<a class="sourceLine" id="cb2-10" title="10">shuffled_df &lt;-<span class="st"> </span>dataset[<span class="kw">sample</span>(<span class="kw">nrow</span>(dataset)),]</a>
+<a class="sourceLine" id="cb2-11" title="11">indexes =<span class="st"> </span><span class="kw">sample</span>(<span class="dv">1</span><span class="op">:</span><span class="kw">nrow</span>(shuffled_df), <span class="dt">size=</span><span class="fl">0.2</span><span class="op">*</span><span class="kw">nrow</span>(shuffled_df))</a>
+<a class="sourceLine" id="cb2-12" title="12">test =<span class="st"> </span>shuffled_df[indexes,]</a>
+<a class="sourceLine" id="cb2-13" title="13">train =<span class="st"> </span>shuffled_df[<span class="op">-</span>indexes,]</a>
+<a class="sourceLine" id="cb2-14" title="14"></a>
+<a class="sourceLine" id="cb2-15" title="15"></a>
+<a class="sourceLine" id="cb2-16" title="16">fit &lt;-<span class="st"> </span><span class="kw">randomForest</span>(<span class="kw">factor</span>(model_class_label) <span class="op">~</span><span class="st"> </span>., <span class="dt">data=</span>train, <span class="dt">ntree=</span><span class="dv">1000</span>, <span class="dt">nodesize =</span> <span class="dv">1</span>, <span class="dt">mtry=</span><span class="dv">3</span>)</a>
+<a class="sourceLine" id="cb2-17" title="17"><span class="kw">print</span>(fit)</a>
+<a class="sourceLine" id="cb2-18" title="18"><span class="co">#varImpPlot(fit)</span></a>
+<a class="sourceLine" id="cb2-19" title="19"></a>
+<a class="sourceLine" id="cb2-20" title="20"><span class="co"># evaluate on test data</span></a>
+<a class="sourceLine" id="cb2-21" title="21"><span class="kw">table</span>(test<span class="op">$</span>model_class_label, <span class="kw">predict</span>(fit, test[<span class="kw">names</span>(shuffled_df)]))</a>
+<a class="sourceLine" id="cb2-22" title="22"></a>
+<a class="sourceLine" id="cb2-23" title="23"><span class="co"># test error</span></a>
+<a class="sourceLine" id="cb2-24" title="24"><span class="kw">sum</span>(test<span class="op">$</span>model_class_label<span class="op">==</span><span class="kw">predict</span>(fit, test[<span class="kw">names</span>(shuffled_df)])) <span class="op">/</span><span class="st"> </span><span class="kw">nrow</span>(test)</a></code></pre></div>
   
 
 
