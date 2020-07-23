@@ -3,7 +3,7 @@
 <html lang="en">
   <head prefix="dc: http://purl.org/dc/terms/ og: http://ogp.me/ns#">
     <meta charset="utf-8"/>
-    <title>Continuous Integration and Testing for Simulation Codes</title>
+    <title>Systematics Introduction Notes</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta name="description" content="Lab Notebook for Mark E. Madsen"/>
     <meta name="author" content="Mark E. Madsen"/>
@@ -23,26 +23,26 @@
 	<!-- Ideally we would want date originally created from the _oldest_ git commit too...-->
 
 	<!-- RDFa Metadata (in DublinCore) -->
-	<meta property="dc:title" content="Continuous Integration and Testing for Simulation Codes" />
+	<meta property="dc:title" content="Systematics Introduction Notes" />
 	<meta property="dc:creator" content="Mark E. Madsen" />
-	<meta property="dc:date" content="2014-06-14T00:00:00-07:00" />
+	<meta property="dc:date" content="2020-07-21T00:00:00-07:00" />
 	<meta property="dc:format" content="text/html" />
 	<meta property="dc:language" content="en" />
-	<meta property="dc:identifier" content="/essays/simulation/reproducible%20science/2014/06/14/ci-travis.html" />
+	<meta property="dc:identifier" content="/project-slipbox/2020/07/21/systematics-introduction-notes.html" />
 	<meta property="dc:rights" content="CC BY-NC-SA 3.0" />
 	<meta property="dc:source" content="Lab Notebook for Mark E. Madsen" />
 	<meta property="dc:subject" content="Anthropology" /> 
 	<meta property="dc:type" content="website" /> 
 	<!-- RDFa Metadata (in OpenGraph) -->
-	<meta property="og:title" content="Continuous Integration and Testing for Simulation Codes" />
+	<meta property="og:title" content="Systematics Introduction Notes" />
 	<meta property="og:author" content="http://notebook.madsenlab.org/bio.html" />  <!-- Should be Liquid? URI? -->
 	<meta property="og:site_name" content="Lab Notebook for Mark E. Madsen" /> <!-- Same as dc:source? -->
-	<meta property="og:url" content="http://notebook.madsenlab.org/essays/simulation/reproducible%20science/2014/06/14/ci-travis.html" />
+	<meta property="og:url" content="http://notebook.madsenlab.org/project-slipbox/2020/07/21/systematics-introduction-notes.html" />
 	<meta property="og:type" content="website" /> 
 	<!-- Google Scholar Metadata -->
 	<meta name="citation_author" content="Mark E. Madsen"/>
-	<meta name="citation_date" content="2014-06-14T00:00:00-07:00"/>
-	<meta name="citation_title" content="Continuous Integration and Testing for Simulation Codes"/>
+	<meta name="citation_date" content="2020-07-21T00:00:00-07:00"/>
+	<meta name="citation_title" content="Systematics Introduction Notes"/>
 	<meta name="citation_journal_title" content="Lab Notebook for Mark E. Madsen"/>
 
     <!-- Le styles -->
@@ -178,19 +178,20 @@
         </div><!--/span3-->
 
             <div class="span8">
-  	<h2>Continuous Integration and Testing for Simulation Codes</h2>
+  	<h2>Systematics Introduction Notes</h2>
 	
 
 		<p class="text-info">
 		<table class="table table-condensed">
 			<tr class="info">
-				<td><small><i class="icon-backward"></i>&nbsp;<a href="/blog.html">Back to Essay List</a></small></td>
+				<td><small><i class="icon-calendar"></i>&nbsp;Created: 21 Jul 2020</small></td>
 				<td><small><i class="icon-calendar"></i>&nbsp;Modified: 23 Jul 2020</small></td>
-				<td><small><i class="icon-book">&nbsp;</i>&nbsp;<a href=http://greycite.knowledgeblog.org/bib/?uri=http://notebook.madsenlab.org/essays/simulation/reproducible%20science/2014/06/14/ci-travis.html target='_blank'>BibTeX Entry</a>
+				<td><small><i class="icon-book">&nbsp;</i>&nbsp;<a href=http://greycite.knowledgeblog.org/bib/?uri=http://notebook.madsenlab.org/project-slipbox/2020/07/21/systematics-introduction-notes.html target='_blank'>BibTeX Entry</a>
 </small></td>
-				<td><small><i class="icon-book">&nbsp;</i>&nbsp;<a href=http://greycite.knowledgeblog.org/ris/?uri=http://notebook.madsenlab.org/essays/simulation/reproducible%20science/2014/06/14/ci-travis.html target='_blank'>RIS Citation</a>
+				<td><small><i class="icon-book">&nbsp;</i>&nbsp;<a href=http://greycite.knowledgeblog.org/ris/?uri=http://notebook.madsenlab.org/project-slipbox/2020/07/21/systematics-introduction-notes.html target='_blank'>RIS Citation</a>
 </small></td>
 				<td><small><a href="javascript:window.print()"><i class="icon-print"></i>&nbsp;Print</a></small></td>
+				<!--<td><small><a href="/project-slipbox/2020/07/21/systematics-introduction-notes.html"></i>Permalink</a></small></td> -->
 			</tr>
 		</table>
 		</p>
@@ -198,65 +199,43 @@
 
   	
 	
-  <p>This week I added all of my simulation projects to the <a href="https://travis-ci.org/">Travis CI continuous integration</a> system. Travis is a hosted service, running a Ruby-based project which will check out your code from Github, run it on a clean virtual machine preloaded with common build tools and pieces of infrastructure (e.g., databases, libraries), and perform your unit or functional tests.</p>
-<p>Travis reports by email and in their web interface, of course, but more importantly, each project has a “badge” or icon which can be included in the project’s <code>README.md</code> on Github, and which shows whether the build is broken, or passing all tests. This is an improvement to simply having unit or functional tests in one’s project, because the public can understand whether a project is working without downloading and building it.</p>
-<p>Here, for example, is the status of my current projects:</p>
+  <p>Notes from the Introduction to <strong>Systematics in Prehistory</strong> <span class="citation" data-cites="Dunnell1971">(Dunnell 1971)</span></p>
 <ul>
-<li><code>CTPy</code>: <a href="https://travis-ci.org/mmadsen/CTPy"><img src="https://travis-ci.org/mmadsen/CTPy.svg?branch=master" alt="Build Status" /></a></li>
-<li><code>axelrod-ct</code>: <a href="https://travis-ci.org/mmadsen/axelrod-ct"><img src="https://travis-ci.org/mmadsen/axelrod-ct.svg?branch=master" alt="Build Status" /></a></li>
-<li><code>ctmixtures</code>: <a href="https://travis-ci.org/mmadsen/ctmixtures"><img src="https://travis-ci.org/mmadsen/ctmixtures.svg?branch=master" alt="Build Status" /></a></li>
+<li>Framed institutionally as a juxtaposition between “new” and “old” archaeology - the latter being CH.</li>
+<li>Defines “archaeology” as the technical and recovery aspects (i.e., the study of the record), and “prehistory” as the academic discipline aimed at explanation of the content of that record.</li>
+<li>Borrowing of models for explanation itself from phil sci, and borrowing of models for the content of explanation from sociocultural anthropology, are counterproductive. Especially the latter because it denies the virtue of prehistory which are “time and change” (p.3)</li>
+<li>Makes the point about explicit definition of concepts – and our tendency to reify concepts, to regard concepts as the same thing as the empirical referent. “Analogously, ideas are not distinguished from observable phenomena.”<br />
+</li>
+<li>General lack of concern for what theory actually is.</li>
+<li>Book does not cover theory construction, but focuses on the lowest level, unit or concept construction</li>
+<li>Discomfort with the formal theory of the “old” archaeology stems from the implicitness and thus inconsistency and confusion) with unit construction and how that plays into “interpretation” (or explanation.<br />
+</li>
+<li>Systematics itself defined as “the set of propositions, concepts, and operations used to create units for any scientific discipline.” (p.7)</li>
+<li>Need to create a metalanguage to talk about how to define units; RCD mentions that it is unfortunate that “the subect matter and interests of prehistory are sufficiently complicated or that we understand our subjects so poorly that the metalanguage of mathematics cannot be made to bear the major weight of communication.” MUCH MORE about this later. Photons ARE defined as mathematical objects, despite the fairly immense mathematical machinery involved in doing so (the double cover of the Poincare group and Lie Algebras, etc etc … see <span class="citation" data-cites="schwichtenberg2018physics">(Schwichtenberg 2018)</span> for a <strong>relatively</strong> accessible account).</li>
 </ul>
-<p>and several of their common code dependencies:</p>
-<ul>
-<li><code>pytransmission</code>: <a href="https://travis-ci.org/mmadsen/pytransmission"><img src="https://travis-ci.org/mmadsen/pytransmission.svg?branch=master" alt="Build Status" /></a></li>
-<li><code>mmadsenr</code>: <a href="https://travis-ci.org/mmadsen/mmadsenr"><img src="https://travis-ci.org/mmadsen/mmadsenr.svg?branch=master" alt="Build Status" /></a></li>
-</ul>
-<h3 id="improving-ease-of-installation">Improving Ease of Installation</h3>
-<p>I also found that Travis drastically improved the installability (and thus reproducibility) of my projects, especially across platforms. All of the projects listed here are based on Python 2.7, but they rely on a variety of dependencies, some of which link to common (but very large) C++ libraries and others linked Python to my own C code via the SWIG code generator. In one’s own work, none of this infrastructure ever gets built all at once – instead, it evolves in one’s development environment as capabilities are added. So it is easy to forget what a <strong>complete</strong> build process looks like.</p>
-<p>Travis forced me to iterate on build and test scripts until every dependency was accounted for, and could be added (via <code>apt</code>) or built from scratch, on a clean Ubuntu 12.04 LTS system. So I am sure that on a stock Ubuntu system, anybody can install any of the projects listed here (although I still need to add a manual install script to each project to replicate what Travis does).</p>
-<p>I do hope that the Travis folks add options for more build environments. It was very hard, for example, to get a modern version of <code>SciPy</code> working on Ubuntu 12.04 LTS. The stock version is too old to have the special mathematical functions library, so you have to build it from scratch. Which takes <strong>forever</strong>. The projects above take from 6 seconds to 3 minutes to build and test. Except for <code>axelrod-ct</code>, which takes 24 minutes. 23 of which are simply building <code>scipy</code> – every time I make a change. That inefficiency could be solved by having a more recent binary package for 12.04, or test environments based upon something more recent in the Ubuntu lineup (say, 13.10).</p>
-<h3 id="improving-the-travis-experience-itself">Improving the Travis Experience Itself</h3>
-<p>Iterating on Travis was time consuming, especially for the first project (to be expected), and for a particularly tricky build which used SWIG to generate glue code between python and a C library.</p>
-<p>I found a good solution by simulating the Travis build environment with an EC2 instance running Ubuntu 12.04 LTS, with <code>build-essentials</code> and a host of other basics installed (a subset of packages described in the Travis docs themselves, including mongodb and git). The resulting AMI is useful for running your code through various build processes, to make sure that you’re not missing something in the Travis environment that (say) your desktop environment has by default, etc.</p>
-<p>I’ve made the AMI public on EC2: <code>ami-1edd2176</code>, image name is <code>Travis Tests - Everything Installed</code>. You should be able to boot this image (and choose an instance size as appropriate, I used a relatively large instance for compiling scipy, otherwise it would have taken hours on a free <code>t1.micro</code> instance. But the free tier should be adequate for many, many projects especially pure R or python projects.)<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
-<p>This is a decent solution, but it would be <strong>terrific</strong> if the Travis CI team released their own official AMIs and perhaps a VMware image, so that folks have an official, clean environment to work against, to prevent slow iteration against the full system. This is particularly important when your code or a dependency might have a very long build – a good example is a dependency on a particular version of the Boost C++ libraries. If a binary version isn’t available for Ubuntu 12.04 LTS, it’s a looong compile on the Travis environment. Heck, it’s a long build even when you throw all of the cores on a quad i7 at it…</p>
-<section class="footnotes" role="doc-endnotes">
-<hr />
-<ol>
-<li id="fn1" role="doc-endnote"><p>Although, looking at my bill, I still spent less than a dollar on computing time to get the long scipy build completed. So, maybe splurge beyond <code>t1.micro</code> and tear less of your hair out.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩</a></p></li>
-</ol>
-</section>
+<h3 id="connections">Connections</h3>
+<h3 id="references-cited" class="unnumbered">References Cited</h3>
+<div id="refs" class="references" role="doc-bibliography">
+<div id="ref-Dunnell1971">
+<p>Dunnell, Robert C. 1971. <em>Systematics in Prehistory</em>. New York: Free Press.</p>
+</div>
+<div id="ref-schwichtenberg2018physics">
+<p>Schwichtenberg, Jakob. 2018. <em>Physics from Symmetry</em>. Springer.</p>
+</div>
+</div>
   
 
 
-
 <div class="well well-small">
-<table class="table table-condensed">
-			<tr>
-				<td><small><i class="icon-backward"></i>&nbsp;<a href="/blog.html">Back to Essay List</a></small></td>
-				<td><small><i class="icon-calendar"></i>&nbsp;Modified: 23 Jul 2020</small></td>
-				<td><small><i class="icon-book">&nbsp;</i>&nbsp;<a href=http://greycite.knowledgeblog.org/bib/?uri=http://notebook.madsenlab.org/essays/simulation/reproducible%20science/2014/06/14/ci-travis.html target='_blank'>BibTeX Entry</a>
-</small></td>
-				<td><small><i class="icon-book">&nbsp;</i>&nbsp;<a href=http://greycite.knowledgeblog.org/ris/?uri=http://notebook.madsenlab.org/essays/simulation/reproducible%20science/2014/06/14/ci-travis.html target='_blank'>RIS Citation</a>
-</small></td>
-				<td><small><a href="javascript:window.print()"><i class="icon-print"></i>&nbsp;Print</a></small></td>
-			</tr>
-		</table>
 <p class="text-info"><i class="icon-tags"></i>&nbsp;Tags</p>
 <ul>
 
-<li><a href='/tag/experiments.html'>experiments</a></li>
+<li><a href='/tag/classification.html'>classification</a></li>
 
-<li><a href='/tag/simulation.html'>simulation</a></li>
-
-<li><a href='/tag/open+science.html'>open science</a></li>
-
-<li><a href='/tag/reproducible+science.html'>reproducible science</a></li>
+<li><a href='/tag/systematics2021.html'>systematics2021</a></li>
 
 </ul>
 </div>
-
-
 
 
 </div>
